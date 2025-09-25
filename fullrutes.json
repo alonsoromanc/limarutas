@@ -1,0 +1,6886 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.8 e802775f",
+  "osm3s": {
+    "timestamp_osm_base": "2025-09-25T15:52:01Z",
+    "timestamp_areas_base": "2025-09-25T08:51:40Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "relation",
+  "id": 1963019,
+  "tags": {
+    "colour": "#97FFFF",
+    "fee": "yes",
+    "from": "Terminal Matellini",
+    "interval": "5",
+    "name": "Regular C Matellini - Castilla",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-22:05; Sa 05:15-22:05; Su 05:25-22:00",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "C",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Terminal Castilla",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 2051510,
+  "tags": {
+    "colour": "#97FFFF",
+    "fee": "yes",
+    "from": "Estación Central",
+    "interval": "5",
+    "name": "Regular A Estación Central - Naranjal",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:40-23:00; Sa 05:40-22:45; Su 05:55-22:00",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "A",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Ruta Regular - Embarque 4",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 2071369,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Sur Villa el Salvador",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-04",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 2071484,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Sur Alameda Sur",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-02",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 2071549,
+  "tags": {
+    "name": "Servicio Especial Circuito de Playas",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "ref": "Servicio Especial - Circuito de Playas",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 2113411,
+  "tags": {
+    "colour": "yellow",
+    "from": "Terminal Matellini",
+    "name": "Alimentadora Sur América (Ida)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-07",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Ca. E",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 2113936,
+  "tags": {
+    "colour": "#FF9500",
+    "duration": "59",
+    "fee": "yes",
+    "from": "Terminal Sur Matelini",
+    "interval": "5",
+    "name": "Regular B Matelini - Naranjal",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "B",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Terminal Norte Naranjal",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 2217685,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Tahuantinsuyo",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-01",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3658015,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Tungasuca",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-02",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3658052,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Trapiche",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-03",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708308,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Santo Domingo",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-10",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708309,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Collique",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-04",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708310,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Bertello",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-14",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708311,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Payet",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-05",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708312,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Carabayllo",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-09",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708313,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Puente Piedra",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-12",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708314,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Milagro de Jesús",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-08",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708315,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Belaúnde",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-07",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708316,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Puno",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-06",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708317,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte La Ensenada (ida)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-13",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708326,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Los Alisos",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-15",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708327,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Atúnez de Mayolo",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-17",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3708328,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Los Olivos (Vuelta)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-16",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3710186,
+  "tags": {
+    "colour": "yellow",
+    "from": "Terminal Matellini",
+    "name": "Alimentadora Sur Los Próceres (Ida)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-08",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Terminal Matellini",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3711957,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Gamarra",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "Metropolitano Gamarra",
+    "roundtrip": "yes",
+    "route": "bus",
+    "source": "http://metropolitano.com.pe/index.php/slide-destacados/226-servicio-especial-gamarra-del-metropolitano-sera-habilitado-todos-los-domingos-de-diciembre",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3778984,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 3968387,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "fee": "yes",
+    "from": "Amancaes (Rimac)",
+    "name": "Corredor Azul 301 → Plaza Butters",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator:short": "ATU",
+    "public_transport:version": "2",
+    "ref": "301",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Plaza Butters (Barranco)",
+    "type": "route",
+    "wikidata": "Q56452253",
+    "wikipedia": "es:Línea 301 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 3968388,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "fee": "yes",
+    "from": "Túnel (SJL)",
+    "name": "Corredor Azul 303 → Dos de Mayo",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator:short": "ATU",
+    "ref": "303",
+    "route": "bus",
+    "to": "Dos de Mayo (Miraflores)",
+    "type": "route",
+    "wikidata": "Q56452799",
+    "wikipedia": "es:Línea 303 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 4080205,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "description": "Ruta de ida",
+    "fee": "yes",
+    "from": "Amancaes (Rimac)",
+    "name": "Corredor Azul 302 → Dos de Mayo",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator:short": "ATU",
+    "public_transport:version": "2",
+    "ref": "302",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Dos de Mayo (Miraflores)",
+    "type": "route",
+    "wikidata": "Q56452292",
+    "wikipedia": "es:Línea 302 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 4185910,
+  "tags": {
+    "name": "X-CR02_I",
+    "ref": "X-CR02_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4185996,
+  "tags": {
+    "name": "X-CR04-I",
+    "ref": "X-CR04-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4186018,
+  "tags": {
+    "name": "X-CR05-I",
+    "ref": "X-CR05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4186088,
+  "tags": {
+    "name": "X-CR07-I",
+    "ref": "X-CR07-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4186325,
+  "tags": {
+    "name": "X-CR09-I",
+    "ref": "X-CR09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4193367,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4193499,
+  "tags": {
+    "name": "X-CR13-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4193500,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4203897,
+  "tags": {
+    "name": "X-CR16-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4204154,
+  "tags": {
+    "name": "X-CR19-I",
+    "ref": "X-CR19-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4204283,
+  "tags": {
+    "name": "X-CR20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4204339,
+  "tags": {
+    "name": "X-CR23-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4207525,
+  "tags": {
+    "name": "X-CR30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4207599,
+  "tags": {
+    "name": "X-CR31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4210264,
+  "tags": {
+    "name": "X-CR32-I",
+    "ref": "X-CR32-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4210468,
+  "tags": {
+    "name": "X-CR34-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4211259,
+  "tags": {
+    "name": "X-CR37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4213726,
+  "tags": {
+    "name": "X-CR38-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4213753,
+  "tags": {
+    "name": "X-CR39-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4213873,
+  "tags": {
+    "name": "X-CR40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4214218,
+  "tags": {
+    "name": "X-CR41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4214222,
+  "tags": {
+    "name": "X-CR42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4217348,
+  "tags": {
+    "name": "X-CR44-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4218929,
+  "tags": {
+    "name": "X-CR45-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4218937,
+  "tags": {
+    "name": "X-CR46-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4218948,
+  "tags": {
+    "name": "X-CR47-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4218959,
+  "tags": {
+    "name": "X-CR48-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4218962,
+  "tags": {
+    "name": "X-CR49-I",
+    "ref": "X-CR49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4220163,
+  "tags": {
+    "name": "X-CR51-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4220287,
+  "tags": {
+    "name": "X-CR52-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4220334,
+  "tags": {
+    "name": "X-CR53-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4220382,
+  "tags": {
+    "name": "X-CR54-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4220430,
+  "tags": {
+    "name": "X-CR56-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4222134,
+  "tags": {
+    "name": "X-CR57-I",
+    "ref": "X-CR57-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4222786,
+  "tags": {
+    "name": "X-CR58-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4222791,
+  "tags": {
+    "name": "X-CR61-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4223687,
+  "tags": {
+    "name": "X-CR65-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4223798,
+  "tags": {
+    "name": "X-CR69-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4223946,
+  "tags": {
+    "name": "X-CR24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224043,
+  "tags": {
+    "name": "X-CR25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224064,
+  "tags": {
+    "name": "X-CR71-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224140,
+  "tags": {
+    "name": "X-CR27-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224171,
+  "tags": {
+    "name": "X-CR28-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224333,
+  "tags": {
+    "name": "X-CR75-I",
+    "ref": "X-CR75-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224344,
+  "tags": {
+    "name": "X-CR78-I",
+    "ref": "X-CR78-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224366,
+  "tags": {
+    "name": "X-CR84-I",
+    "ref": "X-CR84-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224369,
+  "tags": {
+    "name": "X-ECR02-I",
+    "ref": "X-ECR02-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224379,
+  "tags": {
+    "name": "X-ECR03-I",
+    "ref": "X-ECR03-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224382,
+  "tags": {
+    "name": "X-ECR05-I",
+    "ref": "X-ECR05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224390,
+  "tags": {
+    "name": "X-ECR09-I",
+    "ref": "X-ECR09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224398,
+  "tags": {
+    "name": "X-ECR10-I",
+    "ref": "X-ECR10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224413,
+  "tags": {
+    "name": "X-ECR13-I",
+    "ref": "X-ECR13-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224422,
+  "tags": {
+    "name": "X-ECR14-I",
+    "ref": "X-ECR14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4224455,
+  "tags": {
+    "name": "X-ECR15-I",
+    "ref": "X-ECR15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4226842,
+  "tags": {
+    "name": "X-ECR17-I",
+    "ref": "X-ECR17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4226864,
+  "tags": {
+    "name": "X-ECR18-I",
+    "public_transport:version": "2",
+    "ref": "X-ECR18-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227134,
+  "tags": {
+    "name": "X-ECR21-I",
+    "ref": "X-ECR21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227168,
+  "tags": {
+    "name": "X-ECR22-I",
+    "ref": "X-ECR22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227218,
+  "tags": {
+    "name": "X-ECR23-I",
+    "ref": "X-ECR23-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227246,
+  "tags": {
+    "name": "X-ECR24-I",
+    "ref": "X-ECR24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227339,
+  "tags": {
+    "name": "X-ECR26-I",
+    "ref": "X-ECR26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227378,
+  "tags": {
+    "name": "X-ECR28-I",
+    "ref": "X-ECR28-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227437,
+  "tags": {
+    "name": "X-ECR31-I",
+    "ref": "X-ECR31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227460,
+  "tags": {
+    "name": "X-ECR32-I",
+    "ref": "X-ECR32-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227527,
+  "tags": {
+    "name": "X-ECR33A-I",
+    "ref": "X-ECR33A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227549,
+  "tags": {
+    "name": "X-ECR34-I",
+    "ref": "X-ECR34-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4227584,
+  "tags": {
+    "name": "X-ECR35-I",
+    "ref": "X-ECR35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230140,
+  "tags": {
+    "name": "X-EM01-I",
+    "ref": "X-EM01-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230229,
+  "tags": {
+    "name": "X-EM02-I",
+    "ref": "X-EM02-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230265,
+  "tags": {
+    "name": "X-EM05-I",
+    "ref": "X-EM05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230381,
+  "tags": {
+    "name": "X-EM11-I",
+    "ref": "X-EM11-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230503,
+  "tags": {
+    "name": "X-EM13-I",
+    "ref": "X-EM13-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4230845,
+  "tags": {
+    "name": "X-EM15-I",
+    "ref": "X-EM15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4238954,
+  "tags": {
+    "name": "X-EM16-I",
+    "ref": "X-EM16-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4239855,
+  "tags": {
+    "name": "X-EM17-(4404)",
+    "ref": "X-EM17-(4404)",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4240062,
+  "tags": {
+    "name": "X-EM21-I",
+    "ref": "X-EM21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4240191,
+  "tags": {
+    "name": "X-EM23-I",
+    "ref": "X-EM23-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4240224,
+  "tags": {
+    "name": "X-EM29-I",
+    "ref": "X-EM29-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4240306,
+  "tags": {
+    "name": "X-EM32-I",
+    "ref": "X-EM32-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4242615,
+  "tags": {
+    "name": "X-EM34-I",
+    "ref": "X-EM34-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4244341,
+  "tags": {
+    "name": "X-EM35-I",
+    "ref": "X-EM35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4245781,
+  "tags": {
+    "name": "X-EM36-I",
+    "ref": "X-EM36-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4245804,
+  "tags": {
+    "name": "X-EM37-I",
+    "ref": "X-EM37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4245910,
+  "tags": {
+    "name": "X-EM40-I",
+    "ref": "X-EM40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4245915,
+  "tags": {
+    "name": "X-EM41-I",
+    "ref": "X-EM41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4245920,
+  "tags": {
+    "name": "X-EM41A-I",
+    "ref": "X-EM41A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4248191,
+  "tags": {
+    "name": "X-EM42-I",
+    "ref": "X-EM42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4248299,
+  "tags": {
+    "name": "X-EM43-I",
+    "ref": "X-EM43-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4248438,
+  "tags": {
+    "name": "X-EM45-I",
+    "ref": "X-EM45-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4252696,
+  "tags": {
+    "name": "X-EM45B-I",
+    "ref": "X-EM45B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4252750,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4252751,
+  "tags": {
+    "name": "X-EM45C-I",
+    "ref": "X-EM45C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4252790,
+  "tags": {
+    "name": "X-EM46-I",
+    "ref": "X-EM46-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4261592,
+  "tags": {
+    "name": "X-EM47-I",
+    "ref": "X-EM47-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4261607,
+  "tags": {
+    "name": "X-EM47A-I",
+    "ref": "X-EM47A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4261629,
+  "tags": {
+    "name": "X-EM48-I",
+    "ref": "X-EM48-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4261655,
+  "tags": {
+    "name": "X-EM48A-I",
+    "ref": "X-EM48A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4267328,
+  "tags": {
+    "name": "X-EM48B-I",
+    "ref": "X-EM48B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4269638,
+  "tags": {
+    "name": "X-EM49-I",
+    "ref": "X-EM49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4269667,
+  "tags": {
+    "name": "X-EM53-I",
+    "ref": "X-EM53-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4270170,
+  "tags": {
+    "name": "X-EM54-I",
+    "ref": "X-EM54-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4270204,
+  "tags": {
+    "name": "X-EM55-I",
+    "ref": "X-EM55-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4270225,
+  "tags": {
+    "name": "X-EM55A-I",
+    "ref": "X-EM55A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4273938,
+  "tags": {
+    "name": "X-EM58-I",
+    "ref": "X-EM58-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4273943,
+  "tags": {
+    "name": "X-EM58A-I",
+    "ref": "X-EM58A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4273945,
+  "tags": {
+    "name": "X-EM58B-I",
+    "ref": "X-EM58B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4273973,
+  "tags": {
+    "name": "X-EM59-I",
+    "ref": "X-EM59-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4275106,
+  "tags": {
+    "name": "X-EM62A-I",
+    "ref": "X-EM62A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4275199,
+  "tags": {
+    "name": "X-EM62B-I",
+    "ref": "X-EM62B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4275251,
+  "tags": {
+    "name": "X-EM64-I",
+    "ref": "X-EM64-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4275312,
+  "tags": {
+    "name": "X-EM65-I",
+    "ref": "X-EM65-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276570,
+  "tags": {
+    "name": "X-EM67-I",
+    "ref": "X-EM67-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276585,
+  "tags": {
+    "name": "X-EM71-I",
+    "ref": "X-EM71-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276630,
+  "tags": {
+    "name": "X-EM72-I",
+    "ref": "X-EM72-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276653,
+  "tags": {
+    "name": "X-EM73-I",
+    "ref": "X-EM73-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276660,
+  "tags": {
+    "name": "X-EM74-I",
+    "ref": "X-EM74-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4276666,
+  "tags": {
+    "name": "X-EM75-I",
+    "ref": "X-EM75-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4439267,
+  "tags": {
+    "name": "X-EM76-I",
+    "ref": "X-EM76-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4439529,
+  "tags": {
+    "name": "X-EO01-I",
+    "ref": "X-EO01-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4439613,
+  "tags": {
+    "name": "X-EO05-I",
+    "ref": "X-EO05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4442976,
+  "tags": {
+    "name": "X-EO07-I",
+    "ref": "X-EO07-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443104,
+  "tags": {
+    "name": "X-EO17-I",
+    "ref": "X-EO17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443141,
+  "tags": {
+    "name": "X-EO18-I",
+    "ref": "X-EO18-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443210,
+  "tags": {
+    "name": "X-EO20-I",
+    "ref": "X-EO20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443293,
+  "tags": {
+    "name": "X-EO21-I",
+    "ref": "X-EO21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443365,
+  "tags": {
+    "name": "X-EO24-I",
+    "ref": "X-EO24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4443463,
+  "tags": {
+    "name": "X-EO25-I",
+    "ref": "X-EO25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4446025,
+  "tags": {
+    "name": "X-EO26-I",
+    "ref": "X-EO26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4446214,
+  "tags": {
+    "name": "X-EO29-I",
+    "ref": "X-EO29-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4446296,
+  "tags": {
+    "name": "X-EO31-I",
+    "ref": "X-EO31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4446364,
+  "tags": {
+    "name": "X-EO35-I",
+    "ref": "X-EO35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455258,
+  "tags": {
+    "name": "X-EO39-I",
+    "ref": "X-EO39-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455259,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455342,
+  "tags": {
+    "name": "X-EO47-I",
+    "ref": "X-EO47-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455406,
+  "tags": {
+    "name": "X-EO48-I",
+    "ref": "X-EO48-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455529,
+  "tags": {
+    "name": "X-EO49-I",
+    "ref": "X-EO49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455849,
+  "tags": {
+    "name": "X-EO50-I",
+    "ref": "X-EO50-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4455850,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459515,
+  "tags": {
+    "name": "X-EO54-I",
+    "ref": "X-EO54-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459572,
+  "tags": {
+    "name": "X-EO55-I",
+    "ref": "X-EO55-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459732,
+  "tags": {
+    "name": "X-EO56-I",
+    "ref": "X-EO56-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459740,
+  "tags": {
+    "name": "X-EO64-I",
+    "ref": "X-EO64-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459792,
+  "tags": {
+    "name": "X-EO65A-I",
+    "ref": "X-EO65A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459804,
+  "tags": {
+    "name": "X-EO65B-I",
+    "ref": "X-EO65B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4459832,
+  "tags": {
+    "name": "X-EO69-I",
+    "ref": "X-EO69-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4460622,
+  "tags": {
+    "name": "X-EO71-I",
+    "ref": "X-EO71-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4460697,
+  "tags": {
+    "name": "X-EO79-I",
+    "ref": "X-EO79-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4460728,
+  "tags": {
+    "name": "X-EO96A-I",
+    "ref": "X-EO96A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4460768,
+  "tags": {
+    "name": "X-EO96B-I",
+    "ref": "X-EO96B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462180,
+  "tags": {
+    "name": "X-EO96C-I",
+    "ref": "X-EO96C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462202,
+  "tags": {
+    "name": "X-EO100-I",
+    "ref": "X-EO100-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462258,
+  "tags": {
+    "name": "X-EO101-I",
+    "ref": "X-EO101-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462264,
+  "tags": {
+    "name": "X-EO104-I",
+    "ref": "X-EO104-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462275,
+  "tags": {
+    "name": "X-EO105-I",
+    "ref": "X-EO105-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462293,
+  "tags": {
+    "name": "X-EO105A-I",
+    "ref": "X-EO105A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462305,
+  "tags": {
+    "name": "X-EO109-I",
+    "ref": "X-EO109-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462358,
+  "tags": {
+    "name": "X-EO110-I",
+    "ref": "X-EO110-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4462372,
+  "tags": {
+    "name": "X-EO110A-I",
+    "ref": "X-EO110A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464531,
+  "tags": {
+    "name": "X-EO113-I",
+    "ref": "X-EO113-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464649,
+  "tags": {
+    "name": "X-EO119-I",
+    "ref": "X-EO119-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464670,
+  "tags": {
+    "name": "X-EO120-I",
+    "ref": "X-EO120-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464686,
+  "tags": {
+    "name": "X-EO121-I",
+    "ref": "X-EO121-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464806,
+  "tags": {
+    "name": "X-EO122-I",
+    "ref": "X-EO122-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464855,
+  "tags": {
+    "name": "X-EO123-I",
+    "ref": "X-EO123-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4464913,
+  "tags": {
+    "name": "X-EO126-I",
+    "ref": "X-EO126-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4466970,
+  "tags": {
+    "name": "X-ICR01-I",
+    "ref": "X-ICR01-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467006,
+  "tags": {
+    "name": "X-ICR02-I",
+    "ref": "X-ICR02-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467064,
+  "tags": {
+    "name": "X-ICR02B-I",
+    "ref": "X-ICR02B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467102,
+  "tags": {
+    "name": "X-ICR05-I",
+    "ref": "X-ICR05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467149,
+  "tags": {
+    "name": "X-ICR06-I",
+    "ref": "X-ICR06-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467172,
+  "tags": {
+    "name": "X-ICR10-I",
+    "ref": "X-ICR10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467284,
+  "tags": {
+    "name": "X-ICR13-I",
+    "ref": "X-ICR13-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467454,
+  "tags": {
+    "name": "X-ICR14-I",
+    "ref": "X-ICR14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467480,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467486,
+  "tags": {
+    "name": "X-ICR15-I",
+    "ref": "X-ICR15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467510,
+  "tags": {
+    "name": "X-IM01-I",
+    "ref": "X-IM01-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4467530,
+  "tags": {
+    "name": "X-IM02-I",
+    "ref": "X-IM02-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4470459,
+  "tags": {
+    "name": "X-IM03-I",
+    "ref": "X-IM03-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4470605,
+  "tags": {
+    "name": "X-IM04-I",
+    "ref": "X-IM04-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4470758,
+  "tags": {
+    "name": "X-IM06-I",
+    "ref": "X-IM06-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4470877,
+  "tags": {
+    "name": "X-IM08-I",
+    "ref": "X-IM08-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4470960,
+  "tags": {
+    "name": "X-IM09-I",
+    "ref": "X-IM09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471022,
+  "tags": {
+    "name": "X-IM10-I",
+    "ref": "X-IM10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471025,
+  "tags": {
+    "name": "X-IM11-I",
+    "ref": "X-IM11-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471042,
+  "tags": {
+    "name": "X-IM12-I",
+    "ref": "X-IM12-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471051,
+  "tags": {
+    "name": "X-IM14-I",
+    "ref": "X-IM14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471063,
+  "tags": {
+    "name": "X-IM15-I",
+    "ref": "X-IM15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471074,
+  "tags": {
+    "name": "X-IM16-I",
+    "ref": "X-IM16-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471082,
+  "tags": {
+    "name": "X-IM18-I",
+    "ref": "X-IM18-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4471136,
+  "tags": {
+    "name": "X-IM19-I",
+    "ref": "X-IM19-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4475362,
+  "tags": {
+    "name": "X-IM20-I",
+    "ref": "X-IM20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4475645,
+  "tags": {
+    "name": "X-IM21-I",
+    "ref": "X-IM21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4476395,
+  "tags": {
+    "name": "X-IM22-I",
+    "ref": "X-IM22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4476425,
+  "tags": {
+    "name": "X-IM24-I",
+    "ref": "X-IM24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4476477,
+  "tags": {
+    "name": "X-IM25-I",
+    "ref": "X-IM25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4476537,
+  "tags": {
+    "name": "X-IM26-I",
+    "ref": "X-IM26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4476549,
+  "tags": {
+    "name": "X-IM29-I",
+    "ref": "X-IM29-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4479367,
+  "tags": {
+    "name": "X-IM30-I",
+    "ref": "X-IM30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4479736,
+  "tags": {
+    "name": "X-IM31-I",
+    "ref": "X-IM31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4479831,
+  "tags": {
+    "name": "X-IM32-I",
+    "ref": "X-IM32-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4480094,
+  "tags": {
+    "name": "X-IM33-I",
+    "ref": "X-IM33-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4480142,
+  "tags": {
+    "name": "X-IM34-I",
+    "ref": "X-IM34-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4480173,
+  "tags": {
+    "name": "X-IM34B-I",
+    "ref": "X-IM34B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4480182,
+  "tags": {
+    "name": "X-IM35-I",
+    "ref": "X-IM35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4480192,
+  "tags": {
+    "name": "X-IM40-I",
+    "ref": "X-IM40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4486701,
+  "tags": {
+    "name": "X-IM41-I",
+    "ref": "X-IM41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4500153,
+  "tags": {
+    "name": "X-IM55_I",
+    "ref": "X-IM55_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4510235,
+  "tags": {
+    "name": "X-CR10-I",
+    "ref": "X-CR10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4510359,
+  "tags": {
+    "name": "X-CR12-I",
+    "ref": "X-CR12-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4510633,
+  "tags": {
+    "name": "X-CR02-V",
+    "ref": "X-CR02-V",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4511802,
+  "tags": {
+    "name": "CR13_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4511964,
+  "tags": {
+    "name": "X-CR14-I",
+    "ref": "X-CR14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4512067,
+  "tags": {
+    "name": "CR14_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4521427,
+  "tags": {
+    "name": "IM49_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4521496,
+  "tags": {
+    "name": "X-IM50-I",
+    "ref": "X-IM50-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4521619,
+  "tags": {
+    "name": "IM50_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4522126,
+  "tags": {
+    "name": "X-IM51_I",
+    "ref": "X-IM51_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4522217,
+  "tags": {
+    "name": "X-IM51_I",
+    "ref": "X-IM51_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4522321,
+  "tags": {
+    "name": "X-IM52_I",
+    "ref": "X-IM52_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4522665,
+  "tags": {
+    "name": "X-IM53_I",
+    "ref": "X-IM53_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4525304,
+  "tags": {
+    "name": "X-IM54_I",
+    "ref": "X-IM54_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4525408,
+  "tags": {
+    "name": "X-IM57_I",
+    "ref": "X-IM57_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4537215,
+  "tags": {
+    "name": "X-IO01_I",
+    "ref": "X-IO01_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4537820,
+  "tags": {
+    "name": "X-IO03_I",
+    "ref": "X-IO03_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4538948,
+  "tags": {
+    "name": "X-IO06_I",
+    "ref": "X-IO06_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4540483,
+  "tags": {
+    "name": "X-IO07_I",
+    "ref": "X-IO07_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4540969,
+  "tags": {
+    "name": "X-IO09_I",
+    "ref": "X-IO09_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4542795,
+  "tags": {
+    "name": "X-IO100_I",
+    "ref": "X-IO100_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4546164,
+  "tags": {
+    "name": "X-IO11_I",
+    "ref": "X-IO11_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4546344,
+  "tags": {
+    "name": "X-IO12_I",
+    "ref": "X-IO12_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4552558,
+  "tags": {
+    "name": "X-IO15_I",
+    "ref": "X-IO15_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4552717,
+  "tags": {
+    "name": "X-IO18B_I",
+    "ref": "X-IO18B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4552970,
+  "tags": {
+    "name": "X-IO18_I",
+    "ref": "X-IO18_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4553561,
+  "tags": {
+    "name": "X-IO19_I",
+    "ref": "X-IO19_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4553831,
+  "tags": {
+    "name": "X-IO20_I",
+    "ref": "X-IO20_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4553981,
+  "tags": {
+    "name": "X-IO23_I",
+    "ref": "X-IO23_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4554709,
+  "tags": {
+    "name": "X-IO27_I",
+    "ref": "X-IO27_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4554819,
+  "tags": {
+    "name": "X-IO28_I",
+    "ref": "X-IO28_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4555083,
+  "tags": {
+    "name": "X-IO28B_I",
+    "ref": "X-IO28B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4555747,
+  "tags": {
+    "name": "X-IO30_I",
+    "ref": "X-IO30_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4555931,
+  "tags": {
+    "name": "X-IO30B_I",
+    "ref": "X-IO30B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4557990,
+  "tags": {
+    "name": "X-IO31_I",
+    "ref": "X-IO31_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4558489,
+  "tags": {
+    "name": "X-IO32_I",
+    "ref": "X-IO32_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4558599,
+  "tags": {
+    "name": "X-IO32B_I",
+    "ref": "X-IO32B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4558930,
+  "tags": {
+    "name": "X-IO33_I",
+    "ref": "X-IO33_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4560291,
+  "tags": {
+    "name": "X-IO34_I",
+    "ref": "X-IO34_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4560452,
+  "tags": {
+    "name": "X-IO35_I",
+    "ref": "X-IO35_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4560772,
+  "tags": {
+    "name": "X-IO33B_I",
+    "ref": "X-IO33B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4561118,
+  "tags": {
+    "name": "X-IO35B_I",
+    "ref": "X-IO35B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4561682,
+  "tags": {
+    "name": "X-IO36_I",
+    "ref": "X-IO36_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4565462,
+  "tags": {
+    "name": "X-IO37_I",
+    "ref": "X-IO37_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4565752,
+  "tags": {
+    "name": "X-IO37B_I",
+    "ref": "X-IO37B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4573174,
+  "tags": {
+    "name": "X-IO38_I",
+    "ref": "X-IO38_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4573343,
+  "tags": {
+    "name": "X-IO40_I",
+    "ref": "X-IO40_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4573844,
+  "tags": {
+    "name": "X-IO41_I",
+    "ref": "X-IO41_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4573953,
+  "tags": {
+    "name": "X-IO44B_I",
+    "ref": "X-IO44B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4577021,
+  "tags": {
+    "name": "X-IO44_I",
+    "ref": "X-IO44_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4577222,
+  "tags": {
+    "name": "X-IO45_I",
+    "ref": "X-IO45_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4577398,
+  "tags": {
+    "name": "X-IO47_I",
+    "ref": "X-IO47_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4580670,
+  "tags": {
+    "name": "X-IO49_I",
+    "ref": "X-IO49_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4580910,
+  "tags": {
+    "name": "X-IO50_I",
+    "ref": "X-IO50_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4580988,
+  "tags": {
+    "name": "X-IO51_I",
+    "ref": "X-IO51_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4581515,
+  "tags": {
+    "name": "X-IO52_I",
+    "ref": "X-IO52_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4581671,
+  "tags": {
+    "name": "X-IO53_I",
+    "ref": "X-IO53_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4583567,
+  "tags": {
+    "name": "X-IO55_I",
+    "ref": "X-IO55_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4583709,
+  "tags": {
+    "name": "X-IO57B_I",
+    "ref": "X-IO57B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4584343,
+  "tags": {
+    "name": "X-IO57_I",
+    "ref": "X-IO57_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4584734,
+  "tags": {
+    "name": "X-IO63_I",
+    "ref": "X-IO63_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4586798,
+  "tags": {
+    "name": "X-IO64_I",
+    "ref": "X-IO64_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4596446,
+  "tags": {
+    "name": "X-IO66_I",
+    "ref": "X-IO66_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4596566,
+  "tags": {
+    "name": "X-IO67_I",
+    "ref": "X-IO67_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4596722,
+  "tags": {
+    "name": "X-IO68_I",
+    "ref": "X-IO68_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4597167,
+  "tags": {
+    "name": "X-IO69_I",
+    "ref": "X-IO69_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4597283,
+  "tags": {
+    "name": "X-IO71_I",
+    "ref": "X-IO71_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4597662,
+  "tags": {
+    "name": "X-IO72_I",
+    "ref": "X-IO72_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4598747,
+  "tags": {
+    "name": "X-IO73_I",
+    "ref": "X-IO73_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4598939,
+  "tags": {
+    "name": "X-IO74_I",
+    "ref": "X-IO74_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4599262,
+  "tags": {
+    "name": "X-IO75_I",
+    "ref": "X-IO75_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4599922,
+  "tags": {
+    "name": "X-IO75B_I",
+    "ref": "X-IO75B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4600767,
+  "tags": {
+    "name": "X-IO76_I",
+    "ref": "X-IO76_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4602238,
+  "tags": {
+    "name": "X-IO77_I",
+    "ref": "X-IO77_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4621272,
+  "tags": {
+    "name": "X-IO78_I",
+    "ref": "X-IO78_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4621513,
+  "tags": {
+    "name": "X-IO79_I",
+    "ref": "X-IO79_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4621730,
+  "tags": {
+    "name": "X-IO80B_I",
+    "ref": "X-IO80B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4623317,
+  "tags": {
+    "name": "X-IO80_I",
+    "ref": "X-IO80_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4625659,
+  "tags": {
+    "name": "X-IO81_I",
+    "ref": "X-IO81_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4625673,
+  "tags": {
+    "name": "X-IO82_I",
+    "ref": "X-IO82_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4626132,
+  "tags": {
+    "name": "X-IO85_I",
+    "ref": "X-IO85_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4626787,
+  "tags": {
+    "name": "X-IO86_I",
+    "ref": "X-IO86_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4626939,
+  "tags": {
+    "name": "X-IO88_I",
+    "ref": "X-IO88_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4627151,
+  "tags": {
+    "name": "X-IO89_I",
+    "ref": "X-IO89_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4627248,
+  "tags": {
+    "name": "X-IO96_I",
+    "ref": "X-IO96_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4627369,
+  "tags": {
+    "name": "X-IO99_I",
+    "ref": "X-IO99_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4628682,
+  "tags": {
+    "name": "X-NCR01_I",
+    "ref": "X-NCR01_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4628724,
+  "tags": {
+    "name": "X-NCR02_I",
+    "ref": "X-NCR02_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4628840,
+  "tags": {
+    "name": "X-NCR04A_I",
+    "ref": "X-NCR04A_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4628891,
+  "tags": {
+    "name": "X-NCR03_I",
+    "ref": "X-NCR03_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629072,
+  "tags": {
+    "name": "X-NCR04B_I",
+    "ref": "X-NCR04B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629099,
+  "tags": {
+    "name": "X-NCR04C_I",
+    "ref": "X-NCR04C_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629223,
+  "tags": {
+    "name": "X-NCR06_I",
+    "ref": "X-NCR06_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629224,
+  "tags": {
+    "name": "X-NCR04_I",
+    "ref": "X-NCR04_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629367,
+  "tags": {
+    "name": "X-NCR07_I",
+    "public_transport:version": "2",
+    "ref": "X-NCR07_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629368,
+  "tags": {
+    "name": "X-NCR08_I",
+    "ref": "X-NCR08_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4629534,
+  "tags": {
+    "name": "X-NCR09_I",
+    "ref": "X-NCR09_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4631128,
+  "tags": {
+    "name": "X-NCR10_I",
+    "ref": "X-NCR10_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4631292,
+  "tags": {
+    "name": "X-NCR12_I",
+    "ref": "X-NCR12_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4631775,
+  "tags": {
+    "name": "X-NCR13_I",
+    "ref": "X-NCR13_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4632207,
+  "tags": {
+    "name": "X-NCR21_I",
+    "ref": "X-NCR21_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4632310,
+  "tags": {
+    "name": "X-NCR23C_I",
+    "ref": "X-NCR23C_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4632850,
+  "tags": {
+    "name": "X-NCR24_I",
+    "ref": "X-NCR24_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4633039,
+  "tags": {
+    "name": "X-NCR26_I",
+    "ref": "X-NCR26_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4633304,
+  "tags": {
+    "name": "X-NCR31_I",
+    "ref": "X-NCR31_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4633412,
+  "tags": {
+    "name": "X-NM01_I",
+    "ref": "X-NM01_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4634225,
+  "tags": {
+    "name": "X-NCR23E_I",
+    "ref": "X-NCR23E_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4641338,
+  "tags": {
+    "name": "X-NM04_I",
+    "ref": "X-NM04_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4641418,
+  "tags": {
+    "name": "X-NM05_I",
+    "ref": "X-NM05_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4641588,
+  "tags": {
+    "name": "X-NM06_I",
+    "ref": "X-NM06_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4642780,
+  "tags": {
+    "name": "X-NM09_I",
+    "ref": "X-NM09_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4643179,
+  "tags": {
+    "name": "X-NM10_I",
+    "ref": "X-NM10_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4643231,
+  "tags": {
+    "name": "X-NM11_I",
+    "ref": "X-NM11_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4648593,
+  "tags": {
+    "name": "X-NM14_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4649402,
+  "tags": {
+    "name": "X-NM16_I",
+    "ref": "X-NM16_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4649430,
+  "tags": {
+    "name": "X-NM24_I",
+    "ref": "X-NM24_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4649589,
+  "tags": {
+    "name": "X-NM28_I",
+    "public_transport:version": "2",
+    "ref": "X-NM28_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4649593,
+  "tags": {
+    "name": "X-NM27_I",
+    "ref": "X-NM27_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4649726,
+  "tags": {
+    "name": "X-NM29_I",
+    "ref": "X-NM29_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4650375,
+  "tags": {
+    "name": "X-NM32_I",
+    "ref": "X-NM32_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651187,
+  "tags": {
+    "name": "X-NM34_I",
+    "ref": "X-NM34_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651209,
+  "tags": {
+    "name": "X-NM35_I",
+    "ref": "X-NM35_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651225,
+  "tags": {
+    "name": "X-NM36_I",
+    "ref": "X-NM36_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651230,
+  "tags": {
+    "name": "X-NM39A_I",
+    "ref": "X-NM39A_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651231,
+  "tags": {
+    "name": "X-NM37_I",
+    "ref": "X-NM37_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651253,
+  "tags": {
+    "name": "X-NM39B_I",
+    "ref": "X-NM39B_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4651265,
+  "tags": {
+    "name": "X-NM39_I",
+    "public_transport:version": "2",
+    "ref": "X-NM39_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4652434,
+  "tags": {
+    "name": "X-NM41A_I",
+    "ref": "X-NM41A_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4652581,
+  "tags": {
+    "name": "X-NM42_I",
+    "ref": "X-NM42_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4653108,
+  "tags": {
+    "name": "X-NM45A_I",
+    "ref": "X-NM45A_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4653177,
+  "tags": {
+    "name": "X-NM45_I",
+    "ref": "X-NM45_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4682047,
+  "tags": {
+    "name": "X-NM46_I",
+    "ref": "X-NM46_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4682689,
+  "tags": {
+    "name": "X-NM47_I",
+    "ref": "X-NM47_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4683119,
+  "tags": {
+    "name": "X-NM48_I",
+    "ref": "X-NM48_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4686497,
+  "tags": {
+    "name": "X-NO23-I",
+    "ref": "X-NO23-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4690063,
+  "tags": {
+    "name": "X-NM49_I",
+    "ref": "X-NM49_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4691226,
+  "tags": {
+    "name": "X-NM50_I",
+    "ref": "X-NM50_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4692360,
+  "tags": {
+    "name": "X-NO01_I",
+    "ref": "X-NO01_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4694615,
+  "tags": {
+    "name": "X-NO02_I",
+    "ref": "X-NO02_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4708161,
+  "tags": {
+    "name": "X-NO03_I",
+    "ref": "X-NO03_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4708522,
+  "tags": {
+    "name": "X-NO24-I",
+    "ref": "X-NO24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4709560,
+  "tags": {
+    "name": "X-NO07_I",
+    "ref": "X-NO07_I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4709741,
+  "tags": {
+    "name": "X-NO26-I",
+    "ref": "X-NO26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4709972,
+  "tags": {
+    "name": "X-NO27-I",
+    "ref": "X-NO27-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4719342,
+  "tags": {
+    "name": "X-NO29-I",
+    "ref": "X-NO29-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4719607,
+  "tags": {
+    "name": "X-NO37-I",
+    "ref": "X-NO37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4720094,
+  "tags": {
+    "name": "X-NO40-I",
+    "ref": "X-NO40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4722122,
+  "tags": {
+    "name": "X-NO38-I",
+    "ref": "X-NO38-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4725092,
+  "tags": {
+    "name": "X-NO41-I",
+    "ref": "X-NO41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4726449,
+  "tags": {
+    "name": "X-NO42-I",
+    "ref": "X-NO42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4726549,
+  "tags": {
+    "name": "X-NO45-I",
+    "ref": "X-NO45-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4727756,
+  "tags": {
+    "name": "X-NO56-I",
+    "ref": "X-NO56-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4728054,
+  "tags": {
+    "name": "X-NO57-I",
+    "ref": "X-NO57-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4728435,
+  "tags": {
+    "name": "X-NO60A-I",
+    "ref": "X-NO60A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734267,
+  "tags": {
+    "name": "X-NO74-I",
+    "ref": "X-NO74-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734413,
+  "tags": {
+    "name": "X-NO95-I",
+    "ref": "X-NO95-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734446,
+  "tags": {
+    "name": "X-NO99-I",
+    "ref": "X-NO99-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734517,
+  "tags": {
+    "name": "X-OM16-I",
+    "ref": "X-OM16-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734570,
+  "tags": {
+    "name": "X-OM21-I",
+    "ref": "X-OM21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4734719,
+  "tags": {
+    "name": "X-OM17-I",
+    "ref": "X-OM17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4744229,
+  "tags": {
+    "name": "X-OM23-I",
+    "ref": "X-OM23-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4744255,
+  "tags": {
+    "name": "X-OM24-I",
+    "ref": "X-OM24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4744316,
+  "tags": {
+    "name": "X-OM25-I",
+    "ref": "X-OM25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4744357,
+  "tags": {
+    "name": "X-OM28-I",
+    "ref": "X-OM28-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4749734,
+  "tags": {
+    "name": "X-OM33-I",
+    "ref": "X-OM33-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4749866,
+  "tags": {
+    "name": "X-OM34-I",
+    "ref": "X-OM34-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4749934,
+  "tags": {
+    "name": "X-OM36-I",
+    "ref": "X-OM36-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4750010,
+  "tags": {
+    "name": "X-OM37-I",
+    "ref": "X-OM37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4750157,
+  "tags": {
+    "name": "X-OM39-I",
+    "ref": "X-OM39-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4750293,
+  "tags": {
+    "name": "X-OM57-I",
+    "ref": "X-OM57-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4752431,
+  "tags": {
+    "name": "X-OM62-I",
+    "ref": "X-OM62-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4752708,
+  "tags": {
+    "name": "X-OM75-I",
+    "ref": "X-OM75-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4752919,
+  "tags": {
+    "name": "X-0012-I",
+    "ref": "X-0012-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4753094,
+  "tags": {
+    "name": "X-SCR01-I",
+    "ref": "X-SCR01-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4753569,
+  "tags": {
+    "name": "X-SCR05-I",
+    "ref": "X-SCR05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4753582,
+  "tags": {
+    "name": "X-SCR06-I",
+    "ref": "X-SCR06-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4753609,
+  "tags": {
+    "name": "X-SCR07-I",
+    "ref": "X-SCR07-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4753613,
+  "tags": {
+    "name": "X-SCR08-I",
+    "ref": "X-SCR08-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755318,
+  "tags": {
+    "name": "X-SCR09A-I",
+    "ref": "X-SCR09A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755348,
+  "tags": {
+    "name": "X-SCR10-I",
+    "ref": "X-SCR10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755399,
+  "tags": {
+    "name": "X-SCR11A-I",
+    "ref": "X-SCR11A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755484,
+  "tags": {
+    "name": "X-SCR11B-I",
+    "ref": "X-SCR11B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755533,
+  "tags": {
+    "name": "X-SCR11-I",
+    "ref": "X-SCR11-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4755580,
+  "tags": {
+    "name": "X-SCR12-I",
+    "ref": "X-SCR12-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4756164,
+  "tags": {
+    "name": "X-SCR14B-I",
+    "ref": "X-SCR14B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4756272,
+  "tags": {
+    "name": "X-SCR14-I",
+    "ref": "X-SCR14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4756276,
+  "tags": {
+    "name": "X-SCR15-I",
+    "ref": "X-SCR15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4756288,
+  "tags": {
+    "name": "X-SCR17-I",
+    "ref": "X-SCR17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4762155,
+  "tags": {
+    "name": "X-NO84B-I",
+    "ref": "X-NO84B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4762260,
+  "tags": {
+    "name": "X-NO84C-I",
+    "ref": "X-NO84C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4762424,
+  "tags": {
+    "name": "X-NO84D-I",
+    "ref": "X-NO84D-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4762893,
+  "tags": {
+    "name": "X-NO84-I",
+    "ref": "X-NO84-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4762975,
+  "tags": {
+    "name": "X-NO87-I",
+    "public_transport:version": "2",
+    "ref": "X-NO87-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4763102,
+  "tags": {
+    "name": "X-NO88-I",
+    "ref": "X-NO88-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4763261,
+  "tags": {
+    "name": "X-NO90-I",
+    "ref": "X-NO90-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4763341,
+  "tags": {
+    "name": "X-NO96-I",
+    "ref": "X-NO96-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764385,
+  "tags": {
+    "name": "X-NO98-I",
+    "ref": "X-NO98-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764475,
+  "tags": {
+    "name": "X-OM09-I",
+    "ref": "X-OM09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764498,
+  "tags": {
+    "name": "X-OM10-I",
+    "ref": "X-OM10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764535,
+  "tags": {
+    "name": "X-OM14-I",
+    "ref": "X-OM14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764568,
+  "tags": {
+    "name": "X-OM18-1-I",
+    "ref": "X-OM18-1-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4764569,
+  "tags": {
+    "name": "X-OM18-2-I",
+    "ref": "X-OM18-2-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4767031,
+  "tags": {
+    "name": "X-SCR39A-I",
+    "ref": "X-SCR39A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4768961,
+  "tags": {
+    "name": "X-SCR39-I",
+    "ref": "X-SCR39-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4769404,
+  "tags": {
+    "name": "X-SCR40-I",
+    "ref": "X-SCR40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4769801,
+  "tags": {
+    "name": "X-SCR41-I",
+    "ref": "X-SCR41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4769819,
+  "tags": {
+    "name": "X-SCR41A-I",
+    "ref": "X-SCR41A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4770157,
+  "tags": {
+    "name": "X-SM17-I",
+    "ref": "X-SM17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4771213,
+  "tags": {
+    "name": "X-SM18-I",
+    "ref": "X-SM18-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4771633,
+  "tags": {
+    "name": "X-SM19A-I",
+    "ref": "X-SM19A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4771753,
+  "tags": {
+    "name": "X-SM19B-I",
+    "ref": "X-SM19B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4772575,
+  "tags": {
+    "name": "X-SM19D-I",
+    "ref": "X-SM19D-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4772671,
+  "tags": {
+    "name": "X-SO02-I",
+    "public_transport:version": "2",
+    "ref": "X-SO02-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4773104,
+  "tags": {
+    "name": "X-SM21-I",
+    "ref": "X-SM21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4773792,
+  "tags": {
+    "name": "X-SM25-I",
+    "ref": "X-SM25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4774170,
+  "tags": {
+    "name": "X-SM31-I",
+    "ref": "X-SM31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4774330,
+  "tags": {
+    "name": "X-NO20-I",
+    "ref": "X-NO20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4774992,
+  "tags": {
+    "name": "X-NO22-I",
+    "ref": "X-NO22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775280,
+  "tags": {
+    "name": "X-SO91-I",
+    "ref": "X-SO91-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775380,
+  "tags": {
+    "name": "X-SO58B-I",
+    "ref": "X-SO58B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775426,
+  "tags": {
+    "name": "X-SO51-I",
+    "ref": "X-SO51-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775466,
+  "tags": {
+    "name": "X-SM46A-I",
+    "ref": "X-SM46A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775558,
+  "tags": {
+    "name": "X-SM37-I",
+    "ref": "X-SM37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775629,
+  "tags": {
+    "name": "X-SO25-I",
+    "ref": "X-SO25-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775660,
+  "tags": {
+    "name": "X-SCR42-I",
+    "ref": "X-SCR42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775684,
+  "tags": {
+    "name": "X-SO64C-I",
+    "ref": "X-SO64C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775697,
+  "tags": {
+    "name": "X-SO64B-I",
+    "ref": "X-SO64B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775722,
+  "tags": {
+    "name": "X-SM46B-I",
+    "ref": "X-SM46B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4775756,
+  "tags": {
+    "name": "X-SM46-I",
+    "ref": "X-SM46-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4779932,
+  "tags": {
+    "name": "X-SCR26-I",
+    "ref": "X-SCR26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4782800,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4782801,
+  "tags": {
+    "name": "X-SCR09-I",
+    "ref": "X-SCR09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4782884,
+  "tags": {
+    "name": "X-SCR05B-I",
+    "ref": "X-SCR05B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783001,
+  "tags": {
+    "name": "X-SCR04-I",
+    "ref": "X-SCR04-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783074,
+  "tags": {
+    "name": "X-SCR31-I",
+    "ref": "X-SCR31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783120,
+  "tags": {
+    "name": "X-SCR04A-I",
+    "ref": "X-SCR04A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783207,
+  "tags": {
+    "name": "X-SO55C-I",
+    "ref": "X-SO55C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783229,
+  "tags": {
+    "name": "X-SCR33-I",
+    "ref": "X-SCR33-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783262,
+  "tags": {
+    "name": "X-SO10-I",
+    "ref": "X-SO10-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783278,
+  "tags": {
+    "name": "X-SCR01A-I",
+    "ref": "X-SCR01A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783284,
+  "tags": {
+    "name": "X-SO67A-I",
+    "ref": "X-SO67A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783285,
+  "tags": {
+    "name": "X-OO08-I",
+    "ref": "X-OO08-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783292,
+  "tags": {
+    "name": "X-OM77-I",
+    "ref": "X-OM77-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783343,
+  "tags": {
+    "name": "X-OM47-I",
+    "ref": "X-OM47-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783371,
+  "tags": {
+    "name": "X-OM44-I",
+    "ref": "X-OM44-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783491,
+  "tags": {
+    "name": "X-OM42-I",
+    "ref": "X-OM42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4783555,
+  "tags": {
+    "name": "X-SCR30-I",
+    "ref": "X-SCR30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784109,
+  "tags": {
+    "name": "X-SCR21-I",
+    "ref": "X-SCR21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784177,
+  "tags": {
+    "name": "X-SO67B-I",
+    "ref": "X-SO67B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784229,
+  "tags": {
+    "name": "X-SO51A-I",
+    "ref": "X-SO51A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784272,
+  "tags": {
+    "name": "X-SO50-I",
+    "ref": "X-SO50-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784325,
+  "tags": {
+    "name": "X-NO31-I",
+    "ref": "X-NO31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784553,
+  "tags": {
+    "name": "X-SCR22-I",
+    "ref": "X-SCR22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784636,
+  "tags": {
+    "name": "X-OM31-I",
+    "ref": "X-OM31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784689,
+  "tags": {
+    "name": "X-OM22-I",
+    "ref": "X-OM22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784767,
+  "tags": {
+    "name": "X-OM19-I",
+    "ref": "X-OM19-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784905,
+  "tags": {
+    "name": "X-OM05-I",
+    "ref": "X-OM05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784945,
+  "tags": {
+    "name": "X-NO49-I",
+    "ref": "X-NO49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4784970,
+  "tags": {
+    "name": "X-SCR35-I",
+    "ref": "X-SCR35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4785137,
+  "tags": {
+    "name": "X-SCR36-I",
+    "ref": "X-SRC36-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4785175,
+  "tags": {
+    "name": "X-SCR38-I",
+    "ref": "X-SCR38-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4785186,
+  "tags": {
+    "name": "X-SO71-I",
+    "ref": "X-SO71-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4785209,
+  "tags": {
+    "name": "X-SM19E-I",
+    "ref": "X-SM19E-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4787549,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4789418,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4789971,
+  "tags": {
+    "name": "X-SO39-I",
+    "ref": "X-SO39-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4790541,
+  "tags": {
+    "name": "X-SO94-I",
+    "ref": "X-SO94-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4793441,
+  "tags": {
+    "name": "X-SCR38A-I",
+    "ref": "X-SCR38A-X",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4793528,
+  "tags": {
+    "name": "X-NO50A-I",
+    "ref": "X-NO50A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4794979,
+  "tags": {
+    "name": "X-SM14-I",
+    "ref": "X-SM14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795224,
+  "tags": {
+    "name": "X-SO44-I",
+    "ref": "X-SO44-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795253,
+  "tags": {
+    "name": "X-SO41-I",
+    "ref": "X-SO41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795397,
+  "tags": {
+    "name": "X-SM35A-I",
+    "ref": "X-SM35A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795439,
+  "tags": {
+    "name": "X-SM35-I",
+    "ref": "X-SM35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795468,
+  "tags": {
+    "name": "X-SM41-I",
+    "ref": "X-SM41-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795501,
+  "tags": {
+    "name": "X-SM28-I",
+    "ref": "X-SM28-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4795550,
+  "tags": {
+    "name": "X-SM27-I",
+    "ref": "X-SM27-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4796307,
+  "tags": {
+    "name": "X-SCR38B-I",
+    "ref": "X-SCR38B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4796919,
+  "tags": {
+    "name": "X-NO59-I",
+    "ref": "X-NO59-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799586,
+  "tags": {
+    "name": "X-NO60B-I",
+    "ref": "X-NO60B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799617,
+  "tags": {
+    "name": "X-NO60-I",
+    "ref": "X-NO60-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799772,
+  "tags": {
+    "name": "X-NO61-I",
+    "ref": "X-NO61-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799791,
+  "tags": {
+    "name": "X-NO63A-I",
+    "ref": "X-NO63A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799843,
+  "tags": {
+    "name": "X-NO53B-I",
+    "ref": "X-NO53B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4799914,
+  "tags": {
+    "name": "X-NO104-I",
+    "ref": "X-NO104-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4800212,
+  "tags": {
+    "name": "X-NO50-I",
+    "ref": "X-NO50-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4800366,
+  "tags": {
+    "name": "X-SM20B-I",
+    "ref": "X-SM20B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4800382,
+  "tags": {
+    "name": "X-SM20-I",
+    "ref": "X-SM20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4800414,
+  "tags": {
+    "name": "X-SM20A-I",
+    "ref": "X-SM20A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4800457,
+  "tags": {
+    "name": "X-SO03-I",
+    "ref": "X-SO03-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4807563,
+  "tags": {
+    "name": "X-SO21-I",
+    "public_transport:version": "2",
+    "ref": "X-SO21-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4812658,
+  "tags": {
+    "name": "X-SO93-I",
+    "ref": "X-SO93-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4813636,
+  "tags": {
+    "name": "X-SM38-I",
+    "ref": "X-SM38-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4813853,
+  "tags": {
+    "name": "X-SO74-I",
+    "ref": "X-SO74-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4815311,
+  "tags": {
+    "name": "X-SM49-I",
+    "ref": "X-SM49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4815747,
+  "tags": {
+    "name": "C",
+    "ref": "Carro rojo",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4815988,
+  "tags": {
+    "name": "X-SO12A-I",
+    "ref": "X-SO12A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4816015,
+  "tags": {
+    "name": "X-SM19-I",
+    "ref": "X-SM19-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4819917,
+  "tags": {
+    "name": "X-SM19C-I",
+    "ref": "X-SM19C-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4820596,
+  "tags": {
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4821525,
+  "tags": {
+    "name": "X-SM36-I",
+    "ref": "X-SM36-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4822236,
+  "tags": {
+    "name": "X-SO28-I",
+    "ref": "X-SO28-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4829251,
+  "tags": {
+    "name": "X-SO11-I",
+    "ref": "X-SO11-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4829280,
+  "tags": {
+    "name": "X-SO13-I",
+    "ref": "X-SO13-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4829413,
+  "tags": {
+    "name": "X-SO17-I",
+    "ref": "X-SO17-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4833418,
+  "tags": {
+    "name": "X-NO105-I",
+    "public_transport:version": "2",
+    "ref": "X-NO105-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4833460,
+  "tags": {
+    "name": "X-SO08-I",
+    "ref": "X-SO08-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4833485,
+  "tags": {
+    "name": "X-SM36A-I",
+    "ref": "X-SM36A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4854044,
+  "tags": {
+    "name": "X-SO26-I",
+    "ref": "X-SO26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4854419,
+  "tags": {
+    "name": "X-SO16-I",
+    "ref": "X-SO16-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4854478,
+  "tags": {
+    "name": "X-SO33-I",
+    "ref": "X-SO33-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4854573,
+  "tags": {
+    "name": "X-SO18-I",
+    "ref": "X-SO18-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4855223,
+  "tags": {
+    "name": "X-SM33-I",
+    "ref": "X-SM33-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4855264,
+  "tags": {
+    "name": "X-SM05-I",
+    "ref": "X-SM05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4855687,
+  "tags": {
+    "name": "X-SM30-I",
+    "ref": "X-SM30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4855692,
+  "tags": {
+    "name": "X-SO37-I",
+    "ref": "X-SO37-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4860869,
+  "tags": {
+    "name": "X-SO14-I",
+    "ref": "X-SO14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4860928,
+  "tags": {
+    "name": "X-SO92-I",
+    "ref": "X-SO92-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4860978,
+  "tags": {
+    "name": "X-SM26-I",
+    "ref": "X-SM26-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861887,
+  "tags": {
+    "name": "X-SO55D-I",
+    "ref": "X-SO55D-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861896,
+  "tags": {
+    "name": "X-SO55-I",
+    "ref": "X-SO55-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861898,
+  "tags": {
+    "name": "X-SM42A-I",
+    "ref": "X-SM42A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861899,
+  "tags": {
+    "name": "X-SM42A-I",
+    "ref": "X-SM42A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861900,
+  "tags": {
+    "name": "X-SM42-I",
+    "ref": "X-SM42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4861905,
+  "tags": {
+    "name": "X-SM42B-I",
+    "ref": "X-SM42B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4868516,
+  "tags": {
+    "name": "X-SM09-I",
+    "ref": "X-SM09-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4868530,
+  "tags": {
+    "name": "X-SO05-I",
+    "ref": "X-SO05-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4872103,
+  "tags": {
+    "name": "X-SO35-I",
+    "ref": "X-SO35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 4872150,
+  "tags": {
+    "name": "X-SM40-I",
+    "ref": "X-SM40-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5120775,
+  "tags": {
+    "name": "X-SO04-I",
+    "ref": "X-SO04-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5120936,
+  "tags": {
+    "name": "X-SO07-I",
+    "ref": "X-SO07-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5121851,
+  "tags": {
+    "name": "X-SO31-I",
+    "ref": "X-SO31-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122273,
+  "tags": {
+    "name": "X-SO20-I",
+    "ref": "X-SO20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122349,
+  "tags": {
+    "name": "X-SO30-I",
+    "ref": "X-SO30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122424,
+  "tags": {
+    "name": "X-SO12B-I",
+    "ref": "X-SO12B-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122516,
+  "tags": {
+    "name": "X-SO49A-I",
+    "public_transport:version": "1",
+    "ref": "X-SO49A-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122602,
+  "tags": {
+    "name": "X-SM24-I",
+    "ref": "X-SM24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122704,
+  "tags": {
+    "name": "X-SO15-I",
+    "ref": "X-SO15-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122748,
+  "tags": {
+    "name": "X-SM19F-I",
+    "ref": "X-SM19F-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5122764,
+  "tags": {
+    "name": "X-SO24-I",
+    "ref": "X-SO24-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5123174,
+  "tags": {
+    "name": "X-SO42-I",
+    "ref": "X-SO42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5123429,
+  "tags": {
+    "name": "X-SM19G-I",
+    "ref": "X-SM19G-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5124498,
+  "tags": {
+    "name": "X-IO14-I",
+    "ref": "X-IO14-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5125928,
+  "tags": {
+    "name": "X-IO46-I",
+    "ref": "X-IO46-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5129169,
+  "tags": {
+    "name": "X-IO60-I",
+    "ref": "X-IO60-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5129293,
+  "tags": {
+    "name": "X-IO65-I",
+    "ref": "X-IO65-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5129795,
+  "tags": {
+    "name": "X-NM12-I",
+    "ref": "X-NM12-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5141457,
+  "tags": {
+    "name": "X-ECR20-I",
+    "ref": "X-ECR20-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5150316,
+  "tags": {
+    "name": "X-IM43-I",
+    "ref": "X-IM43-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5150388,
+  "tags": {
+    "name": "X-IM42-I",
+    "ref": "X-IM42-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5150503,
+  "tags": {
+    "name": "X-IM44-I",
+    "ref": "X-IM44-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5150905,
+  "tags": {
+    "name": "X-IM47-I",
+    "ref": "X-IM47-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5151266,
+  "tags": {
+    "name": "X-IM49-I",
+    "ref": "X-IM49-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5151299,
+  "tags": {
+    "name": "X-NO100-I",
+    "ref": "X-NO100-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5156472,
+  "tags": {
+    "name": "X-CR35-I",
+    "ref": "X-CR35-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5162783,
+  "tags": {
+    "name": "X-CR62-I",
+    "ref": "X-CR62-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5163845,
+  "tags": {
+    "name": "X-EM30-I",
+    "ref": "X-EM30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5163879,
+  "tags": {
+    "name": "X-EM30-I",
+    "ref": "X-EM30-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5163982,
+  "tags": {
+    "name": "X-IM56-I",
+    "ref": "X-IM56-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5172435,
+  "tags": {
+    "name": "X-NO101-I",
+    "ref": "X-NO101-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5172706,
+  "tags": {
+    "name": "X-NM22-I",
+    "ref": "X-NM22-I",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 5582236,
+  "tags": {
+    "name": "RutaTuristica1",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 6875057,
+  "tags": {
+    "ref": "Mala - Bujama",
+    "route": "bus",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9107317,
+  "tags": {
+    "colour": "#97FFFF",
+    "duration": "32:00",
+    "fee": "yes",
+    "from": "Ruta Regular - Embarque 1",
+    "interval": "5",
+    "name": "Regular A Naranjal - Estación Central",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-22:30; Sa 05:00-22:15; Su 05:00-22:15",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "A",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Estación Central",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9107684,
+  "tags": {
+    "colour": "#97FFFF",
+    "fee": "yes",
+    "from": "Ramón Castilla",
+    "interval": "5",
+    "name": "Regular C Castilla - Matellini",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-23:00; Sa 05:30-22:55; Su 05:30-21:55",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "C",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Terminal Matellini",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9109138,
+  "tags": {
+    "colour": "#FF9500",
+    "duration": "59",
+    "fee": "yes",
+    "from": "Terminal Norte Naranjal",
+    "interval": "5",
+    "name": "Regular B Naranjal - Matelini",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 09:00-23:00; Sa 05:00-23:00; Su 05:00-22:00",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "B",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Terminal Sur Matelini",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9110133,
+  "tags": {
+    "colour": "#FAE102",
+    "duration": "22:00",
+    "fee": "yes",
+    "from": "Súper Expreso Norte - Terminal Norte",
+    "name": "Súper Expreso Norte (Original)",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-09:30, 17:00-21:30",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "SXN",
+    "route": "bus",
+    "to": "Estación Central",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9110168,
+  "tags": {
+    "colour": "#FAE102",
+    "fee": "yes",
+    "from": "Paradero 10 (SXN)",
+    "name": "Súper Expreso Norte (Reversa)",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-09:00, 17:00-21:00",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "SXN",
+    "route": "bus",
+    "to": "Expreso 3",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9465430,
+  "tags": {
+    "colour": "#97FFFF",
+    "description": "Derivado de la Regular A, que usa el carril de la Regular B en lugar del original. Disponible solo en las mañanas.",
+    "duration": "32:00",
+    "fee": "yes",
+    "from": "Ruta Regular - Embarque 1",
+    "interval": "5",
+    "name": "Regular D Naranjal - Estación Central",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:00-09:00",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "D",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Estación Central",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9465431,
+  "tags": {
+    "colour": "#97FFFF",
+    "description": "Derivado de la Regular A, que usa el carril de la Regular B en lugar del original. Disponible solo en las mañanas.",
+    "fee": "yes",
+    "from": "Estación Central",
+    "interval": "5",
+    "name": "Regular D Estación Central - Naranjal",
+    "network": "Metropolitano",
+    "opening_hours": "Mo-Fr 05:30-09:30",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "D",
+    "roundtrip": "no",
+    "route": "bus",
+    "to": "Ruta Regular - Embarque 4",
+    "type": "route",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 9726114,
+  "tags": {
+    "colour": "yellow",
+    "name": "Alimentadora Norte Los Olivos (Ida)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-16",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Grifo Túpac",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9726392,
+  "tags": {
+    "colour": "yellow",
+    "from": "Ruta Regular - Embarque 1",
+    "name": "Alimentadora Norte La Ensenada (vuelta)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AN-13",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Ruta Regular - Embarque 1",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9726949,
+  "tags": {
+    "colour": "yellow",
+    "from": "Ca. E",
+    "name": "Alimentadora Sur América (Vuelta)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-07",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Terminal Matellini",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 9726963,
+  "tags": {
+    "colour": "yellow",
+    "from": "Terminal Matellini",
+    "name": "Alimentadora Sur Los Próceres (Vuelta)",
+    "network": "Metropolitano",
+    "operator": "Municipalidad Metropolitana de Lima",
+    "public_transport:version": "2",
+    "ref": "AS-08",
+    "route": "bus",
+    "source": "http://www.metropolitano.com.pe/index.php/como-usar-el-metropolitano/rutas/ruta-alimentadora",
+    "to": "Terminal Matellini",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13392452,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "La Capilla (SJL)",
+    "name": "Corredor Morado 409",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "official_name": "Corredor Morado Servicio 409",
+    "ref": "409",
+    "route": "bus",
+    "to": "Canaval y Moreyra (San Isidro)",
+    "type": "route",
+    "wikidata": "Q56654973",
+    "wikipedia": "es:Línea 409 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13394864,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "La Capilla (SJL)",
+    "name": "Corredor Morado 412",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "official_name": "Corredor Morado Servicio 412",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "operator:short": "ATU",
+    "public_transport:version": "2",
+    "ref": "412",
+    "roundtrip": "yes",
+    "route": "bus",
+    "to": "Ica (Cercado de Lima)",
+    "type": "route",
+    "wikidata": "Q56469347",
+    "wikipedia": "es:Línea 412 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13572648,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "description": "> Servicio de ida > > Horario general ida y vuelta: lunes a sábado de 05:00 a 23:00 h",
+    "fee": "yes",
+    "from": "Flor de Amancaes (RImac)",
+    "name": "Corredor Azul 306 -> Javier Prado",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Consorcio Transporte Arequipa S.A.",
+    "public_transport:version": "2",
+    "ref": "306",
+    "route": "bus",
+    "to": "Javier Prado (San Isidro)",
+    "type": "route",
+    "wikidata": "Q56452889",
+    "wikipedia": "es:Línea 306 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13572816,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "La Capilla (SJL)",
+    "name": "Corredor Morado 405 → Javier Prado",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "public_transport:version": "2",
+    "ref": "405",
+    "route": "bus",
+    "to": "Javier Prado (San Isidro)",
+    "type": "route",
+    "wikidata": "Q56469256",
+    "wikipedia": "es:Línea 405 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13677761,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "La Capilla (SJL)",
+    "name": "Corredor Morado 404 → La Virgen",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "public_transport:version": "2",
+    "ref": "404",
+    "route": "bus",
+    "to": "La Virgen (Magdalena)",
+    "type": "route",
+    "wikidata": "Q56452470",
+    "wikipedia": "es:Línea 404 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13677762,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "Venus (Magdalena)",
+    "name": "Corredor Morado 404 → La Capilla",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "opening_hours": "Mo-Su 06:00-24:00",
+    "public_transport:version": "2",
+    "ref": "404",
+    "route": "bus",
+    "to": "La Capilla (SJL)",
+    "type": "route",
+    "wikidata": "Q56452470",
+    "wikipedia": "es:Línea 404 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13683364,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "purple",
+    "fee": "yes",
+    "from": "Torre Ugarte",
+    "name": "Corredor Morado 405 → La Capilla",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "opening_hours": "Mo-Su 06:00-23:00",
+    "public_transport:version": "2",
+    "ref": "405",
+    "route": "bus",
+    "to": "La Capilla (SJL)",
+    "type": "route",
+    "wikidata": "Q56469256",
+    "wikipedia": "es:Línea 405 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13690718,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "fee": "yes",
+    "from": "El Sol (Barranco)",
+    "name": "Corredor Azul 301 → Amancaes",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "301",
+    "route": "bus",
+    "to": "Amancaes (Rimac)",
+    "type": "route",
+    "wikidata": "Q56452253",
+    "wikipedia": "es:Línea 301 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13698913,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "fee": "yes",
+    "from": "Angamos (Miraflores)",
+    "name": "Corredor Azul 303 → Próceres",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "303",
+    "route": "bus",
+    "to": "Próceres (SJL)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13703614,
+  "tags": {
+    "charge": "1.50 PEN",
+    "description": "Ruta de vuelta",
+    "fee": "yes",
+    "from": "Piura (Miraflores)",
+    "name": "Corredor Azul 302 → Amancaes",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "302",
+    "route": "bus",
+    "to": "Amancaes (RImac)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13704305,
+  "tags": {
+    "charge": "1.00 PEN",
+    "colour": "purple",
+    "description": "Horario general del servicio ida y vuelta: lunes a domingo de 05:00 a 23:59 h",
+    "fee": "yes",
+    "from": "La Capilla (SJL)",
+    "name": "Corredor Morado SE-02 → Acho",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "SE-02",
+    "route": "bus",
+    "to": "Acho (Rimac)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13704306,
+  "tags": {
+    "charge": "1.00 PEN",
+    "colour": "purple",
+    "description": "Horario general del servicio ida y vuelta: lunes a domingo de 05:00 a 23:59 h",
+    "fee": "yes",
+    "from": "Acho (RImac)",
+    "name": "Corredor Morado SE-02 → La Capilla",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "SE-02",
+    "route": "bus",
+    "to": "La Capilla (SJL)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13707077,
+  "tags": {
+    "charge": "1.70 PEN",
+    "colour": "red",
+    "description": "Servicio de retorno - Horario general servicio ida y vuelta: lunes a domingo de 05:00 a 23:00 h",
+    "fee": "yes",
+    "from": "La Marina (San Miguel)",
+    "name": "Corredor Rojo 201 -> Ceres",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "official_name": "Corredor Rojo Servicio 201",
+    "operator": "Allin Group - Javier Prado S.A",
+    "public_transport:version": "2",
+    "ref": "201",
+    "route": "bus",
+    "to": "Ceres (Ate)",
+    "type": "route",
+    "wikidata": "Q59159713",
+    "wikipedia": "es:Línea 201 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13736330,
+  "tags": {
+    "charge": "1.70 PEN",
+    "colour": "red",
+    "description": "> Servicio de retorno > > Horario general ida y vuelta: lunes a sábado de 05:00 a 23:00 h y domingo de 06:00 a 22:00 h",
+    "fee": "yes",
+    "from": "Honda (San Miguel)",
+    "name": "Corredor Rojo 204 -> Víctor Malásquez",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Allin Group - Javier Prado S.A",
+    "public_transport:version": "2",
+    "ref": "204",
+    "route": "bus",
+    "to": "Víctor Malásquez (Pachacamac)",
+    "type": "route",
+    "wikidata": "Q65923086",
+    "wikipedia": "es:Línea 204 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13736434,
+  "tags": {
+    "charge": "1.70 PEN",
+    "colour": "red",
+    "description": "> Servicio de ida > > Horario general ida y vuelta: lunes a sábado de 05:00 a 23:00 h y domingo de 06:00 a 22:00 h",
+    "fee": "yes",
+    "from": "Víctor Malászquez (Pachacamac)",
+    "name": "Corredor Rojo 204 -> Contisuyo",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Allin Group - Javier Prado S.A",
+    "public_transport:version": "2",
+    "ref": "204",
+    "route": "bus",
+    "to": "Contisuyo (San Miguel)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13740547,
+  "tags": {
+    "charge": "1.50 PEN",
+    "colour": "blue",
+    "description": "> Servicio de retorno > > Horario general ida y vuelta: lunes a sábado de 05:00 a 23:00 h",
+    "fee": "yes",
+    "from": "Olavide (San Isidro)",
+    "name": "Corredor Azul 306 -> Mónaco",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Consorcio Transporte Arequipa S.A.",
+    "public_transport:version": "2",
+    "ref": "306",
+    "route": "bus",
+    "to": "Mónaco (Rimac)",
+    "type": "route",
+    "wikidata": "Q56452889",
+    "wikipedia": "es:Línea 306 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 13744213,
+  "tags": {
+    "charge": "2.50 PEN",
+    "colour": "yellow",
+    "fee": "yes",
+    "from": "Canta Callao (SMP)",
+    "name": "Corredor Amarillo 101 -> Parque Zonal",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Perú Bus Internacional S.A.",
+    "public_transport:version": "2",
+    "ref": "101",
+    "route": "bus",
+    "to": "Parque Zonal (Villa el Salvador)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13756972,
+  "tags": {
+    "charge": "2.50 PEN",
+    "colour": "yellow",
+    "fee": "yes",
+    "from": "200 Millas (Villa el Salvador)",
+    "name": "Corredor Amarillo 101 -> Huandoy",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "operator": "Perú Bus Internacional S.A.",
+    "public_transport:version": "2",
+    "ref": "101",
+    "route": "bus",
+    "to": "Huandoy (SMP)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 13924722,
+  "tags": {
+    "colour": "red",
+    "fee": "yes",
+    "from": "San Marcos (San Miguel)",
+    "name": "Corredor Rojo 206 -> Río Amarillo",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "network:wikipedia": "es:Sistema Integrado de Transporte de Lima y Callao",
+    "public_transport:version": "2",
+    "ref": "206",
+    "route": "bus",
+    "to": "Río Amarillo (La Molina)",
+    "type": "route"
+  }
+},
+{
+  "type": "relation",
+  "id": 16812606,
+  "tags": {
+    "from": "Airport",
+    "name": "Airport Express Lima",
+    "public_transport:version": "2",
+    "route": "bus",
+    "to": "Airport",
+    "type": "route",
+    "via": "Miraflores"
+  }
+},
+{
+  "type": "relation",
+  "id": 18420028,
+  "tags": {
+    "charge": "2.08 PEN",
+    "colour": "blue",
+    "name": "Corredor Azul 305",
+    "network": "SIT",
+    "network:wikidata": "Q64707076",
+    "ref": "305",
+    "route": "bus",
+    "type": "route",
+    "wikipedia": "es:Línea 305 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 19413426,
+  "tags": {
+    "alt_name": "La 87B",
+    "from": "Puente Piedra",
+    "name": "Ruta 1007",
+    "note": "Español: La Ruta muestra la Ida y Vuelta del recorrido. English: The Route shows the round trip of the route.",
+    "old_name": "Ruta 1502",
+    "old_ref": "1502",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "operator": "Empresa de Transportes y Servicios Amancaes S.A.",
+    "operator:short": "ETAMSA",
+    "ref": "1007",
+    "route": "bus",
+    "to": "Lima",
+    "type": "route",
+    "wikidata": "Q131861741",
+    "wikipedia": "es:Ruta 1502 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 19572753,
+  "tags": {
+    "alt_name": "La 03;La 3",
+    "from": "Carabayllo",
+    "name": "Ruta 1008",
+    "note": "Español: La Ruta muestra la Ida y Vuelta del recorrido. English: The Route shows the round trip of the route.",
+    "old_name": "Ruta 1503",
+    "old_ref": "1503",
+    "opening_hours": "Mo-Su 05:00-23:30",
+    "operator": "Grupo Express del Perú S.A.C.;Realidad Express del Perú 03 S.A.C.",
+    "operator:short": "GEP;REX",
+    "ref": "1008",
+    "route": "bus",
+    "to": "Magdalena",
+    "type": "route",
+    "wikidata": "Q133894168",
+    "wikipedia": "es:Ruta 1008 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 19575841,
+  "tags": {
+    "alt_name": "La P",
+    "from": "Carabayllo",
+    "name": "Ruta 1019",
+    "note": "Español: La Ruta muestra la Ida y Vuelta del recorrido. English: The Route shows the round trip of the route.",
+    "old_name": "Ruta 1611",
+    "old_ref": "1611",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "operator": "Empresa de Transportes Palmari S.A.;Grupo Empresarial El Rápido S.A.",
+    "ref": "1019",
+    "route": "bus",
+    "to": "Magdalena",
+    "type": "route",
+    "wikidata": "Q131898460",
+    "wikipedia": "es:Ruta 1611 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 19597970,
+  "tags": {
+    "alt_name": "La F",
+    "from": "Carabayllo",
+    "name": "Ruta 1021",
+    "note": "Español: La Ruta muestra la Ida y Vuelta del recorrido. English: The Route shows the round trip of the route.",
+    "old_name": "Ruta 1615",
+    "old_ref": "1615",
+    "opening_hours": "Mo-Su 05:00-23:00",
+    "operator": "Inversiones y Servicios CKF S.A.;Grupo Empresarial El Rápido S.A.",
+    "ref": "1021",
+    "route": "bus",
+    "to": "Magdalena",
+    "type": "route",
+    "wikidata": "Q131898468",
+    "wikipedia": "es:Ruta 1615 (Lima)"
+  }
+},
+{
+  "type": "relation",
+  "id": 19615026,
+  "tags": {
+    "alt_name": "La B",
+    "from": "Carabayllo",
+    "name": "Ruta 1023",
+    "note": "Español: La Ruta muestra la Ida y Vuelta del recorrido. English: The Route shows the round trip of the route.",
+    "old_name": "Ruta 1618",
+    "old_ref": "1618",
+    "opening_hours": "Mo-Su 05:00-22:00",
+    "operator": "Empresa de Transportes y Servicios Nueva América S.A.",
+    "operator:short": "TRANSNASA",
+    "ref": "1023",
+    "route": "bus",
+    "to": "Lince",
+    "type": "route",
+    "wikidata": "Q134190561",
+    "wikipedia": "es:Ruta 1618 (Lima)"
+  }
+}
+
+  ]
+}
