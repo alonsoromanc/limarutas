@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rutas Lima</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rutas OSM – Metropolitano</title>
+
+  <!-- Leaflet -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,27 +14,106 @@
   />
   <style>
     html, body { height: 100%; margin: 0; }
-    #map { height: 100%; }
-    .info {
-      position: absolute; top: 10px; left: 10px; z-index: 1000;
-      background: white; padding: 8px 10px; border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,.2); font: 14px/1.2 system-ui, sans-serif;
+    #map { height: 100vh; }
+    .legend {
+      background: #fff; padding: 8px 10px; border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.2); font: 13px/1.2 system-ui,sans-serif;
     }
+    .legend h4 { margin: 0 0 6px 0; font-size: 13px; }
+    .legend .row { display: flex; align-items: center; gap: 6px; margin: 4px 0; }
+    .legend .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
   </style>
 </head>
 <body>
   <div id="map"></div>
-  <div class="info" id="status">Cargando rutas…</div>
 
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""
-    defer
   ></script>
-  <!-- Conversor Overpass JSON -> GeoJSON -->
-  <script src="https://unpkg.com/osmtogeojson@2.2.12/osmtogeojson.js" defer></script>
 
-  <script defer src="app.js"></script>
+  <!-- Convierte JSON de Overpass/OSM a GeoJSON en el navegador -->
+  <script src="https://unpkg.com/osmtogeojson@3.0.0/osmtogeojson.js"></script>
+
+  <script>
+    // 1) Inicializa el mapa
+    const map = L.map('map', { zoomControl: true }).setView([-12.05, -77.05], 12); // Lima aprox
+
+    // 2) Capa base OSM
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // 3) Colores solicitados
+    const COLORS = {
+      A: '#00BFFF',   // celeste
+      B: '#FF8C00',   // naranja
+      C: '#32CD32',   // verde lima
+      DEFAULT: '#555'
+    };
+
+    // 4) Cargar tu JSON de Overpass (mismo folder que index.html)
+    fetch('metropolitano.json')
+      .then(r => r.json())
+      .then(osmData => {
+        // Convertir OSM JSON -> GeoJSON
+        const gj = osmtogeojson(osmData);
+
+        // Función para extraer la "letra" de la ruta
+        function getRefLetter(f) {
+          const raw = (f.properties?.tags?.ref || f.properties?.tags?.name || '')
+                        .toString().trim().toUpperCase();
+          // Si empieza con A, B o C, usa esa
+          const hit = ['A','B','C'].find(x => raw.startsWith(x));
+          return hit || '';
+        }
+
+        // Crear capa GeoJSON con estilo por ruta
+        const routesLayer = L.geoJSON(gj, {
+          filter: f => f.geometry && (
+            f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString'
+          ),
+          style: f => {
+            const ref = getRefLetter(f);
+            return {
+              color: COLORS[ref] || COLORS.DEFAULT,
+              weight: 5,
+              opacity: 0.9
+            };
+          },
+          onEachFeature: (f, layer) => {
+            const tags = f.properties?.tags || {};
+            const name = tags.name || tags.ref || 'Ruta';
+            const from = tags.from ? `Origen: ${tags.from}<br>` : '';
+            const to = tags.to ? `Destino: ${tags.to}<br>` : '';
+            layer.bindPopup(`<b>${name}</b><br>${from}${to}`);
+          }
+        }).addTo(map);
+
+        // Enfocar el mapa a las rutas
+        const b = routesLayer.getBounds();
+        if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+
+        // 5) Leyenda
+        const legend = L.control({ position: 'bottomleft' });
+        legend.onAdd = function() {
+          const div = L.DomUtil.create('div', 'legend');
+          div.innerHTML = `
+            <h4>Rutas</h4>
+            <div class="row"><span class="swatch" style="background:${COLORS.A}"></span> A</div>
+            <div class="row"><span class="swatch" style="background:${COLORS.B}"></span> B</div>
+            <div class="row"><span class="swatch" style="background:${COLORS.C}"></span> C</div>
+          `;
+          return div;
+        };
+        legend.addTo(map);
+      })
+      .catch(err => {
+        console.error('Error cargando metropolitano.json', err);
+        alert('No se pudo cargar metropolitano.json. Revisa la ruta del archivo o usa un servidor local.');
+      });
+  </script>
 </body>
 </html>
