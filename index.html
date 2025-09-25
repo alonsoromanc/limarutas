@@ -3,9 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rutas OSM – Metropolitano</title>
-
-  <!-- Leaflet -->
+  <title>Rutas A/B/C en OSM (Leaflet)</title>
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -13,107 +11,144 @@
     crossorigin=""
   />
   <style>
-    html, body { height: 100%; margin: 0; }
-    #map { height: 100vh; }
-    .legend {
-      background: #fff; padding: 8px 10px; border-radius: 8px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.2); font: 13px/1.2 system-ui,sans-serif;
+    html, body, #map { height: 100%; margin: 0; }
+    #info {
+      position: absolute; z-index: 1000; top: 10px; left: 10px;
+      background: #fff; padding: 8px 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.15);
+      font: 14px system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", "Noto Sans", Arial;
     }
-    .legend h4 { margin: 0 0 6px 0; font-size: 13px; }
-    .legend .row { display: flex; align-items: center; gap: 6px; margin: 4px 0; }
-    .legend .swatch { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+    .legend {
+      margin-top: 6px; line-height: 1.3;
+    }
+    .swatch { display:inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -2px; }
   </style>
 </head>
 <body>
   <div id="map"></div>
+  <div id="info">
+    <div><strong>Rutas</strong></div>
+    <div class="legend">
+      <span class="swatch" style="background:#00cfff"></span> Ruta A (celeste)<br/>
+      <span class="swatch" style="background:#ff8c00"></span> Ruta B (naranja)<br/>
+      <span class="swatch" style="background:#7fff00"></span> Ruta C (verde lima)
+    </div>
+    <div id="status" style="margin-top:6px; color:#666">Cargando datos…</div>
+  </div>
 
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""
   ></script>
-
-  <!-- Convierte JSON de Overpass/OSM a GeoJSON en el navegador -->
-  <script src="https://unpkg.com/osmtogeojson@3.0.0/osmtogeojson.js"></script>
-
   <script>
-    // 1) Inicializa el mapa
-    const map = L.map('map', { zoomControl: true }).setView([-12.05, -77.05], 12); // Lima aprox
+    // 1) Ajusta esta ruta al JSON que subiste a tu repo (GitHub Pages sirve sólo por HTTPS)
+    // Si el JSON está junto a index.html, deja './metropolitano.json'
+    const JSON_URL = './metropolitano.json';
 
-    // 2) Capa base OSM
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // 2) Mapa base
+    const map = L.map('map', { zoomControl: true });
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; OpenStreetMap contributors'
+      attribution: '&copy; colaboradores de OpenStreetMap'
     }).addTo(map);
 
-    // 3) Colores solicitados
-    const COLORS = {
-      A: '#00BFFF',   // celeste
-      B: '#FF8C00',   // naranja
-      C: '#32CD32',   // verde lima
-      DEFAULT: '#555'
+    // 3) Grupos por ruta con colores fijos solicitados
+    const colors = { A: '#00cfff', B: '#ff8c00', C: '#7fff00' };
+    const groups = {
+      A: L.layerGroup().addTo(map),
+      B: L.layerGroup().addTo(map),
+      C: L.layerGroup().addTo(map)
     };
 
-    // 4) Cargar tu JSON de Overpass (mismo folder que index.html)
-    fetch('metropolitano.json')
-      .then(r => r.json())
-      .then(osmData => {
-        // Convertir OSM JSON -> GeoJSON
-        const gj = osmtogeojson(osmData);
+    // 4) Utilitario: construir LineString desde nodes
+    function wayToLatLngs(way, nodeIndex) {
+      const pts = [];
+      for (const nid of way.nodes || []) {
+        const n = nodeIndex.get(nid);
+        if (n) pts.push([n.lat, n.lon]);
+      }
+      return pts;
+    }
 
-        // Función para extraer la "letra" de la ruta
-        function getRefLetter(f) {
-          const raw = (f.properties?.tags?.ref || f.properties?.tags?.name || '')
-                        .toString().trim().toUpperCase();
-          // Si empieza con A, B o C, usa esa
-          const hit = ['A','B','C'].find(x => raw.startsWith(x));
-          return hit || '';
+    // 5) Parsear Overpass JSON -> dibujar
+    async function loadAndRender() {
+      const status = document.getElementById('status');
+      try {
+        const res = await fetch(JSON_URL, { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+
+        // Índice de nodos, ways y relations
+        const nodeIndex = new Map();
+        const wayIndex  = new Map();
+        const rels = [];
+        for (const el of data.elements || []) {
+          if (el.type === 'node') nodeIndex.set(el.id, el);
+          else if (el.type === 'way') wayIndex.set(el.id, el);
+          else if (el.type === 'relation') rels.push(el);
         }
 
-        // Crear capa GeoJSON con estilo por ruta
-        const routesLayer = L.geoJSON(gj, {
-          filter: f => f.geometry && (
-            f.geometry.type === 'LineString' || f.geometry.type === 'MultiLineString'
-          ),
-          style: f => {
-            const ref = getRefLetter(f);
-            return {
-              color: COLORS[ref] || COLORS.DEFAULT,
-              weight: 5,
-              opacity: 0.9
-            };
-          },
-          onEachFeature: (f, layer) => {
-            const tags = f.properties?.tags || {};
-            const name = tags.name || tags.ref || 'Ruta';
-            const from = tags.from ? `Origen: ${tags.from}<br>` : '';
-            const to = tags.to ? `Destino: ${tags.to}<br>` : '';
-            layer.bindPopup(`<b>${name}</b><br>${from}${to}`);
+        let bounds = [];
+        let any = false;
+
+        // Intentamos asignar cada relation a A/B/C por alguna tag
+        // Cambia estas reglas si tus relations tienen otras etiquetas
+        function bucketFor(tags) {
+          if (!tags) return null;
+          // ejemplos: route=bus, ref=A/B/C, name contiene A/B/C
+          if (/^a$/i.test(tags.ref) || /\bRuta\s*A\b/i.test(tags.name || '')) return 'A';
+          if (/^b$/i.test(tags.ref) || /\bRuta\s*B\b/i.test(tags.name || '')) return 'B';
+          if (/^c$/i.test(tags.ref) || /\bRuta\s*C\b/i.test(tags.name || '')) return 'C';
+          return null;
+        }
+
+        for (const rel of rels) {
+          const bucket = bucketFor(rel.tags) || 'A'; // por defecto A si no identificamos
+          const layer = groups[bucket];
+          const color = colors[bucket];
+
+          // miembros tipo way
+          const memberWays = (rel.members || []).filter(m => m.type === 'way');
+          for (const m of memberWays) {
+            const way = wayIndex.get(m.ref);
+            if (!way) continue;
+            const latlngs = wayToLatLngs(way, nodeIndex);
+            if (latlngs.length >= 2) {
+              L.polyline(latlngs, { color, weight: 4, opacity: 0.9 }).addTo(layer);
+              bounds.push(...latlngs);
+              any = true;
+            }
           }
-        }).addTo(map);
+        }
 
-        // Enfocar el mapa a las rutas
-        const b = routesLayer.getBounds();
-        if (b.isValid()) map.fitBounds(b, { padding: [20, 20] });
+        if (any) {
+          map.fitBounds(bounds, { padding: [20,20] });
+          status.textContent = 'Listo';
+        } else {
+          // Si no hubo relations o no se detectaron, probamos dibujar todos los ways
+          let waysPlotted = 0;
+          for (const way of wayIndex.values()) {
+            const latlngs = wayToLatLngs(way, nodeIndex);
+            if (latlngs.length >= 2) {
+              L.polyline(latlngs, { color: '#666', weight: 3, opacity: 0.7 }).addTo(groups.A);
+              bounds.push(...latlngs);
+              waysPlotted++;
+            }
+          }
+          if (waysPlotted) {
+            map.fitBounds(bounds, { padding: [20,20] });
+            status.textContent = 'Listo (dibujados ways sin relation)';
+          } else {
+            status.textContent = 'No se encontraron líneas que dibujar en el JSON';
+          }
+        }
+      } catch (err) {
+        console.error(err);
+        document.getElementById('status').textContent = 'Error cargando datos';
+      }
+    }
 
-        // 5) Leyenda
-        const legend = L.control({ position: 'bottomleft' });
-        legend.onAdd = function() {
-          const div = L.DomUtil.create('div', 'legend');
-          div.innerHTML = `
-            <h4>Rutas</h4>
-            <div class="row"><span class="swatch" style="background:${COLORS.A}"></span> A</div>
-            <div class="row"><span class="swatch" style="background:${COLORS.B}"></span> B</div>
-            <div class="row"><span class="swatch" style="background:${COLORS.C}"></span> C</div>
-          `;
-          return div;
-        };
-        legend.addTo(map);
-      })
-      .catch(err => {
-        console.error('Error cargando metropolitano.json', err);
-        alert('No se pudo cargar metropolitano.json. Revisa la ruta del archivo o usa un servidor local.');
-      });
+    loadAndRender();
   </script>
 </body>
 </html>
