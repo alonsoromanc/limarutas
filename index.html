@@ -1,115 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Lima Rutas (solo corredores)</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rutas Lima</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
   <style>
-    :root { --topbar-h: 56px; --sidebar-w: 320px; }
     html, body { height: 100%; margin: 0; }
-    #map { position: fixed; inset: 0; z-index: 1; }
-
-    .topbar {
-      position: fixed; top: 0; left: 0; right: 0; height: var(--topbar-h);
-      display: flex; align-items: center; gap: 12px; padding: 8px 16px;
-      background: rgba(255,255,255,.92); backdrop-filter: blur(6px);
-      border-bottom: 1px solid rgba(0,0,0,.08); z-index: 1000;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    #map { height: 100%; }
+    .info {
+      position: absolute; top: 10px; left: 10px; z-index: 1000;
+      background: white; padding: 8px 10px; border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,.2); font: 14px/1.2 system-ui, sans-serif;
     }
-    .brand { font-weight: 700; letter-spacing: .2px; }
-    .sidebar {
-      position: fixed; top: var(--topbar-h); left: 0; bottom: 0; width: var(--sidebar-w);
-      max-width: 100vw; background: rgba(255,255,255,.96); z-index: 900;
-      border-right: 1px solid rgba(0,0,0,.08); box-shadow: 0 10px 24px rgba(0,0,0,.08);
-      overflow: auto;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    }
-    .sidebar-header { position: sticky; top: 0; padding: 12px 14px; background: inherit; border-bottom: 1px solid rgba(0,0,0,.06); }
-    .sidebar-body { padding: 10px; display: grid; gap: 8px; }
-    .route-item { display: block; text-align: left; border: 1px solid rgba(0,0,0,.08); border-left: 6px solid transparent; border-radius: 10px; padding: 10px 12px; background: #fff; cursor: pointer; }
-    .route-item:hover { box-shadow: 0 6px 14px rgba(0,0,0,.10); }
-    .leaflet-control-attribution { background: rgba(255,255,255,.8); backdrop-filter: blur(4px); }
-    @media (max-width: 768px) { :root { --sidebar-w: 88vw; } }
   </style>
 </head>
 <body>
   <div id="map"></div>
+  <div class="info" id="status">Cargando rutas…</div>
 
-  <header class="topbar">
-    <div class="brand">Lima Rutas</div>
-    <div style="opacity:.75">Solo “corredor” desde <code>rutas-lima.geojson</code></div>
-  </header>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+    defer
+  ></script>
+  <!-- Conversor Overpass JSON -> GeoJSON -->
+  <script src="https://unpkg.com/osmtogeojson@2.2.12/osmtogeojson.js" defer></script>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-header"><strong>Rutas (corredores)</strong></div>
-    <div id="routeList" class="sidebar-body"></div>
-  </aside>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    // Mapa base (Lima)
-    const map = L.map('map', { zoomControl: false }).setView([-12.0464, -77.0428], 12);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 20, attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
-    L.control.scale().addTo(map);
-
-    // Sidebar y capa de rutas
-    const rutasCapa = L.layerGroup().addTo(map);
-    const lista = document.getElementById('routeList');
-
-    // Color determinístico por nombre
-    function colorFromString(s) {
-      let h=0; for (let i=0;i<s.length;i++) h = (h*31 + s.charCodeAt(i)) >>> 0;
-      const hue = h % 360; return `hsl(${h} 85% 45%)`;
-    }
-
-    // Cargar GeoJSON ya filtrado (solo corredores)
-    fetch('rutas-lima.geojson')
-      .then(r => r.json())
-      .then(geo => {
-        rutasCapa.clearLayers();
-        lista.innerHTML = '';
-        const bounds = L.latLngBounds();
-        const layer = L.geoJSON(geo, {
-          style: f => {
-            const c = f.properties?.color || colorFromString(f.properties?.id || f.properties?.name || '');
-            return { color: c, weight: 4, opacity: 0.95 };
-          },
-          onEachFeature: (f, lyr) => {
-            const id = f.properties?.id || f.properties?.name || 'Ruta';
-            lyr.bindPopup(id);
-            if (lyr.getBounds) bounds.extend(lyr.getBounds());
-
-            const btn = document.createElement('button');
-            btn.className = 'route-item';
-            btn.innerHTML = `<div>${id}</div><div style="color:#666;font-size:12px;">Línea</div>`;
-            btn.style.borderLeftColor = (lyr.options && lyr.options.color) || '#888';
-            btn.onclick = () => {
-              if (lyr.getBounds) map.fitBounds(lyr.getBounds(), { padding: [40, 40] });
-              lyr.openPopup();
-            };
-            lista.appendChild(btn);
-          }
-        }).addTo(rutasCapa);
-
-        if (bounds.isValid()) map.fitBounds(bounds, { padding: [60, 80] });
-        if (!geo.features || !geo.features.length) {
-          const note = document.createElement('div');
-          note.style.cssText = 'padding:10px;border:1px dashed #bbb;border-radius:8px;background:#fff;';
-          note.textContent = 'Aún no hay rutas. Sube un rutas-lima.geojson con solo “corredor”.';
-          lista.appendChild(note);
-        }
-      })
-      .catch(err => {
-        console.error(err);
-        const note = document.createElement('div');
-        note.style.cssText = 'padding:10px;border:1px dashed #bbb;border-radius:8px;background:#fff;';
-        note.textContent = 'No se pudo cargar rutas-lima.geojson.';
-        lista.appendChild(note);
-      });
-  </script>
+  <script defer src="app.js"></script>
 </body>
 </html>
