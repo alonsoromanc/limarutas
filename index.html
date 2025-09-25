@@ -2,86 +2,187 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
+  <title>Rutas OSM – A/B/C con Ida/Vuelta y Paradas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rutas A/B/C en OSM (Leaflet)</title>
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    integrity="sha256-sA+e2at3b0w2Qia3h9rJf9C5u8pLw2Lr2GZ8F2bCiS0="
     crossorigin=""
   />
   <style>
-    html, body, #map { height: 100%; margin: 0; }
-    #info {
+    html, body { height: 100%; margin: 0; }
+    #map { height: 100%; width: 100%; }
+    .topbar {
       position: absolute; z-index: 1000; top: 10px; left: 10px;
-      background: #fff; padding: 8px 10px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,.15);
-      font: 14px system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", "Noto Sans", Arial;
+      background: #ffffff; border: 1px solid #ddd; border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+      padding: 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .topbar label { font-size: 13px; color: #333; }
+    .topbar select, .topbar input[type="checkbox"] {
+      font-size: 14px; padding: 4px 6px;
     }
     .legend {
-      margin-top: 6px; line-height: 1.3;
+      position: absolute; z-index: 1000; bottom: 16px; left: 10px;
+      background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 8px 10px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: 13px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
     }
-    .swatch { display:inline-block; width: 12px; height: 12px; border-radius: 2px; margin-right: 6px; vertical-align: -2px; }
+    .legend .item { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+    .legend .swatch { width: 14px; height: 4px; border-radius: 2px; display: inline-block; }
+    #status {
+      position: absolute; z-index: 1000; bottom: 16px; right: 10px;
+      background: rgba(255,255,255,.95); border: 1px solid #ddd; border-radius: 6px; padding: 6px 8px;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-size: 12px; color: #444;
+    }
   </style>
 </head>
 <body>
-  <div id="map"></div>
-  <div id="info">
-    <div><strong>Rutas</strong></div>
-    <div class="legend">
-      <span class="swatch" style="background:#00cfff"></span> Ruta A (celeste)<br/>
-      <span class="swatch" style="background:#ff8c00"></span> Ruta B (naranja)<br/>
-      <span class="swatch" style="background:#7fff00"></span> Ruta C (verde lima)
-    </div>
-    <div id="status" style="margin-top:6px; color:#666">Cargando datos…</div>
+  <div class="topbar">
+    <label for="routeSelect">Ruta:</label>
+    <select id="routeSelect">
+      <option value="ALL">Todas</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+
+    <label for="dirSelect">Dirección:</label>
+    <select id="dirSelect">
+      <option value="AMBAS">Ambas</option>
+      <option value="IDA">Ida (N→S)</option>
+      <option value="VUELTA">Vuelta (S→N)</option>
+    </select>
+
+    <label><input type="checkbox" id="showStops" /> Mostrar paradas</label>
   </div>
+
+  <div id="map"></div>
+
+  <div class="legend">
+    <div class="item"><span class="swatch" style="background:#00BFFF"></span> Ruta A (celeste)</div>
+    <div class="item"><span class="swatch" style="background:#FF8C00"></span> Ruta B (naranja)</div>
+    <div class="item"><span class="swatch" style="background:#7CFC00"></span> Ruta C (verde lima)</div>
+  </div>
+
+  <div id="status">Cargando datos…</div>
 
   <script
     src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    integrity="sha256-o9N1j7kGStb8fVwdS9N1WfCDrR0bqPc9Ff2R3o0iP2I="
     crossorigin=""
   ></script>
   <script>
-    // 1) Ajusta esta ruta al JSON que subiste a tu repo (GitHub Pages sirve sólo por HTTPS)
-    // Si el JSON está junto a index.html, deja './metropolitano.json'
-    const JSON_URL = './metropolitano.json';
+    // ========= Config =========
+    const JSON_URL = 'metropolitano.json'; // pon aquí tu archivo JSON
+    const LINE_WEIGHT = 7; // grosor de líneas
+    const LINE_OPACITY = 0.95;
 
-    // 2) Mapa base
-    const map = L.map('map', { zoomControl: true });
-    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; colaboradores de OpenStreetMap'
-    }).addTo(map);
-
-    // 3) Grupos por ruta con colores fijos solicitados
-    const colors = { A: '#00cfff', B: '#ff8c00', C: '#7fff00' };
-    const groups = {
-      A: L.layerGroup().addTo(map),
-      B: L.layerGroup().addTo(map),
-      C: L.layerGroup().addTo(map)
+    const colors = {
+      A: '#00BFFF',  // celeste
+      B: '#FF8C00',  // naranja (un poco más fuerte)
+      C: '#7CFC00'   // verde lima
     };
 
-    // 4) Utilitario: construir LineString desde nodes
-    function wayToLatLngs(way, nodeIndex) {
-      const pts = [];
-      for (const nid of way.nodes || []) {
-        const n = nodeIndex.get(nid);
-        if (n) pts.push([n.lat, n.lon]);
-      }
-      return pts;
+    const statusEl = document.getElementById('status');
+    const routeSelect = document.getElementById('routeSelect');
+    const dirSelect = document.getElementById('dirSelect');
+    const showStops = document.getElementById('showStops');
+
+    // ========= Mapa =========
+    const map = L.map('map', { zoomControl: true });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    map.setView([ -12.05, -77.05 ], 12); // Lima centro aprox. Se reajustará con fitBounds.
+
+    // Capa base por ruta y dirección
+    const layers = {
+      A: { IDA: L.layerGroup().addTo(map), VUELTA: L.layerGroup().addTo(map), STOPS: L.layerGroup().addTo(map) },
+      B: { IDA: L.layerGroup().addTo(map), VUELTA: L.layerGroup().addTo(map), STOPS: L.layerGroup().addTo(map) },
+      C: { IDA: L.layerGroup().addTo(map), VUELTA: L.layerGroup().addTo(map), STOPS: L.layerGroup().addTo(map) }
+    };
+
+    // Índices OSM
+    const nodeIndex = new Map();
+    const wayIndex = new Map();
+    const rels = [];
+
+    function bucketFor(tags) {
+      if (!tags) return null;
+      const ref = (tags.ref || '').trim();
+      const name = (tags.name || '').trim();
+
+      if (/^a$/i.test(ref) || /\bRuta\s*A\b/i.test(name)) return 'A';
+      if (/^b$/i.test(ref) || /\bRuta\s*B\b/i.test(name)) return 'B';
+      if (/^c$/i.test(ref) || /\bRuta\s*C\b/i.test(name)) return 'C';
+
+      // si no logramos identificar, devolver null para ignorar
+      return null;
     }
 
-    // 5) Parsear Overpass JSON -> dibujar
-    async function loadAndRender() {
-      const status = document.getElementById('status');
-      try {
-        const res = await fetch(JSON_URL, { cache: 'no-store' });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
+    function wayToLatLngs(way) {
+      const nodes = way.nodes || way.refs || [];
+      const latlngs = [];
+      for (const nid of nodes) {
+        const n = nodeIndex.get(nid);
+        if (n && typeof n.lat === 'number' && typeof n.lon === 'number') {
+          latlngs.push([ n.lat, n.lon ]);
+        }
+      }
+      return latlngs;
+    }
 
-        // Índice de nodos, ways y relations
-        const nodeIndex = new Map();
-        const wayIndex  = new Map();
-        const rels = [];
+    // Calcula dirección promedio por latitud
+    // Ida = norte→sur (latitudes decrecen) => dy < 0
+    // Vuelta = sur→norte (latitudes crecen) => dy > 0
+    function directionOf(latlngs) {
+      let dy = 0;
+      for (let i = 0; i < latlngs.length - 1; i++) {
+        dy += (latlngs[i+1][0] - latlngs[i][0]);
+      }
+      if (dy < 0) return 'IDA';
+      if (dy > 0) return 'VUELTA';
+      // si es plano/indeterminado, lo consideramos Ida por defecto
+      return 'IDA';
+    }
+
+    function isStopNode(node, role) {
+      const t = node.tags || {};
+      const roleStr = (role || '').toLowerCase();
+
+      // tags típicas de paradas
+      const isBusStop = t.highway === 'bus_stop';
+      const isPTPlatform = t.public_transport === 'platform' || t.public_transport === 'stop_position';
+      const roleLooksStop = /stop|platform/.test(roleStr);
+
+      return isBusStop || isPTPlatform || roleLooksStop;
+    }
+
+    function addStopMarker(bucket, nodeId, node) {
+      const col = colors[bucket] || '#666';
+      const name = (node.tags && (node.tags.name || node.tags['name:es'])) || node.tags?.ref || `Parada ${nodeId}`;
+      const marker = L.circleMarker([node.lat, node.lon], {
+        radius: 4.5,
+        weight: 2,
+        color: col,
+        fillColor: col,
+        fillOpacity: 0.85
+      }).bindPopup(`<strong>${name}</strong>${node.tags?.direction ? `<br/>Dir: ${node.tags.direction}` : ''}`);
+      marker.addTo(layers[bucket].STOPS);
+    }
+
+    async function loadAndRender() {
+      try {
+        statusEl.textContent = 'Cargando datos…';
+        const resp = await fetch(JSON_URL);
+        if (!resp.ok) throw new Error('No se pudo cargar el JSON: ' + resp.status);
+        const data = await resp.json();
+
         for (const el of data.elements || []) {
           if (el.type === 'node') nodeIndex.set(el.id, el);
           else if (el.type === 'way') wayIndex.set(el.id, el);
@@ -91,63 +192,140 @@
         let bounds = [];
         let any = false;
 
-        // Intentamos asignar cada relation a A/B/C por alguna tag
-        // Cambia estas reglas si tus relations tienen otras etiquetas
-        function bucketFor(tags) {
-          if (!tags) return null;
-          // ejemplos: route=bus, ref=A/B/C, name contiene A/B/C
-          if (/^a$/i.test(tags.ref) || /\bRuta\s*A\b/i.test(tags.name || '')) return 'A';
-          if (/^b$/i.test(tags.ref) || /\bRuta\s*B\b/i.test(tags.name || '')) return 'B';
-          if (/^c$/i.test(tags.ref) || /\bRuta\s*C\b/i.test(tags.name || '')) return 'C';
-          return null;
-        }
+        // Para evitar paradas duplicadas por relación
+        const addedStops = { A: new Set(), B: new Set(), C: new Set() };
 
         for (const rel of rels) {
-          const bucket = bucketFor(rel.tags) || 'A'; // por defecto A si no identificamos
-          const layer = groups[bucket];
+          const bucket = bucketFor(rel.tags);
+          if (!bucket) continue; // ignoramos relaciones no A/B/C
           const color = colors[bucket];
 
-          // miembros tipo way
+          // 1) Ways → polilíneas separadas por dirección
           const memberWays = (rel.members || []).filter(m => m.type === 'way');
           for (const m of memberWays) {
             const way = wayIndex.get(m.ref);
             if (!way) continue;
-            const latlngs = wayToLatLngs(way, nodeIndex);
+            const latlngs = wayToLatLngs(way);
             if (latlngs.length >= 2) {
-              L.polyline(latlngs, { color, weight: 4, opacity: 0.9 }).addTo(layer);
+              const dir = directionOf(latlngs); // IDA o VUELTA
+              L.polyline(latlngs, { color, weight: LINE_WEIGHT, opacity: LINE_OPACITY })
+                .addTo(layers[bucket][dir])
+                .bindPopup(`<strong>Ruta ${bucket}</strong><br/>Dirección: ${dir}`);
               bounds.push(...latlngs);
               any = true;
             }
           }
+
+          // 2) Paradas (nodes en la relation con roles típicos o tags de parada)
+          const memberNodes = (rel.members || []).filter(m => m.type === 'node');
+          for (const m of memberNodes) {
+            const node = nodeIndex.get(m.ref);
+            if (!node) continue;
+            if (isStopNode(node, m.role)) {
+              if (!addedStops[bucket].has(node.id)) {
+                addStopMarker(bucket, node.id, node);
+                addedStops[bucket].add(node.id);
+              }
+            }
+          }
         }
 
-        if (any) {
-          map.fitBounds(bounds, { padding: [20,20] });
-          status.textContent = 'Listo';
-        } else {
-          // Si no hubo relations o no se detectaron, probamos dibujar todos los ways
+        // Si no hubo relations válidas A/B/C, tratamos de dibujar todos los ways
+        if (!any) {
           let waysPlotted = 0;
           for (const way of wayIndex.values()) {
-            const latlngs = wayToLatLngs(way, nodeIndex);
+            const latlngs = wayToLatLngs(way);
             if (latlngs.length >= 2) {
-              L.polyline(latlngs, { color: '#666', weight: 3, opacity: 0.7 }).addTo(groups.A);
+              L.polyline(latlngs, { color: '#666', weight: LINE_WEIGHT - 2, opacity: 0.8 })
+                .addTo(layers.A.IDA); // capa dummy
               bounds.push(...latlngs);
               waysPlotted++;
             }
           }
           if (waysPlotted) {
-            map.fitBounds(bounds, { padding: [20,20] });
-            status.textContent = 'Listo (dibujados ways sin relation)';
+            map.fitBounds(bounds, { padding: [20, 20] });
+            statusEl.textContent = 'Listo (dibujados ways sin relation)';
           } else {
-            status.textContent = 'No se encontraron líneas que dibujar en el JSON';
+            statusEl.textContent = 'No se encontraron líneas que dibujar en el JSON';
           }
+        } else {
+          map.fitBounds(bounds, { padding: [20, 20] });
+          statusEl.textContent = 'Listo';
         }
+
+        // Inicial: mostrar todas las rutas y ambas direcciones, paradas ocultas
+        showStops.checked = false;
+        updateVisibility();
+
       } catch (err) {
         console.error(err);
-        document.getElementById('status').textContent = 'Error cargando datos';
+        statusEl.textContent = 'Error cargando datos';
       }
     }
 
+    function clearAllLayersFromMap() {
+      for (const r of ['A','B','C']) {
+        for (const d of ['IDA','VUELTA']) {
+          layers[r][d].eachLayer(l => map.removeLayer(l));
+          // Volvemos a añadir el LayerGroup vacío para poder reusar addTo posteriormente
+          layers[r][d] = L.layerGroup().addTo(map);
+        }
+        layers[r].STOPS.eachLayer(l => map.removeLayer(l));
+        layers[r].STOPS = L.layerGroup().addTo(map);
+      }
+    }
+
+    // No borramos, solo mostramos/ocultamos lo ya dibujado
+    function updateVisibility() {
+      const routeVal = routeSelect.value; // 'ALL' | 'A' | 'B' | 'C'
+      const dirVal = dirSelect.value;     // 'AMBAS' | 'IDA' | 'VUELTA'
+      const showStopsVal = showStops.checked;
+
+      // Primero ocultamos todo
+      for (const r of ['A','B','C']) {
+        for (const d of ['IDA','VUELTA']) {
+          layers[r][d].remove(); // quita del mapa, pero conserva contenido
+        }
+        layers[r].STOPS.remove();
+      }
+
+      // Lógica de qué mostrar
+      const routesToShow = (routeVal === 'ALL') ? ['A','B','C'] : [routeVal];
+      const dirsToShow = (dirVal === 'AMBAS') ? ['IDA','VUELTA'] : [dirVal];
+
+      let boundsLatLngs = [];
+
+      for (const r of routesToShow) {
+        for (const d of dirsToShow) {
+          layers[r][d].addTo(map);
+          // Acumula bounds
+          layers[r][d].eachLayer(pl => {
+            try {
+              const latlngs = pl.getLatLngs();
+              if (Array.isArray(latlngs) && latlngs.length) {
+                const flat = Array.isArray(latlngs[0]) ? latlngs.flat(Infinity) : latlngs;
+                for (const p of flat) boundsLatLngs.push([p.lat, p.lng]);
+              }
+            } catch {}
+          });
+        }
+        if (showStopsVal) {
+          layers[r].STOPS.addTo(map);
+        }
+      }
+
+      // Reajusta vista si hay algo visible
+      if (boundsLatLngs.length) {
+        map.fitBounds(boundsLatLngs, { padding: [20, 20] });
+      }
+    }
+
+    // Eventos UI
+    routeSelect.addEventListener('change', updateVisibility);
+    dirSelect.addEventListener('change', updateVisibility);
+    showStops.addEventListener('change', updateVisibility);
+
+    // Carga inicial
     loadAndRender();
   </script>
 </body>
