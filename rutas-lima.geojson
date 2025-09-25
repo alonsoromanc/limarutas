@@ -1,0 +1,66 @@
+{
+  "type": "FeatureCollection",
+  "name": "rutas-lima",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "relation/4080205",
+      "properties": {
+        "relation_id": 4080205,
+        "name": "Corredor Azul 302 → Dos de Mayo",
+        "ref": "302",
+        "network": "SIT",
+        "colour": "blue",
+        "sentido": "ida",
+        "description": "Ruta de ida",
+        "from": "Amancaes (Rimac)",
+        "to": "Dos de Mayo (Miraflores)",
+        "source": "OpenStreetMap (relation 4080205)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/13572648",
+      "properties": {
+        "relation_id": 13572648,
+        "name": "Corredor Azul 306 -> Javier Prado",
+        "ref": "306",
+        "network": "SIT",
+        "colour": "blue",
+        "sentido": "ida",
+        "description": "Servicio de ida",
+        "from": "Flor de Amancaes (RImac)",
+        "to": "Javier Prado (San Isidro)",
+        "source": "OpenStreetMap (relation 13572648)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "relation/13736434",
+      "properties": {
+        "relation_id": 13736434,
+        "name": "Corredor Rojo 204 -> Contisuyo",
+        "ref": "204",
+        "network": "SIT",
+        "colour": "red",
+        "sentido": "ida",
+        "description": "Servicio de ida",
+        "from": "Víctor Malászquez (Pachacamac)",
+        "to": "Contisuyo (San Miguel)",
+        "source": "OpenStreetMap (relation 13736434)"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": []
+      }
+    }
+  ]
+}
