@@ -1,0 +1,310 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_norte",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "tupac-amaru",
+        "name": "Túpac Amaru",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Túpac Amaru"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.060586,
+          -11.976618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "palmeras",
+        "name": "Palmeras",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Palmeras"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.071946,
+          -11.97833
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "universitaria",
+        "name": "Universitaria",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Universitaria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.07641,
+          -11.97806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "ovalo-huandoy",
+        "name": "Óvalo Huandoy",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Óvalo Huandoy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.082829,
+          -11.976586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "jardines-de-naranjal",
+        "name": "Jardines de Naranjal",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Jardines de Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.092885,
+          -11.977536
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "los-olivos",
+        "name": "Los Olivos",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Los Olivos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.099304,
+          -11.983299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "dominicos",
+        "name": "Dominicos",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Dominicos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.094539,
+          -12.012985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "bertello",
+        "name": "Bertello",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Bertello"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.114333,
+          -11.998194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "aduanas",
+        "name": "Aduanas",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Aduanas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.105194,
+          -12.0245
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "monark",
+        "name": "Monark",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Monark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.100685,
+          -12.032853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1163,
+          -12.0328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#1f78b4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.060586,
+            -11.976618
+          ],
+          [
+            -77.071946,
+            -11.97833
+          ],
+          [
+            -77.07641,
+            -11.97806
+          ],
+          [
+            -77.082829,
+            -11.976586
+          ],
+          [
+            -77.092885,
+            -11.977536
+          ],
+          [
+            -77.099304,
+            -11.983299
+          ],
+          [
+            -77.094539,
+            -12.012985
+          ],
+          [
+            -77.114333,
+            -11.998194
+          ],
+          [
+            -77.105194,
+            -12.0245
+          ],
+          [
+            -77.100685,
+            -12.032853
+          ],
+          [
+            -77.1163,
+            -12.0328
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,284 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_centro",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "plaza-san-martin",
+        "name": "Plaza San Martín",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Plaza San Martín"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.035059,
+          -12.051074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "tacna",
+        "name": "Tacna",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Tacna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.038694,
+          -12.048944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "universidad",
+        "name": "Universidad",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Universidad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.040694,
+          -12.047611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "tingo-maria",
+        "name": "Tingo María",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Tingo María"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.053111,
+          -12.047333
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "duenas",
+        "name": "Dueñas",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Dueñas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.064667,
+          -12.0485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "universitaria",
+        "name": "Universitaria",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Universitaria"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.07775,
+          -12.049778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "faucett",
+        "name": "Faucett",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Faucett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098221,
+          -12.048898
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "hospital-san-jose",
+        "name": "Hospital San José",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Hospital San José"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098889,
+          -12.041556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Quilca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098989,
+          -12.038559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1163,
+          -12.0328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#e31a1c",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.035059,
+            -12.051074
+          ],
+          [
+            -77.038694,
+            -12.048944
+          ],
+          [
+            -77.040694,
+            -12.047611
+          ],
+          [
+            -77.053111,
+            -12.047333
+          ],
+          [
+            -77.064667,
+            -12.0485
+          ],
+          [
+            -77.07775,
+            -12.049778
+          ],
+          [
+            -77.098221,
+            -12.048898
+          ],
+          [
+            -77.098889,
+            -12.041556
+          ],
+          [
+            -77.098989,
+            -12.038559
+          ],
+          [
+            -77.1163,
+            -12.0328
+          ]
+        ]
+      }
+    }
+  ]
+}

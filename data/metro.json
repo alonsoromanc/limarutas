@@ -1,0 +1,5914 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.8 e802775f",
+  "osm3s": {
+    "timestamp_osm_base": "2025-09-25T18:29:38Z",
+    "timestamp_areas_base": "2025-09-25T15:07:44Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "way",
+  "id": 159091231,
+  "bounds": {
+    "minlat": -12.1805213,
+    "minlon": -76.9493728,
+    "maxlat": -12.1719842,
+    "maxlon": -76.9471471
+  },
+  "geometry": [
+    { "lat": -12.1805213, "lon": -76.9471471 },
+    { "lat": -12.1799998, "lon": -76.9472289 },
+    { "lat": -12.1797591, "lon": -76.9472689 },
+    { "lat": -12.1796300, "lon": -76.9473048 },
+    { "lat": -12.1794517, "lon": -76.9473680 },
+    { "lat": -12.1791634, "lon": -76.9474821 },
+    { "lat": -12.1790183, "lon": -76.9475453 },
+    { "lat": -12.1779081, "lon": -76.9481566 },
+    { "lat": -12.1777382, "lon": -76.9482589 },
+    { "lat": -12.1765429, "lon": -76.9489202 },
+    { "lat": -12.1763865, "lon": -76.9490087 },
+    { "lat": -12.1761736, "lon": -76.9491096 },
+    { "lat": -12.1759038, "lon": -76.9492068 },
+    { "lat": -12.1755962, "lon": -76.9492900 },
+    { "lat": -12.1754384, "lon": -76.9493153 },
+    { "lat": -12.1752406, "lon": -76.9493334 },
+    { "lat": -12.1750471, "lon": -76.9493536 },
+    { "lat": -12.1746704, "lon": -76.9493693 },
+    { "lat": -12.1737191, "lon": -76.9493728 },
+    { "lat": -12.1735262, "lon": -76.9493630 },
+    { "lat": -12.1733334, "lon": -76.9493447 },
+    { "lat": -12.1729465, "lon": -76.9492709 },
+    { "lat": -12.1722040, "lon": -76.9491252 },
+    { "lat": -12.1720539, "lon": -76.9491114 },
+    { "lat": -12.1719842, "lon": -76.9491071 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 159091235,
+  "bounds": {
+    "minlat": -12.1977725,
+    "minlon": -76.9392653,
+    "maxlat": -12.1973577,
+    "maxlon": -76.9390146
+  },
+  "geometry": [
+    { "lat": -12.1977725, "lon": -76.9390146 },
+    { "lat": -12.1973577, "lon": -76.9392653 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 159091242,
+  "bounds": {
+    "minlat": -12.2051097,
+    "minlon": -76.9390146,
+    "maxlat": -12.1977725,
+    "maxlon": -76.9346155
+  },
+  "geometry": [
+    { "lat": -12.2051097, "lon": -76.9346155 },
+    { "lat": -12.1977725, "lon": -76.9390146 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 159091246,
+  "bounds": {
+    "minlat": -12.1973577,
+    "minlon": -76.9440423,
+    "maxlat": -12.1893922,
+    "maxlon": -76.9392653
+  },
+  "geometry": [
+    { "lat": -12.1973577, "lon": -76.9392653 },
+    { "lat": -12.1963839, "lon": -76.9398470 },
+    { "lat": -12.1893922, "lon": -76.9440423 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 159091250,
+  "bounds": {
+    "minlat": -12.1893922,
+    "minlon": -76.9466741,
+    "maxlat": -12.1836683,
+    "maxlon": -76.9440423
+  },
+  "geometry": [
+    { "lat": -12.1893922, "lon": -76.9440423 },
+    { "lat": -12.1878431, "lon": -76.9449767 },
+    { "lat": -12.1859806, "lon": -76.9461010 },
+    { "lat": -12.1857205, "lon": -76.9462212 },
+    { "lat": -12.1853765, "lon": -76.9463585 },
+    { "lat": -12.1850410, "lon": -76.9464615 },
+    { "lat": -12.1836683, "lon": -76.9466741 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 201449671,
+  "bounds": {
+    "minlat": -12.1581063,
+    "minlon": -76.9696365,
+    "maxlat": -12.1548953,
+    "maxlon": -76.9616912
+  },
+  "geometry": [
+    { "lat": -12.1581063, "lon": -76.9616912 },
+    { "lat": -12.1565459, "lon": -76.9655521 },
+    { "lat": -12.1558439, "lon": -76.9672893 },
+    { "lat": -12.1551340, "lon": -76.9690460 },
+    { "lat": -12.1548953, "lon": -76.9696365 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 201449674,
+  "bounds": {
+    "minlat": -12.1603419,
+    "minlon": -76.9616912,
+    "maxlat": -12.1581063,
+    "maxlon": -76.9569397
+  },
+  "geometry": [
+    { "lat": -12.1603419, "lon": -76.9569397 },
+    { "lat": -12.1601654, "lon": -76.9571473 },
+    { "lat": -12.1600734, "lon": -76.9572621 },
+    { "lat": -12.1599719, "lon": -76.9574013 },
+    { "lat": -12.1598901, "lon": -76.9575199 },
+    { "lat": -12.1597986, "lon": -76.9576583 },
+    { "lat": -12.1596977, "lon": -76.9578348 },
+    { "lat": -12.1596159, "lon": -76.9579851 },
+    { "lat": -12.1595297, "lon": -76.9581671 },
+    { "lat": -12.1581063, "lon": -76.9616912 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 279766446,
+  "bounds": {
+    "minlat": -12.2052946,
+    "minlon": -76.9346155,
+    "maxlat": -12.2051097,
+    "maxlon": -76.9344920
+  },
+  "geometry": [
+    { "lat": -12.2052946, "lon": -76.9344920 },
+    { "lat": -12.2051097, "lon": -76.9346155 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 279766447,
+  "bounds": {
+    "minlat": -12.2073288,
+    "minlon": -76.9344920,
+    "maxlat": -12.2052946,
+    "maxlon": -76.9332813
+  },
+  "geometry": [
+    { "lat": -12.2073288, "lon": -76.9332813 },
+    { "lat": -12.2052946, "lon": -76.9344920 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 294606705,
+  "bounds": {
+    "minlat": -12.0361655,
+    "minlon": -77.0123438,
+    "maxlat": -12.0289518,
+    "maxlon": -77.0116764
+  },
+  "geometry": [
+    { "lat": -12.0361655, "lon": -77.0123438 },
+    { "lat": -12.0349733, "lon": -77.0120152 },
+    { "lat": -12.0348157, "lon": -77.0119807 },
+    { "lat": -12.0345847, "lon": -77.0119385 },
+    { "lat": -12.0343901, "lon": -77.0119201 },
+    { "lat": -12.0341955, "lon": -77.0119078 },
+    { "lat": -12.0338305, "lon": -77.0119125 },
+    { "lat": -12.0335654, "lon": -77.0119212 },
+    { "lat": -12.0327783, "lon": -77.0120391 },
+    { "lat": -12.0318741, "lon": -77.0121850 },
+    { "lat": -12.0315646, "lon": -77.0122236 },
+    { "lat": -12.0313063, "lon": -77.0122277 },
+    { "lat": -12.0310625, "lon": -77.0122300 },
+    { "lat": -12.0309392, "lon": -77.0122140 },
+    { "lat": -12.0307426, "lon": -77.0121809 },
+    { "lat": -12.0298611, "lon": -77.0119528 },
+    { "lat": -12.0289518, "lon": -77.0116764 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 294606706,
+  "bounds": {
+    "minlat": -12.0375198,
+    "minlon": -77.0126967,
+    "maxlat": -12.0361655,
+    "maxlon": -77.0123438
+  },
+  "geometry": [
+    { "lat": -12.0375198, "lon": -77.0126967 },
+    { "lat": -12.0361655, "lon": -77.0123438 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 328778370,
+  "bounds": {
+    "minlat": -12.0763010,
+    "minlon": -77.0118653,
+    "maxlat": -12.0690479,
+    "maxlon": -77.0108840
+  },
+  "geometry": [
+    { "lat": -12.0763010, "lon": -77.0108840 },
+    { "lat": -12.0747220, "lon": -77.0110976 },
+    { "lat": -12.0690479, "lon": -77.0118653 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 375937298,
+  "bounds": {
+    "minlat": -12.1715460,
+    "minlon": -76.9492270,
+    "maxlat": -12.1712026,
+    "maxlon": -76.9491262
+  },
+  "geometry": [
+    { "lat": -12.1715460, "lon": -76.9491262 },
+    { "lat": -12.1714519, "lon": -76.9491472 },
+    { "lat": -12.1712026, "lon": -76.9492270 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 392010398,
+  "bounds": {
+    "minlat": -12.1515126,
+    "minlon": -76.9800469,
+    "maxlat": -12.1505931,
+    "maxlon": -76.9779618
+  },
+  "geometry": [
+    { "lat": -12.1515126, "lon": -76.9779618 },
+    { "lat": -12.1508811, "lon": -76.9793939 },
+    { "lat": -12.1505931, "lon": -76.9800469 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 392010399,
+  "bounds": {
+    "minlat": -12.1505931,
+    "minlon": -76.9867672,
+    "maxlat": -12.1474133,
+    "maxlon": -76.9800469
+  },
+  "geometry": [
+    { "lat": -12.1505931, "lon": -76.9800469 },
+    { "lat": -12.1503973, "lon": -76.9804862 },
+    { "lat": -12.1503727, "lon": -76.9805413 },
+    { "lat": -12.1497506, "lon": -76.9819501 },
+    { "lat": -12.1494794, "lon": -76.9825581 },
+    { "lat": -12.1491277, "lon": -76.9833524 },
+    { "lat": -12.1486983, "lon": -76.9842790 },
+    { "lat": -12.1480868, "lon": -76.9854788 },
+    { "lat": -12.1474886, "lon": -76.9866372 },
+    { "lat": -12.1474133, "lon": -76.9867672 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294543,
+  "bounds": {
+    "minlat": -12.1894010,
+    "minlon": -76.9467104,
+    "maxlat": -12.1836706,
+    "maxlon": -76.9440860
+  },
+  "geometry": [
+    { "lat": -12.1836706, "lon": -76.9467104 },
+    { "lat": -12.1843148, "lon": -76.9466021 },
+    { "lat": -12.1849257, "lon": -76.9465212 },
+    { "lat": -12.1851561, "lon": -76.9464630 },
+    { "lat": -12.1854117, "lon": -76.9463920 },
+    { "lat": -12.1855732, "lon": -76.9463324 },
+    { "lat": -12.1857346, "lon": -76.9462642 },
+    { "lat": -12.1858469, "lon": -76.9462100 },
+    { "lat": -12.1859887, "lon": -76.9461300 },
+    { "lat": -12.1864813, "lon": -76.9458318 },
+    { "lat": -12.1870896, "lon": -76.9454665 },
+    { "lat": -12.1875446, "lon": -76.9451961 },
+    { "lat": -12.1883426, "lon": -76.9447213 },
+    { "lat": -12.1894010, "lon": -76.9440860 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294546,
+  "bounds": {
+    "minlat": -12.1836706,
+    "minlon": -76.9468843,
+    "maxlat": -12.1825309,
+    "maxlon": -76.9467104
+  },
+  "geometry": [
+    { "lat": -12.1825309, "lon": -76.9468843 },
+    { "lat": -12.1836706, "lon": -76.9467104 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294549,
+  "bounds": {
+    "minlat": -12.2053188,
+    "minlon": -76.9346512,
+    "maxlat": -12.2051286,
+    "maxlon": -76.9345311
+  },
+  "geometry": [
+    { "lat": -12.2051286, "lon": -76.9346512 },
+    { "lat": -12.2053188, "lon": -76.9345311 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294558,
+  "bounds": {
+    "minlat": -12.1977898,
+    "minlon": -76.9393119,
+    "maxlat": -12.1973718,
+    "maxlon": -76.9390523
+  },
+  "geometry": [
+    { "lat": -12.1973718, "lon": -76.9393119 },
+    { "lat": -12.1977898, "lon": -76.9390523 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294559,
+  "bounds": {
+    "minlat": -12.1719785,
+    "minlon": -76.9491541,
+    "maxlat": -12.1717681,
+    "maxlon": -76.9491499
+  },
+  "geometry": [
+    { "lat": -12.1717681, "lon": -76.9491499 },
+    { "lat": -12.1719785, "lon": -76.9491541 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294572,
+  "bounds": {
+    "minlat": -12.1712163,
+    "minlon": -76.9494653,
+    "maxlat": -12.1708386,
+    "maxlon": -76.9492788
+  },
+  "geometry": [
+    { "lat": -12.1708386, "lon": -76.9494653 },
+    { "lat": -12.1712163, "lon": -76.9492788 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294573,
+  "bounds": {
+    "minlat": -12.1973718,
+    "minlon": -76.9440860,
+    "maxlat": -12.1894010,
+    "maxlon": -76.9393119
+  },
+  "geometry": [
+    { "lat": -12.1894010, "lon": -76.9440860 },
+    { "lat": -12.1906183, "lon": -76.9433562 },
+    { "lat": -12.1956002, "lon": -76.9403694 },
+    { "lat": -12.1964118, "lon": -76.9398828 },
+    { "lat": -12.1973718, "lon": -76.9393119 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 394294577,
+  "bounds": {
+    "minlat": -12.2051286,
+    "minlon": -76.9390523,
+    "maxlat": -12.1977898,
+    "maxlon": -76.9346512
+  },
+  "geometry": [
+    { "lat": -12.1977898, "lon": -76.9390523 },
+    { "lat": -12.2051286, "lon": -76.9346512 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 437512638,
+  "bounds": {
+    "minlat": -12.0284634,
+    "minlon": -77.0115102,
+    "maxlat": -12.0269038,
+    "maxlon": -77.0108237
+  },
+  "geometry": [
+    { "lat": -12.0284634, "lon": -77.0115102 },
+    { "lat": -12.0276393, "lon": -77.0111475 },
+    { "lat": -12.0269038, "lon": -77.0108237 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 437512639,
+  "bounds": {
+    "minlat": -12.0289518,
+    "minlon": -77.0116764,
+    "maxlat": -12.0284634,
+    "maxlon": -77.0115102
+  },
+  "geometry": [
+    { "lat": -12.0289518, "lon": -77.0116764 },
+    { "lat": -12.0287076, "lon": -77.0115966 },
+    { "lat": -12.0284634, "lon": -77.0115102 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 442136643,
+  "bounds": {
+    "minlat": -12.1717674,
+    "minlon": -76.9491262,
+    "maxlat": -12.1715460,
+    "maxlon": -76.9491066
+  },
+  "geometry": [
+    { "lat": -12.1717674, "lon": -76.9491066 },
+    { "lat": -12.1716886, "lon": -76.9491100 },
+    { "lat": -12.1715460, "lon": -76.9491262 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 442136644,
+  "bounds": {
+    "minlat": -12.1719842,
+    "minlon": -76.9491071,
+    "maxlat": -12.1717674,
+    "maxlon": -76.9491066
+  },
+  "geometry": [
+    { "lat": -12.1719842, "lon": -76.9491071 },
+    { "lat": -12.1717674, "lon": -76.9491066 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 442136645,
+  "bounds": {
+    "minlat": -12.1715479,
+    "minlon": -76.9492788,
+    "maxlat": -12.1712163,
+    "maxlon": -76.9491699
+  },
+  "geometry": [
+    { "lat": -12.1712163, "lon": -76.9492788 },
+    { "lat": -12.1715479, "lon": -76.9491699 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 442136646,
+  "bounds": {
+    "minlat": -12.1717681,
+    "minlon": -76.9491699,
+    "maxlat": -12.1715479,
+    "maxlon": -76.9491499
+  },
+  "geometry": [
+    { "lat": -12.1715479, "lon": -76.9491699 },
+    { "lat": -12.1717681, "lon": -76.9491499 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 464871140,
+  "bounds": {
+    "minlat": -12.1605316,
+    "minlon": -76.9569397,
+    "maxlat": -12.1603419,
+    "maxlon": -76.9567478
+  },
+  "geometry": [
+    { "lat": -12.1605316, "lon": -76.9567478 },
+    { "lat": -12.1604310, "lon": -76.9568449 },
+    { "lat": -12.1603419, "lon": -76.9569397 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 543026867,
+  "bounds": {
+    "minlat": -11.9609220,
+    "minlon": -76.9883703,
+    "maxlat": -11.9595595,
+    "maxlon": -76.9874075
+  },
+  "geometry": [
+    { "lat": -11.9609220, "lon": -76.9883703 },
+    { "lat": -11.9595595, "lon": -76.9874075 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 548878970,
+  "bounds": {
+    "minlat": -12.0661860,
+    "minlon": -77.0123504,
+    "maxlat": -12.0652315,
+    "maxlon": -77.0121994
+  },
+  "geometry": [
+    { "lat": -12.0661826, "lon": -77.0121994 },
+    { "lat": -12.0661116, "lon": -77.0122094 },
+    { "lat": -12.0657151, "lon": -77.0122653 },
+    { "lat": -12.0653283, "lon": -77.0123231 },
+    { "lat": -12.0652315, "lon": -77.0123354 },
+    { "lat": -12.0652339, "lon": -77.0123504 },
+    { "lat": -12.0661860, "lon": -77.0122304 },
+    { "lat": -12.0661826, "lon": -77.0121994 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549415099,
+  "bounds": {
+    "minlat": -12.0073430,
+    "minlon": -77.0056478,
+    "maxlat": -12.0064692,
+    "maxlon": -77.0050746
+  },
+  "geometry": [
+    { "lat": -12.0064692, "lon": -77.0056309 },
+    { "lat": -12.0064796, "lon": -77.0056478 },
+    { "lat": -12.0073430, "lon": -77.0050910 },
+    { "lat": -12.0073328, "lon": -77.0050746 },
+    { "lat": -12.0071945, "lon": -77.0051639 },
+    { "lat": -12.0067859, "lon": -77.0054266 },
+    { "lat": -12.0064692, "lon": -77.0056309 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549570798,
+  "bounds": {
+    "minlat": -12.0073721,
+    "minlon": -77.0057091,
+    "maxlat": -12.0064998,
+    "maxlon": -77.0051354
+  },
+  "geometry": [
+    { "lat": -12.0073721, "lon": -77.0051510 },
+    { "lat": -12.0072373, "lon": -77.0052381 },
+    { "lat": -12.0068066, "lon": -77.0055172 },
+    { "lat": -12.0065098, "lon": -77.0057091 },
+    { "lat": -12.0064998, "lon": -77.0056930 },
+    { "lat": -12.0073625, "lon": -77.0051354 },
+    { "lat": -12.0073721, "lon": -77.0051510 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549570806,
+  "bounds": {
+    "minlat": -12.0184968,
+    "minlon": -77.0031315,
+    "maxlat": -12.0176440,
+    "maxlon": -77.0024568
+  },
+  "geometry": [
+    { "lat": -12.0176674, "lon": -77.0024568 },
+    { "lat": -12.0184968, "lon": -77.0031011 },
+    { "lat": -12.0184765, "lon": -77.0031315 },
+    { "lat": -12.0183541, "lon": -77.0030354 },
+    { "lat": -12.0182125, "lon": -77.0029242 },
+    { "lat": -12.0176440, "lon": -77.0024779 },
+    { "lat": -12.0176674, "lon": -77.0024568 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549572061,
+  "bounds": {
+    "minlat": -12.0406851,
+    "minlon": -77.0130593,
+    "maxlat": -12.0375198,
+    "maxlon": -77.0125371
+  },
+  "geometry": [
+    { "lat": -12.0406851, "lon": -77.0125371 },
+    { "lat": -12.0405279, "lon": -77.0126496 },
+    { "lat": -12.0403733, "lon": -77.0127433 },
+    { "lat": -12.0401258, "lon": -77.0128603 },
+    { "lat": -12.0397697, "lon": -77.0129792 },
+    { "lat": -12.0395974, "lon": -77.0130217 },
+    { "lat": -12.0392926, "lon": -77.0130548 },
+    { "lat": -12.0391734, "lon": -77.0130593 },
+    { "lat": -12.0389796, "lon": -77.0130383 },
+    { "lat": -12.0387769, "lon": -77.0130158 },
+    { "lat": -12.0385216, "lon": -77.0129533 },
+    { "lat": -12.0375198, "lon": -77.0126967 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549573366,
+  "bounds": {
+    "minlat": -12.0465869,
+    "minlon": -77.0099041,
+    "maxlat": -12.0455693,
+    "maxlon": -77.0095395
+  },
+  "geometry": [
+    { "lat": -12.0455693, "lon": -77.0098683 },
+    { "lat": -12.0459901, "lon": -77.0097308 },
+    { "lat": -12.0462030, "lon": -77.0096613 },
+    { "lat": -12.0465757, "lon": -77.0095395 },
+    { "lat": -12.0465822, "lon": -77.0095603 },
+    { "lat": -12.0465869, "lon": -77.0095753 },
+    { "lat": -12.0459996, "lon": -77.0097672 },
+    { "lat": -12.0455805, "lon": -77.0099041 },
+    { "lat": -12.0455773, "lon": -77.0098939 },
+    { "lat": -12.0455693, "lon": -77.0098683 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549573370,
+  "bounds": {
+    "minlat": -12.0466331,
+    "minlon": -77.0099725,
+    "maxlat": -12.0456250,
+    "maxlon": -77.0096187
+  },
+  "geometry": [
+    { "lat": -12.0456324, "lon": -77.0099725 },
+    { "lat": -12.0460221, "lon": -77.0098438 },
+    { "lat": -12.0460689, "lon": -77.0098284 },
+    { "lat": -12.0462248, "lon": -77.0097769 },
+    { "lat": -12.0466331, "lon": -77.0096421 },
+    { "lat": -12.0466257, "lon": -77.0096187 },
+    { "lat": -12.0460149, "lon": -77.0098204 },
+    { "lat": -12.0456250, "lon": -77.0099491 },
+    { "lat": -12.0456324, "lon": -77.0099725 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549574054,
+  "bounds": {
+    "minlat": -12.0546526,
+    "minlon": -77.0131147,
+    "maxlat": -12.0537992,
+    "maxlon": -77.0124342
+  },
+  "geometry": [
+    { "lat": -12.0538150, "lon": -77.0124342 },
+    { "lat": -12.0537992, "lon": -77.0124552 },
+    { "lat": -12.0546364, "lon": -77.0131147 },
+    { "lat": -12.0546526, "lon": -77.0130931 },
+    { "lat": -12.0543599, "lon": -77.0128625 },
+    { "lat": -12.0539578, "lon": -77.0125467 },
+    { "lat": -12.0538150, "lon": -77.0124342 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "3",
+    "lit": "yes",
+    "name": "Terminal Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549574058,
+  "bounds": {
+    "minlat": -12.0546012,
+    "minlon": -77.0131682,
+    "maxlat": -12.0537474,
+    "maxlon": -77.0124796
+  },
+  "geometry": [
+    { "lat": -12.0537474, "lon": -77.0125009 },
+    { "lat": -12.0537636, "lon": -77.0124796 },
+    { "lat": -12.0546012, "lon": -77.0131477 },
+    { "lat": -12.0545856, "lon": -77.0131682 },
+    { "lat": -12.0543036, "lon": -77.0129433 },
+    { "lat": -12.0539430, "lon": -77.0126570 },
+    { "lat": -12.0537474, "lon": -77.0125009 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "3",
+    "lit": "yes",
+    "name": "Terminal Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549576901,
+  "bounds": {
+    "minlat": -12.0421177,
+    "minlon": -77.0120631,
+    "maxlat": -12.0413239,
+    "maxlon": -77.0113870
+  },
+  "geometry": [
+    { "lat": -12.0413336, "lon": -77.0120631 },
+    { "lat": -12.0413239, "lon": -77.0120511 },
+    { "lat": -12.0421081, "lon": -77.0113870 },
+    { "lat": -12.0421177, "lon": -77.0113989 },
+    { "lat": -12.0419243, "lon": -77.0115628 },
+    { "lat": -12.0413336, "lon": -77.0120631 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549576902,
+  "bounds": {
+    "minlat": -12.0281674,
+    "minlon": -77.0113645,
+    "maxlat": -12.0271735,
+    "maxlon": -77.0109069
+  },
+  "geometry": [
+    { "lat": -12.0271858, "lon": -77.0109069 },
+    { "lat": -12.0271792, "lon": -77.0109228 },
+    { "lat": -12.0271735, "lon": -77.0109364 },
+    { "lat": -12.0277582, "lon": -77.0111914 },
+    { "lat": -12.0277978, "lon": -77.0112087 },
+    { "lat": -12.0281551, "lon": -77.0113645 },
+    { "lat": -12.0281616, "lon": -77.0113489 },
+    { "lat": -12.0281674, "lon": -77.0113350 },
+    { "lat": -12.0278086, "lon": -77.0111785 },
+    { "lat": -12.0277689, "lon": -77.0111612 },
+    { "lat": -12.0277423, "lon": -77.0111496 },
+    { "lat": -12.0272494, "lon": -77.0109347 },
+    { "lat": -12.0271858, "lon": -77.0109069 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "station": "subway"
+  }
+},
+{
+  "type": "way",
+  "id": 549580931,
+  "bounds": {
+    "minlat": -12.0753023,
+    "minlon": -77.0112208,
+    "maxlat": -12.0743253,
+    "maxlon": -77.0110705
+  },
+  "geometry": [
+    { "lat": -12.0743276, "lon": -77.0112208 },
+    { "lat": -12.0743253, "lon": -77.0111999 },
+    { "lat": -12.0752998, "lon": -77.0110705 },
+    { "lat": -12.0753023, "lon": -77.0110981 },
+    { "lat": -12.0751468, "lon": -77.0111178 },
+    { "lat": -12.0747574, "lon": -77.0111668 },
+    { "lat": -12.0743962, "lon": -77.0112122 },
+    { "lat": -12.0743276, "lon": -77.0112208 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "level": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549581833,
+  "bounds": {
+    "minlat": -12.0753035,
+    "minlon": -77.0111439,
+    "maxlat": -12.0743179,
+    "maxlon": -77.0109867
+  },
+  "geometry": [
+    { "lat": -12.0753010, "lon": -77.0109867 },
+    { "lat": -12.0751608, "lon": -77.0110080 },
+    { "lat": -12.0747623, "lon": -77.0110600 },
+    { "lat": -12.0743939, "lon": -77.0111081 },
+    { "lat": -12.0743179, "lon": -77.0111181 },
+    { "lat": -12.0743209, "lon": -77.0111439 },
+    { "lat": -12.0753035, "lon": -77.0110115 },
+    { "lat": -12.0753010, "lon": -77.0109867 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "level": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549584740,
+  "bounds": {
+    "minlat": -12.0871662,
+    "minlon": -77.0038214,
+    "maxlat": -12.0861610,
+    "maxlon": -77.0036524
+  },
+  "geometry": [
+    { "lat": -12.0861610, "lon": -77.0037919 },
+    { "lat": -12.0861649, "lon": -77.0038214 },
+    { "lat": -12.0871662, "lon": -77.0036818 },
+    { "lat": -12.0871623, "lon": -77.0036524 },
+    { "lat": -12.0862563, "lon": -77.0037786 },
+    { "lat": -12.0861610, "lon": -77.0037919 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "check_date:shelter": "2023-07-22",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Terminal Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549585144,
+  "bounds": {
+    "minlat": -12.0871533,
+    "minlon": -77.0039177,
+    "maxlat": -12.0861720,
+    "maxlon": -77.0037669
+  },
+  "geometry": [
+    { "lat": -12.0871533, "lon": -77.0037841 },
+    { "lat": -12.0871511, "lon": -77.0037669 },
+    { "lat": -12.0861720, "lon": -77.0038985 },
+    { "lat": -12.0861745, "lon": -77.0039177 },
+    { "lat": -12.0863907, "lon": -77.0038886 },
+    { "lat": -12.0869161, "lon": -77.0038160 },
+    { "lat": -12.0871533, "lon": -77.0037841 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "check_date:shelter": "2023-07-22",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Terminal Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549606667,
+  "bounds": {
+    "minlat": -12.1009248,
+    "minlon": -77.0019239,
+    "maxlat": -12.0998829,
+    "maxlon": -77.0017627
+  },
+  "geometry": [
+    { "lat": -12.1009248, "lon": -77.0017793 },
+    { "lat": -12.1009226, "lon": -77.0017627 },
+    { "lat": -12.0998829, "lon": -77.0019073 },
+    { "lat": -12.0998851, "lon": -77.0019239 },
+    { "lat": -12.1009248, "lon": -77.0017793 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549613094,
+  "bounds": {
+    "minlat": -12.1277047,
+    "minlon": -77.0005785,
+    "maxlat": -12.1267786,
+    "maxlon": -77.0001998
+  },
+  "geometry": [
+    { "lat": -12.1277047, "lon": -77.0005663 },
+    { "lat": -12.1275661, "lon": -77.0005115 },
+    { "lat": -12.1272892, "lon": -77.0004011 },
+    { "lat": -12.1268775, "lon": -77.0002368 },
+    { "lat": -12.1267841, "lon": -77.0001998 },
+    { "lat": -12.1267786, "lon": -77.0002144 },
+    { "lat": -12.1277001, "lon": -77.0005785 },
+    { "lat": -12.1277047, "lon": -77.0005663 }
+  ],
+  "tags": {
+    "area": "yes",
+    "layer": "2",
+    "level": "2",
+    "min_height": "7",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549613096,
+  "bounds": {
+    "minlat": -12.1276908,
+    "minlon": -77.0006908,
+    "maxlat": -12.1267388,
+    "maxlon": -77.0002755
+  },
+  "geometry": [
+    { "lat": -12.1267388, "lon": -77.0003112 },
+    { "lat": -12.1268605, "lon": -77.0003605 },
+    { "lat": -12.1272710, "lon": -77.0005269 },
+    { "lat": -12.1275607, "lon": -77.0006435 },
+    { "lat": -12.1276772, "lon": -77.0006908 },
+    { "lat": -12.1276908, "lon": -77.0006557 },
+    { "lat": -12.1267526, "lon": -77.0002755 },
+    { "lat": -12.1267388, "lon": -77.0003112 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "min_height": "7",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549615893,
+  "bounds": {
+    "minlat": -12.1351967,
+    "minlon": -76.9972929,
+    "maxlat": -12.1343122,
+    "maxlon": -76.9966456
+  },
+  "geometry": [
+    { "lat": -12.1343169, "lon": -76.9972929 },
+    { "lat": -12.1344805, "lon": -76.9971767 },
+    { "lat": -12.1349761, "lon": -76.9968184 },
+    { "lat": -12.1351342, "lon": -76.9967002 },
+    { "lat": -12.1351967, "lon": -76.9966534 },
+    { "lat": -12.1351917, "lon": -76.9966456 },
+    { "lat": -12.1343122, "lon": -76.9972846 },
+    { "lat": -12.1343169, "lon": -76.9972929 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549618468,
+  "bounds": {
+    "minlat": -12.1430310,
+    "minlon": -76.9914517,
+    "maxlat": -12.1421561,
+    "maxlon": -76.9906766
+  },
+  "geometry": [
+    { "lat": -12.1421655, "lon": -76.9914517 },
+    { "lat": -12.1421561, "lon": -76.9914406 },
+    { "lat": -12.1430213, "lon": -76.9906766 },
+    { "lat": -12.1430310, "lon": -76.9906882 },
+    { "lat": -12.1424636, "lon": -76.9911883 },
+    { "lat": -12.1421655, "lon": -76.9914517 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549623014,
+  "bounds": {
+    "minlat": -12.1510703,
+    "minlon": -76.9799276,
+    "maxlat": -12.1506146,
+    "maxlon": -76.9789405
+  },
+  "geometry": [
+    { "lat": -12.1510535, "lon": -76.9789405 },
+    { "lat": -12.1509329, "lon": -76.9792105 },
+    { "lat": -12.1507955, "lon": -76.9795183 },
+    { "lat": -12.1506266, "lon": -76.9798957 },
+    { "lat": -12.1506146, "lon": -76.9799221 },
+    { "lat": -12.1506262, "lon": -76.9799276 },
+    { "lat": -12.1510703, "lon": -76.9789484 },
+    { "lat": -12.1510586, "lon": -76.9789429 },
+    { "lat": -12.1510535, "lon": -76.9789405 }
+  ],
+  "tags": {
+    "area": "yes",
+    "layer": "2",
+    "level": "2",
+    "min_height": "7",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549623015,
+  "bounds": {
+    "minlat": -12.1511430,
+    "minlon": -76.9799589,
+    "maxlat": -12.1506918,
+    "maxlon": -76.9789663
+  },
+  "geometry": [
+    { "lat": -12.1507161, "lon": -76.9799589 },
+    { "lat": -12.1507317, "lon": -76.9799228 },
+    { "lat": -12.1508932, "lon": -76.9795536 },
+    { "lat": -12.1510099, "lon": -76.9792875 },
+    { "lat": -12.1511430, "lon": -76.9789792 },
+    { "lat": -12.1511336, "lon": -76.9789749 },
+    { "lat": -12.1511146, "lon": -76.9789663 },
+    { "lat": -12.1506918, "lon": -76.9799479 },
+    { "lat": -12.1507161, "lon": -76.9799589 }
+  ],
+  "tags": {
+    "area": "yes",
+    "layer": "2",
+    "level": "2",
+    "min_height": "7",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549626059,
+  "bounds": {
+    "minlat": -12.1566358,
+    "minlon": -76.9662826,
+    "maxlat": -12.1561864,
+    "maxlon": -76.9652857
+  },
+  "geometry": [
+    { "lat": -12.1566097, "lon": -76.9652991 },
+    { "lat": -12.1566358, "lon": -76.9653101 },
+    { "lat": -12.1562444, "lon": -76.9662826 },
+    { "lat": -12.1561864, "lon": -76.9662581 },
+    { "lat": -12.1565777, "lon": -76.9652857 },
+    { "lat": -12.1566097, "lon": -76.9652991 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549626060,
+  "bounds": {
+    "minlat": -12.1567398,
+    "minlon": -76.9663187,
+    "maxlat": -12.1562939,
+    "maxlon": -76.9653284
+  },
+  "geometry": [
+    { "lat": -12.1562939, "lon": -76.9662961 },
+    { "lat": -12.1566865, "lon": -76.9653284 },
+    { "lat": -12.1566959, "lon": -76.9653324 },
+    { "lat": -12.1567398, "lon": -76.9653510 },
+    { "lat": -12.1563471, "lon": -76.9663187 },
+    { "lat": -12.1562939, "lon": -76.9662961 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549628961,
+  "bounds": {
+    "minlat": -12.1618419,
+    "minlon": -76.9567478,
+    "maxlat": -12.1605316,
+    "maxlon": -76.9557292
+  },
+  "geometry": [
+    { "lat": -12.1618419, "lon": -76.9557292 },
+    { "lat": -12.1611975, "lon": -76.9562301 },
+    { "lat": -12.1605316, "lon": -76.9567478 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549628962,
+  "bounds": {
+    "minlat": -12.1684971,
+    "minlon": -76.9557292,
+    "maxlat": -12.1618419,
+    "maxlon": -76.9507455
+  },
+  "geometry": [
+    { "lat": -12.1684971, "lon": -76.9507455 },
+    { "lat": -12.1679473, "lon": -76.9510636 },
+    { "lat": -12.1678717, "lon": -76.9511148 },
+    { "lat": -12.1675036, "lon": -76.9513730 },
+    { "lat": -12.1669422, "lon": -76.9517916 },
+    { "lat": -12.1659034, "lon": -76.9526070 },
+    { "lat": -12.1623039, "lon": -76.9553622 },
+    { "lat": -12.1618419, "lon": -76.9557292 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549631456,
+  "bounds": {
+    "minlat": -12.0281455,
+    "minlon": -77.0114454,
+    "maxlat": -12.0271616,
+    "maxlon": -77.0109907
+  },
+  "geometry": [
+    { "lat": -12.0271616, "lon": -77.0110174 },
+    { "lat": -12.0271658, "lon": -77.0110076 },
+    { "lat": -12.0271729, "lon": -77.0109907 },
+    { "lat": -12.0277513, "lon": -77.0112452 },
+    { "lat": -12.0277797, "lon": -77.0112577 },
+    { "lat": -12.0281455, "lon": -77.0114187 },
+    { "lat": -12.0281406, "lon": -77.0114303 },
+    { "lat": -12.0281342, "lon": -77.0114454 },
+    { "lat": -12.0280711, "lon": -77.0114176 },
+    { "lat": -12.0277435, "lon": -77.0112735 },
+    { "lat": -12.0277152, "lon": -77.0112610 },
+    { "lat": -12.0272263, "lon": -77.0110459 },
+    { "lat": -12.0271616, "lon": -77.0110174 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "station": "subway"
+  }
+},
+{
+  "type": "way",
+  "id": 549635034,
+  "bounds": {
+    "minlat": -12.1969702,
+    "minlon": -76.9401604,
+    "maxlat": -12.1960577,
+    "maxlon": -76.9395929
+  },
+  "geometry": [
+    { "lat": -12.1960577, "lon": -76.9401182 },
+    { "lat": -12.1960707, "lon": -76.9401413 },
+    { "lat": -12.1960815, "lon": -76.9401604 },
+    { "lat": -12.1969702, "lon": -76.9396351 },
+    { "lat": -12.1969464, "lon": -76.9395929 },
+    { "lat": -12.1960577, "lon": -76.9401182 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "fixme": "yes",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549738425,
+  "bounds": {
+    "minlat": -12.1618669,
+    "minlon": -76.9567921,
+    "maxlat": -12.1605673,
+    "maxlon": -76.9557573
+  },
+  "geometry": [
+    { "lat": -12.1605673, "lon": -76.9567921 },
+    { "lat": -12.1612151, "lon": -76.9562763 },
+    { "lat": -12.1618669, "lon": -76.9557573 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549738426,
+  "bounds": {
+    "minlat": -12.1605673,
+    "minlon": -76.9569794,
+    "maxlat": -12.1603655,
+    "maxlon": -76.9567921
+  },
+  "geometry": [
+    { "lat": -12.1603655, "lon": -76.9569794 },
+    { "lat": -12.1604630, "lon": -76.9568834 },
+    { "lat": -12.1605673, "lon": -76.9567921 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549738427,
+  "bounds": {
+    "minlat": -12.1603655,
+    "minlon": -76.9617096,
+    "maxlat": -12.1581497,
+    "maxlon": -76.9569794
+  },
+  "geometry": [
+    { "lat": -12.1581497, "lon": -76.9617096 },
+    { "lat": -12.1595552, "lon": -76.9582090 },
+    { "lat": -12.1596414, "lon": -76.9580270 },
+    { "lat": -12.1597232, "lon": -76.9578767 },
+    { "lat": -12.1598241, "lon": -76.9577002 },
+    { "lat": -12.1599156, "lon": -76.9575618 },
+    { "lat": -12.1599974, "lon": -76.9574432 },
+    { "lat": -12.1600989, "lon": -76.9573040 },
+    { "lat": -12.1601909, "lon": -76.9571892 },
+    { "lat": -12.1603655, "lon": -76.9569794 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549739039,
+  "bounds": {
+    "minlat": -12.1581497,
+    "minlon": -76.9696781,
+    "maxlat": -12.1549107,
+    "maxlon": -76.9617096
+  },
+  "geometry": [
+    { "lat": -12.1549107, "lon": -76.9696781 },
+    { "lat": -12.1565791, "lon": -76.9655735 },
+    { "lat": -12.1581497, "lon": -76.9617096 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549739568,
+  "bounds": {
+    "minlat": -12.1515460,
+    "minlon": -76.9800518,
+    "maxlat": -12.1506304,
+    "maxlon": -76.9779739
+  },
+  "geometry": [
+    { "lat": -12.1506304, "lon": -76.9800518 },
+    { "lat": -12.1509155, "lon": -76.9794047 },
+    { "lat": -12.1515460, "lon": -76.9779739 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549740488,
+  "bounds": {
+    "minlat": -12.1506304,
+    "minlon": -76.9867849,
+    "maxlat": -12.1474448,
+    "maxlon": -76.9800518
+  },
+  "geometry": [
+    { "lat": -12.1474448, "lon": -76.9867849 },
+    { "lat": -12.1475206, "lon": -76.9866527 },
+    { "lat": -12.1481123, "lon": -76.9855057 },
+    { "lat": -12.1487222, "lon": -76.9843121 },
+    { "lat": -12.1491486, "lon": -76.9833947 },
+    { "lat": -12.1494973, "lon": -76.9826173 },
+    { "lat": -12.1497791, "lon": -76.9819678 },
+    { "lat": -12.1504021, "lon": -76.9805472 },
+    { "lat": -12.1506304, "lon": -76.9800518 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549740489,
+  "bounds": {
+    "minlat": -12.0763005,
+    "minlon": -77.0119126,
+    "maxlat": -12.0690531,
+    "maxlon": -77.0109210
+  },
+  "geometry": [
+    { "lat": -12.0690531, "lon": -77.0119126 },
+    { "lat": -12.0710518, "lon": -77.0116391 },
+    { "lat": -12.0747278, "lon": -77.0111362 },
+    { "lat": -12.0763005, "lon": -77.0109210 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549743212,
+  "bounds": {
+    "minlat": -12.1429899,
+    "minlon": -76.9913847,
+    "maxlat": -12.1421079,
+    "maxlon": -76.9905850
+  },
+  "geometry": [
+    { "lat": -12.1421203, "lon": -76.9913847 },
+    { "lat": -12.1421079, "lon": -76.9913704 },
+    { "lat": -12.1421987, "lon": -76.9912883 },
+    { "lat": -12.1429775, "lon": -76.9905850 },
+    { "lat": -12.1429899, "lon": -76.9905994 },
+    { "lat": -12.1421203, "lon": -76.9913847 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549744307,
+  "bounds": {
+    "minlat": -12.0407470,
+    "minlon": -77.0131024,
+    "maxlat": -12.0375142,
+    "maxlon": -77.0125368
+  },
+  "geometry": [
+    { "lat": -12.0375142, "lon": -77.0127371 },
+    { "lat": -12.0384795, "lon": -77.0129936 },
+    { "lat": -12.0387701, "lon": -77.0130504 },
+    { "lat": -12.0389794, "lon": -77.0130841 },
+    { "lat": -12.0391961, "lon": -77.0131024 },
+    { "lat": -12.0393759, "lon": -77.0130910 },
+    { "lat": -12.0396376, "lon": -77.0130579 },
+    { "lat": -12.0398395, "lon": -77.0130085 },
+    { "lat": -12.0399903, "lon": -77.0129611 },
+    { "lat": -12.0401437, "lon": -77.0129000 },
+    { "lat": -12.0403609, "lon": -77.0127974 },
+    { "lat": -12.0405826, "lon": -77.0126643 },
+    { "lat": -12.0407470, "lon": -77.0125368 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549747415,
+  "bounds": {
+    "minlat": -12.0661918,
+    "minlon": -77.0124327,
+    "maxlat": -12.0652410,
+    "maxlon": -77.0122891
+  },
+  "geometry": [
+    { "lat": -12.0652436, "lon": -77.0124327 },
+    { "lat": -12.0653438, "lon": -77.0124197 },
+    { "lat": -12.0657350, "lon": -77.0123713 },
+    { "lat": -12.0661235, "lon": -77.0123215 },
+    { "lat": -12.0661918, "lon": -77.0123126 },
+    { "lat": -12.0661889, "lon": -77.0122891 },
+    { "lat": -12.0652410, "lon": -77.0124122 },
+    { "lat": -12.0652436, "lon": -77.0124327 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549750345,
+  "bounds": {
+    "minlat": -12.0420597,
+    "minlon": -77.0119930,
+    "maxlat": -12.0412962,
+    "maxlon": -77.0113279
+  },
+  "geometry": [
+    { "lat": -12.0420423, "lon": -77.0113279 },
+    { "lat": -12.0420534, "lon": -77.0113414 },
+    { "lat": -12.0420597, "lon": -77.0113490 },
+    { "lat": -12.0413137, "lon": -77.0119930 },
+    { "lat": -12.0413063, "lon": -77.0119840 },
+    { "lat": -12.0413021, "lon": -77.0119790 },
+    { "lat": -12.0412962, "lon": -77.0119718 },
+    { "lat": -12.0418650, "lon": -77.0114809 },
+    { "lat": -12.0420423, "lon": -77.0113279 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549750993,
+  "bounds": {
+    "minlat": -12.0375142,
+    "minlon": -77.0127371,
+    "maxlat": -12.0361515,
+    "maxlon": -77.0123702
+  },
+  "geometry": [
+    { "lat": -12.0361515, "lon": -77.0123702 },
+    { "lat": -12.0375142, "lon": -77.0127371 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549750994,
+  "bounds": {
+    "minlat": -12.0361515,
+    "minlon": -77.0123702,
+    "maxlat": -12.0289405,
+    "maxlon": -77.0117125
+  },
+  "geometry": [
+    { "lat": -12.0289405, "lon": -77.0117125 },
+    { "lat": -12.0298201, "lon": -77.0119765 },
+    { "lat": -12.0306585, "lon": -77.0121977 },
+    { "lat": -12.0308511, "lon": -77.0122404 },
+    { "lat": -12.0310620, "lon": -77.0122606 },
+    { "lat": -12.0313313, "lon": -77.0122582 },
+    { "lat": -12.0315654, "lon": -77.0122473 },
+    { "lat": -12.0318830, "lon": -77.0122115 },
+    { "lat": -12.0327575, "lon": -77.0120614 },
+    { "lat": -12.0335649, "lon": -77.0119490 },
+    { "lat": -12.0338098, "lon": -77.0119348 },
+    { "lat": -12.0341734, "lon": -77.0119357 },
+    { "lat": -12.0343599, "lon": -77.0119465 },
+    { "lat": -12.0345519, "lon": -77.0119705 },
+    { "lat": -12.0347896, "lon": -77.0120127 },
+    { "lat": -12.0349310, "lon": -77.0120472 },
+    { "lat": -12.0351180, "lon": -77.0121005 },
+    { "lat": -12.0361515, "lon": -77.0123702 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549750995,
+  "bounds": {
+    "minlat": -12.0289405,
+    "minlon": -77.0117125,
+    "maxlat": -12.0284590,
+    "maxlon": -77.0115476
+  },
+  "geometry": [
+    { "lat": -12.0284590, "lon": -77.0115476 },
+    { "lat": -12.0286770, "lon": -77.0116292 },
+    { "lat": -12.0289405, "lon": -77.0117125 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549751667,
+  "bounds": {
+    "minlat": -12.0166170,
+    "minlon": -77.0026159,
+    "maxlat": -12.0112074,
+    "maxlon": -77.0018559
+  },
+  "geometry": [
+    { "lat": -12.0166170, "lon": -77.0019012 },
+    { "lat": -12.0164521, "lon": -77.0018703 },
+    { "lat": -12.0162777, "lon": -77.0018559 },
+    { "lat": -12.0159567, "lon": -77.0018590 },
+    { "lat": -12.0158006, "lon": -77.0018635 },
+    { "lat": -12.0143661, "lon": -77.0019601 },
+    { "lat": -12.0135159, "lon": -77.0020183 },
+    { "lat": -12.0130222, "lon": -77.0020522 },
+    { "lat": -12.0128442, "lon": -77.0020647 },
+    { "lat": -12.0125577, "lon": -77.0020980 },
+    { "lat": -12.0121388, "lon": -77.0021830 },
+    { "lat": -12.0118253, "lon": -77.0022877 },
+    { "lat": -12.0116222, "lon": -77.0023808 },
+    { "lat": -12.0114012, "lon": -77.0024994 },
+    { "lat": -12.0112074, "lon": -77.0026159 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549751668,
+  "bounds": {
+    "minlat": -12.0284590,
+    "minlon": -77.0115476,
+    "maxlat": -12.0266865,
+    "maxlon": -77.0107667
+  },
+  "geometry": [
+    { "lat": -12.0266865, "lon": -77.0107667 },
+    { "lat": -12.0276291, "lon": -77.0111820 },
+    { "lat": -12.0284590, "lon": -77.0115476 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549752920,
+  "bounds": {
+    "minlat": -11.9630661,
+    "minlon": -76.9898803,
+    "maxlat": -11.9609052,
+    "maxlon": -76.9884003
+  },
+  "geometry": [
+    { "lat": -11.9609052, "lon": -76.9884003 },
+    { "lat": -11.9630661, "lon": -76.9898803 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549753541,
+  "bounds": {
+    "minlat": -12.0185505,
+    "minlon": -77.0030778,
+    "maxlat": -12.0176925,
+    "maxlon": -77.0024083
+  },
+  "geometry": [
+    { "lat": -12.0176925, "lon": -77.0024246 },
+    { "lat": -12.0177044, "lon": -77.0024083 },
+    { "lat": -12.0182447, "lon": -77.0028254 },
+    { "lat": -12.0183853, "lon": -77.0029338 },
+    { "lat": -12.0185505, "lon": -77.0030614 },
+    { "lat": -12.0185384, "lon": -77.0030778 },
+    { "lat": -12.0176925, "lon": -77.0024246 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549755810,
+  "bounds": {
+    "minlat": -11.9853890,
+    "minlon": -77.0069787,
+    "maxlat": -11.9844795,
+    "maxlon": -77.0066341
+  },
+  "geometry": [
+    { "lat": -11.9853796, "lon": -77.0069787 },
+    { "lat": -11.9852147, "lon": -77.0069207 },
+    { "lat": -11.9844795, "lon": -77.0066621 },
+    { "lat": -11.9844889, "lon": -77.0066341 },
+    { "lat": -11.9853890, "lon": -77.0069507 },
+    { "lat": -11.9853796, "lon": -77.0069787 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549755811,
+  "bounds": {
+    "minlat": -11.9854158,
+    "minlon": -77.0069071,
+    "maxlat": -11.9845139,
+    "maxlon": -77.0065720
+  },
+  "geometry": [
+    { "lat": -11.9845227, "lon": -77.0065720 },
+    { "lat": -11.9852479, "lon": -77.0068226 },
+    { "lat": -11.9854158, "lon": -77.0068806 },
+    { "lat": -11.9854070, "lon": -77.0069071 },
+    { "lat": -11.9845139, "lon": -77.0065985 },
+    { "lat": -11.9845227, "lon": -77.0065720 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "lit": "yes",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549759881,
+  "bounds": {
+    "minlat": -11.9750283,
+    "minlon": -77.0004705,
+    "maxlat": -11.9743973,
+    "maxlon": -76.9995983
+  },
+  "geometry": [
+    { "lat": -11.9744167, "lon": -76.9995983 },
+    { "lat": -11.9744099, "lon": -76.9996034 },
+    { "lat": -11.9743973, "lon": -76.9996128 },
+    { "lat": -11.9750036, "lon": -77.0004705 },
+    { "lat": -11.9750283, "lon": -77.0004503 },
+    { "lat": -11.9746306, "lon": -76.9998960 },
+    { "lat": -11.9744167, "lon": -76.9995983 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549759882,
+  "bounds": {
+    "minlat": -11.9749752,
+    "minlon": -77.0005119,
+    "maxlat": -11.9743693,
+    "maxlon": -76.9996666
+  },
+  "geometry": [
+    { "lat": -11.9749507, "lon": -77.0005119 },
+    { "lat": -11.9745540, "lon": -76.9999583 },
+    { "lat": -11.9743693, "lon": -76.9997013 },
+    { "lat": -11.9743786, "lon": -76.9996943 },
+    { "lat": -11.9743841, "lon": -76.9996881 },
+    { "lat": -11.9743761, "lon": -76.9996757 },
+    { "lat": -11.9743892, "lon": -76.9996666 },
+    { "lat": -11.9749752, "lon": -77.0004936 },
+    { "lat": -11.9749507, "lon": -77.0005119 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549761435,
+  "bounds": {
+    "minlat": -11.9682863,
+    "minlon": -76.9937135,
+    "maxlat": -11.9675386,
+    "maxlon": -76.9931546
+  },
+  "geometry": [
+    { "lat": -11.9682777, "lon": -76.9937135 },
+    { "lat": -11.9681470, "lon": -76.9936165 },
+    { "lat": -11.9675386, "lon": -76.9931696 },
+    { "lat": -11.9675472, "lon": -76.9931573 },
+    { "lat": -11.9675491, "lon": -76.9931546 },
+    { "lat": -11.9682863, "lon": -76.9937013 },
+    { "lat": -11.9682777, "lon": -76.9937135 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "layer": "1",
+    "level": "2",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549761436,
+  "bounds": {
+    "minlat": -11.9683333,
+    "minlon": -76.9936505,
+    "maxlat": -11.9675822,
+    "maxlon": -76.9930964
+  },
+  "geometry": [
+    { "lat": -11.9675912, "lon": -76.9930964 },
+    { "lat": -11.9681769, "lon": -76.9935236 },
+    { "lat": -11.9683333, "lon": -76.9936377 },
+    { "lat": -11.9683243, "lon": -76.9936505 },
+    { "lat": -11.9675822, "lon": -76.9931093 },
+    { "lat": -11.9675865, "lon": -76.9931031 },
+    { "lat": -11.9675912, "lon": -76.9930964 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "layer": "1",
+    "level": "2",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549762202,
+  "bounds": {
+    "minlat": -11.9602142,
+    "minlon": -76.9878571,
+    "maxlat": -11.9594533,
+    "maxlon": -76.9873126
+  },
+  "geometry": [
+    { "lat": -11.9594533, "lon": -76.9873265 },
+    { "lat": -11.9594627, "lon": -76.9873126 },
+    { "lat": -11.9595078, "lon": -76.9873445 },
+    { "lat": -11.9602142, "lon": -76.9878433 },
+    { "lat": -11.9602048, "lon": -76.9878571 },
+    { "lat": -11.9594533, "lon": -76.9873265 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549762203,
+  "bounds": {
+    "minlat": -11.9601769,
+    "minlon": -76.9879106,
+    "maxlat": -11.9593591,
+    "maxlon": -76.9873301
+  },
+  "geometry": [
+    { "lat": -11.9593674, "lon": -76.9873301 },
+    { "lat": -11.9601769, "lon": -76.9878984 },
+    { "lat": -11.9601686, "lon": -76.9879106 },
+    { "lat": -11.9594383, "lon": -76.9873979 },
+    { "lat": -11.9593591, "lon": -76.9873423 },
+    { "lat": -11.9593674, "lon": -76.9873301 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 549952553,
+  "bounds": {
+    "minlat": -12.1821543,
+    "minlon": -76.9471471,
+    "maxlat": -12.1805213,
+    "maxlon": -76.9468997
+  },
+  "geometry": [
+    { "lat": -12.1821543, "lon": -76.9468997 },
+    { "lat": -12.1815076, "lon": -76.9469961 },
+    { "lat": -12.1805213, "lon": -76.9471471 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549953965,
+  "bounds": {
+    "minlat": -12.1685270,
+    "minlon": -76.9557573,
+    "maxlat": -12.1618669,
+    "maxlon": -76.9507894
+  },
+  "geometry": [
+    { "lat": -12.1618669, "lon": -76.9557573 },
+    { "lat": -12.1620361, "lon": -76.9556292 },
+    { "lat": -12.1648538, "lon": -76.9534649 },
+    { "lat": -12.1659878, "lon": -76.9525984 },
+    { "lat": -12.1672576, "lon": -76.9516044 },
+    { "lat": -12.1676072, "lon": -76.9513522 },
+    { "lat": -12.1678221, "lon": -76.9512098 },
+    { "lat": -12.1679621, "lon": -76.9511250 },
+    { "lat": -12.1685270, "lon": -76.9507894 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549953966,
+  "bounds": {
+    "minlat": -12.1700932,
+    "minlon": -76.9507455,
+    "maxlat": -12.1684971,
+    "maxlon": -76.9498221
+  },
+  "geometry": [
+    { "lat": -12.1700932, "lon": -76.9498221 },
+    { "lat": -12.1692797, "lon": -76.9502928 },
+    { "lat": -12.1684971, "lon": -76.9507455 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 549953968,
+  "bounds": {
+    "minlat": -12.1701092,
+    "minlon": -76.9507894,
+    "maxlat": -12.1685270,
+    "maxlon": -76.9498688
+  },
+  "geometry": [
+    { "lat": -12.1685270, "lon": -76.9507894 },
+    { "lat": -12.1693008, "lon": -76.9503392 },
+    { "lat": -12.1701092, "lon": -76.9498688 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550164489,
+  "bounds": {
+    "minlat": -11.9967081,
+    "minlon": -77.0101729,
+    "maxlat": -11.9956510,
+    "maxlon": -77.0098411
+  },
+  "geometry": [
+    { "lat": -11.9967081, "lon": -77.0098596 },
+    { "lat": -11.9967045, "lon": -77.0098411 },
+    { "lat": -11.9956510, "lon": -77.0101535 },
+    { "lat": -11.9956567, "lon": -77.0101729 },
+    { "lat": -11.9958209, "lon": -77.0101240 },
+    { "lat": -11.9967081, "lon": -77.0098596 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550164490,
+  "bounds": {
+    "minlat": -11.9966918,
+    "minlon": -77.0101021,
+    "maxlat": -11.9956407,
+    "maxlon": -77.0097758
+  },
+  "geometry": [
+    { "lat": -11.9956407, "lon": -77.0100916 },
+    { "lat": -11.9956437, "lon": -77.0101021 },
+    { "lat": -11.9966918, "lon": -77.0097912 },
+    { "lat": -11.9966875, "lon": -77.0097758 },
+    { "lat": -11.9957968, "lon": -77.0100445 },
+    { "lat": -11.9956407, "lon": -77.0100916 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "2",
+    "level": "2",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550168433,
+  "bounds": {
+    "minlat": -12.1107976,
+    "minlon": -77.0005066,
+    "maxlat": -12.1097704,
+    "maxlon": -77.0003639
+  },
+  "geometry": [
+    { "lat": -12.1107949, "lon": -77.0003639 },
+    { "lat": -12.1107976, "lon": -77.0003885 },
+    { "lat": -12.1104810, "lon": -77.0004250 },
+    { "lat": -12.1102450, "lon": -77.0004522 },
+    { "lat": -12.1097731, "lon": -77.0005066 },
+    { "lat": -12.1097704, "lon": -77.0004819 },
+    { "lat": -12.1107949, "lon": -77.0003639 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550168434,
+  "bounds": {
+    "minlat": -12.1107934,
+    "minlon": -77.0004096,
+    "maxlat": -12.1097623,
+    "maxlon": -77.0002688
+  },
+  "geometry": [
+    { "lat": -12.1097649, "lon": -77.0004096 },
+    { "lat": -12.1097623, "lon": -77.0003862 },
+    { "lat": -12.1102384, "lon": -77.0003319 },
+    { "lat": -12.1105009, "lon": -77.0003019 },
+    { "lat": -12.1107909, "lon": -77.0002688 },
+    { "lat": -12.1107934, "lon": -77.0002922 },
+    { "lat": -12.1097649, "lon": -77.0004096 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550169221,
+  "bounds": {
+    "minlat": -12.1351664,
+    "minlon": -76.9972150,
+    "maxlat": -12.1342925,
+    "maxlon": -76.9965728
+  },
+  "geometry": [
+    { "lat": -12.1342925, "lon": -76.9972054 },
+    { "lat": -12.1342992, "lon": -76.9972150 },
+    { "lat": -12.1351664, "lon": -76.9965823 },
+    { "lat": -12.1351598, "lon": -76.9965728 },
+    { "lat": -12.1350948, "lon": -76.9966202 },
+    { "lat": -12.1348770, "lon": -76.9967791 },
+    { "lat": -12.1344253, "lon": -76.9971086 },
+    { "lat": -12.1342925, "lon": -76.9972054 }
+  ],
+  "tags": {
+    "area": "yes",
+    "layer": "2",
+    "level": "2",
+    "name": "Plataforma Norte",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550173310,
+  "bounds": {
+    "minlat": -12.1617226,
+    "minlon": -76.9564538,
+    "maxlat": -12.1608791,
+    "maxlon": -76.9557862
+  },
+  "geometry": [
+    { "lat": -12.1608954, "lon": -76.9564502 },
+    { "lat": -12.1608981, "lon": -76.9564538 },
+    { "lat": -12.1617226, "lon": -76.9558118 },
+    { "lat": -12.1617036, "lon": -76.9557862 },
+    { "lat": -12.1608791, "lon": -76.9564283 },
+    { "lat": -12.1608954, "lon": -76.9564502 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Norte",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550173311,
+  "bounds": {
+    "minlat": -12.1617641,
+    "minlon": -76.9565319,
+    "maxlat": -12.1609316,
+    "maxlon": -76.9558601
+  },
+  "geometry": [
+    { "lat": -12.1609373, "lon": -76.9565137 },
+    { "lat": -12.1609504, "lon": -76.9565319 },
+    { "lat": -12.1617641, "lon": -76.9558874 },
+    { "lat": -12.1617444, "lon": -76.9558601 },
+    { "lat": -12.1609316, "lon": -76.9565059 },
+    { "lat": -12.1609373, "lon": -76.9565137 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550173429,
+  "bounds": {
+    "minlat": -12.1697366,
+    "minlon": -76.9505504,
+    "maxlat": -12.1687874,
+    "maxlon": -76.9499911
+  },
+  "geometry": [
+    { "lat": -12.1697366, "lon": -76.9500182 },
+    { "lat": -12.1697219, "lon": -76.9499911 },
+    { "lat": -12.1687874, "lon": -76.9505234 },
+    { "lat": -12.1687936, "lon": -76.9505348 },
+    { "lat": -12.1688021, "lon": -76.9505504 },
+    { "lat": -12.1697366, "lon": -76.9500182 }
+  ],
+  "tags": {
+    "area": "yes",
+    "layer": "-1",
+    "name": "Plataforma Norte",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550173430,
+  "bounds": {
+    "minlat": -12.1698046,
+    "minlon": -76.9506630,
+    "maxlat": -12.1688325,
+    "maxlon": -76.9500824
+  },
+  "geometry": [
+    { "lat": -12.1688325, "lon": -76.9506331 },
+    { "lat": -12.1697882, "lon": -76.9500824 },
+    { "lat": -12.1698046, "lon": -76.9501122 },
+    { "lat": -12.1688489, "lon": -76.9506630 },
+    { "lat": -12.1688415, "lon": -76.9506495 },
+    { "lat": -12.1688325, "lon": -76.9506331 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "-1",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550174075,
+  "bounds": {
+    "minlat": -12.2078810,
+    "minlon": -76.9334369,
+    "maxlat": -12.2070084,
+    "maxlon": -76.9328912
+  },
+  "geometry": [
+    { "lat": -12.2070084, "lon": -76.9333919 },
+    { "lat": -12.2078556, "lon": -76.9328912 },
+    { "lat": -12.2078810, "lon": -76.9329361 },
+    { "lat": -12.2070337, "lon": -76.9334369 },
+    { "lat": -12.2070202, "lon": -76.9334113 },
+    { "lat": -12.2070084, "lon": -76.9333919 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550174076,
+  "bounds": {
+    "minlat": -12.2079295,
+    "minlon": -76.9335607,
+    "maxlat": -12.2070577,
+    "maxlon": -76.9330071
+  },
+  "geometry": [
+    { "lat": -12.2078979, "lon": -76.9330071 },
+    { "lat": -12.2079295, "lon": -76.9330629 },
+    { "lat": -12.2073912, "lon": -76.9333807 },
+    { "lat": -12.2072179, "lon": -76.9334845 },
+    { "lat": -12.2070893, "lon": -76.9335607 },
+    { "lat": -12.2070774, "lon": -76.9335396 },
+    { "lat": -12.2070577, "lon": -76.9335049 },
+    { "lat": -12.2071875, "lon": -76.9334280 },
+    { "lat": -12.2073604, "lon": -76.9333256 },
+    { "lat": -12.2078979, "lon": -76.9330071 }
+  ],
+  "tags": {
+    "area": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550270267,
+  "bounds": {
+    "minlat": -12.0424251,
+    "minlon": -77.0125368,
+    "maxlat": -12.0407470,
+    "maxlon": -77.0111205
+  },
+  "geometry": [
+    { "lat": -12.0407470, "lon": -77.0125368 },
+    { "lat": -12.0417328, "lon": -77.0117007 },
+    { "lat": -12.0424251, "lon": -77.0111205 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550270272,
+  "bounds": {
+    "minlat": -12.0423792,
+    "minlon": -77.0125371,
+    "maxlat": -12.0406851,
+    "maxlon": -77.0110977
+  },
+  "geometry": [
+    { "lat": -12.0423792, "lon": -77.0110977 },
+    { "lat": -12.0417079, "lon": -77.0116663 },
+    { "lat": -12.0406851, "lon": -77.0125371 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550432844,
+  "bounds": {
+    "minlat": -12.1824198,
+    "minlon": -76.9471196,
+    "maxlat": -12.1811709,
+    "maxlon": -76.9469144
+  },
+  "geometry": [
+    { "lat": -12.1824198, "lon": -76.9469144 },
+    { "lat": -12.1811709, "lon": -76.9471196 }
+  ],
+  "tags": {
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "-1",
+    "lit": "yes",
+    "name": "Plataforma Sur",
+    "public_transport": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550432845,
+  "bounds": {
+    "minlat": -12.1824059,
+    "minlon": -76.9470220,
+    "maxlat": -12.1811466,
+    "maxlon": -76.9468272
+  },
+  "geometry": [
+    { "lat": -12.1811466, "lon": -76.9470220 },
+    { "lat": -12.1824059, "lon": -76.9468272 }
+  ],
+  "tags": {
+    "layer": "-1",
+    "name": "Plataforma Norte",
+    "railway": "platform",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550446844,
+  "bounds": {
+    "minlat": -12.1805371,
+    "minlon": -76.9494247,
+    "maxlat": -12.1719785,
+    "maxlon": -76.9471884
+  },
+  "geometry": [
+    { "lat": -12.1719785, "lon": -76.9491541 },
+    { "lat": -12.1720801, "lon": -76.9491580 },
+    { "lat": -12.1722172, "lon": -76.9491752 },
+    { "lat": -12.1730055, "lon": -76.9493362 },
+    { "lat": -12.1733261, "lon": -76.9493959 },
+    { "lat": -12.1735135, "lon": -76.9494189 },
+    { "lat": -12.1737052, "lon": -76.9494247 },
+    { "lat": -12.1748787, "lon": -76.9494138 },
+    { "lat": -12.1751698, "lon": -76.9493944 },
+    { "lat": -12.1754189, "lon": -76.9493696 },
+    { "lat": -12.1756143, "lon": -76.9493299 },
+    { "lat": -12.1759300, "lon": -76.9492434 },
+    { "lat": -12.1762448, "lon": -76.9491057 },
+    { "lat": -12.1765362, "lon": -76.9489645 },
+    { "lat": -12.1779120, "lon": -76.9482012 },
+    { "lat": -12.1790293, "lon": -76.9475849 },
+    { "lat": -12.1792141, "lon": -76.9475036 },
+    { "lat": -12.1794717, "lon": -76.9474041 },
+    { "lat": -12.1797316, "lon": -76.9473259 },
+    { "lat": -12.1800009, "lon": -76.9472689 },
+    { "lat": -12.1805371, "lon": -76.9471884 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550446847,
+  "bounds": {
+    "minlat": -12.1712026,
+    "minlon": -76.9494191,
+    "maxlat": -12.1708241,
+    "maxlon": -76.9492270
+  },
+  "geometry": [
+    { "lat": -12.1712026, "lon": -76.9492270 },
+    { "lat": -12.1708241, "lon": -76.9494191 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550446850,
+  "bounds": {
+    "minlat": -12.1708386,
+    "minlon": -76.9498688,
+    "maxlat": -12.1701092,
+    "maxlon": -76.9494653
+  },
+  "geometry": [
+    { "lat": -12.1701092, "lon": -76.9498688 },
+    { "lat": -12.1708386, "lon": -76.9494653 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550447918,
+  "bounds": {
+    "minlat": -12.1549107,
+    "minlon": -76.9779739,
+    "maxlat": -12.1515460,
+    "maxlon": -76.9696781
+  },
+  "geometry": [
+    { "lat": -12.1515460, "lon": -76.9779739 },
+    { "lat": -12.1549107, "lon": -76.9696781 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550447919,
+  "bounds": {
+    "minlat": -12.1548953,
+    "minlon": -76.9779618,
+    "maxlat": -12.1515126,
+    "maxlon": -76.9696365
+  },
+  "geometry": [
+    { "lat": -12.1548953, "lon": -76.9696365 },
+    { "lat": -12.1515126, "lon": -76.9779618 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448339,
+  "bounds": {
+    "minlat": -12.1474448,
+    "minlon": -76.9899895,
+    "maxlat": -12.1437584,
+    "maxlon": -76.9867849
+  },
+  "geometry": [
+    { "lat": -12.1437584, "lon": -76.9899895 },
+    { "lat": -12.1445458, "lon": -76.9893282 },
+    { "lat": -12.1466348, "lon": -76.9877030 },
+    { "lat": -12.1467645, "lon": -76.9875878 },
+    { "lat": -12.1469306, "lon": -76.9874253 },
+    { "lat": -12.1470795, "lon": -76.9872725 },
+    { "lat": -12.1472078, "lon": -76.9871132 },
+    { "lat": -12.1473436, "lon": -76.9869315 },
+    { "lat": -12.1474448, "lon": -76.9867849 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448340,
+  "bounds": {
+    "minlat": -12.1474133,
+    "minlon": -76.9899533,
+    "maxlat": -12.1437372,
+    "maxlon": -76.9867672
+  },
+  "geometry": [
+    { "lat": -12.1474133, "lon": -76.9867672 },
+    { "lat": -12.1472026, "lon": -76.9870670 },
+    { "lat": -12.1470743, "lon": -76.9872263 },
+    { "lat": -12.1469254, "lon": -76.9873791 },
+    { "lat": -12.1467593, "lon": -76.9875416 },
+    { "lat": -12.1466296, "lon": -76.9876568 },
+    { "lat": -12.1445406, "lon": -76.9892820 },
+    { "lat": -12.1437372, "lon": -76.9899533 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448341,
+  "bounds": {
+    "minlat": -12.1437372,
+    "minlon": -76.9922716,
+    "maxlat": -12.1411590,
+    "maxlon": -76.9899533
+  },
+  "geometry": [
+    { "lat": -12.1437372, "lon": -76.9899533 },
+    { "lat": -12.1426085, "lon": -76.9909682 },
+    { "lat": -12.1411590, "lon": -76.9922716 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448342,
+  "bounds": {
+    "minlat": -12.1437584,
+    "minlon": -76.9922945,
+    "maxlat": -12.1411895,
+    "maxlon": -76.9899895
+  },
+  "geometry": [
+    { "lat": -12.1411895, "lon": -76.9922945 },
+    { "lat": -12.1425549, "lon": -76.9910694 },
+    { "lat": -12.1437584, "lon": -76.9899895 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448818,
+  "bounds": {
+    "minlat": -12.1411590,
+    "minlon": -76.9963210,
+    "maxlat": -12.1355548,
+    "maxlon": -76.9922716
+  },
+  "geometry": [
+    { "lat": -12.1411590, "lon": -76.9922716 },
+    { "lat": -12.1404996, "lon": -76.9928364 },
+    { "lat": -12.1403459, "lon": -76.9929634 },
+    { "lat": -12.1400940, "lon": -76.9931628 },
+    { "lat": -12.1392669, "lon": -76.9937552 },
+    { "lat": -12.1381711, "lon": -76.9944953 },
+    { "lat": -12.1355548, "lon": -76.9963210 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448819,
+  "bounds": {
+    "minlat": -12.1411895,
+    "minlon": -76.9962051,
+    "maxlat": -12.1357712,
+    "maxlon": -76.9922945
+  },
+  "geometry": [
+    { "lat": -12.1357712, "lon": -76.9962051 },
+    { "lat": -12.1381763, "lon": -76.9945323 },
+    { "lat": -12.1392721, "lon": -76.9938014 },
+    { "lat": -12.1400992, "lon": -76.9932090 },
+    { "lat": -12.1403511, "lon": -76.9930096 },
+    { "lat": -12.1405048, "lon": -76.9928826 },
+    { "lat": -12.1411098, "lon": -76.9923587 },
+    { "lat": -12.1411895, "lon": -76.9922945 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448820,
+  "bounds": {
+    "minlat": -12.1357712,
+    "minlon": -76.9980816,
+    "maxlat": -12.1332191,
+    "maxlon": -76.9962051
+  },
+  "geometry": [
+    { "lat": -12.1332191, "lon": -76.9980816 },
+    { "lat": -12.1346967, "lon": -76.9969951 },
+    { "lat": -12.1357712, "lon": -76.9962051 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448821,
+  "bounds": {
+    "minlat": -12.1355548,
+    "minlon": -76.9980380,
+    "maxlat": -12.1332138,
+    "maxlon": -76.9963210
+  },
+  "geometry": [
+    { "lat": -12.1355548, "lon": -76.9963210 },
+    { "lat": -12.1349068, "lon": -76.9967963 },
+    { "lat": -12.1332138, "lon": -76.9980380 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448822,
+  "bounds": {
+    "minlat": -12.1332191,
+    "minlon": -77.0008479,
+    "maxlat": -12.1279187,
+    "maxlon": -76.9980816
+  },
+  "geometry": [
+    { "lat": -12.1279187, "lon": -77.0007199 },
+    { "lat": -12.1279910, "lon": -77.0007432 },
+    { "lat": -12.1281489, "lon": -77.0007921 },
+    { "lat": -12.1282181, "lon": -77.0008100 },
+    { "lat": -12.1283720, "lon": -77.0008378 },
+    { "lat": -12.1286141, "lon": -77.0008479 },
+    { "lat": -12.1287623, "lon": -77.0008394 },
+    { "lat": -12.1289232, "lon": -77.0008167 },
+    { "lat": -12.1290926, "lon": -77.0007777 },
+    { "lat": -12.1291909, "lon": -77.0007460 },
+    { "lat": -12.1292875, "lon": -77.0007025 },
+    { "lat": -12.1294088, "lon": -77.0006451 },
+    { "lat": -12.1310297, "lon": -76.9995849 },
+    { "lat": -12.1332191, "lon": -76.9980816 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550448823,
+  "bounds": {
+    "minlat": -12.1332138,
+    "minlon": -77.0008090,
+    "maxlat": -12.1279318,
+    "maxlon": -76.9980380
+  },
+  "geometry": [
+    { "lat": -12.1332138, "lon": -76.9980380 },
+    { "lat": -12.1310245, "lon": -76.9995514 },
+    { "lat": -12.1294018, "lon": -77.0006135 },
+    { "lat": -12.1292610, "lon": -77.0006854 },
+    { "lat": -12.1291697, "lon": -77.0007198 },
+    { "lat": -12.1290545, "lon": -77.0007519 },
+    { "lat": -12.1289038, "lon": -77.0007887 },
+    { "lat": -12.1287624, "lon": -77.0008059 },
+    { "lat": -12.1285982, "lon": -77.0008090 },
+    { "lat": -12.1283668, "lon": -77.0007916 },
+    { "lat": -12.1282129, "lon": -77.0007638 },
+    { "lat": -12.1281437, "lon": -77.0007459 },
+    { "lat": -12.1279858, "lon": -77.0006970 },
+    { "lat": -12.1279318, "lon": -77.0006793 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449270,
+  "bounds": {
+    "minlat": -12.1279187,
+    "minlon": -77.0007199,
+    "maxlat": -12.1224874,
+    "maxlon": -76.9985943
+  },
+  "geometry": [
+    { "lat": -12.1224874, "lon": -76.9985943 },
+    { "lat": -12.1272446, "lon": -77.0004561 },
+    { "lat": -12.1279187, "lon": -77.0007199 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449271,
+  "bounds": {
+    "minlat": -12.1279318,
+    "minlon": -77.0006793,
+    "maxlat": -12.1225005,
+    "maxlon": -76.9985537
+  },
+  "geometry": [
+    { "lat": -12.1279318, "lon": -77.0006793 },
+    { "lat": -12.1272727, "lon": -77.0004202 },
+    { "lat": -12.1225005, "lon": -76.9985537 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449273,
+  "bounds": {
+    "minlat": -12.1224874,
+    "minlon": -77.0002807,
+    "maxlat": -12.1113650,
+    "maxlon": -76.9982897
+  },
+  "geometry": [
+    { "lat": -12.1113650, "lon": -77.0002807 },
+    { "lat": -12.1116122, "lon": -77.0002531 },
+    { "lat": -12.1123443, "lon": -77.0001421 },
+    { "lat": -12.1128068, "lon": -77.0000556 },
+    { "lat": -12.1129202, "lon": -77.0000311 },
+    { "lat": -12.1136357, "lon": -76.9998327 },
+    { "lat": -12.1143406, "lon": -76.9996375 },
+    { "lat": -12.1151391, "lon": -76.9994101 },
+    { "lat": -12.1156559, "lon": -76.9992615 },
+    { "lat": -12.1161199, "lon": -76.9991354 },
+    { "lat": -12.1167015, "lon": -76.9989743 },
+    { "lat": -12.1172782, "lon": -76.9988174 },
+    { "lat": -12.1180268, "lon": -76.9986033 },
+    { "lat": -12.1181995, "lon": -76.9985559 },
+    { "lat": -12.1182728, "lon": -76.9985365 },
+    { "lat": -12.1183423, "lon": -76.9985209 },
+    { "lat": -12.1185453, "lon": -76.9984724 },
+    { "lat": -12.1188639, "lon": -76.9984184 },
+    { "lat": -12.1194698, "lon": -76.9983380 },
+    { "lat": -12.1198460, "lon": -76.9983095 },
+    { "lat": -12.1201465, "lon": -76.9983000 },
+    { "lat": -12.1203874, "lon": -76.9982964 },
+    { "lat": -12.1206418, "lon": -76.9982897 },
+    { "lat": -12.1210875, "lon": -76.9983104 },
+    { "lat": -12.1215136, "lon": -76.9983450 },
+    { "lat": -12.1216787, "lon": -76.9983650 },
+    { "lat": -12.1217719, "lon": -76.9983773 },
+    { "lat": -12.1218630, "lon": -76.9983980 },
+    { "lat": -12.1219648, "lon": -76.9984207 },
+    { "lat": -12.1220603, "lon": -76.9984451 },
+    { "lat": -12.1224874, "lon": -76.9985943 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449278,
+  "bounds": {
+    "minlat": -12.1225005,
+    "minlon": -77.0002442,
+    "maxlat": -12.1113706,
+    "maxlon": -76.9982481
+  },
+  "geometry": [
+    { "lat": -12.1225005, "lon": -76.9985537 },
+    { "lat": -12.1220551, "lon": -76.9983989 },
+    { "lat": -12.1219596, "lon": -76.9983745 },
+    { "lat": -12.1218578, "lon": -76.9983518 },
+    { "lat": -12.1217667, "lon": -76.9983311 },
+    { "lat": -12.1216840, "lon": -76.9983219 },
+    { "lat": -12.1215205, "lon": -76.9983034 },
+    { "lat": -12.1210808, "lon": -76.9982711 },
+    { "lat": -12.1206366, "lon": -76.9982481 },
+    { "lat": -12.1203822, "lon": -76.9982502 },
+    { "lat": -12.1201413, "lon": -76.9982538 },
+    { "lat": -12.1198408, "lon": -76.9982633 },
+    { "lat": -12.1194646, "lon": -76.9982918 },
+    { "lat": -12.1188587, "lon": -76.9983722 },
+    { "lat": -12.1185401, "lon": -76.9984262 },
+    { "lat": -12.1183371, "lon": -76.9984747 },
+    { "lat": -12.1182676, "lon": -76.9984903 },
+    { "lat": -12.1181943, "lon": -76.9985097 },
+    { "lat": -12.1180216, "lon": -76.9985571 },
+    { "lat": -12.1172730, "lon": -76.9987712 },
+    { "lat": -12.1166963, "lon": -76.9989281 },
+    { "lat": -12.1161147, "lon": -76.9990892 },
+    { "lat": -12.1156417, "lon": -76.9992245 },
+    { "lat": -12.1151339, "lon": -76.9993731 },
+    { "lat": -12.1143429, "lon": -76.9996005 },
+    { "lat": -12.1136282, "lon": -76.9997912 },
+    { "lat": -12.1129165, "lon": -76.9999972 },
+    { "lat": -12.1128016, "lon": -77.0000248 },
+    { "lat": -12.1123346, "lon": -77.0001082 },
+    { "lat": -12.1116055, "lon": -77.0002146 },
+    { "lat": -12.1113706, "lon": -77.0002442 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449809,
+  "bounds": {
+    "minlat": -12.1113650,
+    "minlon": -77.0004761,
+    "maxlat": -12.1096892,
+    "maxlon": -77.0002807
+  },
+  "geometry": [
+    { "lat": -12.1096892, "lon": -77.0004761 },
+    { "lat": -12.1104318, "lon": -77.0003895 },
+    { "lat": -12.1113650, "lon": -77.0002807 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449814,
+  "bounds": {
+    "minlat": -12.1113706,
+    "minlon": -77.0004438,
+    "maxlat": -12.1096825,
+    "maxlon": -77.0002442
+  },
+  "geometry": [
+    { "lat": -12.1113706, "lon": -77.0002442 },
+    { "lat": -12.1104227, "lon": -77.0003563 },
+    { "lat": -12.1096825, "lon": -77.0004438 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449817,
+  "bounds": {
+    "minlat": -12.1096892,
+    "minlon": -77.0016695,
+    "maxlat": -12.1014514,
+    "maxlon": -77.0004761
+  },
+  "geometry": [
+    { "lat": -12.1014514, "lon": -77.0016695 },
+    { "lat": -12.1033800, "lon": -77.0013762 },
+    { "lat": -12.1084052, "lon": -77.0006757 },
+    { "lat": -12.1088514, "lon": -77.0006207 },
+    { "lat": -12.1090488, "lon": -77.0005945 },
+    { "lat": -12.1096892, "lon": -77.0004761 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449818,
+  "bounds": {
+    "minlat": -12.1096825,
+    "minlon": -77.0016233,
+    "maxlat": -12.1014462,
+    "maxlon": -77.0004438
+  },
+  "geometry": [
+    { "lat": -12.1096825, "lon": -77.0004438 },
+    { "lat": -12.1090376, "lon": -77.0005591 },
+    { "lat": -12.1087910, "lon": -77.0005876 },
+    { "lat": -12.1033748, "lon": -77.0013300 },
+    { "lat": -12.1014462, "lon": -77.0016233 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449819,
+  "bounds": {
+    "minlat": -12.1014462,
+    "minlon": -77.0020885,
+    "maxlat": -12.0981390,
+    "maxlon": -77.0016233
+  },
+  "geometry": [
+    { "lat": -12.1014462, "lon": -77.0016233 },
+    { "lat": -12.1003653, "lon": -77.0017753 },
+    { "lat": -12.0981390, "lon": -77.0020885 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550449820,
+  "bounds": {
+    "minlat": -12.1014514,
+    "minlon": -77.0021347,
+    "maxlat": -12.0981442,
+    "maxlon": -77.0016695
+  },
+  "geometry": [
+    { "lat": -12.0981442, "lon": -77.0021347 },
+    { "lat": -12.1003705, "lon": -77.0018215 },
+    { "lat": -12.1014514, "lon": -77.0016695 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450319,
+  "bounds": {
+    "minlat": -12.0858563,
+    "minlon": -77.0040259,
+    "maxlat": -12.0848579,
+    "maxlon": -77.0038800
+  },
+  "geometry": [
+    { "lat": -12.0858563, "lon": -77.0038800 },
+    { "lat": -12.0848579, "lon": -77.0040259 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450320,
+  "bounds": {
+    "minlat": -12.0858576,
+    "minlon": -77.0042046,
+    "maxlat": -12.0838671,
+    "maxlon": -77.0039074
+  },
+  "geometry": [
+    { "lat": -12.0838671, "lon": -77.0042046 },
+    { "lat": -12.0858576, "lon": -77.0039074 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450321,
+  "bounds": {
+    "minlat": -12.0981442,
+    "minlon": -77.0037126,
+    "maxlat": -12.0874741,
+    "maxlon": -77.0021347
+  },
+  "geometry": [
+    { "lat": -12.0874741, "lon": -77.0037126 },
+    { "lat": -12.0901691, "lon": -77.0032894 },
+    { "lat": -12.0938648, "lon": -77.0027787 },
+    { "lat": -12.0981442, "lon": -77.0021347 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450322,
+  "bounds": {
+    "minlat": -12.0981390,
+    "minlon": -77.0036708,
+    "maxlat": -12.0874716,
+    "maxlon": -77.0020885
+  },
+  "geometry": [
+    { "lat": -12.0981390, "lon": -77.0020885 },
+    { "lat": -12.0938512, "lon": -77.0027398 },
+    { "lat": -12.0901626, "lon": -77.0032493 },
+    { "lat": -12.0874716, "lon": -77.0036708 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450822,
+  "bounds": {
+    "minlat": -12.0838671,
+    "minlon": -77.0109210,
+    "maxlat": -12.0763005,
+    "maxlon": -77.0042046
+  },
+  "geometry": [
+    { "lat": -12.0763005, "lon": -77.0109210 },
+    { "lat": -12.0767268, "lon": -77.0108731 },
+    { "lat": -12.0768414, "lon": -77.0108527 },
+    { "lat": -12.0771072, "lon": -77.0107956 },
+    { "lat": -12.0773176, "lon": -77.0107283 },
+    { "lat": -12.0782428, "lon": -77.0104073 },
+    { "lat": -12.0783813, "lon": -77.0103487 },
+    { "lat": -12.0785633, "lon": -77.0102544 },
+    { "lat": -12.0787020, "lon": -77.0101820 },
+    { "lat": -12.0788534, "lon": -77.0100935 },
+    { "lat": -12.0790045, "lon": -77.0099989 },
+    { "lat": -12.0790872, "lon": -77.0099339 },
+    { "lat": -12.0792563, "lon": -77.0097777 },
+    { "lat": -12.0793895, "lon": -77.0096452 },
+    { "lat": -12.0795465, "lon": -77.0094830 },
+    { "lat": -12.0796990, "lon": -77.0092733 },
+    { "lat": -12.0798326, "lon": -77.0090309 },
+    { "lat": -12.0799530, "lon": -77.0087748 },
+    { "lat": -12.0800669, "lon": -77.0084825 },
+    { "lat": -12.0801217, "lon": -77.0083247 },
+    { "lat": -12.0803280, "lon": -77.0076000 },
+    { "lat": -12.0805072, "lon": -77.0070073 },
+    { "lat": -12.0806072, "lon": -77.0066585 },
+    { "lat": -12.0806887, "lon": -77.0064110 },
+    { "lat": -12.0808024, "lon": -77.0061505 },
+    { "lat": -12.0808857, "lon": -77.0059849 },
+    { "lat": -12.0809833, "lon": -77.0058201 },
+    { "lat": -12.0810775, "lon": -77.0056788 },
+    { "lat": -12.0811956, "lon": -77.0055227 },
+    { "lat": -12.0813621, "lon": -77.0053240 },
+    { "lat": -12.0815143, "lon": -77.0051700 },
+    { "lat": -12.0815879, "lon": -77.0051004 },
+    { "lat": -12.0817786, "lon": -77.0049420 },
+    { "lat": -12.0819218, "lon": -77.0048387 },
+    { "lat": -12.0821038, "lon": -77.0047275 },
+    { "lat": -12.0823007, "lon": -77.0046194 },
+    { "lat": -12.0824751, "lon": -77.0045357 },
+    { "lat": -12.0826007, "lon": -77.0044815 },
+    { "lat": -12.0828667, "lon": -77.0043914 },
+    { "lat": -12.0830887, "lon": -77.0043343 },
+    { "lat": -12.0832739, "lon": -77.0042971 },
+    { "lat": -12.0835058, "lon": -77.0042591 },
+    { "lat": -12.0838671, "lon": -77.0042046 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450824,
+  "bounds": {
+    "minlat": -12.0838619,
+    "minlon": -77.0108840,
+    "maxlat": -12.0763010,
+    "maxlon": -77.0041715
+  },
+  "geometry": [
+    { "lat": -12.0838619, "lon": -77.0041715 },
+    { "lat": -12.0835105, "lon": -77.0042189 },
+    { "lat": -12.0832791, "lon": -77.0042554 },
+    { "lat": -12.0830915, "lon": -77.0042924 },
+    { "lat": -12.0828615, "lon": -77.0043525 },
+    { "lat": -12.0827201, "lon": -77.0043991 },
+    { "lat": -12.0825875, "lon": -77.0044510 },
+    { "lat": -12.0824358, "lon": -77.0045110 },
+    { "lat": -12.0822633, "lon": -77.0045974 },
+    { "lat": -12.0821091, "lon": -77.0046887 },
+    { "lat": -12.0819271, "lon": -77.0047932 },
+    { "lat": -12.0817816, "lon": -77.0048927 },
+    { "lat": -12.0815938, "lon": -77.0050482 },
+    { "lat": -12.0814783, "lon": -77.0051533 },
+    { "lat": -12.0813529, "lon": -77.0052833 },
+    { "lat": -12.0812001, "lon": -77.0054608 },
+    { "lat": -12.0810316, "lon": -77.0056909 },
+    { "lat": -12.0809024, "lon": -77.0058903 },
+    { "lat": -12.0808161, "lon": -77.0060359 },
+    { "lat": -12.0806636, "lon": -77.0063779 },
+    { "lat": -12.0805805, "lon": -77.0066262 },
+    { "lat": -12.0805026, "lon": -77.0069114 },
+    { "lat": -12.0801796, "lon": -77.0080044 },
+    { "lat": -12.0800337, "lon": -77.0084756 },
+    { "lat": -12.0799699, "lon": -77.0086489 },
+    { "lat": -12.0798786, "lon": -77.0088704 },
+    { "lat": -12.0798268, "lon": -77.0089768 },
+    { "lat": -12.0796832, "lon": -77.0092293 },
+    { "lat": -12.0795137, "lon": -77.0094576 },
+    { "lat": -12.0794394, "lon": -77.0095406 },
+    { "lat": -12.0792384, "lon": -77.0097438 },
+    { "lat": -12.0791269, "lon": -77.0098553 },
+    { "lat": -12.0790481, "lon": -77.0099198 },
+    { "lat": -12.0788482, "lon": -77.0100498 },
+    { "lat": -12.0787581, "lon": -77.0101040 },
+    { "lat": -12.0785644, "lon": -77.0102198 },
+    { "lat": -12.0783851, "lon": -77.0103087 },
+    { "lat": -12.0782557, "lon": -77.0103642 },
+    { "lat": -12.0773168, "lon": -77.0106896 },
+    { "lat": -12.0771020, "lon": -77.0107494 },
+    { "lat": -12.0768362, "lon": -77.0108065 },
+    { "lat": -12.0767216, "lon": -77.0108269 },
+    { "lat": -12.0763010, "lon": -77.0108840 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450827,
+  "bounds": {
+    "minlat": -12.0690531,
+    "minlon": -77.0127492,
+    "maxlat": -12.0625769,
+    "maxlon": -77.0119126
+  },
+  "geometry": [
+    { "lat": -12.0625769, "lon": -77.0127492 },
+    { "lat": -12.0653165, "lon": -77.0123953 },
+    { "lat": -12.0678249, "lon": -77.0120713 },
+    { "lat": -12.0690531, "lon": -77.0119126 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450830,
+  "bounds": {
+    "minlat": -12.0690479,
+    "minlon": -77.0127167,
+    "maxlat": -12.0625818,
+    "maxlon": -77.0118653
+  },
+  "geometry": [
+    { "lat": -12.0690479, "lon": -77.0118653 },
+    { "lat": -12.0653179, "lon": -77.0123564 },
+    { "lat": -12.0625818, "lon": -77.0127167 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450834,
+  "bounds": {
+    "minlat": -12.0625769,
+    "minlon": -77.0143527,
+    "maxlat": -12.0554507,
+    "maxlon": -77.0127492
+  },
+  "geometry": [
+    { "lat": -12.0554507, "lon": -77.0138155 },
+    { "lat": -12.0556610, "lon": -77.0139616 },
+    { "lat": -12.0557958, "lon": -77.0140381 },
+    { "lat": -12.0559479, "lon": -77.0141122 },
+    { "lat": -12.0562567, "lon": -77.0142372 },
+    { "lat": -12.0566072, "lon": -77.0143107 },
+    { "lat": -12.0568850, "lon": -77.0143470 },
+    { "lat": -12.0571844, "lon": -77.0143527 },
+    { "lat": -12.0575669, "lon": -77.0143122 },
+    { "lat": -12.0577700, "lon": -77.0142699 },
+    { "lat": -12.0578557, "lon": -77.0142502 },
+    { "lat": -12.0579562, "lon": -77.0142130 },
+    { "lat": -12.0589249, "lon": -77.0138355 },
+    { "lat": -12.0603913, "lon": -77.0132363 },
+    { "lat": -12.0606645, "lon": -77.0131182 },
+    { "lat": -12.0608548, "lon": -77.0130479 },
+    { "lat": -12.0610140, "lon": -77.0129937 },
+    { "lat": -12.0612290, "lon": -77.0129308 },
+    { "lat": -12.0620968, "lon": -77.0127932 },
+    { "lat": -12.0625769, "lon": -77.0127492 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450837,
+  "bounds": {
+    "minlat": -12.0625818,
+    "minlon": -77.0143167,
+    "maxlat": -12.0554695,
+    "maxlon": -77.0127167
+  },
+  "geometry": [
+    { "lat": -12.0625818, "lon": -77.0127167 },
+    { "lat": -12.0620378, "lon": -77.0127742 },
+    { "lat": -12.0613990, "lon": -77.0128641 },
+    { "lat": -12.0612319, "lon": -77.0129006 },
+    { "lat": -12.0610149, "lon": -77.0129572 },
+    { "lat": -12.0608577, "lon": -77.0130031 },
+    { "lat": -12.0606593, "lon": -77.0130755 },
+    { "lat": -12.0603697, "lon": -77.0131978 },
+    { "lat": -12.0588871, "lon": -77.0138233 },
+    { "lat": -12.0579389, "lon": -77.0141805 },
+    { "lat": -12.0577656, "lon": -77.0142364 },
+    { "lat": -12.0575572, "lon": -77.0142722 },
+    { "lat": -12.0571234, "lon": -77.0143167 },
+    { "lat": -12.0569381, "lon": -77.0143129 },
+    { "lat": -12.0566390, "lon": -77.0142786 },
+    { "lat": -12.0562228, "lon": -77.0141775 },
+    { "lat": -12.0560648, "lon": -77.0141178 },
+    { "lat": -12.0558006, "lon": -77.0139823 },
+    { "lat": -12.0556988, "lon": -77.0139290 },
+    { "lat": -12.0554695, "lon": -77.0137811 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450839,
+  "bounds": {
+    "minlat": -12.0534217,
+    "minlon": -77.0122023,
+    "maxlat": -12.0517465,
+    "maxlon": -77.0108607
+  },
+  "geometry": [
+    { "lat": -12.0517465, "lon": -77.0108607 },
+    { "lat": -12.0534217, "lon": -77.0122023 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550450842,
+  "bounds": {
+    "minlat": -12.0534436,
+    "minlon": -77.0121793,
+    "maxlat": -12.0517655,
+    "maxlon": -77.0108258
+  },
+  "geometry": [
+    { "lat": -12.0534436, "lon": -77.0121793 },
+    { "lat": -12.0517655, "lon": -77.0108258 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452319,
+  "bounds": {
+    "minlat": -12.0517465,
+    "minlon": -77.0108607,
+    "maxlat": -12.0469606,
+    "maxlon": -77.0094161
+  },
+  "geometry": [
+    { "lat": -12.0469606, "lon": -77.0095069 },
+    { "lat": -12.0471966, "lon": -77.0094567 },
+    { "lat": -12.0473762, "lon": -77.0094354 },
+    { "lat": -12.0476378, "lon": -77.0094161 },
+    { "lat": -12.0486029, "lon": -77.0094560 },
+    { "lat": -12.0495235, "lon": -77.0095062 },
+    { "lat": -12.0496636, "lon": -77.0095248 },
+    { "lat": -12.0498802, "lon": -77.0095742 },
+    { "lat": -12.0500786, "lon": -77.0096344 },
+    { "lat": -12.0502735, "lon": -77.0097153 },
+    { "lat": -12.0504740, "lon": -77.0098240 },
+    { "lat": -12.0505832, "lon": -77.0098951 },
+    { "lat": -12.0506586, "lon": -77.0099487 },
+    { "lat": -12.0517465, "lon": -77.0108607 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452323,
+  "bounds": {
+    "minlat": -12.0517655,
+    "minlon": -77.0108258,
+    "maxlat": -12.0469464,
+    "maxlon": -77.0093805
+  },
+  "geometry": [
+    { "lat": -12.0517655, "lon": -77.0108258 },
+    { "lat": -12.0506864, "lon": -77.0099254 },
+    { "lat": -12.0506251, "lon": -77.0098742 },
+    { "lat": -12.0505229, "lon": -77.0098101 },
+    { "lat": -12.0503721, "lon": -77.0097223 },
+    { "lat": -12.0502070, "lon": -77.0096463 },
+    { "lat": -12.0500418, "lon": -77.0095830 },
+    { "lat": -12.0498811, "lon": -77.0095368 },
+    { "lat": -12.0496578, "lon": -77.0094876 },
+    { "lat": -12.0495266, "lon": -77.0094690 },
+    { "lat": -12.0486038, "lon": -77.0094279 },
+    { "lat": -12.0476332, "lon": -77.0093805 },
+    { "lat": -12.0473756, "lon": -77.0093946 },
+    { "lat": -12.0471898, "lon": -77.0094191 },
+    { "lat": -12.0469464, "lon": -77.0094655 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452325,
+  "bounds": {
+    "minlat": -12.0469606,
+    "minlon": -77.0105853,
+    "maxlat": -12.0436204,
+    "maxlon": -77.0095069
+  },
+  "geometry": [
+    { "lat": -12.0436204, "lon": -77.0105853 },
+    { "lat": -12.0460657, "lon": -77.0097958 },
+    { "lat": -12.0469606, "lon": -77.0095069 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452327,
+  "bounds": {
+    "minlat": -12.0469464,
+    "minlon": -77.0105451,
+    "maxlat": -12.0436075,
+    "maxlon": -77.0094655
+  },
+  "geometry": [
+    { "lat": -12.0469464, "lon": -77.0094655 },
+    { "lat": -12.0460632, "lon": -77.0097543 },
+    { "lat": -12.0436075, "lon": -77.0105451 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452330,
+  "bounds": {
+    "minlat": -12.0436075,
+    "minlon": -77.0110977,
+    "maxlat": -12.0423792,
+    "maxlon": -77.0105451
+  },
+  "geometry": [
+    { "lat": -12.0436075, "lon": -77.0105451 },
+    { "lat": -12.0430960, "lon": -77.0107108 },
+    { "lat": -12.0429538, "lon": -77.0107649 },
+    { "lat": -12.0428147, "lon": -77.0108268 },
+    { "lat": -12.0427028, "lon": -77.0108836 },
+    { "lat": -12.0425937, "lon": -77.0109455 },
+    { "lat": -12.0424839, "lon": -77.0110179 },
+    { "lat": -12.0423792, "lon": -77.0110977 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452331,
+  "bounds": {
+    "minlat": -12.0436204,
+    "minlon": -77.0111205,
+    "maxlat": -12.0424251,
+    "maxlon": -77.0105853
+  },
+  "geometry": [
+    { "lat": -12.0424251, "lon": -77.0111205 },
+    { "lat": -12.0425027, "lon": -77.0110618 },
+    { "lat": -12.0425832, "lon": -77.0110072 },
+    { "lat": -12.0426961, "lon": -77.0109401 },
+    { "lat": -12.0428133, "lon": -77.0108812 },
+    { "lat": -12.0428901, "lon": -77.0108443 },
+    { "lat": -12.0429681, "lon": -77.0108101 },
+    { "lat": -12.0430473, "lon": -77.0107785 },
+    { "lat": -12.0431275, "lon": -77.0107497 },
+    { "lat": -12.0436204, "lon": -77.0105853 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452332,
+  "bounds": {
+    "minlat": -12.0266865,
+    "minlon": -77.0107667,
+    "maxlat": -12.0187709,
+    "maxlon": -77.0033044
+  },
+  "geometry": [
+    { "lat": -12.0187709, "lon": -77.0033044 },
+    { "lat": -12.0188923, "lon": -77.0034054 },
+    { "lat": -12.0190023, "lon": -77.0035198 },
+    { "lat": -12.0190652, "lon": -77.0035865 },
+    { "lat": -12.0192791, "lon": -77.0038163 },
+    { "lat": -12.0195612, "lon": -77.0041432 },
+    { "lat": -12.0199053, "lon": -77.0045635 },
+    { "lat": -12.0200630, "lon": -77.0047556 },
+    { "lat": -12.0203645, "lon": -77.0050614 },
+    { "lat": -12.0205229, "lon": -77.0052338 },
+    { "lat": -12.0227952, "lon": -77.0073552 },
+    { "lat": -12.0231176, "lon": -77.0076487 },
+    { "lat": -12.0241057, "lon": -77.0086019 },
+    { "lat": -12.0254890, "lon": -77.0099043 },
+    { "lat": -12.0260344, "lon": -77.0103537 },
+    { "lat": -12.0261619, "lon": -77.0104527 },
+    { "lat": -12.0262892, "lon": -77.0105430 },
+    { "lat": -12.0266865, "lon": -77.0107667 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452333,
+  "bounds": {
+    "minlat": -12.0269038,
+    "minlon": -77.0108237,
+    "maxlat": -12.0189352,
+    "maxlon": -77.0033972
+  },
+  "geometry": [
+    { "lat": -12.0269038, "lon": -77.0108237 },
+    { "lat": -12.0263389, "lon": -77.0105350 },
+    { "lat": -12.0262116, "lon": -77.0104447 },
+    { "lat": -12.0260841, "lon": -77.0103457 },
+    { "lat": -12.0255387, "lon": -77.0098963 },
+    { "lat": -12.0241554, "lon": -77.0085939 },
+    { "lat": -12.0231295, "lon": -77.0076165 },
+    { "lat": -12.0228449, "lon": -77.0073472 },
+    { "lat": -12.0205726, "lon": -77.0052258 },
+    { "lat": -12.0202411, "lon": -77.0048923 },
+    { "lat": -12.0200992, "lon": -77.0047377 },
+    { "lat": -12.0199520, "lon": -77.0045774 },
+    { "lat": -12.0196416, "lon": -77.0041868 },
+    { "lat": -12.0194571, "lon": -77.0039472 },
+    { "lat": -12.0191985, "lon": -77.0036611 },
+    { "lat": -12.0190901, "lon": -77.0035475 },
+    { "lat": -12.0189352, "lon": -77.0033972 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452334,
+  "bounds": {
+    "minlat": -12.0187709,
+    "minlon": -77.0033044,
+    "maxlat": -12.0174839,
+    "maxlon": -77.0023063
+  },
+  "geometry": [
+    { "lat": -12.0174839, "lon": -77.0023063 },
+    { "lat": -12.0181034, "lon": -77.0027868 },
+    { "lat": -12.0181722, "lon": -77.0028401 },
+    { "lat": -12.0187709, "lon": -77.0033044 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452335,
+  "bounds": {
+    "minlat": -12.0189352,
+    "minlon": -77.0033972,
+    "maxlat": -12.0175021,
+    "maxlon": -77.0022808
+  },
+  "geometry": [
+    { "lat": -12.0189352, "lon": -77.0033972 },
+    { "lat": -12.0181918, "lon": -77.0028187 },
+    { "lat": -12.0175021, "lon": -77.0022808 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452336,
+  "bounds": {
+    "minlat": -12.0174839,
+    "minlon": -77.0023063,
+    "maxlat": -12.0166054,
+    "maxlon": -77.0019365
+  },
+  "geometry": [
+    { "lat": -12.0166054, "lon": -77.0019365 },
+    { "lat": -12.0167452, "lon": -77.0019642 },
+    { "lat": -12.0168899, "lon": -77.0020005 },
+    { "lat": -12.0170360, "lon": -77.0020573 },
+    { "lat": -12.0171950, "lon": -77.0021351 },
+    { "lat": -12.0173593, "lon": -77.0022327 },
+    { "lat": -12.0174839, "lon": -77.0023063 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452337,
+  "bounds": {
+    "minlat": -12.0175021,
+    "minlon": -77.0022808,
+    "maxlat": -12.0166170,
+    "maxlon": -77.0019012
+  },
+  "geometry": [
+    { "lat": -12.0175021, "lon": -77.0022808 },
+    { "lat": -12.0173721, "lon": -77.0021981 },
+    { "lat": -12.0172447, "lon": -77.0021271 },
+    { "lat": -12.0170857, "lon": -77.0020493 },
+    { "lat": -12.0169396, "lon": -77.0019925 },
+    { "lat": -12.0168039, "lon": -77.0019478 },
+    { "lat": -12.0166170, "lon": -77.0019012 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452338,
+  "bounds": {
+    "minlat": -12.0060820,
+    "minlon": -77.0097459,
+    "maxlat": -11.9969879,
+    "maxlon": -77.0059546
+  },
+  "geometry": [
+    { "lat": -11.9969879, "lon": -77.0097459 },
+    { "lat": -11.9999395, "lon": -77.0089123 },
+    { "lat": -12.0009439, "lon": -77.0086341 },
+    { "lat": -12.0018846, "lon": -77.0083977 },
+    { "lat": -12.0020438, "lon": -77.0083448 },
+    { "lat": -12.0022389, "lon": -77.0082708 },
+    { "lat": -12.0023889, "lon": -77.0082062 },
+    { "lat": -12.0025534, "lon": -77.0081351 },
+    { "lat": -12.0027659, "lon": -77.0080344 },
+    { "lat": -12.0031080, "lon": -77.0078293 },
+    { "lat": -12.0058267, "lon": -77.0061276 },
+    { "lat": -12.0060820, "lon": -77.0059546 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452340,
+  "bounds": {
+    "minlat": -12.0112074,
+    "minlon": -77.0048921,
+    "maxlat": -12.0076510,
+    "maxlon": -77.0026159
+  },
+  "geometry": [
+    { "lat": -12.0112074, "lon": -77.0026159 },
+    { "lat": -12.0106120, "lon": -77.0029970 },
+    { "lat": -12.0076510, "lon": -77.0048921 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550452341,
+  "bounds": {
+    "minlat": -12.0166054,
+    "minlon": -77.0026401,
+    "maxlat": -12.0112572,
+    "maxlon": -77.0019028
+  },
+  "geometry": [
+    { "lat": -12.0112572, "lon": -77.0026401 },
+    { "lat": -12.0114459, "lon": -77.0025355 },
+    { "lat": -12.0116352, "lon": -77.0024428 },
+    { "lat": -12.0118112, "lon": -77.0023657 },
+    { "lat": -12.0121359, "lon": -77.0022534 },
+    { "lat": -12.0125370, "lon": -77.0021506 },
+    { "lat": -12.0128268, "lon": -77.0021114 },
+    { "lat": -12.0130121, "lon": -77.0020957 },
+    { "lat": -12.0143855, "lon": -77.0019924 },
+    { "lat": -12.0158370, "lon": -77.0019097 },
+    { "lat": -12.0160711, "lon": -77.0019028 },
+    { "lat": -12.0162353, "lon": -77.0019044 },
+    { "lat": -12.0163503, "lon": -77.0019074 },
+    { "lat": -12.0166054, "lon": -77.0019365 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454224,
+  "bounds": {
+    "minlat": -11.9952306,
+    "minlon": -77.0110972,
+    "maxlat": -11.9856209,
+    "maxlon": -77.0069837
+  },
+  "geometry": [
+    { "lat": -11.9952306, "lon": -77.0102294 },
+    { "lat": -11.9928444, "lon": -77.0109463 },
+    { "lat": -11.9926853, "lon": -77.0109900 },
+    { "lat": -11.9925673, "lon": -77.0110115 },
+    { "lat": -11.9922463, "lon": -77.0110602 },
+    { "lat": -11.9918869, "lon": -77.0110927 },
+    { "lat": -11.9917777, "lon": -77.0110972 },
+    { "lat": -11.9914476, "lon": -77.0110897 },
+    { "lat": -11.9911955, "lon": -77.0110587 },
+    { "lat": -11.9907595, "lon": -77.0109926 },
+    { "lat": -11.9904131, "lon": -77.0109110 },
+    { "lat": -11.9902472, "lon": -77.0108638 },
+    { "lat": -11.9900340, "lon": -77.0107821 },
+    { "lat": -11.9897345, "lon": -77.0106538 },
+    { "lat": -11.9892738, "lon": -77.0103987 },
+    { "lat": -11.9888735, "lon": -77.0100969 },
+    { "lat": -11.9886104, "lon": -77.0098781 },
+    { "lat": -11.9884122, "lon": -77.0096772 },
+    { "lat": -11.9875171, "lon": -77.0086769 },
+    { "lat": -11.9867825, "lon": -77.0078346 },
+    { "lat": -11.9866526, "lon": -77.0076943 },
+    { "lat": -11.9865140, "lon": -77.0075628 },
+    { "lat": -11.9863648, "lon": -77.0074200 },
+    { "lat": -11.9861438, "lon": -77.0072526 },
+    { "lat": -11.9858681, "lon": -77.0070964 },
+    { "lat": -11.9856873, "lon": -77.0070097 },
+    { "lat": -11.9856209, "lon": -77.0069837 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454227,
+  "bounds": {
+    "minlat": -11.9969879,
+    "minlon": -77.0102705,
+    "maxlat": -11.9952358,
+    "maxlon": -77.0097459
+  },
+  "geometry": [
+    { "lat": -11.9952358, "lon": -77.0102705 },
+    { "lat": -11.9961407, "lon": -77.0099996 },
+    { "lat": -11.9969879, "lon": -77.0097459 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454229,
+  "bounds": {
+    "minlat": -11.9952358,
+    "minlon": -77.0111342,
+    "maxlat": -11.9856061,
+    "maxlon": -77.0070195
+  },
+  "geometry": [
+    { "lat": -11.9856061, "lon": -77.0070195 },
+    { "lat": -11.9856832, "lon": -77.0070489 },
+    { "lat": -11.9857922, "lon": -77.0071076 },
+    { "lat": -11.9861421, "lon": -77.0073027 },
+    { "lat": -11.9863854, "lon": -77.0074930 },
+    { "lat": -11.9865235, "lon": -77.0076091 },
+    { "lat": -11.9866447, "lon": -77.0077482 },
+    { "lat": -11.9867970, "lon": -77.0079189 },
+    { "lat": -11.9875117, "lon": -77.0087828 },
+    { "lat": -11.9885039, "lon": -77.0098205 },
+    { "lat": -11.9887203, "lon": -77.0100285 },
+    { "lat": -11.9890000, "lon": -77.0102552 },
+    { "lat": -11.9892831, "lon": -77.0104462 },
+    { "lat": -11.9897467, "lon": -77.0106968 },
+    { "lat": -11.9900927, "lon": -77.0108511 },
+    { "lat": -11.9902640, "lon": -77.0109198 },
+    { "lat": -11.9904605, "lon": -77.0109734 },
+    { "lat": -11.9909740, "lon": -77.0110760 },
+    { "lat": -11.9912575, "lon": -77.0111092 },
+    { "lat": -11.9915052, "lon": -77.0111342 },
+    { "lat": -11.9918646, "lon": -77.0111342 },
+    { "lat": -11.9920662, "lon": -77.0111177 },
+    { "lat": -11.9922438, "lon": -77.0110972 },
+    { "lat": -11.9925238, "lon": -77.0110560 },
+    { "lat": -11.9926726, "lon": -77.0110255 },
+    { "lat": -11.9928566, "lon": -77.0109818 },
+    { "lat": -11.9952358, "lon": -77.0102705 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454231,
+  "bounds": {
+    "minlat": -11.9856209,
+    "minlon": -77.0069837,
+    "maxlat": -11.9840664,
+    "maxlon": -77.0064490
+  },
+  "geometry": [
+    { "lat": -11.9856209, "lon": -77.0069837 },
+    { "lat": -11.9850453, "lon": -77.0067857 },
+    { "lat": -11.9840664, "lon": -77.0064490 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454232,
+  "bounds": {
+    "minlat": -11.9840553,
+    "minlon": -77.0064803,
+    "maxlat": -11.9804028,
+    "maxlon": -77.0052239
+  },
+  "geometry": [
+    { "lat": -11.9804028, "lon": -77.0052239 },
+    { "lat": -11.9840553, "lon": -77.0064803 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454234,
+  "bounds": {
+    "minlat": -11.9803865,
+    "minlon": -77.0051832,
+    "maxlat": -11.9765631,
+    "maxlon": -77.0026337
+  },
+  "geometry": [
+    { "lat": -11.9803865, "lon": -77.0051832 },
+    { "lat": -11.9796065, "lon": -77.0048306 },
+    { "lat": -11.9789332, "lon": -77.0044840 },
+    { "lat": -11.9785739, "lon": -77.0042696 },
+    { "lat": -11.9781663, "lon": -77.0039837 },
+    { "lat": -11.9778195, "lon": -77.0037334 },
+    { "lat": -11.9771139, "lon": -77.0032051 },
+    { "lat": -11.9768553, "lon": -77.0029659 },
+    { "lat": -11.9765631, "lon": -77.0026337 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454240,
+  "bounds": {
+    "minlat": -11.9804028,
+    "minlon": -77.0052239,
+    "maxlat": -11.9765292,
+    "maxlon": -77.0026555
+  },
+  "geometry": [
+    { "lat": -11.9765292, "lon": -77.0026555 },
+    { "lat": -11.9768107, "lon": -77.0029832 },
+    { "lat": -11.9768950, "lon": -77.0030622 },
+    { "lat": -11.9771379, "lon": -77.0032659 },
+    { "lat": -11.9779843, "lon": -77.0038930 },
+    { "lat": -11.9786000, "lon": -77.0043250 },
+    { "lat": -11.9788963, "lon": -77.0045125 },
+    { "lat": -11.9795837, "lon": -77.0048667 },
+    { "lat": -11.9800808, "lon": -77.0050816 },
+    { "lat": -11.9804028, "lon": -77.0052239 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454242,
+  "bounds": {
+    "minlat": -11.9765631,
+    "minlon": -77.0026337,
+    "maxlat": -11.9752114,
+    "maxlon": -77.0007740
+  },
+  "geometry": [
+    { "lat": -11.9765631, "lon": -77.0026337 },
+    { "lat": -11.9752114, "lon": -77.0007740 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454244,
+  "bounds": {
+    "minlat": -11.9741915,
+    "minlon": -76.9993836,
+    "maxlat": -11.9704085,
+    "maxlon": -76.9952302
+  },
+  "geometry": [
+    { "lat": -11.9704085, "lon": -76.9952302 },
+    { "lat": -11.9713634, "lon": -76.9959278 },
+    { "lat": -11.9717006, "lon": -76.9962026 },
+    { "lat": -11.9720147, "lon": -76.9964898 },
+    { "lat": -11.9723626, "lon": -76.9968801 },
+    { "lat": -11.9726253, "lon": -76.9972086 },
+    { "lat": -11.9741915, "lon": -76.9993836 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454247,
+  "bounds": {
+    "minlat": -11.9704400,
+    "minlon": -76.9951945,
+    "maxlat": -11.9630741,
+    "maxlon": -76.9898472
+  },
+  "geometry": [
+    { "lat": -11.9704400, "lon": -76.9951945 },
+    { "lat": -11.9680129, "lon": -76.9934325 },
+    { "lat": -11.9657255, "lon": -76.9917430 },
+    { "lat": -11.9630741, "lon": -76.9898472 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454249,
+  "bounds": {
+    "minlat": -11.9630741,
+    "minlon": -76.9898472,
+    "maxlat": -11.9609220,
+    "maxlon": -76.9883703
+  },
+  "geometry": [
+    { "lat": -11.9630741, "lon": -76.9898472 },
+    { "lat": -11.9609220, "lon": -76.9883703 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550454250,
+  "bounds": {
+    "minlat": -11.9704085,
+    "minlon": -76.9952302,
+    "maxlat": -11.9630661,
+    "maxlon": -76.9898803
+  },
+  "geometry": [
+    { "lat": -11.9630661, "lon": -76.9898803 },
+    { "lat": -11.9656721, "lon": -76.9917501 },
+    { "lat": -11.9679907, "lon": -76.9934685 },
+    { "lat": -11.9704085, "lon": -76.9952302 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550631085,
+  "bounds": {
+    "minlat": -12.1708241,
+    "minlon": -76.9498221,
+    "maxlat": -12.1700932,
+    "maxlon": -76.9494191
+  },
+  "geometry": [
+    { "lat": -12.1708241, "lon": -76.9494191 },
+    { "lat": -12.1700932, "lon": -76.9498221 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550664562,
+  "bounds": {
+    "minlat": -12.0060730,
+    "minlon": -77.0097143,
+    "maxlat": -11.9969747,
+    "maxlon": -77.0059230
+  },
+  "geometry": [
+    { "lat": -12.0060730, "lon": -77.0059230 },
+    { "lat": -12.0058058, "lon": -77.0061025 },
+    { "lat": -12.0030981, "lon": -77.0077881 },
+    { "lat": -12.0028633, "lon": -77.0079348 },
+    { "lat": -12.0026160, "lon": -77.0080564 },
+    { "lat": -12.0024372, "lon": -77.0081379 },
+    { "lat": -12.0022893, "lon": -77.0081983 },
+    { "lat": -12.0021064, "lon": -77.0082702 },
+    { "lat": -12.0019390, "lon": -77.0083252 },
+    { "lat": -11.9999311, "lon": -77.0088686 },
+    { "lat": -11.9969747, "lon": -77.0097143 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550664563,
+  "bounds": {
+    "minlat": -12.0076704,
+    "minlon": -77.0059546,
+    "maxlat": -12.0060820,
+    "maxlon": -77.0049350
+  },
+  "geometry": [
+    { "lat": -12.0060820, "lon": -77.0059546 },
+    { "lat": -12.0068886, "lon": -77.0054369 },
+    { "lat": -12.0076704, "lon": -77.0049350 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550665096,
+  "bounds": {
+    "minlat": -11.9969747,
+    "minlon": -77.0102294,
+    "maxlat": -11.9952306,
+    "maxlon": -77.0097143
+  },
+  "geometry": [
+    { "lat": -11.9969747, "lon": -77.0097143 },
+    { "lat": -11.9961313, "lon": -77.0099634 },
+    { "lat": -11.9952306, "lon": -77.0102294 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550859511,
+  "bounds": {
+    "minlat": -12.0554507,
+    "minlon": -77.0138155,
+    "maxlat": -12.0534217,
+    "maxlon": -77.0122023
+  },
+  "geometry": [
+    { "lat": -12.0534217, "lon": -77.0122023 },
+    { "lat": -12.0541286, "lon": -77.0127643 },
+    { "lat": -12.0554507, "lon": -77.0138155 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "12",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550859512,
+  "bounds": {
+    "minlat": -12.0554695,
+    "minlon": -77.0137811,
+    "maxlat": -12.0534436,
+    "maxlon": -77.0121793
+  },
+  "geometry": [
+    { "lat": -12.0554695, "lon": -77.0137811 },
+    { "lat": -12.0541476, "lon": -77.0127359 },
+    { "lat": -12.0534436, "lon": -77.0121793 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "12",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550860050,
+  "bounds": {
+    "minlat": -12.0112572,
+    "minlon": -77.0049350,
+    "maxlat": -12.0076704,
+    "maxlon": -77.0026401
+  },
+  "geometry": [
+    { "lat": -12.0076704, "lon": -77.0049350 },
+    { "lat": -12.0112572, "lon": -77.0026401 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550860051,
+  "bounds": {
+    "minlat": -12.0076510,
+    "minlon": -77.0059230,
+    "maxlat": -12.0060730,
+    "maxlon": -77.0048921
+  },
+  "geometry": [
+    { "lat": -12.0076510, "lon": -77.0048921 },
+    { "lat": -12.0068697, "lon": -77.0054025 },
+    { "lat": -12.0060730, "lon": -77.0059230 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550919325,
+  "bounds": {
+    "minlat": -12.1821617,
+    "minlon": -76.9471884,
+    "maxlat": -12.1805371,
+    "maxlon": -76.9469406
+  },
+  "geometry": [
+    { "lat": -12.1805371, "lon": -76.9471884 },
+    { "lat": -12.1815146, "lon": -76.9470393 },
+    { "lat": -12.1821617, "lon": -76.9469406 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550919329,
+  "bounds": {
+    "minlat": -12.1825300,
+    "minlon": -76.9468997,
+    "maxlat": -12.1821543,
+    "maxlon": -76.9468437
+  },
+  "geometry": [
+    { "lat": -12.1825300, "lon": -76.9468437 },
+    { "lat": -12.1821543, "lon": -76.9468997 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550919333,
+  "bounds": {
+    "minlat": -12.1825309,
+    "minlon": -76.9469406,
+    "maxlat": -12.1821617,
+    "maxlon": -76.9468843
+  },
+  "geometry": [
+    { "lat": -12.1821617, "lon": -76.9469406 },
+    { "lat": -12.1825309, "lon": -76.9468843 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "tunnel": "yes",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550919336,
+  "bounds": {
+    "minlat": -12.1836683,
+    "minlon": -76.9468437,
+    "maxlat": -12.1825300,
+    "maxlon": -76.9466741
+  },
+  "geometry": [
+    { "lat": -12.1836683, "lon": -76.9466741 },
+    { "lat": -12.1825300, "lon": -76.9468437 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 550927638,
+  "bounds": {
+    "minlat": -12.1969116,
+    "minlon": -76.9400448,
+    "maxlat": -12.1959887,
+    "maxlon": -76.9394711
+  },
+  "geometry": [
+    { "lat": -12.1959887, "lon": -76.9399977 },
+    { "lat": -12.1959975, "lon": -76.9400134 },
+    { "lat": -12.1960151, "lon": -76.9400448 },
+    { "lat": -12.1969116, "lon": -76.9395181 },
+    { "lat": -12.1968852, "lon": -76.9394711 },
+    { "lat": -12.1959887, "lon": -76.9399977 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "fixme": "yes",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 550942199,
+  "bounds": {
+    "minlat": -12.1009064,
+    "minlon": -77.0018364,
+    "maxlat": -12.0998760,
+    "maxlon": -77.0016788
+  },
+  "geometry": [
+    { "lat": -12.1009058, "lon": -77.0016788 },
+    { "lat": -12.0998760, "lon": -77.0018211 },
+    { "lat": -12.0998795, "lon": -77.0018364 },
+    { "lat": -12.1009064, "lon": -77.0016916 },
+    { "lat": -12.1009058, "lon": -77.0016788 }
+  ],
+  "tags": {
+    "area": "yes",
+    "bench": "yes",
+    "bin": "yes",
+    "layer": "1",
+    "lit": "yes",
+    "name": "Plataforma Norte",
+    "public_transport": "platform",
+    "railway": "platform",
+    "shelter": "yes",
+    "subway": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 551970578,
+  "bounds": {
+    "minlat": -11.9752114,
+    "minlon": -77.0007740,
+    "maxlat": -11.9742195,
+    "maxlon": -76.9993647
+  },
+  "geometry": [
+    { "lat": -11.9752114, "lon": -77.0007740 },
+    { "lat": -11.9746963, "lon": -77.0000421 },
+    { "lat": -11.9742195, "lon": -76.9993647 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551970579,
+  "bounds": {
+    "minlat": -11.9765292,
+    "minlon": -77.0026555,
+    "maxlat": -11.9751870,
+    "maxlon": -77.0007873
+  },
+  "geometry": [
+    { "lat": -11.9751870, "lon": -77.0007873 },
+    { "lat": -11.9765292, "lon": -77.0026555 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551970580,
+  "bounds": {
+    "minlat": -11.9742195,
+    "minlon": -76.9993647,
+    "maxlat": -11.9704400,
+    "maxlon": -76.9951945
+  },
+  "geometry": [
+    { "lat": -11.9742195, "lon": -76.9993647 },
+    { "lat": -11.9726546, "lon": -76.9971841 },
+    { "lat": -11.9723600, "lon": -76.9968117 },
+    { "lat": -11.9720137, "lon": -76.9964523 },
+    { "lat": -11.9718652, "lon": -76.9963087 },
+    { "lat": -11.9716725, "lon": -76.9961358 },
+    { "lat": -11.9713099, "lon": -76.9958398 },
+    { "lat": -11.9704400, "lon": -76.9951945 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551970581,
+  "bounds": {
+    "minlat": -11.9751870,
+    "minlon": -77.0007873,
+    "maxlat": -11.9741915,
+    "maxlon": -76.9993836
+  },
+  "geometry": [
+    { "lat": -11.9741915, "lon": -76.9993836 },
+    { "lat": -11.9746696, "lon": -77.0000577 },
+    { "lat": -11.9751870, "lon": -77.0007873 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551971409,
+  "bounds": {
+    "minlat": -11.9856061,
+    "minlon": -77.0070195,
+    "maxlat": -11.9840553,
+    "maxlon": -77.0064803
+  },
+  "geometry": [
+    { "lat": -11.9840553, "lon": -77.0064803 },
+    { "lat": -11.9850291, "lon": -77.0068189 },
+    { "lat": -11.9856061, "lon": -77.0070195 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551971410,
+  "bounds": {
+    "minlat": -11.9840664,
+    "minlon": -77.0064490,
+    "maxlat": -11.9803865,
+    "maxlon": -77.0051832
+  },
+  "geometry": [
+    { "lat": -11.9840664, "lon": -77.0064490 },
+    { "lat": -11.9803865, "lon": -77.0051832 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551978588,
+  "bounds": {
+    "minlat": -12.2073505,
+    "minlon": -76.9345311,
+    "maxlat": -12.2053188,
+    "maxlon": -76.9333063
+  },
+  "geometry": [
+    { "lat": -12.2053188, "lon": -76.9345311 },
+    { "lat": -12.2073505, "lon": -76.9333063 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 551979096,
+  "bounds": {
+    "minlat": -11.9609052,
+    "minlon": -76.9884003,
+    "maxlat": -11.9595388,
+    "maxlon": -76.9874361
+  },
+  "geometry": [
+    { "lat": -11.9595388, "lon": -76.9874361 },
+    { "lat": -11.9609052, "lon": -76.9884003 }
+  ],
+  "tags": {
+    "bridge": "viaduct",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "name": "Línea 1 del Metro de Lima",
+    "oneway": "yes",
+    "passenger_lines": "2",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 552681717,
+  "bounds": {
+    "minlat": -12.0874741,
+    "minlon": -77.0039074,
+    "maxlat": -12.0858576,
+    "maxlon": -77.0037126
+  },
+  "geometry": [
+    { "lat": -12.0858576, "lon": -77.0039074 },
+    { "lat": -12.0868084, "lon": -77.0037928 },
+    { "lat": -12.0874741, "lon": -77.0037126 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 552681718,
+  "bounds": {
+    "minlat": -12.0874716,
+    "minlon": -77.0038800,
+    "maxlat": -12.0858563,
+    "maxlon": -77.0036708
+  },
+  "geometry": [
+    { "lat": -12.0874716, "lon": -77.0036708 },
+    { "lat": -12.0868045, "lon": -77.0037572 },
+    { "lat": -12.0858563, "lon": -77.0038800 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "2",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 654033081,
+  "bounds": {
+    "minlat": -12.0848579,
+    "minlon": -77.0041715,
+    "maxlat": -12.0838619,
+    "maxlon": -77.0040259
+  },
+  "geometry": [
+    { "lat": -12.0848579, "lon": -77.0040259 },
+    { "lat": -12.0838619, "lon": -77.0041715 }
+  ],
+  "tags": {
+    "bridge": "yes",
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "1",
+    "min_height": "7",
+    "name": "Metro de Lima",
+    "oneway": "yes",
+    "railway": "subway",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 1159420583,
+  "bounds": {
+    "minlat": -12.0586129,
+    "minlon": -76.9738331,
+    "maxlat": -12.0441485,
+    "maxlon": -76.9387008
+  },
+  "geometry": [
+    { "lat": -12.0586129, "lon": -76.9738331 },
+    { "lat": -12.0580876, "lon": -76.9726141 },
+    { "lat": -12.0575728, "lon": -76.9713044 },
+    { "lat": -12.0566685, "lon": -76.9691252 },
+    { "lat": -12.0562939, "lon": -76.9682428 },
+    { "lat": -12.0558529, "lon": -76.9672221 },
+    { "lat": -12.0547306, "lon": -76.9646145 },
+    { "lat": -12.0538363, "lon": -76.9625258 },
+    { "lat": -12.0532762, "lon": -76.9612128 },
+    { "lat": -12.0523010, "lon": -76.9589449 },
+    { "lat": -12.0510820, "lon": -76.9561761 },
+    { "lat": -12.0504269, "lon": -76.9544723 },
+    { "lat": -12.0492295, "lon": -76.9514846 },
+    { "lat": -12.0485593, "lon": -76.9497911 },
+    { "lat": -12.0478454, "lon": -76.9479942 },
+    { "lat": -12.0473364, "lon": -76.9467185 },
+    { "lat": -12.0463169, "lon": -76.9441632 },
+    { "lat": -12.0441485, "lon": -76.9387008 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-2",
+    "name": "Metro de Lima Línea 2",
+    "oneway": "yes",
+    "operator": "Sociedad Concesionaria Metro de Lima Línea 2",
+    "railway": "subway",
+    "start_date": "2023-12-21",
+    "tunnel": "yes",
+    "usage": "main",
+    "voltage": "1500"
+  }
+},
+{
+  "type": "way",
+  "id": 1183741027,
+  "bounds": {
+    "minlat": -12.0585748,
+    "minlon": -76.9738489,
+    "maxlat": -12.0441104,
+    "maxlon": -76.9387165
+  },
+  "geometry": [
+    { "lat": -12.0441104, "lon": -76.9387165 },
+    { "lat": -12.0448518, "lon": -76.9405841 },
+    { "lat": -12.0462788, "lon": -76.9441789 },
+    { "lat": -12.0472989, "lon": -76.9467356 },
+    { "lat": -12.0478073, "lon": -76.9480100 },
+    { "lat": -12.0485212, "lon": -76.9498068 },
+    { "lat": -12.0491914, "lon": -76.9515004 },
+    { "lat": -12.0503887, "lon": -76.9544879 },
+    { "lat": -12.0510512, "lon": -76.9561927 },
+    { "lat": -12.0522629, "lon": -76.9589606 },
+    { "lat": -12.0532381, "lon": -76.9612285 },
+    { "lat": -12.0537288, "lon": -76.9623789 },
+    { "lat": -12.0537982, "lon": -76.9625415 },
+    { "lat": -12.0546925, "lon": -76.9646303 },
+    { "lat": -12.0558148, "lon": -76.9672379 },
+    { "lat": -12.0562558, "lon": -76.9682586 },
+    { "lat": -12.0566304, "lon": -76.9691410 },
+    { "lat": -12.0575347, "lon": -76.9713202 },
+    { "lat": -12.0580497, "lon": -76.9726298 },
+    { "lat": -12.0585748, "lon": -76.9738489 }
+  ],
+  "tags": {
+    "electrified": "contact_line",
+    "frequency": "0",
+    "gauge": "1435",
+    "layer": "-2",
+    "name": "Metro de Lima Línea 2",
+    "oneway": "yes",
+    "operator": "Sociedad Concesionaria Metro de Lima Línea 2",
+    "railway": "subway",
+    "start_date": "2023-12-21",
+    "tunnel": "yes",
+    "usage": "main",
+    "voltage": "1500"
+  }
+}
+
+  ]
+}

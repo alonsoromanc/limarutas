@@ -1,0 +1,258 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_ventanilla",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "ovalo-ventanilla",
+        "name": "Óvalo Ventanilla",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Óvalo Ventanilla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.127139,
+          -11.874361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "ciudad-deporte",
+        "name": "Ciudad Deporte",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Ciudad Deporte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.12625,
+          -11.886083
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "chillon",
+        "name": "Chillón",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Chillón"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.130943,
+          -11.935416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "puente-oquendo",
+        "name": "Puente Oquendo",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Puente Oquendo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.125389,
+          -11.971417
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "yzaguirre",
+        "name": "Yzaguirre",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Yzaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.125703,
+          -11.989491
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "canta-callao",
+        "name": "Canta Callao",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Canta Callao"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.117398,
+          -12.000761
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "aduanas",
+        "name": "Aduanas",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Aduanas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.105194,
+          -12.024494
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "monark",
+        "name": "Monark",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Monark"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.100685,
+          -12.032853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1163,
+          -12.0328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#ff7f00",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.127139,
+            -11.874361
+          ],
+          [
+            -77.12625,
+            -11.886083
+          ],
+          [
+            -77.130943,
+            -11.935416
+          ],
+          [
+            -77.125389,
+            -11.971417
+          ],
+          [
+            -77.125703,
+            -11.989491
+          ],
+          [
+            -77.117398,
+            -12.000761
+          ],
+          [
+            -77.105194,
+            -12.024494
+          ],
+          [
+            -77.100685,
+            -12.032853
+          ],
+          [
+            -77.1163,
+            -12.0328
+          ]
+        ]
+      }
+    }
+  ]
+}

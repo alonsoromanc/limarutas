@@ -1,0 +1,82 @@
+{
+  "updated": "2025-09-26",
+  "colors": {
+    "1":"#D3D3D3","2":"#31459B","3":"#B8860B","5":"#B70C7F","6":"#4A4949",
+    "7":"#960018","8":"#EA3D90","9":"#90C5A4","10":"#33CB98","11":"#662485",
+    "12":"#624F41","13":"#173059","A":"#00AAE4","B":"#FF8000",
+    "C":"#00A884","D":"#6D1F6D","L":"#706F6D","SX":"#ADC90C","SXN":"#FFDD00"
+  },
+  "services": [
+    { "id":"A","kind":"regular","name":"Ruta A",
+      "stops":["naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","ramon-castilla","tacna","jiron-de-la-union","colmena","estacion-central"] },
+
+    { "id":"B","kind":"regular","name":"Ruta B",
+      "stops":["chimpu-ocllo","los-incas","andres-belaunde","22-de-agosto","las-vegas","universidad","naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","2-de-mayo","quilca","espana","estacion-central"] },
+
+    { "id":"C","kind":"regular","name":"Ruta C",
+      "stops":["ramon-castilla","tacna","jiron-de-la-union","colmena","estacion-central","estadio-nacional","mexico","canada","javier-prado","canaval-moreyra","aramburu","domingo-orue","angamos","ricardo-palma","benavides","28-de-julio","plaza-de-flores","balta","bulevar","estadio-union","escuela-militar","teran","rosario-de-villa","matellini"] },
+
+    { "id":"D","kind":"regular","name":"Ruta D",
+      "stops":["naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","2-de-mayo","quilca","espana","estacion-central"] },
+
+    { "id":"1","kind":"expreso","name":"Expreso 1",
+      "north_south":["estacion-central","estadio-nacional","javier-prado","canaval-moreyra","angamos","28-de-julio","balta","estadio-union","teran","matellini"],
+      "south_north":["matellini","teran","estadio-union","balta","angamos","canaval-moreyra","javier-prado","estadio-nacional","estacion-central"] },
+
+    { "id":"2","kind":"expreso","name":"Expreso 2",
+      "north_south":["naranjal","canada","javier-prado","ricardo-palma","28-de-julio"],
+      "south_north":["ricardo-palma","javier-prado","canada","naranjal"] },
+
+    { "id":"3","kind":"expreso","name":"Expreso 3",
+      "north_south":["naranjal","angamos","benavides"],
+      "south_north":["benavides","angamos","naranjal"] },
+
+    { "id":"5","kind":"expreso","name":"Expreso 5",
+      "north_south":["naranjal","izaguirre","tomas-valle","uni","caqueta","espana","estacion-central","canada","javier-prado","canaval-moreyra","angamos","ricardo-palma","plaza-de-flores"],
+      "south_north":["plaza-de-flores","ricardo-palma","angamos","canaval-moreyra","javier-prado","canada","estacion-central","espana","caqueta","uni","tomas-valle","izaguirre","naranjal"] },
+
+    { "id":"6","kind":"expreso","name":"Expreso 6",
+      "north_south":["izaguirre","independencia","estacion-central","javier-prado","canaval-moreyra","angamos","benavides"],
+      "south_north":["benavides","angamos","canaval-moreyra","javier-prado","estacion-central","independencia","izaguirre"] },
+
+    { "id":"7","kind":"expreso","name":"Expreso 7",
+      "north_south":["tomas-valle","estacion-central","javier-prado","canaval-moreyra","angamos"],
+      "south_north":["angamos","canaval-moreyra","javier-prado","estacion-central","tomas-valle"] },
+
+    { "id":"8","kind":"expreso","name":"Expreso 8",
+      "north_south":["izaguirre","independencia","tomas-valle","uni","estacion-central","javier-prado","canaval-moreyra","angamos","benavides","plaza-de-flores"],
+      "south_north":["plaza-de-flores","benavides","angamos","canaval-moreyra","javier-prado","estacion-central","uni","tomas-valle","independencia","izaguirre"] },
+
+    { "id":"9","kind":"expreso","name":"Expreso 9",
+      "north_south":["uni","caqueta","canada","canaval-moreyra","angamos","benavides"],
+      "south_north":["plaza-de-flores","benavides","angamos","canaval-moreyra","javier-prado","estacion-central","espana","caqueta","uni"] },
+
+    { "id":"10","kind":"expreso","name":"Expreso 10",
+      "north_south":["naranjal","caqueta","ramon-castilla","tacna","jiron-de-la-union","colmena","estacion-central"],
+      "south_north":["estacion-central","colmena","jiron-de-la-union","tacna","ramon-castilla","caqueta","naranjal"] },
+
+    { "id":"11","kind":"expreso","name":"Expreso 11",
+      "north_south":["los-incas","andres-belaunde","22-de-agosto","universidad","pacifico","estacion-central"],
+      "south_north":["estacion-central","naranjal","universidad","22-de-agosto","andres-belaunde","los-incas"] },
+
+    { "id":"12","kind":"expreso","name":"Expreso 12",
+      "north_south":["estacion-central","estadio-nacional","javier-prado","canaval-moreyra","angamos","benavides"],
+      "south_north":["benavides","angamos","canaval-moreyra","javier-prado","estadio-nacional","estacion-central"] },
+
+    { "id":"13","kind":"expreso","name":"Expreso 13",
+      "north_south":["chimpu-ocllo","andres-belaunde","uni","estacion-central"],
+      "south_north":["estacion-central","los-incas","chimpu-ocllo"] },
+
+    { "id":"L","kind":"expreso","name":"Lechucero L",
+      "north_south":["naranjal","tomas-valle","uni","jiron-de-la-union","canada","ricardo-palma","bulevar","matellini"],
+      "south_north":["matellini","bulevar","ricardo-palma","canada","jiron-de-la-union","uni","tomas-valle","naranjal"] },
+
+    { "id":"SX","kind":"expreso","name":"Súper Expreso SX",
+      "north_south":["naranjal","canaval-moreyra","aramburu","angamos","benavides","28-de-julio"],
+      "south_north":["aramburu","canaval-moreyra","naranjal"] },
+
+    { "id":"SXN","kind":"expreso","name":"Súper Expreso Norte SXN",
+      "north_south":["naranjal","2-de-mayo","quilca","espana","estacion-central"],
+      "south_north":["22-de-agosto","las-vegas","universidad","2-de-mayo","quilca","espana","estacion-central"] }
+  ]
+}
