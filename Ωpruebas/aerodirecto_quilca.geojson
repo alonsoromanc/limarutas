@@ -1,0 +1,76 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_quilca",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "stop_id": "quilca",
+        "name": "Quilca (hacia el Aeropuerto)",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6a3d9a",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Quilca (hacia el Aeropuerto)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098989,
+          -12.038559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6a3d9a",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1163,
+          -12.0328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#6a3d9a",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.098989,
+            -12.038559
+          ],
+          [
+            -77.1163,
+            -12.0328
+          ]
+        ]
+      }
+    }
+  ]
+}

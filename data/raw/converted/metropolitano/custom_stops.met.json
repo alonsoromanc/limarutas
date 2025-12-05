@@ -1,0 +1,18 @@
+{
+  "stations": [
+    {
+      "id": "estacion-central",
+      "name": "Estación Central",
+      "lat": -12.0609,
+      "lon": -77.0418,
+      "served_by": ["A", "B", "C"]
+    },
+    {
+      "id": "javier-prado",
+      "name": "Javier Prado",
+      "lat": -12.09021,
+      "lon": -77.01043,
+      "served_by": ["B"]
+    }
+  ]
+}

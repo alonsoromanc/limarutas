@@ -1,0 +1,1986 @@
+{
+  "updated": "2025-09-28",
+  "stations": [
+    {
+      "id": "1-las-flores",
+      "name": "1 Las Flores",
+      "lat": -12.02291,
+      "lon": -77.01268,
+      "pending": false
+    },
+    {
+      "id": "10-canto-grande",
+      "name": "10 Canto Grande",
+      "lat": -11.96817,
+      "lon": -77.00422,
+      "pending": false
+    },
+    {
+      "id": "10-las-flores",
+      "name": "10 Las Flores",
+      "lat": -12.00704,
+      "lon": -77.01133,
+      "pending": false
+    },
+    {
+      "id": "12-canto-grande",
+      "name": "12 Canto Grande",
+      "lat": -11.96458,
+      "lon": -77.00189,
+      "pending": false
+    },
+    {
+      "id": "12-las-flores",
+      "name": "12 Las Flores",
+      "lat": -12.00395,
+      "lon": -77.0122,
+      "pending": false
+    },
+    {
+      "id": "13-canto-grande",
+      "name": "13 Canto Grande",
+      "lat": -11.9627,
+      "lon": -77.00077,
+      "pending": false
+    },
+    {
+      "id": "15-las-flores",
+      "name": "15 Las Flores",
+      "lat": -11.99958,
+      "lon": -77.01404,
+      "pending": false
+    },
+    {
+      "id": "16-canto-grande",
+      "name": "16 Canto Grande",
+      "lat": -11.95785,
+      "lon": -76.99837,
+      "pending": false
+    },
+    {
+      "id": "17-las-flores",
+      "name": "17 Las Flores",
+      "lat": -11.996,
+      "lon": -77.01518,
+      "pending": false
+    },
+    {
+      "id": "18-las-flores",
+      "name": "18 Las Flores",
+      "lat": -11.99391,
+      "lon": -77.01516,
+      "pending": false
+    },
+    {
+      "id": "19-las-flores",
+      "name": "19 Las Flores",
+      "lat": -11.99009,
+      "lon": -77.01529,
+      "pending": false
+    },
+    {
+      "id": "2-canto-grande",
+      "name": "2 Canto Grande",
+      "lat": -11.98081,
+      "lon": -77.01241,
+      "pending": false
+    },
+    {
+      "id": "2-de-mayo",
+      "name": "2 de Mayo",
+      "lat": -12.09047,
+      "lon": -77.03477,
+      "pending": false
+    },
+    {
+      "id": "2-las-flores",
+      "name": "2 Las Flores",
+      "lat": -12.02062,
+      "lon": -77.01252,
+      "pending": false
+    },
+    {
+      "id": "200-millas",
+      "name": "200 Millas",
+      "lat": -12.23368,
+      "lon": -76.9353,
+      "pending": false
+    },
+    {
+      "id": "21-las-flores",
+      "name": "21 Las Flores",
+      "lat": -11.98675,
+      "lon": -77.01569,
+      "pending": false
+    },
+    {
+      "id": "22-las-flores",
+      "name": "22 Las Flores",
+      "lat": -11.98332,
+      "lon": -77.01368,
+      "pending": false
+    },
+    {
+      "id": "24-de-junio",
+      "name": "24 de Junio",
+      "lat": -12.01648,
+      "lon": -77.02997,
+      "pending": false
+    },
+    {
+      "id": "28-de-julio",
+      "name": "28 de Julio",
+      "lat": -12.09906,
+      "lon": -77.03048,
+      "pending": false
+    },
+    {
+      "id": "3-de-octubre",
+      "name": "3 de Octubre",
+      "lat": -12.22344,
+      "lon": -76.94244,
+      "pending": false
+    },
+    {
+      "id": "4-las-flores",
+      "name": "4 Las Flores",
+      "lat": -12.0177,
+      "lon": -77.01216,
+      "pending": false
+    },
+    {
+      "id": "5-canto-grande",
+      "name": "5 Canto Grande",
+      "lat": -11.97481,
+      "lon": -77.0086,
+      "pending": false
+    },
+    {
+      "id": "7-las-flores",
+      "name": "7 Las Flores",
+      "lat": -12.01253,
+      "lon": -77.01152,
+      "pending": false
+    },
+    {
+      "id": "8-canto-grande",
+      "name": "8 Canto Grande",
+      "lat": -11.97032,
+      "lon": -77.0058,
+      "pending": false
+    },
+    {
+      "id": "8-de-mariscal",
+      "name": "8 de Mariscal",
+      "lat": -11.9411,
+      "lon": -76.98044,
+      "pending": false
+    },
+    {
+      "id": "9-las-flores",
+      "name": "9 Las Flores",
+      "lat": -12.00797,
+      "lon": -77.01077,
+      "pending": false
+    },
+    {
+      "id": "a-quesada",
+      "name": "A. Quesada",
+      "lat": -12.08419,
+      "lon": -76.92723,
+      "pending": false
+    },
+    {
+      "id": "acho",
+      "name": "Acho",
+      "lat": -12.04249,
+      "lon": -77.02247,
+      "pending": false
+    },
+    {
+      "id": "alcazar",
+      "name": "Alcazar",
+      "lat": -12.03255,
+      "lon": -77.0281,
+      "pending": false
+    },
+    {
+      "id": "alipio-ponce",
+      "name": "Alipio Ponce",
+      "lat": -12.17167,
+      "lon": -76.97893,
+      "pending": false
+    },
+    {
+      "id": "amancaes",
+      "name": "Amancaes",
+      "lat": -12.02621,
+      "lon": -77.03397,
+      "pending": false
+    },
+    {
+      "id": "amauta",
+      "name": "Amauta",
+      "lat": -12.16163,
+      "lon": -76.9819,
+      "pending": false
+    },
+    {
+      "id": "america",
+      "name": "América",
+      "lat": -12.18376,
+      "lon": -76.97508,
+      "pending": false
+    },
+    {
+      "id": "ancash",
+      "name": "Ancash",
+      "lat": -12.04631,
+      "lon": -77.02604,
+      "pending": false
+    },
+    {
+      "id": "andalucia",
+      "name": "Andalucía",
+      "lat": -12.10864,
+      "lon": -77.03082,
+      "pending": false
+    },
+    {
+      "id": "angamos",
+      "name": "Angamos",
+      "lat": -12.11374,
+      "lon": -77.02985,
+      "pending": false
+    },
+    {
+      "id": "antunez-de-mayolo",
+      "name": "Antúnez de Mayolo",
+      "lat": -11.99136,
+      "lon": -77.07206,
+      "pending": false
+    },
+    {
+      "id": "aramburu",
+      "name": "Aramburú",
+      "lat": -12.10378,
+      "lon": -77.03145,
+      "pending": false
+    },
+    {
+      "id": "arenales",
+      "name": "Arenales",
+      "lat": -12.09248,
+      "lon": -77.03451,
+      "pending": false
+    },
+    {
+      "id": "armendariz",
+      "name": "Armendáriz",
+      "lat": -12.1311,
+      "lon": -77.02998,
+      "pending": false
+    },
+    {
+      "id": "arriba-peru",
+      "name": "Arriba Perú",
+      "lat": -12.21085,
+      "lon": -76.94996,
+      "pending": false
+    },
+    {
+      "id": "aruba",
+      "name": "Aruba",
+      "lat": -12.07087,
+      "lon": -76.93763,
+      "pending": false
+    },
+    {
+      "id": "ascarruz",
+      "name": "Ascarruz",
+      "lat": -12.01563,
+      "lon": -77.00174,
+      "pending": false
+    },
+    {
+      "id": "asuncion",
+      "name": "Asunción",
+      "lat": -12.06704,
+      "lon": -76.93879,
+      "pending": false
+    },
+    {
+      "id": "atarjea",
+      "name": "Atarjea",
+      "lat": -12.04192,
+      "lon": -76.9869,
+      "pending": false
+    },
+    {
+      "id": "atocongo",
+      "name": "Atocongo",
+      "lat": -12.14963,
+      "lon": -76.98313,
+      "pending": false
+    },
+    {
+      "id": "aviacion",
+      "name": "Aviación",
+      "lat": -12.08821,
+      "lon": -77.00427,
+      "pending": false
+    },
+    {
+      "id": "ayacucho",
+      "name": "Ayacucho",
+      "lat": -12.11163,
+      "lon": -77.03022,
+      "pending": false
+    },
+    {
+      "id": "balta",
+      "name": "Balta",
+      "lat": -12.1418,
+      "lon": -77.01851,
+      "pending": false
+    },
+    {
+      "id": "bartolome-herrera",
+      "name": "Bartolomé Herrera",
+      "lat": -12.08085,
+      "lon": -77.07367,
+      "pending": false
+    },
+    {
+      "id": "basadre",
+      "name": "Basadre",
+      "lat": -11.98965,
+      "lon": -77.01061,
+      "pending": false
+    },
+    {
+      "id": "bausate-y-meza",
+      "name": "Bausate y Meza",
+      "lat": -12.06481,
+      "lon": -77.02902,
+      "pending": false
+    },
+    {
+      "id": "bayovar",
+      "name": "Bayóvar",
+      "lat": -11.95973,
+      "lon": -76.9875,
+      "pending": false
+    },
+    {
+      "id": "benavides",
+      "name": "Benavides",
+      "lat": -12.12903,
+      "lon": -76.99528,
+      "pending": false
+    },
+    {
+      "id": "berlin",
+      "name": "Berlín",
+      "lat": -12.08041,
+      "lon": -76.97771,
+      "pending": false
+    },
+    {
+      "id": "bernardo-alcedo",
+      "name": "Bernardo Alcedo",
+      "lat": -12.08508,
+      "lon": -77.03428,
+      "pending": false
+    },
+    {
+      "id": "bolivar",
+      "name": "Bolívar",
+      "lat": -12.07512,
+      "lon": -77.05384,
+      "pending": false
+    },
+    {
+      "id": "bolivia",
+      "name": "Bolivia",
+      "lat": -12.05603,
+      "lon": -77.0382,
+      "pending": false
+    },
+    {
+      "id": "callao",
+      "name": "Callao",
+      "lat": -12.04376,
+      "lon": -77.03561,
+      "pending": false
+    },
+    {
+      "id": "calle-2",
+      "name": "Calle 2",
+      "lat": -12.02337,
+      "lon": -77.03157,
+      "pending": false
+    },
+    {
+      "id": "calle-3",
+      "name": "Calle 3",
+      "lat": -12.02379,
+      "lon": -77.03173,
+      "pending": false
+    },
+    {
+      "id": "camacho",
+      "name": "Camacho",
+      "lat": -12.07983,
+      "lon": -76.96605,
+      "pending": false
+    },
+    {
+      "id": "canaval-y-moreyra",
+      "name": "Canaval y Moreyra",
+      "lat": -12.09634,
+      "lon": -77.02522,
+      "pending": false
+    },
+    {
+      "id": "canta-callao",
+      "name": "Canta Callao",
+      "lat": -11.97276,
+      "lon": -77.08689,
+      "pending": false
+    },
+    {
+      "id": "canto-rey",
+      "name": "Canto Rey",
+      "lat": -11.97589,
+      "lon": -77.0017,
+      "pending": false
+    },
+    {
+      "id": "carlos-mariategui",
+      "name": "Carlos Mariátegui",
+      "lat": -12.22596,
+      "lon": -76.94092,
+      "pending": false
+    },
+    {
+      "id": "carlos-tenaud",
+      "name": "Carlos Tenaud",
+      "lat": -12.10905,
+      "lon": -77.03054,
+      "pending": false
+    },
+    {
+      "id": "carlos-valderrama",
+      "name": "Carlos Valderrama",
+      "lat": -12.02102,
+      "lon": -77.02957,
+      "pending": false
+    },
+    {
+      "id": "castilla",
+      "name": "Castilla",
+      "lat": -12.10543,
+      "lon": -76.94094,
+      "pending": false
+    },
+    {
+      "id": "catolica",
+      "name": "Católica",
+      "lat": -12.06748,
+      "lon": -77.07791,
+      "pending": false
+    },
+    {
+      "id": "catorce-jose-carlos-mariategui",
+      "name": "Catorce - Jose Carlos Mariátegui",
+      "lat": -11.95614,
+      "lon": -76.99511,
+      "pending": false
+    },
+    {
+      "id": "cayetano",
+      "name": "Cayetano",
+      "lat": -12.02514,
+      "lon": -77.05841,
+      "pending": false
+    },
+    {
+      "id": "celima",
+      "name": "Celima",
+      "lat": -12.01313,
+      "lon": -77.00206,
+      "pending": false
+    },
+    {
+      "id": "centenario",
+      "name": "Centenario",
+      "lat": -12.06923,
+      "lon": -76.93771,
+      "pending": false
+    },
+    {
+      "id": "ceres",
+      "name": "Ceres",
+      "lat": -12.03359,
+      "lon": -76.92592,
+      "pending": false
+    },
+    {
+      "id": "cerezos",
+      "name": "Cerezos",
+      "lat": -12.01159,
+      "lon": -77.03258,
+      "pending": false
+    },
+    {
+      "id": "cesar-vallejo",
+      "name": "Cesar Vallejo",
+      "lat": -12.21837,
+      "lon": -76.94545,
+      "pending": false
+    },
+    {
+      "id": "chan-chan",
+      "name": "Chan Chan",
+      "lat": -12.11028,
+      "lon": -76.93864,
+      "pending": false
+    },
+    {
+      "id": "chipoco",
+      "name": "Chipoco",
+      "lat": -12.1378,
+      "lon": -77.02248,
+      "pending": false
+    },
+    {
+      "id": "chira",
+      "name": "Chira",
+      "lat": -12.0366,
+      "lon": -77.03088,
+      "pending": false
+    },
+    {
+      "id": "choquehuanca",
+      "name": "Choquehuanca",
+      "lat": -12.09847,
+      "lon": -77.03254,
+      "pending": false
+    },
+    {
+      "id": "chota",
+      "name": "Chota",
+      "lat": -12.06029,
+      "lon": -77.0406,
+      "pending": false
+    },
+    {
+      "id": "circunvalacion",
+      "name": "Circunvalación",
+      "lat": -12.0853,
+      "lon": -76.98555,
+      "pending": false
+    },
+    {
+      "id": "claveles",
+      "name": "Claveles",
+      "lat": -12.01379,
+      "lon": -77.03132,
+      "pending": false
+    },
+    {
+      "id": "colegio",
+      "name": "Colegio",
+      "lat": -12.08257,
+      "lon": -77.05997,
+      "pending": false
+    },
+    {
+      "id": "comisaria",
+      "name": "Comisaría",
+      "lat": -11.98344,
+      "lon": -77.01405,
+      "pending": false
+    },
+    {
+      "id": "consejo",
+      "name": "Consejo",
+      "lat": -12.02939,
+      "lon": -77.01183,
+      "pending": false
+    },
+    {
+      "id": "contisuyo",
+      "name": "Contisuyo",
+      "lat": -12.07178,
+      "lon": -77.09869,
+      "pending": false
+    },
+    {
+      "id": "control",
+      "name": "Control",
+      "lat": -12.03339,
+      "lon": -77.05332,
+      "pending": false
+    },
+    {
+      "id": "cordillera-blanca",
+      "name": "Cordillera Blanca",
+      "lat": -12.09616,
+      "lon": -76.95193,
+      "pending": false
+    },
+    {
+      "id": "cordilllera-blanca",
+      "name": "Cordilllera Blanca",
+      "lat": -12.09614,
+      "lon": -76.95199,
+      "pending": false
+    },
+    {
+      "id": "cotabambas",
+      "name": "Cotabambas",
+      "lat": -12.05946,
+      "lon": -77.03411,
+      "pending": false
+    },
+    {
+      "id": "cuba",
+      "name": "Cuba",
+      "lat": -12.07398,
+      "lon": -77.03614,
+      "pending": false
+    },
+    {
+      "id": "curva",
+      "name": "Curva",
+      "lat": -12.025,
+      "lon": -77.01206,
+      "pending": false
+    },
+    {
+      "id": "cusco",
+      "name": "Cusco",
+      "lat": -12.05171,
+      "lon": -77.02876,
+      "pending": false
+    },
+    {
+      "id": "derecho",
+      "name": "Derecho",
+      "lat": -12.1038,
+      "lon": -76.94824,
+      "pending": false
+    },
+    {
+      "id": "domingo-casanova",
+      "name": "Domingo Casanova",
+      "lat": -12.08996,
+      "lon": -77.03358,
+      "pending": false
+    },
+    {
+      "id": "don-bosco",
+      "name": "Don Bosco",
+      "lat": -12.06249,
+      "lon": -77.04347,
+      "pending": false
+    },
+    {
+      "id": "dos-de-mayo",
+      "name": "Dos de Mayo",
+      "lat": -12.11772,
+      "lon": -77.02927,
+      "pending": false
+    },
+    {
+      "id": "eduardo-dibos",
+      "name": "Eduardo Dibós",
+      "lat": -12.02003,
+      "lon": -77.02859,
+      "pending": false
+    },
+    {
+      "id": "el-sol",
+      "name": "El Sol",
+      "lat": -12.12395,
+      "lon": -76.96316,
+      "pending": false
+    },
+    {
+      "id": "emancipacion",
+      "name": "Emancipación",
+      "lat": -12.04668,
+      "lon": -77.03762,
+      "pending": false
+    },
+    {
+      "id": "emilio-fernandez",
+      "name": "Emilio Fernández",
+      "lat": -12.07382,
+      "lon": -77.03596,
+      "pending": false
+    },
+    {
+      "id": "enrique-villar",
+      "name": "Enrique Villar",
+      "lat": -12.07656,
+      "lon": -77.03566,
+      "pending": false
+    },
+    {
+      "id": "escardo",
+      "name": "Escardó",
+      "lat": -12.07738,
+      "lon": -77.09353,
+      "pending": false
+    },
+    {
+      "id": "escuela-pnp",
+      "name": "Escuela PNP",
+      "lat": -12.08524,
+      "lon": -76.95763,
+      "pending": false
+    },
+    {
+      "id": "espana",
+      "name": "España",
+      "lat": -12.05815,
+      "lon": -77.03807,
+      "pending": false
+    },
+    {
+      "id": "estacion-mexico",
+      "name": "Estación México",
+      "lat": -12.07726,
+      "lon": -77.02926,
+      "pending": false
+    },
+    {
+      "id": "evitamiento",
+      "name": "Evitamiento",
+      "lat": -12.0846,
+      "lon": -76.98034,
+      "pending": false
+    },
+    {
+      "id": "f-arancibia",
+      "name": "F. Arancibia",
+      "lat": -12.02738,
+      "lon": -77.03276,
+      "pending": false
+    },
+    {
+      "id": "fanning",
+      "name": "Fanning",
+      "lat": -12.12991,
+      "lon": -77.02975,
+      "pending": false
+    },
+    {
+      "id": "farmacia-leo",
+      "name": "Farmacia Leo",
+      "lat": -11.95552,
+      "lon": -76.99173,
+      "pending": false
+    },
+    {
+      "id": "flor-de-amancaes",
+      "name": "Flor de Amancaes",
+      "lat": -12.00751,
+      "lon": -77.03604,
+      "pending": false
+    },
+    {
+      "id": "flora-tristan",
+      "name": "Flora Tristán",
+      "lat": -12.06684,
+      "lon": -76.94402,
+      "pending": false
+    },
+    {
+      "id": "garcilazo",
+      "name": "Garcilazo",
+      "lat": -12.05985,
+      "lon": -77.0371,
+      "pending": false
+    },
+    {
+      "id": "grau",
+      "name": "Grau",
+      "lat": -12.05891,
+      "lon": -77.02991,
+      "pending": false
+    },
+    {
+      "id": "gregorio-escobedo",
+      "name": "Gregorio Escobedo",
+      "lat": -12.08989,
+      "lon": -77.0582,
+      "pending": false
+    },
+    {
+      "id": "guardia-civil",
+      "name": "Guardia Civil",
+      "lat": -12.08894,
+      "lon": -77.00796,
+      "pending": false
+    },
+    {
+      "id": "guardia-republicana",
+      "name": "Guardia Republicana",
+      "lat": -12.03489,
+      "lon": -77.0298,
+      "pending": false
+    },
+    {
+      "id": "habich",
+      "name": "Habich",
+      "lat": -12.03047,
+      "lon": -77.05684,
+      "pending": false
+    },
+    {
+      "id": "hipodromo",
+      "name": "Hipodromo",
+      "lat": -12.0932,
+      "lon": -76.98063,
+      "pending": false
+    },
+    {
+      "id": "holanda",
+      "name": "Holanda",
+      "lat": -12.04244,
+      "lon": -76.92609,
+      "pending": false
+    },
+    {
+      "id": "honda",
+      "name": "Honda",
+      "lat": -12.07454,
+      "lon": -77.09962,
+      "pending": false
+    },
+    {
+      "id": "hospital-del-nino",
+      "name": "Hospital del Niño",
+      "lat": -12.06532,
+      "lon": -77.04574,
+      "pending": false
+    },
+    {
+      "id": "hospital-militar",
+      "name": "Hospital Militar",
+      "lat": -12.08833,
+      "lon": -77.06059,
+      "pending": false
+    },
+    {
+      "id": "hospital-pnp",
+      "name": "Hospital PNP",
+      "lat": -12.08461,
+      "lon": -77.06165,
+      "pending": false
+    },
+    {
+      "id": "hostipal-pnp",
+      "name": "Hostipal PNP",
+      "lat": -12.08421,
+      "lon": -77.06136,
+      "pending": false
+    },
+    {
+      "id": "huancavelica",
+      "name": "Huancavelica",
+      "lat": -12.04508,
+      "lon": -77.03677,
+      "pending": false
+    },
+    {
+      "id": "huancayo",
+      "name": "Huancayo",
+      "lat": -12.0617,
+      "lon": -77.03785,
+      "pending": false
+    },
+    {
+      "id": "huandoy",
+      "name": "Huandoy",
+      "lat": -11.97658,
+      "lon": -77.08368,
+      "pending": false
+    },
+    {
+      "id": "huarochiri",
+      "name": "Huarochirí",
+      "lat": -12.06412,
+      "lon": -76.93891,
+      "pending": false
+    },
+    {
+      "id": "ica",
+      "name": "Ica",
+      "lat": -12.0444,
+      "lon": -77.03617,
+      "pending": false
+    },
+    {
+      "id": "ilo",
+      "name": "Ilo",
+      "lat": -12.05193,
+      "lon": -77.03875,
+      "pending": false
+    },
+    {
+      "id": "ingenieros",
+      "name": "Ingenieros",
+      "lat": -12.06889,
+      "lon": -76.94864,
+      "pending": false
+    },
+    {
+      "id": "isabel-la-catolica",
+      "name": "Isabel La Católica",
+      "lat": -12.07018,
+      "lon": -77.02836,
+      "pending": false
+    },
+    {
+      "id": "izaguirre",
+      "name": "Izaguirre",
+      "lat": -11.99034,
+      "lon": -77.08231,
+      "pending": false
+    },
+    {
+      "id": "javier-prado",
+      "name": "Javier Prado",
+      "lat": -12.08986,
+      "lon": -77.03194,
+      "pending": false
+    },
+    {
+      "id": "jockey",
+      "name": "Jockey",
+      "lat": -12.08469,
+      "lon": -76.97821,
+      "pending": false
+    },
+    {
+      "id": "jorge-chavez",
+      "name": "Jorge Chávez",
+      "lat": -12.21596,
+      "lon": -76.9469,
+      "pending": false
+    },
+    {
+      "id": "jose-galvez",
+      "name": "José Gálvez",
+      "lat": -12.05968,
+      "lon": -77.03311,
+      "pending": false
+    },
+    {
+      "id": "jose-olaya",
+      "name": "José Olaya",
+      "lat": -12.22881,
+      "lon": -76.939,
+      "pending": false
+    },
+    {
+      "id": "juan-de-arona",
+      "name": "Juan de Arona",
+      "lat": -12.09728,
+      "lon": -77.03251,
+      "pending": false
+    },
+    {
+      "id": "junin",
+      "name": "Junín",
+      "lat": -12.04799,
+      "lon": -77.02668,
+      "pending": false
+    },
+    {
+      "id": "la-capilla",
+      "name": "La Capilla",
+      "lat": -11.93437,
+      "lon": -76.96967,
+      "pending": false
+    },
+    {
+      "id": "la-catolica",
+      "name": "La Católica",
+      "lat": -12.06748,
+      "lon": -77.07797,
+      "pending": false
+    },
+    {
+      "id": "la-cinco",
+      "name": "La Cinco",
+      "lat": -11.94756,
+      "lon": -76.9849,
+      "pending": false
+    },
+    {
+      "id": "la-colonia",
+      "name": "La Colonia",
+      "lat": -12.02782,
+      "lon": -77.03254,
+      "pending": false
+    },
+    {
+      "id": "la-cuatro",
+      "name": "La Cuatro",
+      "lat": -11.95064,
+      "lon": -76.98705,
+      "pending": false
+    },
+    {
+      "id": "la-dieciocho",
+      "name": "La Dieciocho",
+      "lat": -12.07858,
+      "lon": -77.0567,
+      "pending": false
+    },
+    {
+      "id": "la-doce",
+      "name": "La Doce",
+      "lat": -12.00302,
+      "lon": -77.00787,
+      "pending": false
+    },
+    {
+      "id": "la-doce-mercado",
+      "name": "La Doce ( Mercado )",
+      "lat": -12.07213,
+      "lon": -77.05136,
+      "pending": false
+    },
+    {
+      "id": "la-floresta",
+      "name": "La Floresta",
+      "lat": -12.08364,
+      "lon": -76.97264,
+      "pending": false
+    },
+    {
+      "id": "la-habana",
+      "name": "La Habana",
+      "lat": -12.10045,
+      "lon": -77.03202,
+      "pending": false
+    },
+    {
+      "id": "la-hacienda",
+      "name": "La Hacienda",
+      "lat": -12.00595,
+      "lon": -77.006,
+      "pending": false
+    },
+    {
+      "id": "la-losa",
+      "name": "La Losa",
+      "lat": -12.02623,
+      "lon": -77.01975,
+      "pending": false
+    },
+    {
+      "id": "la-mar",
+      "name": "La Mar",
+      "lat": -12.07465,
+      "lon": -77.07964,
+      "pending": false
+    },
+    {
+      "id": "la-marina",
+      "name": "La Marina",
+      "lat": -12.07376,
+      "lon": -77.10008,
+      "pending": false
+    },
+    {
+      "id": "la-molina",
+      "name": "La Molina",
+      "lat": -12.07157,
+      "lon": -76.95664,
+      "pending": false
+    },
+    {
+      "id": "la-nueve",
+      "name": "La Nueve",
+      "lat": -12.06923,
+      "lon": -77.04896,
+      "pending": false
+    },
+    {
+      "id": "la-ocho",
+      "name": "La Ocho",
+      "lat": -11.97482,
+      "lon": -77.00022,
+      "pending": false
+    },
+    {
+      "id": "la-paz",
+      "name": "La Paz",
+      "lat": -12.13511,
+      "lon": -77.02546,
+      "pending": false
+    },
+    {
+      "id": "la-punta",
+      "name": "La Punta",
+      "lat": -12.08606,
+      "lon": -76.90018,
+      "pending": false
+    },
+    {
+      "id": "la-quince",
+      "name": "La Quince",
+      "lat": -11.96284,
+      "lon": -76.98968,
+      "pending": false
+    },
+    {
+      "id": "la-virgen",
+      "name": "La Virgen",
+      "lat": -12.09631,
+      "lon": -77.07136,
+      "pending": false
+    },
+    {
+      "id": "laguna-grande",
+      "name": "Laguna Grande",
+      "lat": -12.08502,
+      "lon": -76.9241,
+      "pending": false
+    },
+    {
+      "id": "larco",
+      "name": "Larco",
+      "lat": -12.12681,
+      "lon": -77.02977,
+      "pending": false
+    },
+    {
+      "id": "las-acacias",
+      "name": "Las Acacias",
+      "lat": -12.13281,
+      "lon": -77.02333,
+      "pending": false
+    },
+    {
+      "id": "las-calezas",
+      "name": "Las Calezas",
+      "lat": -12.02925,
+      "lon": -77.03065,
+      "pending": false
+    },
+    {
+      "id": "las-dunas",
+      "name": "Las Dunas",
+      "lat": -12.08503,
+      "lon": -76.88187,
+      "pending": false
+    },
+    {
+      "id": "las-flores",
+      "name": "Las Flores",
+      "lat": -12.09438,
+      "lon": -77.0476,
+      "pending": false
+    },
+    {
+      "id": "las-palmeras",
+      "name": "Las Palmeras",
+      "lat": -12.09316,
+      "lon": -77.03889,
+      "pending": false
+    },
+    {
+      "id": "leoncio-prado",
+      "name": "Leoncio Prado",
+      "lat": -12.03257,
+      "lon": -77.02846,
+      "pending": false
+    },
+    {
+      "id": "lima",
+      "name": "Lima",
+      "lat": -12.02526,
+      "lon": -77.01066,
+      "pending": false
+    },
+    {
+      "id": "los-alisos",
+      "name": "Los Alisos",
+      "lat": -11.98275,
+      "lon": -77.07847,
+      "pending": false
+    },
+    {
+      "id": "los-angeles",
+      "name": "Los Ángeles",
+      "lat": -12.10648,
+      "lon": -77.03118,
+      "pending": false
+    },
+    {
+      "id": "los-cedros",
+      "name": "Los Cedros",
+      "lat": -12.09387,
+      "lon": -77.04401,
+      "pending": false
+    },
+    {
+      "id": "los-frutales",
+      "name": "Los Frutales",
+      "lat": -12.07617,
+      "lon": -76.96387,
+      "pending": false
+    },
+    {
+      "id": "los-nogales",
+      "name": "Los Nogales",
+      "lat": -12.09378,
+      "lon": -77.04483,
+      "pending": false
+    },
+    {
+      "id": "los-postes",
+      "name": "Los Postes",
+      "lat": -11.99606,
+      "lon": -77.00999,
+      "pending": false
+    },
+    {
+      "id": "los-sauces",
+      "name": "Los Sauces",
+      "lat": -12.09069,
+      "lon": -76.99644,
+      "pending": false
+    },
+    {
+      "id": "loyola",
+      "name": "Loyola",
+      "lat": -12.13385,
+      "lon": -77.02701,
+      "pending": false
+    },
+    {
+      "id": "lubricantes",
+      "name": "Lubricantes",
+      "lat": -11.95392,
+      "lon": -76.99019,
+      "pending": false
+    },
+    {
+      "id": "madreselva",
+      "name": "Madreselva",
+      "lat": -12.08609,
+      "lon": -76.89023,
+      "pending": false
+    },
+    {
+      "id": "madrid",
+      "name": "Madrid",
+      "lat": -12.0292,
+      "lon": -77.03099,
+      "pending": false
+    },
+    {
+      "id": "manuel-banon",
+      "name": "Manuel Bañón",
+      "lat": -12.09428,
+      "lon": -77.03314,
+      "pending": false
+    },
+    {
+      "id": "manuel-candamo",
+      "name": "Manuel Candamo",
+      "lat": -12.08246,
+      "lon": -77.0346,
+      "pending": false
+    },
+    {
+      "id": "manuel-segura",
+      "name": "Manuel Segura",
+      "lat": -12.07977,
+      "lon": -77.03504,
+      "pending": false
+    },
+    {
+      "id": "mariategui",
+      "name": "Mariategui",
+      "lat": -11.94346,
+      "lon": -76.98207,
+      "pending": false
+    },
+    {
+      "id": "masias",
+      "name": "Masías",
+      "lat": -12.0913,
+      "lon": -77.02604,
+      "pending": false
+    },
+    {
+      "id": "mega-plaza",
+      "name": "Mega Plaza",
+      "lat": -11.99438,
+      "lon": -77.06373,
+      "pending": false
+    },
+    {
+      "id": "mercado-de-flores",
+      "name": "Mercado de Flores",
+      "lat": -12.04029,
+      "lon": -77.0178,
+      "pending": false
+    },
+    {
+      "id": "mexico",
+      "name": "México",
+      "lat": -12.07565,
+      "lon": -77.02761,
+      "pending": false
+    },
+    {
+      "id": "miami",
+      "name": "Miami",
+      "lat": -12.08628,
+      "lon": -76.90744,
+      "pending": false
+    },
+    {
+      "id": "ministerio-de-agricultura",
+      "name": "Ministerio de Agricultura",
+      "lat": -12.07779,
+      "lon": -76.95437,
+      "pending": false
+    },
+    {
+      "id": "modelo",
+      "name": "Modelo",
+      "lat": -12.19556,
+      "lon": -76.95919,
+      "pending": false
+    },
+    {
+      "id": "molicentro",
+      "name": "Molicentro",
+      "lat": -12.08196,
+      "lon": -76.92825,
+      "pending": false
+    },
+    {
+      "id": "monaco",
+      "name": "Mónaco",
+      "lat": -12.04687,
+      "lon": -76.97142,
+      "pending": false
+    },
+    {
+      "id": "montenegro",
+      "name": "Montenegro",
+      "lat": -11.93674,
+      "lon": -76.97133,
+      "pending": false
+    },
+    {
+      "id": "montevideo",
+      "name": "Montevideo",
+      "lat": -12.05788,
+      "lon": -77.03035,
+      "pending": false
+    },
+    {
+      "id": "moquegua",
+      "name": "Moquegua",
+      "lat": -12.04376,
+      "lon": -77.03365,
+      "pending": false
+    },
+    {
+      "id": "motupe",
+      "name": "Motupe",
+      "lat": -11.93883,
+      "lon": -76.9767,
+      "pending": false
+    },
+    {
+      "id": "naplo",
+      "name": "Naplo",
+      "lat": -12.08609,
+      "lon": -76.89621,
+      "pending": false
+    },
+    {
+      "id": "naranjal",
+      "name": "Naranjal",
+      "lat": -11.97787,
+      "lon": -77.07812,
+      "pending": false
+    },
+    {
+      "id": "natalio-sanchez",
+      "name": "Natalio Sánchez",
+      "lat": -12.06989,
+      "lon": -77.03676,
+      "pending": false
+    },
+    {
+      "id": "nicolas-arriola",
+      "name": "Nicolás Arriola",
+      "lat": -12.09022,
+      "lon": -77.01753,
+      "pending": false
+    },
+    {
+      "id": "nicolas-de-pierola",
+      "name": "Nicolás de Piérola",
+      "lat": -12.0528,
+      "lon": -77.03268,
+      "pending": false
+    },
+    {
+      "id": "nunez-de-balboa",
+      "name": "Nuñez de Balboa",
+      "lat": -12.13331,
+      "lon": -77.02743,
+      "pending": false
+    },
+    {
+      "id": "olavide",
+      "name": "Olavide",
+      "lat": -12.09396,
+      "lon": -77.033,
+      "pending": false
+    },
+    {
+      "id": "ovalo",
+      "name": "Óvalo",
+      "lat": -12.08063,
+      "lon": -77.05839,
+      "pending": false
+    },
+    {
+      "id": "palao",
+      "name": "Palao",
+      "lat": -12.02198,
+      "lon": -77.05931,
+      "pending": false
+    },
+    {
+      "id": "panamericana",
+      "name": "Panamericana",
+      "lat": -11.99054,
+      "lon": -77.06649,
+      "pending": false
+    },
+    {
+      "id": "parada-plaza-norte",
+      "name": "Parada Plaza Norte",
+      "lat": -12.00631,
+      "lon": -77.06201,
+      "pending": false
+    },
+    {
+      "id": "paradero-america",
+      "name": "Paradero América",
+      "lat": -12.18387,
+      "lon": -76.97506,
+      "pending": false
+    },
+    {
+      "id": "paradero-comisaria",
+      "name": "Paradero Comisaría",
+      "lat": -12.02572,
+      "lon": -77.01504,
+      "pending": false
+    },
+    {
+      "id": "paradero-tunel",
+      "name": "Paradero Túnel",
+      "lat": -12.02789,
+      "lon": -77.0196,
+      "pending": false
+    },
+    {
+      "id": "pardo",
+      "name": "Pardo",
+      "lat": -12.11851,
+      "lon": -77.02917,
+      "pending": false
+    },
+    {
+      "id": "pardo-de-zela",
+      "name": "Pardo de Zela",
+      "lat": -12.08256,
+      "lon": -77.02829,
+      "pending": false
+    },
+    {
+      "id": "paris",
+      "name": "París",
+      "lat": -12.04719,
+      "lon": -76.93608,
+      "pending": false
+    },
+    {
+      "id": "parodi",
+      "name": "Parodi",
+      "lat": -12.09201,
+      "lon": -77.03078,
+      "pending": false
+    },
+    {
+      "id": "parque",
+      "name": "Parque",
+      "lat": -12.08494,
+      "lon": -76.92671,
+      "pending": false
+    },
+    {
+      "id": "parque-de-las-leyendas",
+      "name": "Parque de las Leyendas",
+      "lat": -12.07816,
+      "lon": -77.08818,
+      "pending": false
+    },
+    {
+      "id": "parque-zonal",
+      "name": "Parque Zonal",
+      "lat": -12.22988,
+      "lon": -76.92954,
+      "pending": false
+    },
+    {
+      "id": "pasaje-17",
+      "name": "Pasaje 17",
+      "lat": -12.00935,
+      "lon": -77.03446,
+      "pending": false
+    },
+    {
+      "id": "paseo-de-agua",
+      "name": "Paseo de Agua",
+      "lat": -12.10248,
+      "lon": -76.94232,
+      "pending": false
+    },
+    {
+      "id": "paz-soldan",
+      "name": "Paz Soldán",
+      "lat": -12.0968,
+      "lon": -77.03277,
+      "pending": false
+    },
+    {
+      "id": "pentagonito",
+      "name": "Pentagonito",
+      "lat": -12.10296,
+      "lon": -76.97927,
+      "pending": false
+    },
+    {
+      "id": "perales",
+      "name": "Perales",
+      "lat": -12.04775,
+      "lon": -76.98067,
+      "pending": false
+    },
+    {
+      "id": "petit-thouars",
+      "name": "Petit Thouars",
+      "lat": -12.09226,
+      "lon": -77.03259,
+      "pending": false
+    },
+    {
+      "id": "piramide-del-sol",
+      "name": "Pirámide del Sol",
+      "lat": -12.01734,
+      "lon": -77.00233,
+      "pending": false
+    },
+    {
+      "id": "piura",
+      "name": "Piura",
+      "lat": -12.11588,
+      "lon": -77.02949,
+      "pending": false
+    },
+    {
+      "id": "pizarro",
+      "name": "Pizarro",
+      "lat": -12.03882,
+      "lon": -77.03226,
+      "pending": false
+    },
+    {
+      "id": "plaza-bolognesi",
+      "name": "Plaza Bolognesi",
+      "lat": -12.06048,
+      "lon": -77.04134,
+      "pending": false
+    },
+    {
+      "id": "plaza-butters",
+      "name": "Plaza Butters",
+      "lat": -12.14289,
+      "lon": -77.01653,
+      "pending": false
+    },
+    {
+      "id": "primavera",
+      "name": "Primavera",
+      "lat": -12.11009,
+      "lon": -76.97828,
+      "pending": false
+    },
+    {
+      "id": "primero-de-mayo",
+      "name": "Primero de Mayo",
+      "lat": -12.19821,
+      "lon": -76.95758,
+      "pending": false
+    },
+    {
+      "id": "proceres",
+      "name": "Próceres",
+      "lat": -12.06993,
+      "lon": -77.00244,
+      "pending": false
+    },
+    {
+      "id": "puente-azul",
+      "name": "Puente azul",
+      "lat": -12.05058,
+      "lon": -76.97747,
+      "pending": false
+    },
+    {
+      "id": "puente-nuevo",
+      "name": "Puente Nuevo",
+      "lat": -12.02982,
+      "lon": -76.99978,
+      "pending": false
+    },
+    {
+      "id": "puente-santa-anita",
+      "name": "Puente Santa Anita",
+      "lat": -12.05817,
+      "lon": -76.97347,
+      "pending": false
+    },
+    {
+      "id": "puente-santa-rosa",
+      "name": "Puente Santa Rosa",
+      "lat": -12.06422,
+      "lon": -76.97136,
+      "pending": false
+    },
+    {
+      "id": "quilca",
+      "name": "Quilca",
+      "lat": -12.05127,
+      "lon": -77.03863,
+      "pending": false
+    },
+    {
+      "id": "quinones",
+      "name": "Quiñones",
+      "lat": -12.08959,
+      "lon": -77.01568,
+      "pending": false
+    },
+    {
+      "id": "ramon-dagnio",
+      "name": "Ramón Dagnio",
+      "lat": -12.07113,
+      "lon": -77.03648,
+      "pending": false
+    },
+    {
+      "id": "raymundo-morales",
+      "name": "Raymundo Morales",
+      "lat": -12.10267,
+      "lon": -77.03183,
+      "pending": false
+    },
+    {
+      "id": "ricardo-palma",
+      "name": "Ricardo Palma",
+      "lat": -12.12013,
+      "lon": -77.02895,
+      "pending": false
+    },
+    {
+      "id": "rinconada-del-lago",
+      "name": "Rinconada del Lago",
+      "lat": -12.08524,
+      "lon": -76.92007,
+      "pending": false
+    },
+    {
+      "id": "rio-amarillo",
+      "name": "Río Amarillo",
+      "lat": -12.11581,
+      "lon": -76.93939,
+      "pending": false
+    },
+    {
+      "id": "rio-de-janeiro",
+      "name": "Rio de Janeiro",
+      "lat": -12.10579,
+      "lon": -77.0311,
+      "pending": false
+    },
+    {
+      "id": "risso",
+      "name": "Risso",
+      "lat": -12.0855,
+      "lon": -77.03359,
+      "pending": false
+    },
+    {
+      "id": "rosa-toro",
+      "name": "Rosa Toro",
+      "lat": -12.08682,
+      "lon": -76.99288,
+      "pending": false
+    },
+    {
+      "id": "saco-oliveros",
+      "name": "Saco Oliveros",
+      "lat": -12.06839,
+      "lon": -77.03685,
+      "pending": false
+    },
+    {
+      "id": "salaverry",
+      "name": "Salaverry",
+      "lat": -12.09292,
+      "lon": -77.05351,
+      "pending": false
+    },
+    {
+      "id": "san-carlos",
+      "name": "San Carlos",
+      "lat": -11.98486,
+      "lon": -77.00672,
+      "pending": false
+    },
+    {
+      "id": "san-luis",
+      "name": "San Luis",
+      "lat": -12.08716,
+      "lon": -76.99678,
+      "pending": false
+    },
+    {
+      "id": "san-marcos",
+      "name": "San Marcos",
+      "lat": -12.06174,
+      "lon": -77.07899,
+      "pending": false
+    },
+    {
+      "id": "san-martin",
+      "name": "San Martin",
+      "lat": -11.97212,
+      "lon": -76.99656,
+      "pending": false
+    },
+    {
+      "id": "santa-rosa",
+      "name": "Santa Rosa",
+      "lat": -11.96849,
+      "lon": -76.99378,
+      "pending": false
+    },
+    {
+      "id": "santos-chocano",
+      "name": "Santos Chocano",
+      "lat": -11.9909,
+      "lon": -77.06909,
+      "pending": false
+    },
+    {
+      "id": "sauces",
+      "name": "Sauces",
+      "lat": -12.08532,
+      "lon": -76.88417,
+      "pending": false
+    },
+    {
+      "id": "schell",
+      "name": "Schell",
+      "lat": -12.12311,
+      "lon": -77.02918,
+      "pending": false
+    },
+    {
+      "id": "secoyas",
+      "name": "Secoyas",
+      "lat": -12.09351,
+      "lon": -76.95282,
+      "pending": false
+    },
+    {
+      "id": "sedapal",
+      "name": "Sedapal",
+      "lat": -11.97932,
+      "lon": -77.00468,
+      "pending": false
+    },
+    {
+      "id": "senati",
+      "name": "Senati",
+      "lat": -11.99861,
+      "lon": -77.06284,
+      "pending": false
+    },
+    {
+      "id": "seoane",
+      "name": "Seoane",
+      "lat": -11.95574,
+      "lon": -76.98575,
+      "pending": false
+    },
+    {
+      "id": "soledad",
+      "name": "Soledad",
+      "lat": -12.09037,
+      "lon": -77.03372,
+      "pending": false
+    },
+    {
+      "id": "sucre",
+      "name": "Sucre",
+      "lat": -12.08304,
+      "lon": -77.06748,
+      "pending": false
+    },
+    {
+      "id": "talara",
+      "name": "Talara",
+      "lat": -12.13011,
+      "lon": -76.97767,
+      "pending": false
+    },
+    {
+      "id": "tarma",
+      "name": "Tarma",
+      "lat": -12.06094,
+      "lon": -77.03794,
+      "pending": false
+    },
+    {
+      "id": "tinoco",
+      "name": "Tinoco",
+      "lat": -12.14078,
+      "lon": -76.98112,
+      "pending": false
+    },
+    {
+      "id": "tomas-guido",
+      "name": "Tomás Guido",
+      "lat": -12.08682,
+      "lon": -77.03304,
+      "pending": false
+    },
+    {
+      "id": "torre-ugarte",
+      "name": "Torre Ugarte",
+      "lat": -12.08908,
+      "lon": -77.03267,
+      "pending": false
+    },
+    {
+      "id": "tupac-amaru",
+      "name": "Tupac Amaru",
+      "lat": -12.02329,
+      "lon": -77.00778,
+      "pending": false
+    },
+    {
+      "id": "u-de-lima",
+      "name": "U. De Lima",
+      "lat": -12.08383,
+      "lon": -76.97191,
+      "pending": false
+    },
+    {
+      "id": "ucayali",
+      "name": "Ucayali",
+      "lat": -12.04979,
+      "lon": -77.02776,
+      "pending": false
+    },
+    {
+      "id": "unanue",
+      "name": "Unanue",
+      "lat": -12.06722,
+      "lon": -77.02877,
+      "pending": false
+    },
+    {
+      "id": "universitaria",
+      "name": "Universitaria",
+      "lat": -12.07816,
+      "lon": -77.08163,
+      "pending": false
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay",
+      "lat": -12.05453,
+      "lon": -77.03826,
+      "pending": false
+    },
+    {
+      "id": "velasco-alvarado",
+      "name": "Velasco Alvarado",
+      "lat": -12.21341,
+      "lon": -76.94844,
+      "pending": false
+    },
+    {
+      "id": "venus",
+      "name": "Venus",
+      "lat": -12.09402,
+      "lon": -77.0694,
+      "pending": false
+    },
+    {
+      "id": "victor-malasquez",
+      "name": "Víctor Malásquez",
+      "lat": -12.08436,
+      "lon": -76.878,
+      "pending": false
+    },
+    {
+      "id": "villaran",
+      "name": "Villarán",
+      "lat": -12.05315,
+      "lon": -77.0386,
+      "pending": false
+    },
+    {
+      "id": "viru",
+      "name": "Virú",
+      "lat": -12.03953,
+      "lon": -77.0329,
+      "pending": false
+    },
+    {
+      "id": "vista-alegre",
+      "name": "VIsta Alegre",
+      "lat": -12.0436,
+      "lon": -76.93075,
+      "pending": false
+    }
+  ]
+}

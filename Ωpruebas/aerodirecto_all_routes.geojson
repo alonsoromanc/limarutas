@@ -1,0 +1,819 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_all_routes_styled_v2",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "tupac-amaru",
+        "name": "Túpac Amaru",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Túpac Amaru"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.060586, -11.976618] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "palmeras",
+        "name": "Palmeras",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Palmeras"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.071946, -11.97833] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "universitaria",
+        "name": "Universitaria",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Universitaria"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.07641, -11.97806] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "ovalo-huandoy",
+        "name": "Óvalo Huandoy",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Óvalo Huandoy"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.082829, -11.976586] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "jardines-de-naranjal",
+        "name": "Jardines de Naranjal",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Jardines de Naranjal"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.092885, -11.977536] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "los-olivos",
+        "name": "Los Olivos",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Los Olivos"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.099304, -11.983299] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "dominicos",
+        "name": "Dominicos",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Dominicos"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.094539, -12.012985] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "bertello",
+        "name": "Bertello",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Bertello"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.114333, -11.998194] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "aduanas",
+        "name": "Aduanas",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Aduanas"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.105194, -12.0245] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "monark",
+        "name": "Monark",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Monark"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.100685, -12.032853] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#1f78b4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.1163, -12.0328] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Norte",
+        "name": "Trayectoria Aerodirecto Norte",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#1f78b4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.060586, -11.976618],
+          [-77.071946, -11.97833],
+          [-77.07641, -11.97806],
+          [-77.082829, -11.976586],
+          [-77.092885, -11.977536],
+          [-77.099304, -11.983299],
+          [-77.094539, -12.012985],
+          [-77.114333, -11.998194],
+          [-77.105194, -12.0245],
+          [-77.100685, -12.032853],
+          [-77.1163, -12.0328]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "galerias-brasil",
+        "name": "Galerías Brasil",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Galerías Brasil"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.051266, -12.071945] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "san-felipe",
+        "name": "San Felipe",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. San Felipe"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.058222, -12.080389] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.06575, -12.089528] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "leoncio-prado",
+        "name": "Leoncio Prado",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Leoncio Prado"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.073579, -12.094717] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "escardo",
+        "name": "Escardó",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Escardó"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.096717, -12.083993] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "la-marina",
+        "name": "La Marina",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. La Marina"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.110038, -12.071347] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "faucett",
+        "name": "Faucett",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Faucett"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.09845, -12.062789] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "hospital-san-jose",
+        "name": "Hospital San José",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Hospital San José"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098889, -12.041556] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Quilca"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098989, -12.038559] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.1163, -12.0328] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "name": "Trayectoria Aerodirecto Sur",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#33a02c",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.051266, -12.071945],
+          [-77.058222, -12.080389],
+          [-77.06575, -12.089528],
+          [-77.073579, -12.094717],
+          [-77.096717, -12.083993],
+          [-77.110038, -12.071347],
+          [-77.09845, -12.062789],
+          [-77.098889, -12.041556],
+          [-77.098989, -12.038559],
+          [-77.1163, -12.0328]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "plaza-san-martin",
+        "name": "Plaza San Martín",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Plaza San Martín"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.035059, -12.051074] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "tacna",
+        "name": "Tacna",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Tacna"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.038694, -12.048944] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "universidad",
+        "name": "Universidad",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Universidad"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.040694, -12.047611] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "tingo-maria",
+        "name": "Tingo María",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Tingo María"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.053111, -12.047333] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "duenas",
+        "name": "Dueñas",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Dueñas"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.064667, -12.0485] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "universitaria",
+        "name": "Universitaria",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Universitaria"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.07775, -12.049778] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "faucett",
+        "name": "Faucett",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Faucett"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098221, -12.048898] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "hospital-san-jose",
+        "name": "Hospital San José",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Hospital San José"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098889, -12.041556] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Quilca"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098989, -12.038559] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#e31a1c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.1163, -12.0328] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Centro",
+        "name": "Trayectoria Aerodirecto Centro",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#e31a1c",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.035059, -12.051074],
+          [-77.038694, -12.048944],
+          [-77.040694, -12.047611],
+          [-77.053111, -12.047333],
+          [-77.064667, -12.0485],
+          [-77.07775, -12.049778],
+          [-77.098221, -12.048898],
+          [-77.098889, -12.041556],
+          [-77.098989, -12.038559],
+          [-77.1163, -12.0328]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "ovalo-ventanilla",
+        "name": "Óvalo Ventanilla",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Óvalo Ventanilla"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.127139, -11.874361] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "ciudad-deporte",
+        "name": "Ciudad Deporte",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Ciudad Deporte"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.12625, -11.886083] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "chillon",
+        "name": "Chillón",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Chillón"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.130943, -11.935416] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "puente-oquendo",
+        "name": "Puente Oquendo",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Puente Oquendo"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.125389, -11.971417] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "yzaguirre",
+        "name": "Yzaguirre",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Yzaguirre"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.125703, -11.989491] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "canta-callao",
+        "name": "Canta Callao",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Canta Callao"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.117398, -12.000761] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "aduanas",
+        "name": "Aduanas",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Aduanas"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.105194, -12.024494] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "monark",
+        "name": "Monark",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Monark"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.100685, -12.032853] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ff7f00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.1163, -12.0328] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Ventanilla",
+        "name": "Trayectoria Aerodirecto Ventanilla",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#ff7f00",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.127139, -11.874361],
+          [-77.12625, -11.886083],
+          [-77.130943, -11.935416],
+          [-77.125389, -11.971417],
+          [-77.125703, -11.989491],
+          [-77.117398, -12.000761],
+          [-77.105194, -12.024494],
+          [-77.100685, -12.032853],
+          [-77.1163, -12.0328]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "stop_id": "quilca",
+        "name": "Quilca (hacia el Aeropuerto)",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6a3d9a",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Quilca (hacia el Aeropuerto)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.098989, -12.038559] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6a3d9a",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": { "type": "Point", "coordinates": [-77.1163, -12.0328] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Quilca",
+        "name": "Trayectoria Aerodirecto Quilca",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#6a3d9a",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.098989, -12.038559],
+          [-77.1163, -12.0328]
+        ]
+      }
+    }
+  ]
+}

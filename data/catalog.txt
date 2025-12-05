@@ -1,0 +1,31 @@
+{
+  "metropolitano": {
+    "rutas": { "only": ["A", "B", "C"] }
+  },
+  "corredores": {
+    "azul":   { "only": ["301", "303", "305", "336", "370", "371"] },
+    "rojo":   { "only": ["201", "204", "206", "209"] },
+    "morado": { "only": ["404", "405", "406", "412"] }
+    /* "amarillo": { "only": [] }  // sin operar, no lo declares y no sale */
+  },
+  "alimentadores": {
+    /* ejemplo 1: whitelist
+    "only": ["A01","A02","B10"]
+    */
+    /* ejemplo 2: blacklist */
+    "exclude": []
+  },
+  "metro": {
+    "lineas": { "only": ["1"] }
+  },
+  "transporte": {
+    /* cuando tengas transporte.json: */
+    "only": []
+  },
+  "labels": {
+    /* opcional: sobreescribe nombres largos para el buscador/menú.
+       clave = <key>:<subcat>:<ref>  (key ∈ metropolitano|corredores|alimentadores|metro|transporte)
+       ej.:   "corredores:azul:301": "Corredor Azul 301 — Amancaes ↔ Plaza Butters"
+    }
+  }
+}

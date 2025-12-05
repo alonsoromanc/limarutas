@@ -1,0 +1,204 @@
+CodigoRuta,CodigoAntiguo,Alias de la Ruta,Origen,Destino,EmpresaOperadora,AbreviaturaEmpresa,AsignacionATU
+1001,1117,¿?,Santiago de Surco,San Isidro,¿?,,No
+1002,1118,¿?,La Punta,La Victoria,¿?,,No
+1003,IO33B,"La 9",Puente Piedra,Rímac,Empresa de Transportes Rosa de las Américas S.A.C.,ETROASAC,Sí
+1004,1212,Ninguno,Comas,San Martín de Porres,Empresa de Transportes Doce de Junio S.A.,ETDOJUSA,Sí
+1005,1217,"La 13",Carabayllo,Rímac,Transportes y Servicios Santa Cruz S.A.,,Sí
+1006,1403,"La C",Carabayllo,Ate,Empresa de Transportes Impulsa Progreso S.A.C.,,Sí
+1007,1502,"La 87B",Puente Piedra,Lima,Empresa de Transportes y Servicios Amancaes S.A.,ETAMSA,Sí
+1008,1503,"La 03",Carabayllo,Magdalena del Mar,"Grupo Express del Perú S.A.C. / Realidad Express del Perú 03 S.A.C.",,Sí
+1009,1504,"La 06",Carabayllo,San Miguel,Empresa de Transportes Comercializadora e Importadora Unidos Punchauca S.A.,ETCIPSA,Sí
+1010,1505,"La 46B",Puente Piedra,Magdalena del Mar,Empresa de Transportes Mariscal Ramón Castilla S.A.,,Sí
+1011,1506,"La 47",Carabayllo,Pueblo Libre,Translima S.A.,,Sí
+1012,1508,"La B",Carabayllo,San Miguel,Empresa de Servicios de Transporte Unión Nacional S.A.C.,ESTUNSAC,Sí
+1013,1518,"La 18",Carabayllo,Jesús María,Translima S.A.,,Sí
+1014,1602,Ninguno,Comas,San Luis,Empresa de Transportes y Servicios Catorce de Diciembre S.A.C.,,Sí
+1015,1604,"La MG",Carabayllo,Lince,Empresa de Transportes Miguel Grau S.A.,ETMIGRASA,Sí
+1016,1607,Ninguno,Ancón,La Victoria,Empresa de Transportes y Servicios La Buena Estrella S.A.C. / Corporación Las Estrellas S.A.C.,,Sí
+1017,1608,Ninguno,Ancón,La Victoria,Novobus S.A.C. / Corporación Las Estrellas S.A.C.,,Sí
+1018,1610,Ninguno,Carabayllo,La Victoria,Empresa de Transportes Once de Noviembre S.A.,EMPTONSA,Sí
+1019,1611,"La P",Puente Piedra,Magdalena del Mar,Empresa de Transportes Palmari S.A. / Grupo Empresarial El Rápido S.A.,,Sí
+1020,1612,"La C",Puente Piedra,Miraflores,Empresa de Transportes Santa Luzmila S.A.,ETSLUSA,Sí
+1021,1615,"La F",Carabayllo,Lince,Inversiones y Servicios CKF S.A. / Grupo Empresarial El Rápido S.A.,,Sí
+1022,1617,Ninguno,Carabayllo,Miraflores,Trans. Norcom Corporation S.A.C. / Grupo Empresarial El Rápido S.A.,,Sí
+1023,1618,"La B",Carabayllo,Lince,Empresa de Transportes y Servicios Nueva América S.A.,TRANSNASA,Sí
+1024,2204,"La U - La A - La B - La C",San Martín de Porres,San Martín de Porres,Empresa de Transportes Nor Lima S.A.,ETNOLSA,Sí
+1025,2209,"La 73B",San Martín de Porres,Rímac,Empresa de Transportes Unidos de Pasajeros S.A.,ETUPSA,Sí
+1026,2212,"La S2",San Martín de Porres,Rímac,Empresa de Transportes Especial Solidaridad S.A.,EMTESSA,Sí
+1027,2412,"La 100",Rímac,Ate,Cooperativa de Transporte Comité Cien Ltda.,,Sí
+1028,2502,"La B",San Martín de Porres,Lima,Empresa de Transportes y Servicios Pacific International S.A.,ETRASERPISA,Sí
+1029,2510,Ninguno,Independencia,San Miguel,Empresa de Transportes Alipio Ponce Vásquez S.A.,ETALPOVASA,Sí
+1030,2511,Ninguno,San Martín de Porres,San Martín de Porres,Empresa de Transportes Corazón de Jesús de San Diego S.A.,,Sí
+1031,2513,"La 29",San Martín de Porres,Jesús María,Translima S.A.,,Sí
+1032,2603,"La A",San Martín de Porres,La Victoria,Empresa de Transportes San Juan de La Cruz S.A.C. / Transportes y Servicios Lima Chorrillos S.A.,TRANSLICSA,Sí
+1033,2604,"La C",San Martín de Porres,La Victoria,Empresa de Transportes De Luxe S.A.C.,,Sí
+1034,2607,"La 36",Rímac,La Victoria,Empresa Independiente de Transportes S.A.,EITSA,Sí
+1035,2608,Ninguno,Rímac,La Victoria,Empresa de Transportes y Servicios Especiales La Bala S.A.,,Sí
+1036,2609,Ninguno,Rímac,La Victoria,Empresa de Transporte El Bajopontino S.A.,,Sí
+1037,2611,"La B",San Martín de Porres,La Victoria,Transportes y Servicios Lima Chorrillos S.A.,TRANSLICSA,Sí
+1038,2613,"La 28 - La 504",San Martín de Porres,Lince,Empresa de Transportes y Servicios El Porvenir S.A.,ETEPSA,Sí
+1039,2901,"La 117",Independencia,Callao,Empresa de Transportes y Servicios 117 S.A.,ETSEDISA,Sí
+1040,3204,"La SC - La San Ignacio",San Juan de Lurigancho,Rímac,Empresa de Transportes San Ignacio S.A.,ETSISA,Sí
+1041,3403/TVE27,Ninguno,San Juan de Lurigancho,Chaclacayo,Empresa de Transporte Santa Rosa de Jicamarca S.A.,ETSRJSA,Sí
+1042,3405,"La 75A",San Juan de Lurigancho,Ate,Empresa de Transportes Las Águilas 75 S.A.,ETLA75SA,Sí
+1043,3408,"La 40",San Juan de Lurigancho,La Molina,Empresa de Transportes Cuarenta Integrada S.A.,ETRANCISA,Sí
+1044,3509,"La 104",San Juan de Lurigancho,Jesús María,Transportes y Servicios 104 S.A.C.,,Sí
+1045,3511,"La 52C",San Juan de Lurigancho,Magdalena del Mar,Empresa de Transportes Unidos S.A.,ETUSA,Sí
+1046,3603,Ninguno,San Juan de Lurigancho,Lince,Transport Sabino S.A.C.,TRANSSABISAC,Sí
+1047,3604,"La 10A",San Juan de Lurigancho,Miraflores,Empresa de Transportes Santo Cristo de Pachacamilla S.A.,ETRASCPSA,Sí
+1048,3607,Ninguno,San Juan de Lurigancho,Lince,Empresa de Transportes 12 de Enero S.A.,ETDESA,Sí
+1049,3611/TVE60,Ninguno,San Juan de Lurigancho,La Victoria,Empresa de Transportes Caminos del Inca S.A.,ETCISA,Sí
+1050,3613,"La R-I",San Juan de Lurigancho,Lince,Empresa de Transportes El Lobito S.A.C.,,Sí
+1051,3614/TVE68,"La 52J",San Juan de Lurigancho,San Isidro,Empresa de Transportes Unidos S.A.,ETUSA,Sí
+1052,3701,"La HA",San Juan de Lurigancho,San Juan de Miraflores,Empresa de Transportes HA de Servicios Múltiples de Propietarios Unidos Huáscar S.A.,ETHASEMPUHUASA,Sí
+1053,3702,"La H",San Juan de Lurigancho,Chorrillos,Empresa de Transportes y Servicios Múltiples Sur Lima S.A.,,Sí
+1054,3705,"La E",San Juan de Lurigancho,Chorrillos,Empresa de Transporte Urbano Línea 4 S.A.,ETUL4SA,Sí
+1055,3707,"La 31",San Juan de Lurigancho,Chorrillos,Transportes Lima Urban Company S.A.,,Sí
+1056,3805,"La P",San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes y Servicios Arco Iris S.A.,ETSAISA,Sí
+1057,3806,"La 23C",San Juan de Lurigancho,Villa María del Triunfo,Empresa de Servicios de Transportes Santa Catalina S.A.,ESTSACASA,Sí
+1058,3807/TVE21,"La R28",San Juan de Lurigancho,Lurín,Transportes Huáscar S.A.,,Sí
+1059,3809,"La 23B",San Juan de Lurigancho,Villa María del Triunfo,Empresa de Servicios de Transporte Santa Catalina S.A.,ESTSACASA,Sí
+1060,3810,"La 8",San Juan de Lurigancho,Villa María del Triunfo,Empresa de Transportes y Servicios Ocho S.A.,ETSOSA,Sí
+1061,3813,"La M1",San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes y Servicios Preferencial M1 S.A.,ETSPM1SA,Sí
+1062,3814,"La M1",San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes Los Cuatro Suyos S.A.,ETCSSA,Sí
+1063,3815,"La M",San Juan de Lurigancho,Pachacámac,Empresa de Transportes y Servicios Múltiples Los Magníficos S.A. / Transportes Negociaciones Santa Anita S.A.,,Sí
+1064,4304,"La 49",Lurigancho/Chosica,San Juan de Lurigancho,Empresa de Transportes Santa Rosa de Jicamarca S.A.,ETSRJSA,Sí
+1065,4405,"La 91",Ate,Ate,Empresa de Transportes Nuevo Horizonte S.A.,ETNHOSA,Sí
+1066,4502,"La HCT - El Huaycanero",Huaycán,Lima,Empresa de Transporte y Turismo Huaycán S.A.,ETRANTURHSA,Sí
+1067,4503,Ninguno,Santa Anita,Lima,Empresa de Transportes y Servicios Peralitos S.A.,,Sí
+1068,4504,"La HGK - El Huaycanero",Huaycán,Lima,Empresa de Servicios Múltiples Nuevo Perú S.A.,,Sí
+1069,4507,"El Chosicano",Ricardo Palma,Lima,Empresa de Transportes y Servicios Nueva Era Señor de Muruhuay S.A.,ETSNESMSA,Sí
+1070,4510,Ninguno,Ate,Jesús María,Empresa de Transportes Bronco S.A.,ETBRONSA,Sí
+1071,4511,"La IC",Ate,Lima,Multiservicios e Inversiones Virgen de Copacabana S.A.C.,MIVICOSAC,Sí
+1072,4607,Ninguno,Ate,La Victoria,Empresa de Transportes Unidos San Martín de Porres S.A.,ETUSMPSA,Sí
+1073,4609,"La B",Ate,San Isidro,Empresa de Transportes Nuestra Señora del Sagrado Corazón S.A.,ETNUSSACSA,Sí
+1074,4610,"La B - La 112",Ate,San Isidro,Empresa de Transportes Miraflores Monterrico S.A.,ETMIMSA,Sí
+1075,4611,"La 51",Lurigancho/Chosica,La Victoria,Empresa de Transportes y Servicios San Juan Bautista S.A.,ETSSJBSA,Sí
+1076,4612,Ninguno,Huaycán,La Victoria,Empresa de Transportes y Servicios Múltiples Comercialización 14 de Mayo S.A.C.,,Sí
+1077,4613,Ninguno,Huaycán,La Victoria,Transportes y Servicios Múltiples Perla de Los Andes S.A.C.,TRASMPERSAC,Sí
+1078,4614,"La 63",Ate,La Victoria,Empresa de Transportes y Servicios Sesentitrés S.A.,,Sí
+1079,4618,Ninguno,Ate,La Victoria,Empresa de Transportes Unidos San Martín de Porres S.A.,ETUSMPSA,Sí
+1080,4619,"La HCT - El Huaycanero",Huaycán,La Victoria,Empresa de Transporte y Turismo Huaycán S.A.,ETRANTURHSA,Sí
+1081,4620,Ninguno,Huaycán,La Victoria,Empresa de Transportes Urbano Huaycán S.A.,,Sí
+1082,4622,Ninguno,Ate,Miraflores,Empresa de Transporte Angamos S.A.,,Sí
+1083,4623,Ninguno,Huaycán,La Victoria,Transportes e Inversiones Sin Fronteras S.A.C.,,Sí
+1084,4703,"La 91",Ate,Chorrillos,Empresa de Transportes Consorcio Santo Cristo S.A.,,Sí
+1085,5401,"El Chosicano",Lima,Santa Eulalia,Empresa de Transportes y Servicios Turismo Carretera Central S.A.C.,EMTRACACE,Sí
+1086,6901,Ninguno,San Borja,Callao,Empresa de Transportes Magdalena-San Miguel S.A.,ETRAMSMSA,Sí
+1087,7501,"La 52T",Chorrillos,Jesús María,Empresa de Transportes Unidos S.A.,ETUSA,Sí
+1088,7505,Ninguno,Chorrillos,Lima,Servicios Generales y Transportes Renacimiento S.A.,SGTRENSA,Sí
+1089,7601,"La 24",San Juan de Miraflores,Lince,Agrupación de Transportistas en Camionetas S.A.,ATCRSA,Sí
+1090,7606,"La C",Chorrillos,San Isidro,Empresa de Transportes Unidos Chama S.A.,,Sí
+1091,7607,"La 160",San Juan de Miraflores,La Victoria,Empresa de Transportes y Servicios Múltiples 160 S.A.C.,,Sí
+1092,7610,Ninguna,Chorrillos,La Victoria,Empresa de Transportes y Servicios Múltiples San Genaro S.A.,ETSEMUSAGESA,Sí
+1093,7612,"La I",San Juan de Miraflores,San Isidro,Empresa de Transportes y Servicios Múltiples Sur Primero de Junio S.A.C.,ETPRIJUSAC,Sí
+1094,7613,"La C",San Juan de Miraflores,Miraflores,Empresa de Transportes Unidos Doce de Noviembre S.A.,ETUSA,Sí
+1095,7614,"La 57",Chorrillos,Miraflores,Empresa de Transporte Servicios Turismo e Inversiones Norteamérica S.A.C.,,Sí
+1096,8302/CH24,"La B - La Banchero",Villa El Salvador,San Juan de Lurigancho,Empresa de Transportes Luis Banchero Rossi S.A.,LUBARSA,Sí
+1097,8306,"La 10E",Villa El Salvador,San Juan de Lurigancho,Empresa de Transportes Santo Cristo de Pachacamilla S.A.,ETRASCPSA,Sí
+1098,8308,"La 08 - La L",Lurín,San Juan de Lurigancho,Empresa de Transporte Urbano Línea 4 S.A.,ETUL4SA,Sí
+1099,8403,"La 9 - La Banchero",Villa María del Triunfo,Jesús María,Empresa de Transportes Luis Banchero Rossi S.A.,LUBARSA,Sí
+1100,8404,"La P",Villa María del Triunfo,Huaycán,Empresa de Transporte Urbano Línea 4 S.A.,ETUL4SA,Sí
+1107,8513,"La C",Villa El Salvador,Lima,Empresa de Transportes Montenegro S.A.C.,ETMOSAC,Sí
+1108,8520,"La 23A",Villa El Salvador,Lima,Empresa de Servicios de Transporte Santa Catalina S.A.,ESTSACASA,Sí
+1109,8523,"La 25",Villa María del Triunfo,Miraflores,Empresa de Transportes Esfuerzos Unidos S.A.,ETEUSA,Sí
+1110,8524,"La G",Pachacámac,Lima,Empresa de Transportes Unidos Chama S.A.,,Sí
+1111,8525,"La 73A",Villa María del Triunfo,Lima,Empresa de Transportes Unidos de Pasajeros S.A.,ETUPSA,Sí
+1112,8602,Ninguno,Pachacámac,La Victoria,Red Lima Móvil S.A.,,Sí
+1113,8604,Ninguno,Villa María del Triunfo,Miraflores,Translima S.A.,,Sí
+1114,8605,"La D2",Villa El Salvador,San Isidro,Empresa de Transportes y Servicios Los Ángeles del Perú S.A.C.,ETRAPERSAC,Sí
+1115,8611,"La A",Lurín,Miraflores,Empresa de Transportes Express Pachacámac S.A.,ETEPSA,Sí
+1116,8612,"La A",Pachacámac,Miraflores,Empresa de Transportes Edilberto Ramos S.A.C.,ETERSAC,Sí
+1117,8614,Ninguna,Villa María del Triunfo,Miraflores,Empresa de Transportes Tablada 2000 S.A.,ETTADOSA,Sí
+1118,8616,"La U",Villa María del Triunfo,Miraflores,Comunicación Integral Turismo e Inversiones Urano Tours S.A.,,Sí
+1119,8617,"La D",Villa El Salvador,Miraflores,Agrupación de Transportistas en Camionetas S.A.,ATCRSA,Sí
+1120,8618,"La 190",Pachacámac,La Victoria,Real Star del Perú S.A.C.,,Sí
+1121,8619,"La A",Villa El Salvador,La Victoria,Consorcio Línea 3 S.A.C.,,Sí
+1122,8621,"La 6",Villa El Salvador,La Victoria,Lapso S.A.,,Sí
+1123,8626,"La A",Pachacámac,Miraflores,Empresa de Transportes Unidos Chama S.A.,,Sí
+1124,8703,Ninguno,Villa María del Triunfo,Surquillo,Empresa de Transportes Expreso Tablada Y Asociados S.A.C.,,Sí
+1125,8704,Ninguno,Villa María del Triunfo,Surquillo,Empresa de Transportes Purca Gabriel Cora Cora S.A.,,Sí
+1126,8711,Ninguno,Lurín,Surquillo,Villa Alejandro S.A.,,Sí
+1127,8714,Ninguno,Lurín,Surquillo,Empresa de Transportes y Servicios Múltiples Esmirla Zevallos S.A.,,Sí
+1128,8729,"La G - La 65",Pachacámac,Santiago de Surco,Carrocerías Rivera S.A.C.,,Sí
+1129,8803,"La A - La B",Pachacámac,Pachacámac,Empresa de Transportes y Servicios San Juan de Dios S.A.,ETSAJUDSA,Sí
+1130,9503,Ninguno,Carmen de la Legua,Lima,Empresa de Transportes Once de Noviembre S.A.,EMPTONSA,Sí
+1131,9601,"La D",Ventanilla,La Victoria,Empresa de Transportes y Servicios Virgen de La Puerta S.A.,VIPUSA,Sí
+1132,9605,"El Urbanito",Callao,La Victoria,Empresa de Transporte y Servicios Múltiples Satélite S.A.,ETRASEMUSSA,Sí
+1133,CR04,Ninguno,La Punta,Lima,Empresa de Transportes Señor del Mar S.A.,ETSMARSA,Sí
+1134,CR07,"La A",Callao,La Perla,Empresa de Transportes y Servicios La Estrella S.A.C.,ETSESAC,Sí
+1135,CR09,"La 105",Callao,Lima,Empresa de Transportes Mariscal Ramón Castilla S.A.,,Sí
+1136,CR10,"La 120",Callao,Lima,Consorcio Nueva Unión S.A.,,Sí
+1137,CR12,Ninguno,Carabayllo,La Victoria,Empresa de Transportes y Servicios San Antonio S.A.,,Sí
+1138,CR17,Ninguno,Carabayllo,San Miguel,Multiservicios e Inversiones Chimpum Callao S.A.,,Sí
+1139,CR27,Ninguno,Comas,Pueblo Libre,Consorcio Grupo Uvita S.A.C.,,Sí
+1140,CR30,Ninguno,Callao,Lima,Empresa de Transportes y Servicios Milagroso Inmaculado Señor Cautivo de Ayabaca S.A.,ETMISCASA,Sí
+1141,CR31,Ninguno,Callao,Santiago de Surco,Empresa de Transportes del Fondo Colectivo de Ayuda Mutua S.A.,ETFOCAMSA,Sí
+1142,CR32,Ninguno,Ventanilla,Lima,Empresa de Transporte y Servicios Proyecto 7 S.A.,,Sí
+1143,CR38,"La 524",Callao,Santiago de Surco,Gruplan S.A.,,Sí
+1144,CR40,Ninguna,Callao,Lima,Empresa de Transportes y Servicios Conexos Néstor Gambetta S.A.,,Sí
+1145,CR43,Ninguno,Carabayllo,La Victoria,Empresa de Transportes y Servicios Callao S.A.,TRANSCALLAO,Sí
+1146,CR45,Ninguno,La Punta,Lima,Empresa de Transportes San Benito de Palermo S.A.,ETSABEPSA,Sí
+1147,CR46,Ninguno,La Punta,Lima,Empresa de Transportes y Servicios Generales Colonial S.A.,,Sí
+1148,CR47,Ninguno,Callao,Lima,Multiservicios de Buses de Waylluy S.A.,Multibus Way S.A.,Sí
+1149,CR48,Ninguno,Callao,Lima,Multiservicios de Buses de Waylluy S.A.,Multibus Way S.A.,Sí
+1150,CR52,Ninguno,Callao,Lima,Empresa de Transportes 102 S.A.,,Sí
+1151,CR56,Ninguno,Ventanilla,Lima,Empresa de Transportes Mi Perú Ventanilla S.A.,EPTEVESA,Sí
+1152,CR61,Ninguno,Ventanilla,Lima,Empresa de Servicios de Transportes Lima Ventanilla Turismo S.A.C.,LIVENTUR,Sí
+1153,CR62,Ninguno,Carabayllo,Carabayllo,Empresa de Transportes San Ignacio de Loyola S.A.,ETRASILSA,Sí
+1154,CR69,Ninguno,Carabayllo,Pueblo Libre,Consorcio Briza,,Sí
+1155,CR78,Ninguno,Callao,Lima,Grupo Holrex S.A. / Holding Real Express S.A.,,Sí
+1156,ICR02B,Ninguno,Callao,Lima,Empresa de Transportes y Servicios Nuevo Reynoso S.A.,ETYSNURSA,Sí
+1157,IM19,Ninguno,Ventanilla,Lima,Cooperativa de Servicios Especiales Transportes Sol y Mar Ltda.,,Sí
+1158,IM20,Ninguno,Ventanilla,Lima,Servicio Interconectado de Transporte S.A.C.,SIT,Sí
+1159,IM21,"La 21",Callao,Jesús María,Translima S.A.,,Sí
+1160,IM34B,"La OP",Callao,Ate,Multiservicios e Inversiones Chimpum Callao S.A.,,Sí
+1161,IM40,"La 89",Callao,Ate,Empresa de Transportes Víctor Raúl Haya de La Torre S.A.,ETVRHTSA,Sí
+1162,IM47,Ninguno,Callao,San Miguel,Consorcio Briza,,Sí
+1163,IO14,"La SV",Mi Perú,Santiago de Surco,Corporación Avagon S.A.C.,,Sí
+1164,IO19,Ninguno,Callao,Independencia,Cooperativa de Transportes Corazón de Jesús Ltda.,CTCJ,Sí
+1165,IO38B,Ninguno,Los Olivos,Callao,Consorcio Briza,,Sí
+1166,IO44B,Ninguno,Carabayllo,San Miguel,Empresa de Transportes Vía Bus S.A.C.,ETVIBUSAC,Sí
+1167,IO45,Ninguno,Carabayllo,Callao,Consorcio Briza,,Sí
+1168,IO47,Ninguno,Ventanilla,Lince,Inversiones y Servicios Múltiples La Nueva Estrella S.A.C. / Corporación Las Estrellas S.A.C.,,Sí
+1169,IO75B,Ninguno,Mi Perú,Lima,Transportes y Servicios Cielo Mar y Tierra S.A.,ETCIMATISA,Sí
+1170,OM09,"La 93",Callao,Lima,Perla Argentina S.A.,PASA,Sí
+1171,OM16,"La DC - La SB",Santa Rosa,La Victoria,Empresa de Transportes Álamo Express S.A. / Consorcio Santa Bárbara S.A.,,Sí
+1172,OM23,Ninguno,San Martín de Porres,Rímac,Corporación Empresa de Transportes Urbano Niño Jesús S.A.,ETUNIJESA,Sí
+1173,OM32,"La 9V",San Martín de Porres,Santiago de Surco,Consorcio Movil Express S.A. / Empresa de Transportes Santa Rosa de Lima S.A.,ETRASLISA,Sí
+1174,OM33,"La D1",San Martín de Porres,San Martín de Porres,Corporación Inversiones Los Ángeles del Perú S.A.,CILAP,Sí
+1175,1308,"La P",Puente Piedra,San Juan de Lurigancho,Empresa de Transportes Pegasso Express S.A.,,Sí
+1176,1404,"La 6M - La Collique",Comas,Ate,Empresa de Transportes Virgen de La Puerta S.A.,EVIPUSA,Sí
+1177,1411,"La 02",Carabayllo,Ate,Transportes Cruz del Centro S.A.,,Sí
+1178,1412,"La E",Carabayllo,Ate,Empresa de Transportes La Encantada S.A.,,Sí
+1179,1701,"El Anconero",Ancón,Santiago de Surco,Empresa de Transportes Turismo e Inversiones Señor de La Soledad S.A.,SESOSA,Sí
+1180,1702,"La A",Carabayllo,San Juan de Miraflores,Empresa de Transportes y Servicios Nueva América S.A.,TRANSNASA,Sí
+1181,1703,"La 70",Puente Piedra,Chorrillos,Empresa de Transportes Perú S.A.C.,,Sí
+1182,1704,"La V",Carabayllo,San Juan de Miraflores,Vencedores C&P Inversiones S.A.C.,,Sí
+1183,1706,"La A",Carabayllo,Santiago de Surco,Comunicación Integral Turismo e Inversiones Urano Tours S.A.,,Sí
+1184,1801,"La B39 - La C",Santa Rosa,Pachacámac,Empresa de Transportes Edilberto Ramos S.A.C.,ETERSAC,Sí
+1185,1802,"La A - El Chino",Puente Piedra,Villa El Salvador,Empresa de Transportes Urbano Los Chinos S.A.,ETUCHISA,Sí
+1186,1804,"La A - el Anconero",Ancón,Pachacámac,Empresa de Transportes y Servicios Virgen de La Puerta S.A.,VIPUSA,Sí
+1187,2303,Ninguno,San Martín de Porres,San Juan de Lurigancho,Empresa de Transportes Señor Nazareno S.A.,,Sí
+1189,2404,"La 35B",San Martín de Porres,La Molina,Empresa de Transportes y Servicios El Inti S.A.,ETINSA,Sí
+1190,2405,Ninguno,San Martín de Porres,Santa Anita,Empresa de Servicios y Transportes Inversiones El Rápido S.A.,ESTIRSA,Sí
+1191,2406,"La 35A",San Martín de Porres,Ate,Empresa de Transportes y Servicios Múltiples Los Excelentes Unidos S.A.,,Sí
+1192,2407,Ninguno,Independencia,Ate,Empresa de Transportes y Servicios El Sol de Santa Clara S.A.,ETISSA,Sí
+1193,2408,"La 148",Independencia,Ate,Empresa de Transportes Virgen de la Concepción S.A.,ETVIRCOSA,Sí
+1194,2409,"La B",San Martín de Porres,Ate,Empresa Virgen de Fátima S.A.,EVIFASA,Sí
+1195,2411,"La 42 - El Rápido",San Martín de Porres,Lurigancho/Chosica,Empresa de Transportes y Servicios El Rápido S.A. / Grupo Empresarial El Rápido S.A.,,Sí
+1196,2414,"La A",Los Olivos,Santa Anita,Transportes Cruz del Centro S.A.,,Sí
+1197,2701,"La 44A",San Martín de Porres,Santiago de Surco,Empresa de Transportes Diecisiete de Junio S.A.,ETRADIJUSA,Sí
+1199,2703,"La 36",San Martín de Porres,Chorrillos,Empresa de Transportes 36 San Martín de Porres S.A.,ET36SMPSA,Sí
+1200,2803,"La 9A",Lince,Villa María del Triunfo,Transportes Ingaruca S.A.C. / Transportes 17 de Noviembre S.A.,,Sí
+1203,3203,"La C - La 128 - La San Germán",San Juan de Lurigancho,San Martín de Porres,Transportes e Inversiones San Germán S.A.,TISGSA,Sí
+1204,3205,"La 2H",San Juan de Lurigancho,San Martín de Porres,Empresa de Transportes y Servicios Huancayo City S.A.,ETHUCSA 2H,Sí
+1205,3502,"La E",El Agustino,San Miguel,Empresa de Transporte y Servicios Vargasant S.A.C. / Empresa de Transporte y Servicios Niño Emanuel S.A.C.,,Sí
+1207,3507,"La C1",San Juan de Lurigancho,San Miguel,Empresa de Transportes y Servicios La Huayrona S.A.,,Sí
+1210,4102,Ninguno,Santa Anita,Carabayllo,San Felipe Express S.A.,,Sí
+1214,4210,"La 32A",Ate,San Martín de Porres,Empresa de Transportes Virgen de La Asunción S.A.,ETVASA,Sí
+1218,4506/129p,"El Chosicano",Ricardo Palma,San Miguel,Empresa de Transportes y Servicios Lima Chosica S.A.,ETYSLCHSA,Sí
+1219,4512,"La B",Lurigancho/Chosica,San Miguel,Vargasant S.A.C.,,Sí
+1220,4513,Ninguno,Lurigancho/Chosica,Lima,Empresa de Transportes y Servicios Peralitos S.A.,,Sí
+1221,4516,"La 20",Ate,San Miguel,Empresa de Transportes y Servicios Los Expertos y Somos Más S.A.,,Sí
+1222,4901,"La 19 - La N",Lurigancho/Chosica,Callao,Empresa de Transportes y Servicios San Cristóbal Palcamayo S.A.,,Sí

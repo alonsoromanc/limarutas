@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mapa de Rutas de Lima y Callao</title>
+
+    <!-- Leaflet -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- TOP: barra de búsqueda flotante -->
+      <div id="topbar">
+        <div class="search">
+          <span class="loupe">🔍</span>
+          <input id="searchInput" placeholder="Busca tu ruta (A, B, C, 301, 1, SX, L1...)" />
+          <div id="searchSuggest" class="suggest" role="listbox" aria-label="Sugerencias"></div>
+        </div>
+        <button id="btnClearSearch" class="btn">Limpiar búsqueda</button>
+      </div>
+
+      <!-- SIDEBAR flotante -->
+      <aside id="sidebar">
+        <div class="header">
+          <h1>Mapa de Rutas de Lima y Callao</h1>
+          <button id="btnClearAll" class="btn btn-ghost">Desmarcar todo</button>
+        </div>
+
+        <div id="panels">
+          <!-- Metropolitano -->
+          <section class="panel">
+            <button class="panel-head" data-target="p-met" aria-expanded="false">
+              <span class="chev">▸</span>
+              <span class="title">Metropolitano</span>
+              <input type="checkbox" id="chk-met" class="right" />
+            </button>
+
+            <div id="p-met" class="panel-body">
+              <!-- Regulares -->
+              <section class="panel nested">
+                <button class="panel-head" data-target="p-met-reg" aria-expanded="false">
+                  <span class="chev">▸</span>
+                  <span class="title">Regulares</span>
+                  <input type="checkbox" id="chk-met-reg" class="right" />
+                </button>
+                <div id="p-met-reg" class="panel-body list" aria-label="Regulares"></div>
+              </section>
+
+              <!-- Expresos -->
+              <section class="panel nested">
+                <button class="panel-head" data-target="p-met-exp" aria-expanded="false">
+                  <span class="chev">▸</span>
+                  <span class="title">Expresos</span>
+                  <input type="checkbox" id="chk-met-exp" class="right" />
+                </button>
+                <div id="p-met-exp" class="panel-body list" aria-label="Expresos"></div>
+              </section>
+
+              <!-- Alimentadores -->
+              <section class="panel nested">
+                <button class="panel-head" data-target="p-met-alim" aria-expanded="false">
+                  <span class="chev">▸</span>
+                  <span class="title">Alimentadores</span>
+                  <input type="checkbox" id="chk-met-alim" class="right" />
+                </button>
+
+                <div id="p-met-alim" class="panel-body">
+                  <!-- Zona Norte -->
+                  <section class="panel nested">
+                    <button class="panel-head" data-target="p-met-alim-n" aria-expanded="false">
+                      <span class="chev">▸</span>
+                      <span class="title">Zona Norte</span>
+                      <input type="checkbox" id="chk-met-alim-n" class="right" />
+                    </button>
+                    <div id="p-met-alim-n" class="panel-body list" aria-label="Alimentadores Norte"></div>
+                  </section>
+
+                  <!-- Zona Sur -->
+                  <section class="panel nested">
+                    <button class="panel-head" data-target="p-met-alim-s" aria-expanded="false">
+                      <span class="chev">▸</span>
+                      <span class="title">Zona Sur</span>
+                      <input type="checkbox" id="chk-met-alim-s" class="right" />
+                    </button>
+                    <div id="p-met-alim-s" class="panel-body list" aria-label="Alimentadores Sur"></div>
+                  </section>
+                </div>
+              </section>
+            </div>
+          </section>
+
+          <!-- Corredores -->
+          <section class="panel">
+            <button class="panel-head" data-target="p-corr" aria-expanded="false">
+              <span class="chev">▸</span>
+              <span class="title">Corredores</span>
+              <input type="checkbox" id="chk-corr" class="right" />
+            </button>
+            <div id="p-corr" class="panel-body">
+              <div id="p-corr-list" class="stack"></div>
+              <div id="p-corr-empty" class="muted" style="display:none">Sin datos de corredores</div>
+            </div>
+          </section>
+
+          <!-- Metro (habilitado) -->
+          <section class="panel">
+            <button class="panel-head" data-target="p-metro" aria-expanded="false">
+              <span class="chev">▸</span>
+              <span class="title">Metro</span>
+              <!-- HABILITADO: sin disabled -->
+              <input type="checkbox" id="chk-metro" class="right" />
+            </button>
+            <!-- LISTA: aquí se inyectan L1, L2, ... -->
+            <div id="p-metro" class="panel-body list" aria-label="Metro"></div>
+          </section>
+
+          <!-- Transporte público (placeholder) -->
+          <section class="panel">
+            <button class="panel-head" data-target="p-tp" aria-expanded="false">
+              <span class="chev">▸</span>
+              <span class="title">Transporte público</span>
+              <input type="checkbox" id="chk-tp" class="right" disabled />
+            </button>
+            <div id="p-tp" class="panel-body muted">Próximamente</div>
+          </section>
+
+          <!-- Opciones -->
+          <section class="panel">
+            <div class="panel-body">
+              <div class="group">
+                <label class="label">Dirección (Expresos)</label>
+                <div class="radios">
+                  <label><input type="radio" name="dir" value="ambas" checked /> Ambas</label>
+                  <label><input type="radio" name="dir" value="ns" /> N→S</label>
+                  <label><input type="radio" name="dir" value="sn" /> S→N</label>
+                </div>
+              </div>
+
+              <div class="group">
+                <label class="label">
+                  <input type="checkbox" id="chkStops" checked />
+                  Mostrar paradas
+                </label>
+              </div>
+
+              <div class="group">
+                <label class="label">
+                  <input type="checkbox" id="chkAutoFit" checked />
+                  Auto-centrar al seleccionar
+                </label>
+              </div>
+
+              <div class="group">
+                <label class="label">Tema</label>
+                <div class="row">
+                  <button id="btnLight" class="btn small">Mapa claro</button>
+                  <button id="btnDark" class="btn small">Mapa oscuro</button>
+                </div>
+              </div>
+
+              <div id="status" class="status">Listo</div>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <main id="map"></main>
+    </div>
+
+    <script src="assets/js/app.js" type="module"></script>
+  </body>
+</html>

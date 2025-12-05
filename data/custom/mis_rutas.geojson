@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type":"Feature",
+      "properties": { "key":"metropolitano", "subcat":"B", "ref":"B", "name":"Metropolitano — Ruta B (mi versión)" },
+      "geometry": { "type":"LineString", "coordinates":[[-77.06,-12.06],[-77.04,-12.09]] }
+    },
+    {
+      "type":"Feature",
+      "properties": { "key":"metropolitano", "subcat":"B", "ref":"B", "name":"Est. Colmena" },
+      "geometry": { "type":"Point", "coordinates":[-77.04,-12.05] }
+    }
+  ]
+}

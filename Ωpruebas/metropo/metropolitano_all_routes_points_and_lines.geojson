@@ -1,0 +1,6871 @@
+{
+  "type": "FeatureCollection",
+  "name": "metropolitano_all_routes_points_and_lines",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "pacifico",
+        "name": "Pacífico",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Pacífico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05602,
+          -11.99485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "independencia",
+        "name": "Independencia",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Independencia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05526,
+          -11.99832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "los-jazmines",
+        "name": "Los Jazmines",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Los Jazmines"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05477,
+          -12.00212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "el-milagro",
+        "name": "El Milagro",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. El Milagro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "honorio-delgado",
+        "name": "Honorio Delgado",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Honorio Delgado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05155,
+          -12.01739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "parque-del-trabajo",
+        "name": "Parque del Trabajo",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Parque del Trabajo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04426,
+          -12.02952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "ramon-castilla",
+        "name": "Ramón Castilla",
+        "order": 12,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "12. Ramón Castilla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04185,
+          -12.04375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "tacna",
+        "name": "Tacna",
+        "order": 13,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "13. Tacna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0375,
+          -12.04638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "order": 14,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "14. Jirón de la Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03337,
+          -12.0489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "colmena",
+        "name": "Colmena",
+        "order": 15,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "15. Colmena"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03396,
+          -12.0512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 16,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00AAE4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "16. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta A",
+        "service_id": "A",
+        "kind": "regular",
+        "direction": "ida",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#00AAE4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Ruta A – ida"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.054945,
+            -12.00052
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.05652,
+            -11.992249999999999
+          ],
+          [
+            -77.05602,
+            -11.99485
+          ],
+          [
+            -77.05564000000001,
+            -11.996585
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.055015,
+            -12.000219999999999
+          ],
+          [
+            -77.05477,
+            -12.00212
+          ],
+          [
+            -77.05436,
+            -12.004375
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.05341,
+            -12.00901
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.05221,
+            -12.01439
+          ],
+          [
+            -77.05155,
+            -12.01739
+          ],
+          [
+            -77.050285,
+            -12.020700000000001
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.04664,
+            -12.026765000000001
+          ],
+          [
+            -77.04426,
+            -12.02952
+          ],
+          [
+            -77.04393999999999,
+            -12.033025
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.042735,
+            -12.040140000000001
+          ],
+          [
+            -77.04185,
+            -12.04375
+          ],
+          [
+            -77.03967499999999,
+            -12.045065
+          ],
+          [
+            -77.0375,
+            -12.04638
+          ],
+          [
+            -77.035435,
+            -12.04764
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.033665,
+            -12.050049999999999
+          ],
+          [
+            -77.03396,
+            -12.0512
+          ],
+          [
+            -77.034905,
+            -12.0543
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "chimpu-ocllo",
+        "name": "Chimpu Ocllo",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Chimpu Ocllo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.06272,
+          -11.95206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "los-incas",
+        "name": "Los Incas",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Los Incas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0576,
+          -11.98037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "andres-belaunde",
+        "name": "Andrés Belaunde",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Andrés Belaunde"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05774,
+          -11.98605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "22-de-agosto",
+        "name": "Veintidós de Agosto",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Veintidós de Agosto"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05722,
+          -11.98733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "las-vegas",
+        "name": "Las Vegas",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Las Vegas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05663,
+          -11.99113
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "universidad",
+        "name": "Universidad",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Universidad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05598,
+          -11.99467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "pacifico",
+        "name": "Pacífico",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Pacífico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05602,
+          -11.99485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "independencia",
+        "name": "Independencia",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Independencia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05526,
+          -11.99832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "los-jazmines",
+        "name": "Los Jazmines",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Los Jazmines"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05477,
+          -12.00212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 12,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "12. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "el-milagro",
+        "name": "El Milagro",
+        "order": 13,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "13. El Milagro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "honorio-delgado",
+        "name": "Honorio Delgado",
+        "order": 14,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "14. Honorio Delgado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05155,
+          -12.01739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 15,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "15. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "parque-del-trabajo",
+        "name": "Parque del Trabajo",
+        "order": 16,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "16. Parque del Trabajo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04426,
+          -12.02952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 17,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "17. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "2-de-mayo",
+        "name": "2 de Mayo",
+        "order": 18,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "18. 2 de Mayo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0427414,
+          -12.0458966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 19,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "19. Quilca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0421802,
+          -12.0525106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "espana",
+        "name": "España",
+        "order": 20,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "20. España"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0418,
+          -12.05764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 21,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FF8000",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "21. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta B",
+        "service_id": "B",
+        "kind": "regular",
+        "direction": "ida",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#FF8000",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Ruta B – ida"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.06272,
+            -11.95206
+          ],
+          [
+            -77.06016,
+            -11.966215
+          ],
+          [
+            -77.0576,
+            -11.98037
+          ],
+          [
+            -77.05767,
+            -11.98321
+          ],
+          [
+            -77.05774,
+            -11.98605
+          ],
+          [
+            -77.05748,
+            -11.98669
+          ],
+          [
+            -77.05722,
+            -11.98733
+          ],
+          [
+            -77.056925,
+            -11.98923
+          ],
+          [
+            -77.05663,
+            -11.99113
+          ],
+          [
+            -77.05630500000001,
+            -11.992899999999999
+          ],
+          [
+            -77.05598,
+            -11.99467
+          ],
+          [
+            -77.05442500000001,
+            -12.003029999999999
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.054945,
+            -12.00052
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.05652,
+            -11.992249999999999
+          ],
+          [
+            -77.05602,
+            -11.99485
+          ],
+          [
+            -77.05564000000001,
+            -11.996585
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.055015,
+            -12.000219999999999
+          ],
+          [
+            -77.05477,
+            -12.00212
+          ],
+          [
+            -77.05436,
+            -12.004375
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.05341,
+            -12.00901
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.05221,
+            -12.01439
+          ],
+          [
+            -77.05155,
+            -12.01739
+          ],
+          [
+            -77.050285,
+            -12.020700000000001
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.04664,
+            -12.026765000000001
+          ],
+          [
+            -77.04426,
+            -12.02952
+          ],
+          [
+            -77.04393999999999,
+            -12.033025
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.0431807,
+            -12.0412133
+          ],
+          [
+            -77.0427414,
+            -12.0458966
+          ],
+          [
+            -77.0424608,
+            -12.0492036
+          ],
+          [
+            -77.0421802,
+            -12.0525106
+          ],
+          [
+            -77.04199009999999,
+            -12.055075299999999
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "ramon-castilla",
+        "name": "Ramón Castilla",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Ramón Castilla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04185,
+          -12.04375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "tacna",
+        "name": "Tacna",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Tacna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0375,
+          -12.04638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Jirón de la Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03337,
+          -12.0489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "colmena",
+        "name": "Colmena",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Colmena"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03396,
+          -12.0512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "estadio-nacional",
+        "name": "Estadio Nacional",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Estadio Nacional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03206,
+          -12.06879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "mexico",
+        "name": "México",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. México"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0292,
+          -12.07615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "canada",
+        "name": "Canadá",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Canadá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02674,
+          -12.08197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "aramburu",
+        "name": "Aramburú",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Aramburú"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02728,
+          -12.10235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "domingo-orue",
+        "name": "Domingo Orué",
+        "order": 12,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "12. Domingo Orué"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02672,
+          -12.1106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 13,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "13. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "ricardo-palma",
+        "name": "Ricardo Palma",
+        "order": 14,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "14. Ricardo Palma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02594,
+          -12.11888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 15,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "15. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "28-de-julio",
+        "name": "28 de Julio",
+        "order": 16,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "16. 28 de Julio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02297,
+          -12.12896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "plaza-de-flores",
+        "name": "Plaza de Flores",
+        "order": 17,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "17. Plaza de Flores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01872,
+          -12.13587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "balta",
+        "name": "Balta",
+        "order": 18,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "18. Balta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01777,
+          -12.14005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "bulevar",
+        "name": "Bulevar",
+        "order": 19,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "19. Bulevar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02019,
+          -12.14857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "estadio-union",
+        "name": "Estadio Unión",
+        "order": 20,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "20. Estadio Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01969,
+          -12.15295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "escuela-militar",
+        "name": "Escuela Militar",
+        "order": 21,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "21. Escuela Militar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01896,
+          -12.15969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "teran",
+        "name": "Fernando Terán",
+        "order": 22,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "22. Fernando Terán"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01862,
+          -12.16863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "rosario-de-villa",
+        "name": "Rosario de Villa",
+        "order": 23,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "23. Rosario de Villa"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01517,
+          -12.17306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "stop_id": "matellini",
+        "name": "Matellini",
+        "order": 24,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#00A884",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "24. Matellini"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01052,
+          -12.1783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta C",
+        "service_id": "C",
+        "kind": "regular",
+        "direction": "ida",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#00A884",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Ruta C – ida"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.04185,
+            -12.04375
+          ],
+          [
+            -77.03967499999999,
+            -12.045065
+          ],
+          [
+            -77.0375,
+            -12.04638
+          ],
+          [
+            -77.035435,
+            -12.04764
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.033665,
+            -12.050049999999999
+          ],
+          [
+            -77.03396,
+            -12.0512
+          ],
+          [
+            -77.034905,
+            -12.0543
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.03395499999999,
+            -12.063095
+          ],
+          [
+            -77.03206,
+            -12.06879
+          ],
+          [
+            -77.03063,
+            -12.07247
+          ],
+          [
+            -77.0292,
+            -12.07615
+          ],
+          [
+            -77.02797000000001,
+            -12.07906
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.02496,
+            -12.085925
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02611999999999,
+            -12.099450000000001
+          ],
+          [
+            -77.02728,
+            -12.10235
+          ],
+          [
+            -77.027,
+            -12.106475
+          ],
+          [
+            -77.02672,
+            -12.1106
+          ],
+          [
+            -77.02634,
+            -12.111934999999999
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02595,
+            -12.116075
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.02510000000001,
+            -12.121915000000001
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.023615,
+            -12.126954999999999
+          ],
+          [
+            -77.02297,
+            -12.12896
+          ],
+          [
+            -77.02084500000001,
+            -12.132415
+          ],
+          [
+            -77.01872,
+            -12.13587
+          ],
+          [
+            -77.01824500000001,
+            -12.13796
+          ],
+          [
+            -77.01777,
+            -12.14005
+          ],
+          [
+            -77.01898,
+            -12.14431
+          ],
+          [
+            -77.02019,
+            -12.14857
+          ],
+          [
+            -77.01993999999999,
+            -12.15076
+          ],
+          [
+            -77.01969,
+            -12.15295
+          ],
+          [
+            -77.01932500000001,
+            -12.156320000000001
+          ],
+          [
+            -77.01896,
+            -12.15969
+          ],
+          [
+            -77.01879,
+            -12.164159999999999
+          ],
+          [
+            -77.01862,
+            -12.16863
+          ],
+          [
+            -77.016895,
+            -12.170845
+          ],
+          [
+            -77.01517,
+            -12.17306
+          ],
+          [
+            -77.012845,
+            -12.17568
+          ],
+          [
+            -77.01052,
+            -12.1783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "pacifico",
+        "name": "Pacífico",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Pacífico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05602,
+          -11.99485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "independencia",
+        "name": "Independencia",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Independencia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05526,
+          -11.99832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "los-jazmines",
+        "name": "Los Jazmines",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Los Jazmines"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05477,
+          -12.00212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "el-milagro",
+        "name": "El Milagro",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. El Milagro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "honorio-delgado",
+        "name": "Honorio Delgado",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Honorio Delgado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05155,
+          -12.01739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "parque-del-trabajo",
+        "name": "Parque del Trabajo",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Parque del Trabajo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04426,
+          -12.02952
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "2-de-mayo",
+        "name": "2 de Mayo",
+        "order": 12,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "12. 2 de Mayo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0427414,
+          -12.0458966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 13,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "13. Quilca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0421802,
+          -12.0525106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "espana",
+        "name": "España",
+        "order": 14,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "14. España"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0418,
+          -12.05764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 15,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#6D1F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "15. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Ruta D",
+        "service_id": "D",
+        "kind": "regular",
+        "direction": "ida",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#6D1F6D",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Ruta D – ida"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.054945,
+            -12.00052
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.05652,
+            -11.992249999999999
+          ],
+          [
+            -77.05602,
+            -11.99485
+          ],
+          [
+            -77.05564000000001,
+            -11.996585
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.055015,
+            -12.000219999999999
+          ],
+          [
+            -77.05477,
+            -12.00212
+          ],
+          [
+            -77.05436,
+            -12.004375
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.05341,
+            -12.00901
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.05221,
+            -12.01439
+          ],
+          [
+            -77.05155,
+            -12.01739
+          ],
+          [
+            -77.050285,
+            -12.020700000000001
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.04664,
+            -12.026765000000001
+          ],
+          [
+            -77.04426,
+            -12.02952
+          ],
+          [
+            -77.04393999999999,
+            -12.033025
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.0431807,
+            -12.0412133
+          ],
+          [
+            -77.0427414,
+            -12.0458966
+          ],
+          [
+            -77.0424608,
+            -12.0492036
+          ],
+          [
+            -77.0421802,
+            -12.0525106
+          ],
+          [
+            -77.04199009999999,
+            -12.055075299999999
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "estadio-nacional",
+        "name": "Estadio Nacional",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Estadio Nacional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03206,
+          -12.06879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "28-de-julio",
+        "name": "28 de Julio",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. 28 de Julio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02297,
+          -12.12896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "balta",
+        "name": "Balta",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Balta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01777,
+          -12.14005
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "estadio-union",
+        "name": "Estadio Unión",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Estadio Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01969,
+          -12.15295
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "teran",
+        "name": "Fernando Terán",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Fernando Terán"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01862,
+          -12.16863
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "stop_id": "matellini",
+        "name": "Matellini",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#D3D3D3",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Matellini"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01052,
+          -12.1783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#D3D3D3",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 1 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.03395499999999,
+            -12.063095
+          ],
+          [
+            -77.03206,
+            -12.06879
+          ],
+          [
+            -77.02762,
+            -12.079335
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02446499999999,
+            -12.121115
+          ],
+          [
+            -77.02297,
+            -12.12896
+          ],
+          [
+            -77.02037,
+            -12.134505
+          ],
+          [
+            -77.01777,
+            -12.14005
+          ],
+          [
+            -77.01873,
+            -12.1465
+          ],
+          [
+            -77.01969,
+            -12.15295
+          ],
+          [
+            -77.019155,
+            -12.16079
+          ],
+          [
+            -77.01862,
+            -12.16863
+          ],
+          [
+            -77.01456999999999,
+            -12.173465
+          ],
+          [
+            -77.01052,
+            -12.1783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 1",
+        "service_id": "1",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#D3D3D3",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 1 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.01052,
+            -12.1783
+          ],
+          [
+            -77.01456999999999,
+            -12.173465
+          ],
+          [
+            -77.01862,
+            -12.16863
+          ],
+          [
+            -77.019155,
+            -12.16079
+          ],
+          [
+            -77.01969,
+            -12.15295
+          ],
+          [
+            -77.01873,
+            -12.1465
+          ],
+          [
+            -77.01777,
+            -12.14005
+          ],
+          [
+            -77.02186499999999,
+            -12.126660000000001
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02762,
+            -12.079335
+          ],
+          [
+            -77.03206,
+            -12.06879
+          ],
+          [
+            -77.03395499999999,
+            -12.063095
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#31459B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "stop_id": "canada",
+        "name": "Canadá",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#31459B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Canadá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02674,
+          -12.08197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#31459B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "stop_id": "ricardo-palma",
+        "name": "Ricardo Palma",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#31459B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Ricardo Palma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02594,
+          -12.11888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "stop_id": "28-de-julio",
+        "name": "28 de Julio",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#31459B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. 28 de Julio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02297,
+          -12.12896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#31459B",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 2 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.039805,
+            -12.04668
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.02496,
+            -12.085925
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02456000000001,
+            -12.10438
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.024455,
+            -12.12392
+          ],
+          [
+            -77.02297,
+            -12.12896
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 2",
+        "service_id": "2",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#31459B",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 2 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.02456000000001,
+            -12.10438
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02496,
+            -12.085925
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.039805,
+            -12.04668
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 3",
+        "service_id": "3",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B8860B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 3",
+        "service_id": "3",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B8860B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 3",
+        "service_id": "3",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B8860B",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 3",
+        "service_id": "3",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#B8860B",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 3 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.03941499999999,
+            -12.06233
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 3",
+        "service_id": "3",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#B8860B",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 3 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.03941499999999,
+            -12.06233
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "espana",
+        "name": "España",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. España"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0418,
+          -12.05764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "canada",
+        "name": "Canadá",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Canadá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02674,
+          -12.08197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 11,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "11. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "ricardo-palma",
+        "name": "Ricardo Palma",
+        "order": 12,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "12. Ricardo Palma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02594,
+          -12.11888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "stop_id": "plaza-de-flores",
+        "name": "Plaza de Flores",
+        "order": 13,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#B70C7F",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "13. Plaza de Flores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01872,
+          -12.13587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#B70C7F",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 5 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.054945,
+            -12.00052
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.055485,
+            -11.99814
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.04632000000001,
+            -12.030270000000002
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.04271,
+            -12.047085
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.031295,
+            -12.069685
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.02496,
+            -12.085925
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02595,
+            -12.116075
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.02233000000001,
+            -12.127375
+          ],
+          [
+            -77.01872,
+            -12.13587
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 5",
+        "service_id": "5",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#B70C7F",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 5 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.01872,
+            -12.13587
+          ],
+          [
+            -77.02233000000001,
+            -12.127375
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.02595,
+            -12.116075
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02496,
+            -12.085925
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.031295,
+            -12.069685
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.04271,
+            -12.047085
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.04632000000001,
+            -12.030270000000002
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.055485,
+            -11.99814
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.054945,
+            -12.00052
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "independencia",
+        "name": "Independencia",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Independencia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05526,
+          -11.99832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#4A4949",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#4A4949",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 6 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.05614,
+            -11.993984999999999
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.04555500000001,
+            -12.02786
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 6",
+        "service_id": "6",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#4A4949",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 6 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.04555500000001,
+            -12.02786
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.05614,
+            -11.993984999999999
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#960018",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#960018",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#960018",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#960018",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#960018",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#960018",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 7 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.0449,
+            -12.032015
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 7",
+        "service_id": "7",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#960018",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 7 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.0449,
+            -12.032015
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "izaguirre",
+        "name": "Izaguirre",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Izaguirre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05702,
+          -11.98965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "independencia",
+        "name": "Independencia",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Independencia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05526,
+          -11.99832
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "stop_id": "plaza-de-flores",
+        "name": "Plaza de Flores",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#EA3D90",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Plaza de Flores"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01872,
+          -12.13587
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#EA3D90",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 8 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05702,
+            -11.98965
+          ],
+          [
+            -77.05614,
+            -11.993984999999999
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.05460500000001,
+            -12.002475
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.042435,
+            -12.040704999999999
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02149,
+            -12.130410000000001
+          ],
+          [
+            -77.01872,
+            -12.13587
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 8",
+        "service_id": "8",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#EA3D90",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 8 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.01872,
+            -12.13587
+          ],
+          [
+            -77.02149,
+            -12.130410000000001
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.042435,
+            -12.040704999999999
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.05460500000001,
+            -12.002475
+          ],
+          [
+            -77.05526,
+            -11.99832
+          ],
+          [
+            -77.05614,
+            -11.993984999999999
+          ],
+          [
+            -77.05702,
+            -11.98965
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "canada",
+        "name": "Canadá",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Canadá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02674,
+          -12.08197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#90C5A4",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#90C5A4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 9 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.04632000000001,
+            -12.030270000000002
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.03518,
+            -12.05925
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.02584999999999,
+            -12.08926
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 9",
+        "service_id": "9",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#90C5A4",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 9 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.01872,
+            -12.13587
+          ],
+          [
+            -77.02149,
+            -12.130410000000001
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.029515,
+            -12.073640000000001
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.04271,
+            -12.047085
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.04632000000001,
+            -12.030270000000002
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "caqueta",
+        "name": "Caquetá",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Caquetá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04362,
+          -12.03653
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "ramon-castilla",
+        "name": "Ramón Castilla",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Ramón Castilla"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04185,
+          -12.04375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "tacna",
+        "name": "Tacna",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Tacna"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0375,
+          -12.04638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Jirón de la Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03337,
+          -12.0489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "colmena",
+        "name": "Colmena",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Colmena"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03396,
+          -12.0512
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33CB98",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#33CB98",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 10 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.04824500000001,
+            -12.02396
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.042735,
+            -12.040140000000001
+          ],
+          [
+            -77.04185,
+            -12.04375
+          ],
+          [
+            -77.03967499999999,
+            -12.045065
+          ],
+          [
+            -77.0375,
+            -12.04638
+          ],
+          [
+            -77.035435,
+            -12.04764
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.033665,
+            -12.050049999999999
+          ],
+          [
+            -77.03396,
+            -12.0512
+          ],
+          [
+            -77.034905,
+            -12.0543
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 10",
+        "service_id": "10",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#33CB98",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 10 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.034905,
+            -12.0543
+          ],
+          [
+            -77.03396,
+            -12.0512
+          ],
+          [
+            -77.033665,
+            -12.050049999999999
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.035435,
+            -12.04764
+          ],
+          [
+            -77.0375,
+            -12.04638
+          ],
+          [
+            -77.03967499999999,
+            -12.045065
+          ],
+          [
+            -77.04185,
+            -12.04375
+          ],
+          [
+            -77.042735,
+            -12.040140000000001
+          ],
+          [
+            -77.04362,
+            -12.03653
+          ],
+          [
+            -77.04824500000001,
+            -12.02396
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "los-incas",
+        "name": "Los Incas",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Los Incas"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0576,
+          -11.98037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "andres-belaunde",
+        "name": "Andrés Belaunde",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Andrés Belaunde"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05774,
+          -11.98605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "22-de-agosto",
+        "name": "Veintidós de Agosto",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Veintidós de Agosto"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05722,
+          -11.98733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "universidad",
+        "name": "Universidad",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Universidad"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05598,
+          -11.99467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "pacifico",
+        "name": "Pacífico",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Pacífico"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05602,
+          -11.99485
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#662485",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#662485",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 11 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.0576,
+            -11.98037
+          ],
+          [
+            -77.05767,
+            -11.98321
+          ],
+          [
+            -77.05774,
+            -11.98605
+          ],
+          [
+            -77.05748,
+            -11.98669
+          ],
+          [
+            -77.05722,
+            -11.98733
+          ],
+          [
+            -77.0566,
+            -11.991
+          ],
+          [
+            -77.05598,
+            -11.99467
+          ],
+          [
+            -77.05600000000001,
+            -11.99476
+          ],
+          [
+            -77.05602,
+            -11.99485
+          ],
+          [
+            -77.045935,
+            -12.026125
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 11",
+        "service_id": "11",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#662485",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 11 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.04436,
+            -12.034395
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.05442500000001,
+            -12.003029999999999
+          ],
+          [
+            -77.05598,
+            -11.99467
+          ],
+          [
+            -77.0566,
+            -11.991
+          ],
+          [
+            -77.05722,
+            -11.98733
+          ],
+          [
+            -77.05748,
+            -11.98669
+          ],
+          [
+            -77.05774,
+            -11.98605
+          ],
+          [
+            -77.05767,
+            -11.98321
+          ],
+          [
+            -77.0576,
+            -11.98037
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "estadio-nacional",
+        "name": "Estadio Nacional",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Estadio Nacional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03206,
+          -12.06879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02318,
+          -12.08988
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#624F41",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#624F41",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 12 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.03395499999999,
+            -12.063095
+          ],
+          [
+            -77.03206,
+            -12.06879
+          ],
+          [
+            -77.02762,
+            -12.079335
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 12",
+        "service_id": "12",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#624F41",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 12 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02546,
+            -12.10491
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02407,
+            -12.093215
+          ],
+          [
+            -77.02318,
+            -12.08988
+          ],
+          [
+            -77.02762,
+            -12.079335
+          ],
+          [
+            -77.03206,
+            -12.06879
+          ],
+          [
+            -77.03395499999999,
+            -12.063095
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "stop_id": "chimpu-ocllo",
+        "name": "Chimpu Ocllo",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#173059",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Chimpu Ocllo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.06272,
+          -11.95206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "stop_id": "andres-belaunde",
+        "name": "Andrés Belaunde",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#173059",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Andrés Belaunde"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05774,
+          -11.98605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#173059",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#173059",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#173059",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 13 – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.06272,
+            -11.95206
+          ],
+          [
+            -77.06022999999999,
+            -11.969055
+          ],
+          [
+            -77.05774,
+            -11.98605
+          ],
+          [
+            -77.05338,
+            -12.005030000000001
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.042435,
+            -12.040704999999999
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Expreso 13",
+        "service_id": "13",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#173059",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Expreso 13 – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.03585,
+            -12.0574
+          ],
+          [
+            -77.046725,
+            -12.018885000000001
+          ],
+          [
+            -77.0576,
+            -11.98037
+          ],
+          [
+            -77.06016,
+            -11.966215
+          ],
+          [
+            -77.06272,
+            -11.95206
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "tomas-valle",
+        "name": "Tomás Valle",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Tomás Valle"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05395,
+          -12.00663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "uni",
+        "name": "UNI",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. UNI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.04902,
+          -12.02401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "jiron-de-la-union",
+        "name": "Jirón de la Unión",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Jirón de la Unión"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03337,
+          -12.0489
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "canada",
+        "name": "Canadá",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Canadá"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02674,
+          -12.08197
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "ricardo-palma",
+        "name": "Ricardo Palma",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. Ricardo Palma"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02594,
+          -12.11888
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "bulevar",
+        "name": "Bulevar",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Bulevar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02019,
+          -12.14857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "stop_id": "matellini",
+        "name": "Matellini",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#706F6D",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Matellini"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.01052,
+          -12.1783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#706F6D",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Lechucero L – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.05341,
+            -12.00901
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.041195,
+            -12.036455
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.030055,
+            -12.065435
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.02634,
+            -12.100425000000001
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.023065,
+            -12.133725
+          ],
+          [
+            -77.02019,
+            -12.14857
+          ],
+          [
+            -77.015355,
+            -12.163435
+          ],
+          [
+            -77.01052,
+            -12.1783
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Lechucero L",
+        "service_id": "L",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#706F6D",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Lechucero L – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.01052,
+            -12.1783
+          ],
+          [
+            -77.015355,
+            -12.163435
+          ],
+          [
+            -77.02019,
+            -12.14857
+          ],
+          [
+            -77.023065,
+            -12.133725
+          ],
+          [
+            -77.02594,
+            -12.11888
+          ],
+          [
+            -77.02634,
+            -12.100425000000001
+          ],
+          [
+            -77.02674,
+            -12.08197
+          ],
+          [
+            -77.030055,
+            -12.065435
+          ],
+          [
+            -77.03337,
+            -12.0489
+          ],
+          [
+            -77.041195,
+            -12.036455
+          ],
+          [
+            -77.04902,
+            -12.02401
+          ],
+          [
+            -77.051485,
+            -12.01532
+          ],
+          [
+            -77.05395,
+            -12.00663
+          ],
+          [
+            -77.05341,
+            -12.00901
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "canaval-moreyra",
+        "name": "Canaval y Moreyra",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. Canaval y Moreyra"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02496,
+          -12.09655
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "aramburu",
+        "name": "Aramburú",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Aramburú"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02728,
+          -12.10235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "angamos",
+        "name": "Angamos",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Angamos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02596,
+          -12.11327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "benavides",
+        "name": "Benavides",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Benavides"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02426,
+          -12.12495
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "stop_id": "28-de-julio",
+        "name": "28 de Julio",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#ADC90C",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. 28 de Julio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.02297,
+          -12.12896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#ADC90C",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Súper Expreso SX – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.038915,
+            -12.05397
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.02611999999999,
+            -12.099450000000001
+          ],
+          [
+            -77.02728,
+            -12.10235
+          ],
+          [
+            -77.02662000000001,
+            -12.10781
+          ],
+          [
+            -77.02596,
+            -12.11327
+          ],
+          [
+            -77.02511,
+            -12.11911
+          ],
+          [
+            -77.02426,
+            -12.12495
+          ],
+          [
+            -77.023615,
+            -12.126954999999999
+          ],
+          [
+            -77.02297,
+            -12.12896
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso SX",
+        "service_id": "SX",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#ADC90C",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Súper Expreso SX – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.02728,
+            -12.10235
+          ],
+          [
+            -77.02611999999999,
+            -12.099450000000001
+          ],
+          [
+            -77.02496,
+            -12.09655
+          ],
+          [
+            -77.038915,
+            -12.05397
+          ],
+          [
+            -77.05287,
+            -12.01139
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "stop_id": "naranjal",
+        "name": "Naranjal",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FFDD00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Naranjal"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.05287,
+          -12.01139
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "stop_id": "2-de-mayo",
+        "name": "2 de Mayo",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FFDD00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. 2 de Mayo"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0427414,
+          -12.0458966
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FFDD00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Quilca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0421802,
+          -12.0525106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "stop_id": "espana",
+        "name": "España",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FFDD00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. España"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.0418,
+          -12.05764
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "stop_id": "estacion-central",
+        "name": "Estación Central",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#FFDD00",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Estación Central"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.03585,
+          -12.0574
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "kind": "expreso",
+        "direction": "north_south",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#FFDD00",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Súper Expreso Norte SXN – north→south"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05287,
+            -12.01139
+          ],
+          [
+            -77.0478057,
+            -12.0286433
+          ],
+          [
+            -77.0427414,
+            -12.0458966
+          ],
+          [
+            -77.0424608,
+            -12.0492036
+          ],
+          [
+            -77.0421802,
+            -12.0525106
+          ],
+          [
+            -77.04199009999999,
+            -12.055075299999999
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Súper Expreso Norte SXN",
+        "service_id": "SXN",
+        "kind": "expreso",
+        "direction": "south_north",
+        "updated": "2025-09-26",
+        "source": "metropolitano-files",
+        "geometry_type": "with_midpoints",
+        "stroke": "#FFDD00",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9,
+        "title": "Súper Expreso Norte SXN – south→north"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.05722,
+            -11.98733
+          ],
+          [
+            -77.056925,
+            -11.98923
+          ],
+          [
+            -77.05663,
+            -11.99113
+          ],
+          [
+            -77.05630500000001,
+            -11.992899999999999
+          ],
+          [
+            -77.05598,
+            -11.99467
+          ],
+          [
+            -77.0493607,
+            -12.0202833
+          ],
+          [
+            -77.0427414,
+            -12.0458966
+          ],
+          [
+            -77.0424608,
+            -12.0492036
+          ],
+          [
+            -77.0421802,
+            -12.0525106
+          ],
+          [
+            -77.04199009999999,
+            -12.055075299999999
+          ],
+          [
+            -77.0418,
+            -12.05764
+          ],
+          [
+            -77.038825,
+            -12.05752
+          ],
+          [
+            -77.03585,
+            -12.0574
+          ]
+        ]
+      }
+    }
+  ]
+}

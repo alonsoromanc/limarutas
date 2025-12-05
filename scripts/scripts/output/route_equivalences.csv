@@ -1,0 +1,208 @@
+ref_raw,route_code,old_code,match_source,match_method,alias,origen,destino,empresa,color,id,title,ref,name,route_code_base,family_ok
+,,,,,,,,,#555555,3778984,,,,,True
+,,,,,,,,,#555555,4193367,,,,,True
+,,,,,,,,,#555555,4193500,,,,,True
+X-ECR02-I,,CR02,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Empresa de Transportes Miraflores Monterrico S.A. (ETMIMSA),#1932B0,4224369,CR02,CR02,X-ECR02-I,CR02,True
+X-ECR03-I,,,,,,,,,#555555,4224379,CR03,CR03,X-ECR03-I,CR03,True
+X-ECR05-I,,CR05,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Multiservicios Ovni S.A. (ETMOSA),#FFE605,4224382,CR05,CR05,X-ECR05-I,CR05,True
+X-ECR09-I,1135,CR09,rutas.csv,old_code,,Callao,Lima,,#555555,4224390,1135,1135,X-ECR09-I,CR09,True
+X-ECR10-I,1136,CR10,rutas.csv,old_code,,Callao,Lima,,#555555,4224398,1136,1136,X-ECR10-I,CR10,True
+X-ECR13-I,,CR13,rutas_anteriores.csv,old_only,,San Martín de Porres,San Miguel,Empresa Modelo de Transporte Latinoamérica S.A.,#0D06C4,4224413,CR13,CR13,X-ECR13-I,CR13,True
+X-ECR14-I,,CR14,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Transportes Hogar Tours S.A.C.,#D43434,4224422,CR14,CR14,X-ECR14-I,CR14,True
+X-ECR15-I,,CR15,rutas_anteriores.csv,old_only,,Carabayllo,San Miguel,Empresa de Transportes y Servicios San Antonio S.A.,#690000,4224455,CR15,CR15,X-ECR15-I,CR15,True
+X-ECR17-I,1138,CR17,rutas.csv,old_code,,Carabayllo,San Miguel,,#555555,4226842,1138,1138,X-ECR17-I,CR17,True
+X-ECR18-I,,,,,,,,,#555555,4226864,CR18,CR18,X-ECR18-I,CR18,True
+X-ECR21-I,,CR21,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Ijecorpjyl S.A.,#DFFF12,4227134,CR21,CR21,X-ECR21-I,CR21,True
+X-ECR22-I,,CR22,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Toro S.R.L.,#E81C1C,4227168,CR22,CR22,X-ECR22-I,CR22,True
+X-ECR23-I,,CR23,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes y Servicios Múltiples San Martín de Porres S.A.C. (ETSAMPSAC),#FFCC26,4227218,CR23,CR23,X-ECR23-I,CR23,True
+X-ECR24-I,,CR24,rutas_anteriores.csv,old_only,,Ventanilla,Ate,Empresa de Transportes Servicio y Comercialización Expreso Santa Anita S.A.,#000E8C,4227246,CR24,CR24,X-ECR24-I,CR24,True
+X-ECR26-I,,,,,,,,,#555555,4227339,CR26,CR26,X-ECR26-I,CR26,True
+X-ECR28-I,,CR28,rutas_anteriores.csv,old_only,,Callao,Callao,Empresa de Transportes Rosario de Santa María S.A.C. (ETROSMASAC),#050087,4227378,CR28,CR28,X-ECR28-I,CR28,True
+X-ECR31-I,1141,CR31,rutas.csv,old_code,,Callao,Santiago de Surco,,#555555,4227437,1141,1141,X-ECR31-I,CR31,True
+X-ECR32-I,1142,CR32,rutas.csv,old_code,,Ventanilla,Lima,,#555555,4227460,1142,1142,X-ECR32-I,CR32,True
+X-ECR33A-I,,,,,,,,,#555555,4227527,CR33A,CR33A,X-ECR33A-I,CR33A,True
+X-ECR34-I,,CR34,rutas_anteriores.csv,old_only,,Ventanilla,Jesús María,Empresa de Servicios y Transportes Inversiones Comas Express S.A. (ESTICOSA),#0E3608,4227549,CR34,CR34,X-ECR34-I,CR34,True
+X-ECR35-I,,CR35,rutas_anteriores.csv,old_only,,Ventanilla,Ventanilla,Empresa de Servicio de Transporte Lima Ventanilla Turismo S.A.C. (LIVENTUR),#136919,4227584,CR35,CR35,X-ECR35-I,CR35,True
+,,,,,,,,,#555555,4252750,,,,,True
+,,,,,,,,,#555555,4455259,,,,,True
+,,,,,,,,,#555555,4455850,,,,,True
+X-ICR01-I,,IM01,rutas_anteriores.csv,old_only,,La Punta,Carabayllo,Empresa de Transportes Elpa Tours S.A.C.,#81FF6E,4466970,ICR01,ICR01,X-ICR01-I,ICR01,True
+X-ICR02-I,,,,,,,,,#555555,4467006,ICR02,ICR02,X-ICR02-I,ICR02,True
+X-ICR02B-I,1156,ICR02B,rutas.csv,old_code,,Callao,Lima,,#555555,4467064,1156,1156,X-ICR02B-I,ICR02B,True
+X-ICR05-I,,ICR05,rutas_anteriores.csv,old_only,,Callao,Carabayllo,Empresa de Transportes y Servicios Nueva América S.A. (TRANSNASA),#6B6B6B,4467102,ICR05,ICR05,X-ICR05-I,ICR05,True
+X-ICR06-I,,IPC06,rutas_anteriores.csv,old_only,,Callao,Callao,Consorcio Grupo Uvita S.A.C.,#391170,4467149,ICR06,ICR06,X-ICR06-I,ICR06,True
+X-ICR10-I,,IM10,rutas_anteriores.csv,old_only,,San Martín de Porres,San Juan de Lurigancho,Empresa de Transportes y Servicios El Pegaso S.A. (ETIPESA),#5C774E,4467172,ICR10,ICR10,X-ICR10-I,ICR10,True
+X-ICR13-I,,IM13,rutas_anteriores.csv,old_only,,San Juan de Miraflores,Callao,Empresa de Transporte Rubén Marca S.A. (RUMASA),#FCF8C2,4467284,ICR13,ICR13,X-ICR13-I,ICR13,True
+X-ICR14-I,,IM14,rutas_anteriores.csv,old_only,,Ventanilla,La Victoria,Empresa de Transportes y Servicios Virgen de La Puerta S.A. (VIPUSA),#0ABF16,4467454,ICR14,ICR14,X-ICR14-I,ICR14,True
+,,,,,,,,,#555555,4467480,,,,,True
+X-ICR15-I,,IM15,rutas_anteriores.csv,old_only,,Callao,Ate,Empresa de Transportes Servicios y Turismo Eureks S.A.C.,#FFFFF1,4467486,ICR15,ICR15,X-ICR15-I,ICR15,True
+CR13_I,,CR13,rutas_anteriores.csv,old_only,,San Martín de Porres,San Miguel,Empresa Modelo de Transporte Latinoamérica S.A.,#0D06C4,4511802,CR13,CR13,CR13_I,CR13,True
+CR14_I,,CR14,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Transportes Hogar Tours S.A.C.,#D43434,4512067,CR14,CR14,CR14_I,CR14,True
+CR23_I,,CR23,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes y Servicios Múltiples San Martín de Porres S.A.C. (ETSAMPSAC),#FFCC26,4512296,CR23,CR23,CR23_I,CR23,True
+IM49_I,,IM49,rutas_anteriores.csv,old_only,,Callao,Cieneguilla,Empresa de Transporte Urbano El Molinero Express S.A. (ETRUMESA),#0D7FBF,4521427,ICR49,ICR49,IM49_I,ICR49,True
+IM50_I,,IM50,rutas_anteriores.csv,old_only,,Callao,Independencia,Empresa de Transportes y Servicios 117 S.A. (ETSEDISA),#43B587,4521493,ICR50,ICR50,IM50_I,ICR50,True
+IM50_I,,IM50,rutas_anteriores.csv,old_only,,Callao,Independencia,Empresa de Transportes y Servicios 117 S.A. (ETSEDISA),#43B587,4521619,ICR50,ICR50,IM50_I,ICR50,True
+X-NCR01_I,,,,,,,,,#555555,4628682,CR01,CR01,X-NCR01_I,CR01,True
+X-NCR02_I,,CR02,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Empresa de Transportes Miraflores Monterrico S.A. (ETMIMSA),#1932B0,4628724,CR02,CR02,X-NCR02_I,CR02,True
+X-NCR04A_I,,,,,,,,,#555555,4628840,CR04A,CR04A,X-NCR04A_I,CR04A,True
+X-NCR03_I,,,,,,,,,#555555,4628891,CR03,CR03,X-NCR03_I,CR03,True
+X-NCR04B_I,,,,,,,,,#555555,4629072,CR04B,CR04B,X-NCR04B_I,CR04B,True
+X-NCR04C_I,,,,,,,,,#555555,4629099,CR04C,CR04C,X-NCR04C_I,CR04C,True
+X-NCR06_I,,,,,,,,,#555555,4629223,CR06,CR06,X-NCR06_I,CR06,True
+X-NCR04_I,1133,CR04,rutas.csv,old_code,,La Punta,Lima,,#555555,4629224,1133,1133,X-NCR04_I,CR04,True
+X-NCR07_I,1134,CR07,rutas.csv,old_code,,Callao,La Perla,,#555555,4629367,1134,1134,X-NCR07_I,CR07,True
+X-NCR08_I,,,,,,,,,#555555,4629368,CR08,CR08,X-NCR08_I,CR08,True
+X-NCR09_I,1135,CR09,rutas.csv,old_code,,Callao,Lima,,#555555,4629534,1135,1135,X-NCR09_I,CR09,True
+X-NCR10_I,1136,CR10,rutas.csv,old_code,,Callao,Lima,,#555555,4631128,1136,1136,X-NCR10_I,CR10,True
+X-NCR12_I,1137,CR12,rutas.csv,old_code,,Carabayllo,La Victoria,,#555555,4631292,1137,1137,X-NCR12_I,CR12,True
+X-NCR13_I,,CR13,rutas_anteriores.csv,old_only,,San Martín de Porres,San Miguel,Empresa Modelo de Transporte Latinoamérica S.A.,#0D06C4,4631775,CR13,CR13,X-NCR13_I,CR13,True
+X-NCR21_I,,CR21,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Ijecorpjyl S.A.,#DFFF12,4632207,CR21,CR21,X-NCR21_I,CR21,True
+X-NCR23C_I,,,,,,,,,#555555,4632310,CR23C,CR23C,X-NCR23C_I,CR23C,True
+X-NCR24_I,,CR24,rutas_anteriores.csv,old_only,,Ventanilla,Ate,Empresa de Transportes Servicio y Comercialización Expreso Santa Anita S.A.,#000E8C,4632850,CR24,CR24,X-NCR24_I,CR24,True
+X-NCR26_I,,,,,,,,,#555555,4633039,CR26,CR26,X-NCR26_I,CR26,True
+X-NCR31_I,1141,CR31,rutas.csv,old_code,,Callao,Santiago de Surco,,#555555,4633304,1141,1141,X-NCR31_I,CR31,True
+X-NCR23E_I,,CR23,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes y Servicios Múltiples San Martín de Porres S.A.C. (ETSAMPSAC),#FFCC26,4634225,CR23,CR23,X-NCR23E_I,CR23,True
+X-0012-I,,,,,,,,,#555555,4752919,0012,0012,X-0012-I,0012,True
+X-SCR01-I,,,,,,,,,#555555,4753094,CR01,CR01,X-SCR01-I,CR01,True
+X-SCR05-I,,CR05,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Multiservicios Ovni S.A. (ETMOSA),#FFE605,4753569,CR05,CR05,X-SCR05-I,CR05,True
+X-SCR06-I,,,,,,,,,#555555,4753582,CR06,CR06,X-SCR06-I,CR06,True
+X-SCR07-I,1134,CR07,rutas.csv,old_code,,Callao,La Perla,,#555555,4753609,1134,1134,X-SCR07-I,CR07,True
+X-SCR08-I,,,,,,,,,#555555,4753613,CR08,CR08,X-SCR08-I,CR08,True
+X-SCR09A-I,,,,,,,,,#555555,4755318,CR09A,CR09A,X-SCR09A-I,CR09A,True
+X-SCR10-I,1136,CR10,rutas.csv,old_code,,Callao,Lima,,#555555,4755348,1136,1136,X-SCR10-I,CR10,True
+X-SCR11A-I,,,,,,,,,#555555,4755399,CR11A,CR11A,X-SCR11A-I,CR11A,True
+X-SCR11B-I,,,,,,,,,#555555,4755484,CR11B,CR11B,X-SCR11B-I,CR11B,True
+X-SCR11-I,,,,,,,,,#555555,4755533,CR11,CR11,X-SCR11-I,CR11,True
+X-SCR12-I,1137,CR12,rutas.csv,old_code,,Carabayllo,La Victoria,,#555555,4755580,1137,1137,X-SCR12-I,CR12,True
+X-SCR14B-I,,,,,,,,,#555555,4756164,CR14B,CR14B,X-SCR14B-I,CR14B,True
+X-SCR14-I,,CR14,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Transportes Hogar Tours S.A.C.,#D43434,4756272,CR14,CR14,X-SCR14-I,CR14,True
+X-SCR15-I,,CR15,rutas_anteriores.csv,old_only,,Carabayllo,San Miguel,Empresa de Transportes y Servicios San Antonio S.A.,#690000,4756276,CR15,CR15,X-SCR15-I,CR15,True
+X-SCR17-I,1138,CR17,rutas.csv,old_code,,Carabayllo,San Miguel,,#555555,4756288,1138,1138,X-SCR17-I,CR17,True
+X-SCR39A-I,,,,,,,,,#555555,4767031,CR39A,CR39A,X-SCR39A-I,CR39A,True
+X-SCR39-I,,CR39,rutas_anteriores.csv,old_only,,Callao,Santiago de Surco,Consorcio Angamos,#FFF019,4768961,CR39,CR39,X-SCR39-I,CR39,True
+X-SCR40-I,1144,CR40,rutas.csv,old_code,,Callao,Lima,,#555555,4769404,1144,1144,X-SCR40-I,CR40,True
+X-SCR41-I,,CR41,rutas_anteriores.csv,old_only,,Mi Perú,Lima,Empresa de Servicio de Transporte Lima Ventanilla Turismo S.A.C. (LIVENTUR),#136919,4769801,CR41,CR41,X-SCR41-I,CR41,True
+X-SCR41A-I,,,,,,,,,#555555,4769819,CR41A,CR41A,X-SCR41A-I,CR41A,True
+X-SM17-I,,,,,,,,,#555555,4770157,SM17,SM17,X-SM17-I,SM17,False
+X-SM18-I,,,,,,,,,#555555,4771213,SM18,SM18,X-SM18-I,SM18,False
+X-SM19A-I,,,,,,,,,#555555,4771633,SM19A,SM19A,X-SM19A-I,SM19A,False
+X-SM19B-I,,,,,,,,,#555555,4771753,SM19B,SM19B,X-SM19B-I,SM19B,False
+X-SM19D-I,,,,,,,,,#555555,4772575,SM19D,SM19D,X-SM19D-I,SM19D,False
+X-SO02-I,,,,,,,,,#555555,4772671,SO02,SO02,X-SO02-I,SO02,False
+X-SM21-I,,,,,,,,,#555555,4773104,SM21,SM21,X-SM21-I,SM21,False
+X-SM25-I,,,,,,,,,#555555,4773792,SM25,SM25,X-SM25-I,SM25,False
+X-SM31-I,,,,,,,,,#555555,4774170,SM31,SM31,X-SM31-I,SM31,False
+X-SO91-I,,,,,,,,,#555555,4775280,SO91,SO91,X-SO91-I,SO91,False
+X-SO58B-I,,,,,,,,,#555555,4775380,SO58B,SO58B,X-SO58B-I,SO58B,False
+X-SO51-I,,,,,,,,,#555555,4775426,SO51,SO51,X-SO51-I,SO51,False
+X-SM46A-I,,,,,,,,,#555555,4775466,SM46A,SM46A,X-SM46A-I,SM46A,False
+X-SM37-I,,,,,,,,,#555555,4775558,SM37,SM37,X-SM37-I,SM37,False
+X-SO25-I,,,,,,,,,#555555,4775629,SO25,SO25,X-SO25-I,SO25,False
+X-SCR42-I,,CR42,rutas_anteriores.csv,old_only,,Independencia,Bellavista,Empresa de Transportes Rápido Correcaminos S.A. (ETRACCSA),#AAFF54,4775660,CR42,CR42,X-SCR42-I,CR42,True
+X-SO64C-I,,,,,,,,,#555555,4775684,SO64C,SO64C,X-SO64C-I,SO64C,False
+X-SO64B-I,,,,,,,,,#555555,4775697,SO64B,SO64B,X-SO64B-I,SO64B,False
+X-SM46B-I,,,,,,,,,#555555,4775722,SM46B,SM46B,X-SM46B-I,SM46B,False
+X-SM46-I,,,,,,,,,#555555,4775756,SM46,SM46,X-SM46-I,SM46,False
+X-SCR26-I,,,,,,,,,#555555,4779932,CR26,CR26,X-SCR26-I,CR26,True
+,,,,,,,,,#555555,4782800,,,,,True
+X-SCR09-I,1135,CR09,rutas.csv,old_code,,Callao,Lima,,#555555,4782801,1135,1135,X-SCR09-I,CR09,True
+X-SCR05B-I,,,,,,,,,#555555,4782884,CR05B,CR05B,X-SCR05B-I,CR05B,True
+X-SCR04-I,1133,CR04,rutas.csv,old_code,,La Punta,Lima,,#555555,4783001,1133,1133,X-SCR04-I,CR04,True
+X-SCR31-I,1141,CR31,rutas.csv,old_code,,Callao,Santiago de Surco,,#555555,4783074,1141,1141,X-SCR31-I,CR31,True
+X-SCR04A-I,,,,,,,,,#555555,4783120,CR04A,CR04A,X-SCR04A-I,CR04A,True
+X-SO55C-I,,,,,,,,,#555555,4783207,SO55C,SO55C,X-SO55C-I,SO55C,False
+X-SCR33-I,,,,,,,,,#555555,4783229,CR33,CR33,X-SCR33-I,CR33,True
+X-SO10-I,,,,,,,,,#555555,4783262,SO10,SO10,X-SO10-I,SO10,False
+X-SCR01A-I,,,,,,,,,#555555,4783278,CR01A,CR01A,X-SCR01A-I,CR01A,True
+X-SO67A-I,,,,,,,,,#555555,4783284,SO67A,SO67A,X-SO67A-I,SO67A,False
+X-OO08-I,,,,,,,,,#555555,4783285,OO08,OO08,X-OO08-I,OO08,False
+X-SCR30-I,1140,CR30,rutas.csv,old_code,,Callao,Lima,,#555555,4783555,1140,1140,X-SCR30-I,CR30,True
+X-SCR21-I,,CR21,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Ijecorpjyl S.A.,#DFFF12,4784109,CR21,CR21,X-SCR21-I,CR21,True
+X-SO67B-I,,,,,,,,,#555555,4784177,SO67B,SO67B,X-SO67B-I,SO67B,False
+X-SO51A-I,,,,,,,,,#555555,4784229,SO51A,SO51A,X-SO51A-I,SO51A,False
+X-SO50-I,,,,,,,,,#555555,4784272,SO50,SO50,X-SO50-I,SO50,False
+X-SCR22-I,,CR22,rutas_anteriores.csv,old_only,,Callao,Lima,Empresa de Transportes Toro S.R.L.,#E81C1C,4784553,CR22,CR22,X-SCR22-I,CR22,True
+X-SCR35-I,,CR35,rutas_anteriores.csv,old_only,,Ventanilla,Ventanilla,Empresa de Servicio de Transporte Lima Ventanilla Turismo S.A.C. (LIVENTUR),#136919,4784970,CR35,CR35,X-SCR35-I,CR35,True
+X-SRC36-I,,,,,,,,,#555555,4785137,SRC36,SRC36,X-SCR36-I,SRC36,False
+X-SCR38-I,1143,CR38,rutas.csv,old_code,,Callao,Santiago de Surco,,#555555,4785175,1143,1143,X-SCR38-I,CR38,True
+X-SO71-I,,,,,,,,,#555555,4785186,SO71,SO71,X-SO71-I,SO71,False
+X-SM19E-I,,,,,,,,,#555555,4785209,SM19,SM19,X-SM19E-I,SM19,False
+,,,,,,,,,#555555,4787549,,,,,True
+,,,,,,,,,#555555,4789418,,,,,True
+X-SO39-I,,,,,,,,,#555555,4789971,SO39,SO39,X-SO39-I,SO39,False
+X-SO94-I,,,,,,,,,#555555,4790541,SO94,SO94,X-SO94-I,SO94,False
+X-SCR38A-X,,,,,,,,,#555555,4793441,CR38A,CR38A,X-SCR38A-I,CR38A,True
+X-SM14-I,,,,,,,,,#555555,4794979,SM14,SM14,X-SM14-I,SM14,False
+X-SO44-I,,,,,,,,,#555555,4795224,SO44,SO44,X-SO44-I,SO44,False
+X-SO41-I,,,,,,,,,#555555,4795253,SO41,SO41,X-SO41-I,SO41,False
+X-SM35A-I,,,,,,,,,#555555,4795397,SM35A,SM35A,X-SM35A-I,SM35A,False
+X-SM35-I,,,,,,,,,#555555,4795439,SM35,SM35,X-SM35-I,SM35,False
+X-SM41-I,,,,,,,,,#555555,4795468,SM41,SM41,X-SM41-I,SM41,False
+X-SM28-I,,,,,,,,,#555555,4795501,SM28,SM28,X-SM28-I,SM28,False
+X-SM27-I,,,,,,,,,#555555,4795550,SM27,SM27,X-SM27-I,SM27,False
+X-SCR38B-I,,,,,,,,,#555555,4796307,CR38B,CR38B,X-SCR38B-I,CR38B,True
+X-SM20B-I,,,,,,,,,#555555,4800366,SM20B,SM20B,X-SM20B-I,SM20B,False
+X-SM20-I,,,,,,,,,#555555,4800382,SM20,SM20,X-SM20-I,SM20,False
+X-SM20A-I,,,,,,,,,#555555,4800414,SM20A,SM20A,X-SM20A-I,SM20A,False
+X-SO03-I,,,,,,,,,#555555,4800457,SO03,SO03,X-SO03-I,SO03,False
+X-SO21-I,,,,,,,,,#555555,4807563,SO21,SO21,X-SO21-I,SO21,False
+X-SO93-I,,,,,,,,,#555555,4812658,SO93,SO93,X-SO93-I,SO93,False
+X-SM38-I,,,,,,,,,#555555,4813636,SM38,SM38,X-SM38-I,SM38,False
+X-SO74-I,,,,,,,,,#555555,4813853,SO74,SO74,X-SO74-I,SO74,False
+X-SM49-I,,,,,,,,,#555555,4815311,SM49,SM49,X-SM49-I,SM49,False
+Carro rojo,,,,,,,,,#555555,4815747,CARROROJO,CARROROJO,C,CARROROJO,False
+X-SO12A-I,,,,,,,,,#555555,4815988,SO12A,SO12A,X-SO12A-I,SO12A,False
+X-SM19-I,,,,,,,,,#555555,4816015,SM19,SM19,X-SM19-I,SM19,False
+X-SM19C-I,,,,,,,,,#555555,4819917,SM19C,SM19C,X-SM19C-I,SM19C,False
+,,,,,,,,,#555555,4820596,,,,,True
+X-SM36-I,,,,,,,,,#555555,4821525,SM36,SM36,X-SM36-I,SM36,False
+X-SO28-I,,,,,,,,,#555555,4822236,SO28,SO28,X-SO28-I,SO28,False
+X-SO11-I,,,,,,,,,#555555,4829251,SO11,SO11,X-SO11-I,SO11,False
+X-SO13-I,,,,,,,,,#555555,4829280,SO13,SO13,X-SO13-I,SO13,False
+X-SO17-I,,,,,,,,,#555555,4829413,SO17,SO17,X-SO17-I,SO17,False
+X-SO08-I,,,,,,,,,#555555,4833460,SO08,SO08,X-SO08-I,SO08,False
+X-SM36A-I,,,,,,,,,#555555,4833485,SM36A,SM36A,X-SM36A-I,SM36A,False
+X-SO26-I,,,,,,,,,#555555,4854044,SO26,SO26,X-SO26-I,SO26,False
+X-SO16-I,,,,,,,,,#555555,4854419,SO16,SO16,X-SO16-I,SO16,False
+X-SO33-I,,,,,,,,,#555555,4854478,SO33,SO33,X-SO33-I,SO33,False
+X-SO18-I,,,,,,,,,#555555,4854573,SO18,SO18,X-SO18-I,SO18,False
+X-SM33-I,,,,,,,,,#555555,4855223,SM33,SM33,X-SM33-I,SM33,False
+X-SM05-I,,,,,,,,,#555555,4855264,SM05,SM05,X-SM05-I,SM05,False
+X-SM30-I,,,,,,,,,#555555,4855687,SM30,SM30,X-SM30-I,SM30,False
+X-SO37-I,,,,,,,,,#555555,4855692,SO37,SO37,X-SO37-I,SO37,False
+X-SO14-I,,,,,,,,,#555555,4860869,SO14,SO14,X-SO14-I,SO14,False
+X-SO92-I,,,,,,,,,#555555,4860928,SO92,SO92,X-SO92-I,SO92,False
+X-SM26-I,,,,,,,,,#555555,4860978,SM26,SM26,X-SM26-I,SM26,False
+X-SO55D-I,,,,,,,,,#555555,4861887,SO55D,SO55D,X-SO55D-I,SO55D,False
+X-SO55-I,,,,,,,,,#555555,4861896,SO55,SO55,X-SO55-I,SO55,False
+X-SM42A-I,,,,,,,,,#555555,4861898,SM42A,SM42A,X-SM42A-I,SM42A,False
+X-SM42A-I,,,,,,,,,#555555,4861899,SM42A,SM42A,X-SM42A-I,SM42A,False
+X-SM42-I,,,,,,,,,#555555,4861900,SM42,SM42,X-SM42-I,SM42,False
+X-SM42B-I,,,,,,,,,#555555,4861905,SM42B,SM42B,X-SM42B-I,SM42B,False
+X-SM09-I,,,,,,,,,#555555,4868516,SM09,SM09,X-SM09-I,SM09,False
+X-SO05-I,,,,,,,,,#555555,4868530,SO05,SO05,X-SO05-I,SO05,False
+X-SO35-I,,,,,,,,,#555555,4872103,SO35,SO35,X-SO35-I,SO35,False
+X-SM40-I,,,,,,,,,#555555,4872150,SM40,SM40,X-SM40-I,SM40,False
+X-SO04-I,,,,,,,,,#555555,5120775,SO04,SO04,X-SO04-I,SO04,False
+X-SO07-I,,,,,,,,,#555555,5120936,SO07,SO07,X-SO07-I,SO07,False
+X-SO31-I,,,,,,,,,#555555,5121851,SO31,SO31,X-SO31-I,SO31,False
+X-SO20-I,,,,,,,,,#555555,5122273,SO20,SO20,X-SO20-I,SO20,False
+X-SO30-I,,,,,,,,,#555555,5122349,SO30,SO30,X-SO30-I,SO30,False
+X-SO12B-I,,,,,,,,,#555555,5122424,SO12B,SO12B,X-SO12B-I,SO12B,False
+X-SO49A-I,,,,,,,,,#555555,5122516,SO49A,SO49A,X-SO49A-I,SO49A,False
+X-SM24-I,,,,,,,,,#555555,5122602,SM24,SM24,X-SM24-I,SM24,False
+X-SO15-I,,,,,,,,,#555555,5122704,SO15,SO15,X-SO15-I,SO15,False
+X-SM19F-I,,,,,,,,,#555555,5122748,SM19F,SM19F,X-SM19F-I,SM19F,False
+X-SO24-I,,,,,,,,,#555555,5122764,SO24,SO24,X-SO24-I,SO24,False
+X-SO42-I,,,,,,,,,#555555,5123174,SO42,SO42,X-SO42-I,SO42,False
+X-SM19G-I,,,,,,,,,#555555,5123429,SM19G,SM19G,X-SM19G-I,SM19G,False
+X-ECR20-I,,CR20,rutas_anteriores.csv,old_only,,Callao,Villa María del Triunfo,Grupo Salamanca Express S.A.C.,#2E00F5,5141457,CR20,CR20,X-ECR20-I,CR20,True
+RutaTuristica1,,,,,,,,,#555555,5582236,RUTATURISTICA1,RUTATURISTICA1,RutaTuristica1,RUTATURISTICA1,False
+Mala - Bujama,,,,,,,,,#555555,6875057,MALA-BUJAMA,MALA-BUJAMA,,MALA-BUJAMA,False
+Airport Express Lima,,,,,,,,,#555555,16812606,AIRPORTEXPRESSLIMA,AIRPORTEXPRESSLIMA,Airport Express Lima,AIRPORTEXPRESSLIMA,False
+1007,1007,1502,rutas.csv,new_code,,Puente Piedra,Lima,,#555555,19413426,1007,1007,Ruta 1007,1007,True
+1008,1008,1503,rutas.csv,new_code,,Carabayllo,Magdalena del Mar,,#555555,19572753,1008,1008,Ruta 1008,1008,True
+1019,1019,1611,rutas.csv,new_code,,Puente Piedra,Magdalena del Mar,,#555555,19575841,1019,1019,Ruta 1019,1019,True
+1021,1021,1615,rutas.csv,new_code,,Carabayllo,Lince,,#555555,19597970,1021,1021,Ruta 1021,1021,True
+1023,1023,1618,rutas.csv,new_code,,Carabayllo,Lince,,#555555,19615026,1023,1023,Ruta 1023,1023,True
+1037,1037,2611,rutas.csv,new_code,,San Martín de Porres,La Victoria,,#555555,19655217,1037,1037,Ruta 1037,1037,True

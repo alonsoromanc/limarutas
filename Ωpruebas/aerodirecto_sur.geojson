@@ -1,0 +1,284 @@
+{
+  "type": "FeatureCollection",
+  "name": "aerodirecto_sur",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "galerias-brasil",
+        "name": "Galerías Brasil",
+        "order": 1,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "1. Galerías Brasil"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.051266,
+          -12.071945
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "san-felipe",
+        "name": "San Felipe",
+        "order": 2,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "2. San Felipe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.058222,
+          -12.080389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "javier-prado",
+        "name": "Javier Prado",
+        "order": 3,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "3. Javier Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.06575,
+          -12.089528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "leoncio-prado",
+        "name": "Leoncio Prado",
+        "order": 4,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "4. Leoncio Prado"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.073579,
+          -12.094717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "escardo",
+        "name": "Escardó",
+        "order": 5,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "5. Escardó"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.096717,
+          -12.083993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "la-marina",
+        "name": "La Marina",
+        "order": 6,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "6. La Marina"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.110038,
+          -12.071347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "faucett",
+        "name": "Faucett",
+        "order": 7,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "7. Faucett"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.09845,
+          -12.062789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "hospital-san-jose",
+        "name": "Hospital San José",
+        "order": 8,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "8. Hospital San José"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098889,
+          -12.041556
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "quilca",
+        "name": "Quilca",
+        "order": 9,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "9. Quilca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.098989,
+          -12.038559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "stop_id": "aeropuerto-paradero-buses",
+        "name": "Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)",
+        "order": 10,
+        "pending": false,
+        "updated": "2025-09-26",
+        "marker-color": "#33a02c",
+        "marker-size": "small",
+        "marker-symbol": "bus",
+        "title": "10. Aeropuerto Jorge Chávez (Paradero AeroDirecto – E3 Bus Parking)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -77.1163,
+          -12.0328
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route": "Aerodirecto Sur",
+        "direction": "hacia aeropuerto",
+        "updated": "2025-09-26",
+        "source": "stops-json",
+        "geometry_type": "straight_lines",
+        "stroke": "#33a02c",
+        "stroke-width": 4,
+        "stroke-opacity": 0.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -77.051266,
+            -12.071945
+          ],
+          [
+            -77.058222,
+            -12.080389
+          ],
+          [
+            -77.06575,
+            -12.089528
+          ],
+          [
+            -77.073579,
+            -12.094717
+          ],
+          [
+            -77.096717,
+            -12.083993
+          ],
+          [
+            -77.110038,
+            -12.071347
+          ],
+          [
+            -77.09845,
+            -12.062789
+          ],
+          [
+            -77.098889,
+            -12.041556
+          ],
+          [
+            -77.098989,
+            -12.038559
+          ],
+          [
+            -77.1163,
+            -12.0328
+          ]
+        ]
+      }
+    }
+  ]
+}

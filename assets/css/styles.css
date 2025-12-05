@@ -1,0 +1,200 @@
+:root{
+  --paper:#f6f7fb;
+  --panel:#fff;
+  --muted:#6b7280;
+  --ink:#0f172a;
+  --line:#e5e7eb;
+
+  /* colores útiles para chips */
+  --an:#FF4500;  /* Alimentador Norte */
+  --as:#FFCD00;  /* Alimentador Sur (default) */
+}
+
+*{box-sizing:border-box}
+html,body,#app{height:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font:15px/1.35 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;
+}
+
+/* ================== MAPA A FONDO ================== */
+#map{position:fixed; inset:0}
+
+/* ================== TOPBAR ================== */
+#topbar{
+  position:fixed; left:50%; top:14px; transform:translateX(-50%);
+  display:flex; gap:10px; align-items:center; z-index:1001;
+  background:#ffffffdd; padding:10px 12px; border-radius:12px;
+  border:1px solid var(--line); backdrop-filter:saturate(140%) blur(6px);
+}
+.search{
+  position:relative;
+  background:#fff; border:1px solid var(--line);
+  padding:8px 10px; border-radius:12px; display:flex; gap:8px; min-width:360px
+}
+.search input{
+  border:0; outline:0; width:300px; font-size:15px; background:transparent
+}
+.loupe{opacity:.8}
+
+/* ================== SIDEBAR ================== */
+#sidebar{
+  position:fixed; z-index:1000; left:16px; top:84px; bottom:16px; width:392px; /* un pelín más ancho */
+  overflow:auto; background:#ffffffee; border:1px solid var(--line);
+  border-radius:14px; padding:14px; backdrop-filter:saturate(140%) blur(6px);
+  padding-top:12px; /* alinear con topbar */
+}
+h1{margin:0 0 8px 0; font-size:20px}
+.header .btn{margin-top:6px}
+
+.btn{border:1px solid var(--line); background:#fff; padding:8px 12px; border-radius:12px; cursor:pointer}
+.btn:hover{background:#f3f4f6}
+.btn-ghost{background:#fff}
+.btn.small{padding:6px 10px}
+
+/* ================== PANELS ================== */
+.panel{
+  border:1px dashed var(--line);
+  border-radius:14px; margin:12px 0; background:#fff
+}
+.panel .panel-head{
+  width:100%; display:flex; align-items:center; gap:10px;
+  padding:12px 14px; border:0; background:transparent; cursor:pointer;
+  user-select:none
+}
+.panel .panel-head .right{margin-left:auto}
+
+/* Triangulito (chevron) */
+.panel .chev{
+  display:inline-grid; place-items:center;
+  width:18px; height:18px; border-radius:6px;
+  transition:transform .18s ease, background .12s ease;
+  opacity:.9
+}
+.panel .panel-head:hover .chev{ background:#f6f7fb }
+.panel.open .chev{ transform:rotate(90deg) }
+
+.panel .title{font-weight:600}
+.panel .panel-body{padding:8px 14px 14px 32px; display:none}
+.panel.open > .panel-body{display:block}
+.panel.nested{margin:8px 0; border-style:solid}
+
+/* Contenedor simple vertical (para listas dinámicas) */
+.stack{display:flex; flex-direction:column; gap:8px}
+
+/* ================== LISTAS / ITEMS ================== */
+.list{display:flex; flex-direction:column; gap:8px}
+
+/* Cada tarjeta (servicio) se compone de cabecera + controles mini */
+.item{
+  border:1px solid var(--line); border-radius:12px; background:#fff;
+  padding:8px 10px;
+  display:flex; flex-direction:column; gap:8px;
+}
+.item-head{
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+
+/* Izquierda: icono + textos */
+.item .left{display:flex; gap:10px; align-items:center; min-width:0}
+.item .name{font-weight:600; font-size:14px}
+.item .sub{font-size:12px; color:var(--muted)}
+
+/* Checkbox del mismo tamaño en cabeceras e items */
+.panel .panel-head input[type="checkbox"],
+.item input[type="checkbox"]{
+  width:20px; height:20px; accent-color:#2563eb; cursor:pointer;
+}
+
+/* ---- Chips / badges ---- */
+/* Metropolitano troncal/expresos: badge redondo como antes */
+.item .badge{
+  width:26px; height:26px; border-radius:999px;
+  display:inline-grid; place-items:center; color:#fff; font-weight:700; font-size:13px
+}
+/* Corredores y Alimentadores: rectangulares con esquinas suaves */
+.item .tag{
+  min-width:62px;             /* cabe “SE-02” en una línea */
+  height:28px;
+  padding:0 10px;
+  display:inline-flex; align-items:center; justify-content:center;
+  border-radius:10px;
+  font-weight:800; font-size:13px; color:#fff; line-height:1;
+  white-space:nowrap;
+  box-shadow:inset 0 -1px 0 rgba(0,0,0,.08);
+}
+
+/* ================== CONTROLES DE DIRECCIÓN ================== */
+/* mini (por ruta) */
+.dir-mini{display:flex; justify-content:flex-end; gap:6px}
+.segbtn-mini{
+  border:1px solid var(--line); background:#fff; padding:4px 8px;
+  border-radius:8px; font-weight:700; font-size:12px; cursor:pointer
+}
+.segbtn-mini.active{background:#eef2ff; border-color:#c7d2fe; box-shadow:0 0 0 2px #e0e7ff inset}
+
+/* global (se inyecta arriba de cada sección por JS) */
+.segctrl{display:flex; gap:6px; align-items:center; margin:6px 0 10px 0}
+.segctrl .segbtn{
+  border:1px solid var(--line); background:#fff; padding:6px 10px;
+  border-radius:10px; font-weight:600; font-size:13px; cursor:pointer
+}
+.segctrl .segbtn.active{background:#eef2ff; border-color:#c7d2fe; box-shadow:0 0 0 2px #e0e7ff inset}
+
+/* ================== STOP PIN ================== */
+.leaflet-marker-icon.stop-pin, .stop-pin{
+  background: radial-gradient(circle at 50% 35%, #fff 0 28%, #d22 29% 30%, #f44 31% 100%);
+  border-radius:50% 50% 50% 50%/55% 55% 45% 45%;
+  width:16px; height:16px; border:1px solid #b00;
+}
+
+/* ================== STATUS & UTILES ================== */
+.group{margin:12px 0}
+.label{display:block; margin-bottom:6px; font-weight:600}
+.row{display:flex; gap:10px}
+.muted{color:var(--muted); font-style:italic}
+.status{margin-top:8px; color:var(--muted)}
+
+/* ================== TYPEAHEAD (sugerencias) ================== */
+.suggest{
+  position:absolute; top:calc(100% + 6px); left:0; right:0;
+  display:none; background:#fff; border:1px solid var(--line);
+  border-radius:10px; box-shadow:0 10px 22px rgba(0,0,0,.08);
+  max-height:260px; overflow:auto; z-index:1000
+}
+.suggest.open{display:block}
+.suggest-item{
+  display:flex; align-items:center; gap:10px;
+  padding:8px 10px; cursor:pointer
+}
+.suggest-item:hover{background:#f6f7fb}
+.s-ico{
+  width:18px; height:18px; border-radius:50%;
+  display:grid; place-items:center; color:#fff; font-size:11px; font-weight:700; flex:0 0 18px
+}
+.s-ico img{width:100%; height:100%; object-fit:cover}
+.s-label{font-weight:600}
+.s-sub{font-size:12px; color:var(--muted)}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width:900px){
+  #sidebar{width:min(92%,440px); left:50%; transform:translateX(-50%); top:98px}
+  #topbar{left:50%; transform:translateX(-50%); width:min(92%,560px)}
+}
+
+/* Accesibilidad: foco */
+button:focus-visible, input[type="checkbox"]:focus-visible{
+  outline:2px solid #2563eb55; outline-offset:2px
+}
+
+.info-note{
+  margin: 6px 0 10px 0;
+  padding: 8px 10px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: #374151;
+  background: #fffef7;
+  font-size: 13px;
+}

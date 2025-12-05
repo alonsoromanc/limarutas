@@ -1,0 +1,29 @@
+{
+  "route_id": "52587",
+  "route_number": null,
+  "route_name": null,
+  "city": null,
+  "agency": null,
+  "direction_from": "CEV Polar",
+  "direction_to": "CEV Polar",
+  "itinerary": null,
+  "distance_km": 9.79,
+  "stops_count_reported": 17,
+  "stops_count_extracted": 17,
+  "schedule": [
+    "07:00",
+    "08:00",
+    "09:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "13:00",
+    "14:00",
+    "15:00",
+    "16:00",
+    "17:00",
+    "18:00"
+  ],
+  "last_edit_date": null,
+  "source": "user_provided_html_wikiroutes"
+}
