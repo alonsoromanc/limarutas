@@ -1,9 +1,5 @@
 /* Mapa de Rutas – Metropolitano + Corredores + Alimentadores + Metro (Leaflet)
-   - Alimentadores: data/metropolitano/alimentadores.json (FeatureCollection flexible)
-   - Corredores: data/corredores/corredores.json (FeatureCollection o {services:[...]})
-   - Metro: data/metro/metro.json (FeatureCollection o {lines:[...]})
-   - Chips rectangulares para Corredores/Alimentadores/Metro; badges redondas para Metropolitano
-   - Dirección por ruta (Amb/N/S) en Met/Alim; al cambiar N/S/A se auto-marca la ruta si estaba desmarcada
+   - Incluye capa "Transporte público" (Wikiroutes) con ítem 1244
 */
 
 (() => {
@@ -15,6 +11,7 @@
     met:   'data/metropolitano',
     corr:  'data/corredores',
     metro: 'data/metro',
+    custom:'data/transporte/prueba',
     icons: {
       met:   'images/metropolitano',
       corr:  'images/corredores',
@@ -23,7 +20,7 @@
   };
 
   const COLOR_AN = '#FF4500';  // Alimentadores Norte
-  const COLOR_AS = '#FFCD00';  // Alimentadores Sur (default)
+  const COLOR_AS = '#FFCD00';  // Alimentadores Sur
 
   const state = {
     map: null,
@@ -31,53 +28,30 @@
     currentBase: 'light',
 
     // Opciones
-    dir: 'ambas',       // global para expresos Met (legacy)
+    dir: 'ambas',
     showStops: true,
     autoFit: true,
 
-    // Catálogo (config)
+    // Catálogo
     catalog: null,
 
-    // Dirección por ruta (para controles mini):
-    // key "system:id" -> 'ambas'|'norte'|'sur'
+    // Dirección por ruta
     routeDir: new Map(),
 
     systems: {
-      met: {
-        id: 'met',
-        label: 'Metropolitano',
-        stops: null,
-        services: [],
-        lineLayers: new Map(),
-        stopLayers: new Map(),
-        ui: { listReg: null, listExp: null, chkAll: null, chkReg: null, chkExp: null }
-      },
-      alim: {
-        id: 'alim',
-        label: 'Alimentadores',
-        stops: new Map(),
-        services: [],
-        lineLayers: new Map(),
-        stopLayers: new Map(),
-        ui: { listN: null, listS: null, chkAll: null, chkN: null, chkS: null }
-      },
-      corr: {
-        id: 'corr',
-        label: 'Corredores',
-        stops: new Map(),
-        services: [],
-        lineLayers: new Map(),
-        stopLayers: new Map(),
-        ui: { list: null, chkAll: null, groups: new Map() }
-      },
-      metro: {
-        id: 'metro',
-        label: 'Metro',
-        stops: new Map(),
-        services: [], // {id, name, color, segments:[[[lat,lng]...]], stops:[stopId]}
-        lineLayers: new Map(),
-        stopLayers: new Map(),
-        ui: { list: null, chkAll: null }
+      met:   { id:'met',   label:'Metropolitano', stops:null, services:[], lineLayers:new Map(), stopLayers:new Map(), ui:{ listReg:null, listExp:null, chkAll:null, chkReg:null, chkExp:null } },
+      alim:  { id:'alim',  label:'Alimentadores', stops:new Map(), services:[], lineLayers:new Map(), stopLayers:new Map(), ui:{ listN:null, listS:null, chkAll:null, chkN:null, chkS:null } },
+      corr:  { id:'corr',  label:'Corredores',    stops:new Map(), services:[], lineLayers:new Map(), stopLayers:new Map(), ui:{ list:null, chkAll:null, groups:new Map() } },
+      metro: { id:'metro', label:'Metro',         stops:new Map(), services:[], lineLayers:new Map(), stopLayers:new Map(), ui:{ list:null, chkAll:null } },
+
+      // Nuevo: Wikiroutes (Transporte público)
+      wr: {
+        id:'wr',
+        label:'Transporte público',
+        routes: [],              // [{id:'1244', name:'Ruta 1244 (Wikiroutes)', color:'#00008C', folder:PATHS.custom}]
+        layers: new Map(),       // id -> L.LayerGroup
+        bounds: new Map(),       // id -> LatLngBounds
+        ui:{ list:null, chkAll:null }
       }
     },
 
@@ -113,11 +87,7 @@
       L.latLng(-11.70, -76.70)
     );
 
-    const map = L.map('map', {
-      minZoom: 10,
-      maxZoom: 19,
-      zoomControl: false
-    });
+    const map = L.map('map', { minZoom:10, maxZoom:19, zoomControl:false });
 
     const light = L.tileLayer(
       'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
@@ -131,7 +101,7 @@
 
     map.fitBounds(LIMA_BOUNDS);
     map.setMaxBounds(LIMA_BOUNDS.pad(0.02));
-    L.control.zoom({ position: 'bottomright' }).addTo(map);
+    L.control.zoom({ position:'bottomright' }).addTo(map);
 
     state.map = map;
     state.baseLayers.light = light;
@@ -143,7 +113,7 @@
   // ------------------------------
   async function fetchJSON(path){
     const r = await fetch(path);
-    if (!r.ok) throw new Error(`HTTP ${r.status} — ${path}`);
+    if (!r.ok) throw new Error(`HTTP ${r.status} - ${path}`);
     return r.json();
   }
 
@@ -245,7 +215,7 @@
     segments.forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
       const a = seg[0], b = seg[seg.length-1];
-      const dLat = b[0] - a[0]; // lat aumenta hacia el norte
+      const dLat = b[0] - a[0];
       if (Math.abs(dLat) < 0.0005) flat.push(seg);
       else if (dLat > 0) norte.push(seg);
       else sur.push(seg);
@@ -324,13 +294,7 @@
     const ensure = (ref, props={}) => {
       const id = String(ref).toUpperCase();
       if (!routes.has(id)){
-        routes.set(id, {
-          id,
-          name: props.name || props.label || '',
-          color: props.stroke || props.color || '#10b981',
-          segments: [],
-          stops: []
-        });
+        routes.set(id, { id, name: props.name || props.label || '', color: props.stroke || props.color || '#10b981', segments: [], stops: [] });
       } else {
         const s = routes.get(id);
         if (!s.color && (props.stroke || props.color)) s.color = props.stroke || props.color;
@@ -343,13 +307,12 @@
       const g = f.geometry || {};
       const p = f.properties || {};
       const ref = p.ref || p.route || p.id || p.code || p.codigo;
-
       if (!ref){ noRef++; continue; }
 
       const svc = ensure(ref, p);
 
       if (g.type === 'LineString' || g.type === 'MultiLineString'){
-        const segs = toSegments(g); // [lat,lng]
+        const segs = toSegments(g);
         segs.forEach(seg => svc.segments.push(seg));
       }
 
@@ -380,12 +343,12 @@
     };
 
     const pushLine = (LID, name, color, segments, stationObjs=[]) => {
-      const id = String(LID).toUpperCase(); // p.ej. "L1"
+      const id = String(LID).toUpperCase();
       const svc = { id, name: name || `Línea ${id}`, color: color || '#0ea5e9', segments: [], stops: [] };
       (segments||[]).forEach(seg=>{
         if (!seg) return;
         if (Array.isArray(seg[0]) && typeof seg[0][0] === 'number') {
-          const latlngSeg = seg.map(asLatLng); // lon,lat -> lat,lon
+          const latlngSeg = seg.map(asLatLng);
           svc.segments.push(latlngSeg);
         }
       });
@@ -425,12 +388,108 @@
   }
 
   // ------------------------------
+  // Wikiroutes helpers (detección y swap XY)
+  // ------------------------------
+  function inspectFirstCoord(geojson) {
+    let c = null;
+    const walk = (g) => {
+      if (!g) return;
+      if (g.type === 'Point') c = g.coordinates;
+      else if (g.type === 'LineString') c = g.coordinates[0];
+      else if (g.type === 'MultiLineString') c = g.coordinates[0]?.[0];
+      else if (g.type === 'Feature') walk(g.geometry);
+      else if (g.type === 'FeatureCollection') walk(g.features[0]?.geometry);
+    };
+    walk(geojson);
+    return Array.isArray(c) && c.length >= 2 ? c : null;
+  }
+
+  function swapXY(g) {
+    const clone = JSON.parse(JSON.stringify(g));
+    const swapArray = (arr) => {
+      for (let i=0;i<arr.length;i++){
+        const v = arr[i];
+        if (Array.isArray(v) && typeof v[0] === 'number' && typeof v[1] === 'number'){
+          arr[i] = [v[1], v[0]];
+        } else if (Array.isArray(v)) swapArray(v);
+      }
+    };
+    if (clone.type === 'FeatureCollection') swapArray(clone.features);
+    else if (clone.type === 'Feature') swapArray([clone.geometry]);
+    else swapArray([clone]);
+    return clone;
+  }
+
+  function fixIfLatLon(geojson) {
+    const c = inspectFirstCoord(geojson);
+    if (!c) return geojson;
+    // Para Lima: |lon| ~ 77, |lat| ~ 12. Si primer numero es mas chico, probablemente viene lat,lon.
+    if (Math.abs(c[0]) < Math.abs(c[1])) {
+      return swapXY(geojson);
+    }
+    return geojson;
+  }
+
+  // ====== Capa Wikiroutes (carpeta con stops.geojson y line_approx.geojson) ======
+  async function buildWikiroutesLayer(id, folderPath, opts = {}) {
+    const color = opts.color || '#00008C';
+
+    const [lineRaw, ptsRaw] = await Promise.all([
+      fetchJSON(`${folderPath}/line_approx.geojson`).catch(()=>null),
+      fetchJSON(`${folderPath}/stops.geojson`).catch(()=>null)
+    ]);
+
+    if (!lineRaw && !ptsRaw) throw new Error('No se encontraron archivos line_approx.geojson ni stops.geojson');
+
+    // Corrige XY si fuera necesario
+    const line = lineRaw ? fixIfLatLon(lineRaw) : null;
+    const pts  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
+
+    const group = L.layerGroup();  // no se añade aún
+    let bounds = null;
+
+    if (line) {
+      const lineLyr = L.geoJSON(line, { style: () => ({ color, weight:4, opacity:0.95 }) });
+      lineLyr.addTo(group);
+      try { bounds = lineLyr.getBounds(); } catch {}
+    }
+
+    if (pts) {
+      const stopLyr = L.geoJSON(pts, {
+        pointToLayer: (_, latlng) => L.circleMarker(latlng, { radius:3, weight:1 }),
+        onEachFeature: (f, layer) => {
+          const q = f.properties || {};
+          const label = `${q.sequence ?? ''} ${q.stop_name ?? ''}`.trim();
+          if (label) layer.bindTooltip(label);
+        }
+      });
+      stopLyr.addTo(group);
+      try { bounds = bounds ? bounds.extend(stopLyr.getBounds()) : stopLyr.getBounds(); } catch {}
+    }
+
+    state.systems.wr.layers.set(id, group);
+    if (bounds) state.systems.wr.bounds.set(id, bounds);
+  }
+
+  function setWikiroutesVisible(id, visible, { fit=false } = {}) {
+    const wr = state.systems.wr;
+    const g = wr.layers.get(id);
+    if (!g) return;
+    if (visible) {
+      g.addTo(state.map);
+      if (fit && wr.bounds.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
+    } else {
+      state.map.removeLayer(g);
+    }
+  }
+
+  // ------------------------------
   // UI helpers (chips, items, direcciones mini)
   // ------------------------------
   const labelForSvc = (s) => (s.kind==='regular' ? 'Ruta' : (s.kind==='expreso' ? 'Expreso' : 'Servicio'));
 
   function miniDir(systemId, svc){
-    if (systemId === 'corr' || systemId === 'metro') return el('div'); // no aplica
+    if (systemId === 'corr' || systemId === 'metro') return el('div');
     const cur = getDirFor(systemId, svc.id);
     const wrap = el('div',{class:'dir-mini'});
     const mk = (val,label,title) => el('button',{class:`segbtn-mini${cur===val?' active':''}`,'data-dir':val,title},label);
@@ -445,7 +504,6 @@
       const chk = wrap.parentElement.querySelector('.item-head input[type="checkbox"]');
       if (chk){
         if (!chk.checked){
-          // UX: si estaba desmarcado y eliges N/S/A, se marca automáticamente y se dibuja
           setLeafChecked(systemId, chk, true, {silentFit:true});
           syncTriFromLeaf(systemId);
         } else {
@@ -459,16 +517,13 @@
   function makeServiceItemMet(svc){
     const img = el('img',{src:`${PATHS.icons.met}/${String(svc.id).toUpperCase()}.png`, class:'badge', alt:svc.id});
     img.onerror = () => img.replaceWith(el('span',{class:'badge', style:`background:${svc.color}`}, String(svc.id)));
-
     const left = el('div',{class:'left'},
       img,
       el('div',{}, el('div',{class:'name'}, `${labelForSvc(svc)} ${svc.id}`), el('div',{class:'sub'}, svc.name || ''))
     );
-
     const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'met'});
     const head = el('div',{class:'item-head'}, left, chk);
     const body = el('div',{class:'item'}, head, miniDir('met', svc));
-
     chk.addEventListener('change', () => { if (!state.bulk) { onToggleService('met', svc.id, chk.checked); syncTriFromLeaf('met'); } });
     return body;
   }
@@ -495,18 +550,16 @@
     );
     const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'corr'});
     const head = el('div',{class:'item-head'}, left, chk);
-    const body = el('div',{class:'item'}, head); // sin mini dir
+    const body = el('div',{class:'item'}, head);
     chk.addEventListener('change', () => { if (!state.bulk) { onToggleService('corr', svc.id, chk.checked); syncTriFromLeaf('corr'); } });
     return body;
   }
 
   function makeServiceItemMetro(svc){
-    // icono: primero "1.png", "2.png"...; fallback "L1.png"; luego chip de color
-    const code = String(svc.id).toUpperCase();      // p.ej. "L1"
-    const fileBaseNow = code.replace(/^L/i, '');    // "1"
+    const code = String(svc.id).toUpperCase();
+    const fileBaseNow = code.replace(/^L/i, '');
     const primary = `${PATHS.icons.metro}/${fileBaseNow}.png`;
     const alt     = `${PATHS.icons.metro}/${code}.png`;
-
     const ico = new Image();
     ico.alt = code;
     ico.className = 'badge';
@@ -515,16 +568,33 @@
       if (!ico.dataset.altTried) { ico.dataset.altTried = '1'; ico.src = alt; }
       else ico.replaceWith(el('span',{class:'tag', style:`background:${svc.color}`}, code));
     };
-
     const left = el('div',{class:'left'},
       ico,
       el('div',{}, el('div',{class:'name'}, `Línea ${code}`), el('div',{class:'sub'}, svc.name || ''))
     );
-
     const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'metro'});
     const head = el('div',{class:'item-head'}, left, chk);
-    const body = el('div',{class:'item'}, head); // Metro no usa mini-dir
+    const body = el('div',{class:'item'}, head);
     chk.addEventListener('change', () => { if (!state.bulk) { onToggleService('metro', svc.id, chk.checked); syncTriFromLeaf('metro'); } });
+    return body;
+  }
+
+  // Item para Wikiroutes
+  function makeWrItem(rt){
+    // chip rectangular
+    const tag = el('span',{class:'tag', style:`background:${rt.color}`}, String(rt.id).toUpperCase());
+    const left = el('div',{class:'left'},
+      tag,
+      el('div',{}, el('div',{class:'name'}, `Transporte publico ${rt.id}`), el('div',{class:'sub'}, rt.name || ''))
+    );
+    const chk  = el('input',{type:'checkbox','data-id':rt.id,'data-system':'wr', checked:false});
+    const head = el('div',{class:'item-head'}, left, chk);
+    const body = el('div',{class:'item'}, head);
+    chk.addEventListener('change', () => {
+      if (chk.checked) setWikiroutesVisible(rt.id, true, {fit:true});
+      else setWikiroutesVisible(rt.id, false);
+      syncTriFromLeaf('wr');
+    });
     return body;
   }
 
@@ -639,6 +709,15 @@
     sys.services.forEach(s => list.appendChild(makeServiceItem('metro', s)));
   }
 
+  // Wikiroutes (lista simple)
+  function fillWrList(){
+    const wr = state.systems.wr;
+    const list = wr.ui.list;
+    if (!list) return;
+    list.innerHTML = '';
+    wr.routes.forEach(rt => list.appendChild(makeWrItem(rt)));
+  }
+
   // ------------------------------
   // Jerarquía / checks
   // ------------------------------
@@ -665,6 +744,9 @@
     if (systemId==='metro'){
       return $$('#p-metro .item input[type=checkbox]');
     }
+    if (systemId==='wr'){
+      return $$('#p-wr .item input[type=checkbox]');
+    }
     return [];
   }
 
@@ -672,7 +754,13 @@
     if (leafChk.checked === checked) return;
     leafChk.checked = checked;
     const id = leafChk.dataset.id;
-    if (id) onToggleService(systemId, id, checked, {silentFit});
+    if (!id) return;
+    if (systemId === 'wr') {
+      if (checked) setWikiroutesVisible(id, true, {fit:!silentFit});
+      else setWikiroutesVisible(id, false);
+    } else {
+      onToggleService(systemId, id, checked, {silentFit});
+    }
   }
 
   function setLevel2Checked(systemId, groupChk, checked, {silentFit=false}={}){
@@ -735,6 +823,13 @@
     syncAllTri();
   }
 
+  // Wikiroutes
+  function onLevel1ChangeWr(){
+    const v = state.systems.wr.ui.chkAll.checked;
+    bulk(()=> setLevel2Checked('wr', state.systems.wr.ui.chkAll, v, {silentFit:true}));
+    syncAllTri();
+  }
+
   function syncTriOfGroup(systemId, groupChk){
     const leaves = routeCheckboxesOf(systemId, groupChk);
     const total = leaves.length;
@@ -777,9 +872,15 @@
       const checked = leaves.filter(c=>c.checked).length;
       top.indeterminate = checked>0 && checked<total;
       top.checked = total>0 && checked===total;
+    } else if (systemId==='wr'){
+      const top = state.systems.wr.ui.chkAll;
+      const leaves = routeCheckboxesOf('wr');
+      const total = leaves.length;
+      const checked = leaves.filter(c=>c.checked).length;
+      if (top){ top.indeterminate = checked>0 && checked<total; top.checked = total>0 && checked===total; }
     }
   }
-  function syncAllTri(){ ['met','alim','corr','metro'].forEach(syncTriFromLeaf); }
+  function syncAllTri(){ ['met','alim','corr','metro','wr'].forEach(syncTriFromLeaf); }
 
   function wireHierarchy(){
     // Met
@@ -798,11 +899,14 @@
     // Metro
     state.systems.metro.ui.chkAll.addEventListener('change', onLevel1ChangeMetro);
 
+    // Wikiroutes
+    state.systems.wr.ui.chkAll.addEventListener('change', onLevel1ChangeWr);
+
     syncAllTri();
   }
 
   // ------------------------------
-  // Render de servicios (mapa)
+  // Render de servicios (mapa) - sistemas base
   // ------------------------------
   function getStopLatLng(sys, id){
     const s = sys.stops.get(id);
@@ -912,13 +1016,19 @@
       sysId==='met'   ? '#p-met-reg .item input[type=checkbox], #p-met-exp .item input[type=checkbox]' :
       sysId==='alim'  ? '#p-met-alim .item input[type=checkbox]' :
       sysId==='corr'  ? '#p-corr .item input[type=checkbox]' :
+      sysId==='wr'    ? '#p-wr .item input[type=checkbox]' :
       '#p-metro .item input[type=checkbox]';
     $$(sel).forEach(chk=>{
-      if (chk.checked) onToggleService(sysId, chk.dataset.id, true, {silentFit:true});
-      else hideService(sysId, chk.dataset.id);
+      if (sysId==='wr'){
+        if (chk.checked) setWikiroutesVisible(chk.dataset.id, true, {fit:true});
+        else setWikiroutesVisible(chk.dataset.id, false);
+      } else {
+        if (chk.checked) onToggleService(sysId, chk.dataset.id, true, {silentFit:true});
+        else hideService(sysId, chk.dataset.id);
+      }
     });
   }
-  function reRenderVisible(){ ['met','alim','corr','metro'].forEach(reRenderVisibleSystem); }
+  function reRenderVisible(){ ['met','alim','corr','metro','wr'].forEach(reRenderVisibleSystem); }
 
   function setBase(theme){
     if (theme === state.currentBase) return;
@@ -1002,7 +1112,7 @@
         s.system==='corr'  ? 'Corredor ' :
         'Línea ';
       l1.textContent = prefix + s.id;
-      const l2 = document.createElement('div'); l2.className='s-sub'; l2.textContent = (s.name||'') + (s.label ? ` — ${s.label}` : '');
+      const l2 = document.createElement('div'); l2.className='s-sub'; l2.textContent = (s.name||'') + (s.label ? ` - ${s.label}` : '');
       box.append(l1,l2);
       row.append(ico, box);
       row.addEventListener('mousedown', (e)=>{ e.preventDefault(); selectServiceFromSearch(s.system, s.id); });
@@ -1013,7 +1123,7 @@
 
   function selectServiceFromSearch(systemId, id){
     bulk(()=>{
-      ['met','alim','corr','metro'].forEach(sysId => {
+      ['met','alim','corr','metro','wr'].forEach(sysId => {
         const all = routeCheckboxesOf(sysId);
         all.forEach(chk => setLeafChecked(sysId, chk, false, {silentFit:true}));
       });
@@ -1021,11 +1131,12 @@
         systemId==='met'   ? '#p-met-reg .item input[type=checkbox], #p-met-exp .item input[type=checkbox]' :
         systemId==='alim'  ? '#p-met-alim .item input[type=checkbox]' :
         systemId==='corr'  ? '#p-corr .item input[type=checkbox]' :
+        systemId==='wr'    ? '#p-wr .item input[type=checkbox]' :
         '#p-metro .item input[type=checkbox]';
       const all = $$(selector);
       all.forEach(chk=>{
         const hit = (chk.dataset.id.toUpperCase() === String(id).toUpperCase());
-        if (hit) setLeafChecked(systemId, chk, true, {silentFit:true});
+        if (hit) setLeafChecked(systemId, chk, true, {silentFit:false});
       });
       syncAllTri();
     });
@@ -1139,9 +1250,19 @@
       const parsed = buildMetroFromJSON(metroRaw);
       state.systems.metro.stops    = parsed.stops;
       state.systems.metro.services = filterByCatalogFor('metro', parsed.services, state.catalog);
-      console.log('[Metro] Líneas detectadas:', state.systems.metro.services.map(s=>s.id).join(', ')||'—');
+      console.log('[Metro] Líneas detectadas:', state.systems.metro.services.map(s=>s.id).join(', ')||'-');
     }catch(e){
       console.warn('Metro no disponible:', e.message);
+    }
+
+    // Wikiroutes: declara ruta 1244 y construye capa (no visible hasta marcar)
+    state.systems.wr.routes = [
+      { id:'1244', name:'Ruta 1244 (Wikiroutes)', color:'#00008C', folder: PATHS.custom }
+    ];
+    try {
+      await buildWikiroutesLayer('1244', PATHS.custom, { color:'#00008C' });
+    } catch(e){
+      console.warn('Wikiroutes no disponible:', e.message);
     }
 
     // Construir UI
@@ -1171,11 +1292,16 @@
     state.systems.metro.ui.list  = $('#p-metro');
     state.systems.metro.ui.chkAll= $('#chk-metro');
 
+    // refs Wikiroutes
+    state.systems.wr.ui.list     = $('#p-wr');
+    state.systems.wr.ui.chkAll   = $('#chk-wr');
+
     // Llenar listas
     fillMetList();
     fillAlimList();
     fillCorrList();
     fillMetroList();
+    fillWrList();
 
     // Cableado
     wireHierarchy();
@@ -1220,6 +1346,11 @@
         if (state.systems.metro.ui.chkAll){
           state.systems.metro.ui.chkAll.checked = false;
           onLevel1ChangeMetro();
+        }
+        // Wikiroutes
+        if (state.systems.wr.ui.chkAll){
+          state.systems.wr.ui.chkAll.checked = false;
+          onLevel1ChangeWr();
         }
       });
       syncAllTri();
@@ -1267,4 +1398,3 @@ function wirePanelTogglesOnce() {
     }
   });
 }
- 

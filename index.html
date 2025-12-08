@@ -18,6 +18,7 @@
       crossorigin=""
     ></script>
 
+    <!-- Ajusta esta ruta si tu CSS está en otra carpeta -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
@@ -116,27 +117,26 @@
             </div>
           </section>
 
-          <!-- Metro (habilitado) -->
+          <!-- Metro -->
           <section class="panel">
             <button class="panel-head" data-target="p-metro" aria-expanded="false">
               <span class="chev">▸</span>
               <span class="title">Metro</span>
-              <!-- HABILITADO: sin disabled -->
               <input type="checkbox" id="chk-metro" class="right" />
             </button>
-            <!-- LISTA: aquí se inyectan L1, L2, ... -->
             <div id="p-metro" class="panel-body list" aria-label="Metro"></div>
           </section>
 
-          <!-- Transporte público (placeholder) -->
+          <!-- Transporte público -->
           <section class="panel">
-            <button class="panel-head" data-target="p-tp" aria-expanded="false">
+            <button class="panel-head" data-target="p-wr" aria-expanded="false">
               <span class="chev">▸</span>
               <span class="title">Transporte público</span>
-              <input type="checkbox" id="chk-tp" class="right" disabled />
+              <input type="checkbox" id="chk-wr" class="right" />
             </button>
-            <div id="p-tp" class="panel-body muted">Próximamente</div>
+            <div id="p-wr" class="panel-body list" aria-label="Transporte público"></div>
           </section>
+
 
           <!-- Opciones -->
           <section class="panel">
@@ -181,6 +181,7 @@
       <main id="map"></main>
     </div>
 
+    <!-- Ajusta esta ruta si tu JS está en otra carpeta -->
     <script src="assets/js/app.js" type="module"></script>
   </body>
 </html>
