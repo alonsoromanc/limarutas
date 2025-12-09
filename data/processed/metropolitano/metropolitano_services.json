@@ -8,7 +8,7 @@
   },
   "services": [
     { "id":"A","kind":"regular","name":"Ruta A",
-      "stops":["naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","ramon-castilla","tacna","jiron-de-la-union","colmena","estacion-central"] },
+      "stops":["chimpu-ocllo","los-incas","andres-belaunde","22-de-agosto","las-vegas","universidad","naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","ramon-castilla","tacna","jiron-de-la-union","colmena","estacion-central"] },
 
     { "id":"B","kind":"regular","name":"Ruta B",
       "stops":["chimpu-ocllo","los-incas","andres-belaunde","22-de-agosto","las-vegas","universidad","naranjal","izaguirre","pacifico","independencia","los-jazmines","tomas-valle","el-milagro","honorio-delgado","uni","parque-del-trabajo","caqueta","2-de-mayo","quilca","espana","estacion-central"] },
