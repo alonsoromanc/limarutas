@@ -136,13 +136,12 @@ async function init(){
     console.warn('Metro no disponible:', e.message);
   }
 
-
   // Wikiroutes: 1244
   state.systems.wr.routes = [
-    { id: '1244', name: 'Ruta 1244 (Wikiroutes)', color: '#00008C', folder: `${PATHS.wr}/1244` }
+    { id: '1244', name: 'Ruta 1244 (Wikiroutes)', color: '#00008C', folder: `${PATHS.wr}/prueba` }
   ];
   try {
-    await buildWikiroutesLayer('1244', `${PATHS.wr}/1244`, { color: '#00008C' });
+    await buildWikiroutesLayer('1244', `${PATHS.wr}/prueba`, { color: '#00008C' });
   } catch (e) {
     console.warn('Wikiroutes no disponible:', e.message);
   }
