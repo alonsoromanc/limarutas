@@ -2,7 +2,9 @@
 import { asLatLng, fetchJSON } from './utils.js';
 import { COLOR_AN, COLOR_AS, state } from './config.js';
 
-// Catálogo (filter only/exclude)
+/* =========================================
+   Catálogo (filter only/exclude)
+   ========================================= */
 export function filterByCatalogFor(systemId, services, catalog){
   const upper = s => String(s).toUpperCase();
   const S = services;
@@ -67,7 +69,9 @@ export function filterByCatalogFor(systemId, services, catalog){
   return S;
 }
 
-// Alimentadores
+/* =========================================
+   Alimentadores
+   ========================================= */
 export const toSegments = (g) => {
   if (!g) return [];
   if (g.type === 'LineString')      return [g.coordinates.map(asLatLng)];
@@ -156,7 +160,9 @@ export function buildAlimFromFC(json){
   return { services: Array.from(routes.values()), stops };
 }
 
-// Corredores
+/* =========================================
+   Corredores
+   ========================================= */
 export function buildCorredoresFromFC(json){
   const routes = new Map();     // id -> {id,name,color,segments:[],stops:[]}
   const stops  = new Map();     // stopId -> {id,name,lat,lon}
@@ -206,7 +212,9 @@ export function buildCorredoresFromFC(json){
   return { services: [...routes.values()], stops, noRef };
 }
 
-// Metro
+/* =========================================
+   Metro
+   ========================================= */
 export function buildMetroFromJSON(json){
   const lines = [];
   const stops = new Map();
@@ -305,11 +313,11 @@ export function buildMetroFromJSON(json){
   return { services: lines, stops };
 }
 
-// ======================
-// Wikiroutes helpers
-// ======================
+/* =========================================
+   Wikiroutes helpers
+   ========================================= */
 
-// Obtiene una primera coordenada para detectar orden XY
+// Primera coord para inferir orden XY
 function inspectFirstCoord(geojson) {
   let c = null;
   const walk = (g) => {
@@ -332,16 +340,18 @@ function swapXYInGeometry(geom){
   const swapPair = (p) => Array.isArray(p) && p.length>=2 && typeof p[0]==='number' && typeof p[1]==='number'
     ? [p[1], p[0]] : p;
 
-  const rec = (coords, depth=0) => {
+  const rec = (coords) => {
     if (!Array.isArray(coords)) return coords;
     if (typeof coords[0] === 'number') return swapPair(coords);
-    return coords.map(c => rec(c, depth+1));
+    return coords.map(c => rec(c));
   };
 
   if (copy.type === 'Point') {
     copy.coordinates = swapPair(copy.coordinates);
-  } else if (copy.type === 'LineString' || copy.type === 'MultiLineString' ||
-             copy.type === 'Polygon' || copy.type === 'MultiPolygon') {
+  } else if (
+    copy.type === 'LineString' || copy.type === 'MultiLineString' ||
+    copy.type === 'Polygon'    || copy.type === 'MultiPolygon'
+  ) {
     copy.coordinates = rec(copy.coordinates);
   }
   return copy;
@@ -350,7 +360,7 @@ function swapXYInGeometry(geom){
 function fixIfLatLon(geojson) {
   const c = inspectFirstCoord(geojson);
   if (!c) return geojson;
-  // Para Lima: |lon| ~ 77, |lat| ~ 12. Si el primero se parece a lat y el segundo a lon, hay que invertir.
+  // Lima: |lon| ~ 77, |lat| ~ 12. Si primer número parece lat, invertimos.
   const looksLatLon = Math.abs(c[0]) < Math.abs(c[1]);
   if (!looksLatLon) return geojson;
 
@@ -368,14 +378,12 @@ function fixIfLatLon(geojson) {
   return clone;
 }
 
-// Construye un FeatureCollection de líneas a partir de paraderos
+// Construye un FC de líneas a partir de paraderos ordenados
 function buildLineFCFromStops(stops){
-  // Agrupar por direction si existe
   const groups = new Map();
   for (const s of stops){
     const k = (s.properties?.direction || '').toString();
     if (!groups.has(k)) groups.set(k, []);
-    // stops.geojson viene en XY. Asumimos que ya fue corregido con fixIfLatLon antes de llegar aquí.
     groups.get(k).push(s);
   }
   const feats = [];
@@ -398,32 +406,32 @@ function buildLineFCFromStops(stops){
   return { type: 'FeatureCollection', features: feats };
 }
 
-// Capa Wikiroutes
+/* =========================================
+   Capa Wikiroutes
+   ========================================= */
 export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
   const color = opts.color || '#00008C';
 
-  // Intentar trazado detallado primero
+  // 1) Trazado
   let lineRaw = await fetchJSON(`${folderPath}/route_track.geojson`).catch(()=>null);
   if (!lineRaw) {
     lineRaw = await fetchJSON(`${folderPath}/line_approx.geojson`).catch(()=>null);
   }
 
-  // Paraderos
+  // 2) Paraderos
   let ptsRaw = await fetchJSON(`${folderPath}/stops.geojson`).catch(()=>null);
   if (!ptsRaw) {
     ptsRaw = await fetchJSON(`${folderPath}/stops_from_map.geojson`).catch(()=>null);
   }
 
-  // Si no hay nada, salimos
   if (!lineRaw && !ptsRaw) {
     throw new Error('No se encontraron archivos de trazado ni de paraderos en la carpeta Wikiroutes');
   }
 
-  // Corrige XY si fuera necesario
   const line = lineRaw ? fixIfLatLon(lineRaw) : null;
   const pts  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
 
-  // Si no hay líneas, intenta construirlas desde los paraderos
+  // Si no hay líneas, intenta construirlas a partir de los puntos
   let lineFC = line;
   if (!lineFC && pts?.type === 'FeatureCollection') {
     const onlyPoints = pts.features?.filter(f => f?.geometry?.type === 'Point') || [];
@@ -432,28 +440,44 @@ export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
     }
   }
 
-  const group = L.layerGroup();
+  // Asegura mapas internos
+  state.systems.wr.layers     ||= new Map();
+  state.systems.wr.bounds     ||= new Map();
+  state.systems.wr.stopLayers ||= new Map();
+
+  const group = L.layerGroup();       // capa principal (líneas)
+  const stopsGroup = L.layerGroup();  // subcapa de paradas (se añade en setWikiroutesVisible)
   let bounds = null;
 
+  // Línea (si existe)
   if (lineFC) {
-    const lineLyr = L.geoJSON(lineFC, { style: () => ({ color, weight: 4, opacity: 0.95 }) });
+    const lineLyr = L.geoJSON(lineFC, {
+      style: () => ({ color, weight: 4, opacity: 0.95 })
+    });
     lineLyr.addTo(group);
     try { bounds = lineLyr.getBounds(); } catch {}
   }
 
+  // Paradas (si existen)
   if (pts) {
     const stopLyr = L.geoJSON(pts, {
-      pointToLayer: (_, latlng) => L.circleMarker(latlng, { radius: 3, weight: 1 }),
+      pointToLayer: (_f, latlng) =>
+        L.marker(latlng, { icon: L.divIcon({ className: 'stop-pin stop-wr', iconSize: [12,12] }) }),
       onEachFeature: (f, layer) => {
         const q = f.properties || {};
         const label = `${q.sequence ?? ''} ${q.stop_name ?? q.name ?? ''}`.trim();
         if (label) layer.bindTooltip(label);
       }
     });
-    stopLyr.addTo(group);
-    try { bounds = bounds ? bounds.extend(stopLyr.getBounds()) : stopLyr.getBounds(); } catch {}
+    stopLyr.addTo(stopsGroup);
+    try {
+      const b = stopLyr.getBounds?.();
+      if (b) bounds = bounds ? bounds.extend(b) : b;
+    } catch {}
   }
 
+  // Registrar capas y bounds (no se agregan al mapa aquí)
   state.systems.wr.layers.set(id, group);
+  state.systems.wr.stopLayers.set(id, stopsGroup);
   if (bounds) state.systems.wr.bounds.set(id, bounds);
 }

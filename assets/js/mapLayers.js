@@ -110,7 +110,6 @@ function getMetMacroId(svc){
 function getMetStopsForDir(svc, dirKey){
   const kind = svc.kind;
 
-  // Expresos con north_south (N→S) y south_north (S→N)
   if (kind === 'expreso' || kind === 'expreso corto' || kind === 'expreso largo') {
     const ns = Array.isArray(svc.north_south) ? svc.north_south : [];
     const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
@@ -120,7 +119,6 @@ function getMetStopsForDir(svc, dirKey){
     return ns.concat(sn);
   }
 
-  // Regulares: stops completa
   if (Array.isArray(svc.stops) && svc.stops.length) return svc.stops;
 
   return [];
@@ -178,12 +176,6 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
 
 /**
  * Dibuja la macrorruta recortada a paraderos del servicio.
- * Usa:
- *   macros[macroId].north_south -> norte→sur
- *   macros[macroId].south_north -> sur→norte
- *
- * routeDir = 'ambas' | 'norte' | 'sur' (por ruta)
- * state.dir = 'ambas' | 'ns' | 'sn' (filtro global)
  */
 function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
   const macros = (state.systems.met && state.systems.met.macros) || {};
@@ -358,15 +350,39 @@ export function onToggleService(systemId, id, checked, opts={}){
    Wikiroutes (capas ya creadas por parsers.js)
    =========================== */
 
+// Añade o quita la subcapa de paradas de WR directamente al mapa
+function syncOneWrStopsVisibility(id){
+  const wr = state.systems.wr;
+  const g = wr.layers.get(id);
+  const stopSub = wr.stopLayers?.get(id);
+  if (!stopSub) return;
+
+  const routeVisible = g && state.map.hasLayer(g);
+  if (routeVisible && state.showStops) {
+    // Mostrar paradas
+    if (!state.map.hasLayer(stopSub)) stopSub.addTo(state.map);
+  } else {
+    // Ocultar paradas
+    if (state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+  }
+}
+
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
   const g = wr.layers.get(id);
   if (!g) return;
+
   if (visible) {
     g.addTo(state.map);
+    // sincroniza paradas con el toggle global
+    syncOneWrStopsVisibility(id);
+
     if (fit && wr.bounds.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
   } else {
     state.map.removeLayer(g);
+    // ocultar también las paradas si estaban visibles
+    const stopSub = wr.stopLayers?.get(id);
+    if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
   }
 }
 
@@ -387,6 +403,12 @@ export function reRenderVisibleSystem(sysId){
       else hideService(sysId, chk.dataset.id);
     }
   });
+
+  // Si se trata de WR, después de re-renderizar, vuelve a sincronizar paradas
+  if (sysId==='wr'){
+    const wr = state.systems.wr;
+    wr.layers?.forEach((_layer, id) => syncOneWrStopsVisibility(id));
+  }
 }
 
 export function reRenderVisible(){
