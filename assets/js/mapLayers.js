@@ -87,8 +87,7 @@ export function fitTo(bounds){
    Macrorutas Metropolitano A/B
    =========================== */
 
-// A y C siguen macro A; expresos macro B salvo el 10, que sigue macro A.
-// Regulares: macro B por defecto.
+// A y C siguen macro A; expresos macro B salvo el 10. Regulares: macro B.
 function getMetMacroId(svc){
   const id   = String(svc.id).toUpperCase();
   const name = (svc.name || '').toUpperCase();
@@ -105,7 +104,6 @@ function getMetMacroId(svc){
   return 'B';
 }
 
-// Devuelve la secuencia de paraderos usada por sentido
 // dirKey: 'sur' (norte→sur) o 'norte' (sur→norte)
 function getMetStopsForDir(svc, dirKey){
   const kind = svc.kind;
@@ -144,7 +142,7 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
   for (let s = 0; s < segments.length; s++){
     const seg = segments[s];
     for (let i = 0; i < seg.length; i++){
-      flat.push(seg[i]); // [lat, lon]
+      flat.push(seg[i]);
     }
   }
   if (flat.length < 2) return segments;
@@ -269,11 +267,8 @@ export function renderService(systemId, id, opts={}){
     }
 
   } else if (systemId === 'met') {
-    // Intentar macroruta A/B recortada
     const prevBounds = bounds;
     bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds);
-
-    // Si no dibujó nada, fallback a stops
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
         drawByStops(svc.stops || [], svc.color);
@@ -347,13 +342,13 @@ export function onToggleService(systemId, id, checked, opts={}){
 }
 
 /* ===========================
-   Wikiroutes con viajes (1/2)
+   Wikiroutes con viajes
    =========================== */
 
-// Añade o quita la subcapa de paradas de WR directamente al mapa
+// Paradas WR on/off según visibilidad de cada subcapa
 function syncOneWrStopsVisibility(id){
   const wr = state.systems.wr;
-  const g = wr.layers.get(id);
+  const g = wr.layers?.get(id);
   const stopSub = wr.stopLayers?.get(id);
   if (!stopSub) return;
 
@@ -365,75 +360,84 @@ function syncOneWrStopsVisibility(id){
   }
 }
 
-// Mostrar/ocultar **sub-capa** WR (ID real de capa)
+// Leer mapeo ida/vuelta desde el DOM
+function getWrPairFromDOM(parentId){
+  const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${parentId}"]`);
+  if (!leaf) return null;
+  return {
+    ida: leaf.dataset.ida || null,
+    vuelta: leaf.dataset.vuelta || null,
+    sel: leaf.dataset.sel || 'ida',
+    leaf
+  };
+}
+
+// Mostrar/ocultar una subcapa WR por id real
+function toggleWrSub(id, visible, fit){
+  const wr = state.systems.wr;
+  const g = wr.layers?.get(id);
+  if (!g) return;
+
+  if (visible) {
+    g.addTo(state.map);
+    syncOneWrStopsVisibility(id);
+    if (fit && wr.bounds?.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
+  } else {
+    state.map.removeLayer(g);
+    const stopSub = wr.stopLayers?.get(id);
+    if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+  }
+}
+
+// API pública: acepta id real (subcapa) o id padre
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
-  // Si es un sub-ID real, actúa directo
-  if (wr.layers?.has(id)) {
-    const g = wr.layers.get(id);
-    if (!g) return;
 
-    if (visible) {
-      g.addTo(state.map);
-      syncOneWrStopsVisibility(id);
-      if (fit && wr.bounds.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
-    } else {
-      state.map.removeLayer(g);
-      const stopSub = wr.stopLayers?.get(id);
-      if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
-    }
+  // Si es subcapa real, actúa directo
+  if (wr.layers?.has(id)) {
+    toggleWrSub(id, visible, fit);
     return;
   }
 
-  // Si no es sub-ID, puede ser un padre (ej: "1244")
-  if (wr.tripIds?.has(id)) {
-    // delega al manejador de hoja padre
+  // Si es padre, delega al handler de hoja usando el DOM
+  const pair = getWrPairFromDOM(id);
+  if (pair) {
     setWikiroutesVisibleLeaf(id, visible, { fit });
   }
 }
 
-// Devuelve el sub-ID para (parentId, trip)
-function wrSubId(parentId, trip){
-  const m = state.systems.wr.tripIds?.get(parentId);
-  if (!m) return null;
-  return m[trip] || m[String(trip)] || null;
-}
-
-// Muestra/oculta el viaje actualmente seleccionado del ítem padre
+// Mostrar/ocultar el viaje seleccionado de un padre
 export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
-  const wr = state.systems.wr;
-  if (!wr.tripSelected) wr.tripSelected = new Map();
-  if (!wr.tripIds) wr.tripIds = new Map();
+  const pair = getWrPairFromDOM(parentId);
 
-  const sel = wr.tripSelected.get(parentId) || 1;
-  const showId = wrSubId(parentId, sel);
-  const otherId = wrSubId(parentId, sel === 1 ? 2 : 1);
+  if (!pair) {
+    // No es par, interpretar como capa simple con ese id
+    toggleWrSub(parentId, checked, fit);
+    return;
+  }
+
+  const showId  = pair.sel === 'vuelta' ? pair.vuelta : pair.ida;
+  const otherId = pair.sel === 'vuelta' ? pair.ida   : pair.vuelta;
 
   if (checked) {
-    if (otherId) setWikiroutesVisible(otherId, false);
-    if (showId)  setWikiroutesVisible(showId, true, { fit });
+    if (otherId) toggleWrSub(otherId, false, false);
+    if (showId)  toggleWrSub(showId,  true,  fit);
   } else {
-    if (showId)  setWikiroutesVisible(showId, false);
-    if (otherId) setWikiroutesVisible(otherId, false);
+    if (showId)  toggleWrSub(showId,  false, false);
+    if (otherId) toggleWrSub(otherId, false, false);
   }
 }
 
-// Cambia de viaje (IDA/VUELTA) para un ítem padre ya visible
+// Cambiar IDA/VUELTA de un padre ya existente
 export function setWikiroutesTrip(parentId, trip, { fit=false } = {}){
-  const wr = state.systems.wr;
-  if (!wr.tripSelected) wr.tripSelected = new Map();
-  wr.tripSelected.set(parentId, trip === 2 ? 2 : 1);
+  const pair = getWrPairFromDOM(parentId);
+  if (!pair) return;
 
-  // Si el checkbox del padre está ON, intercambia subcapas
-  const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${parentId}"]`);
-  const isOn = !!leaf?.checked;
+  pair.leaf.dataset.sel = trip === 2 ? 'vuelta' : 'ida';
 
-  const onId  = wrSubId(parentId, trip);
-  const offId = wrSubId(parentId, trip === 1 ? 2 : 1);
-
-  if (isOn) {
-    if (offId) setWikiroutesVisible(offId, false);
-    if (onId)  setWikiroutesVisible(onId, true, { fit });
+  // Si el padre está marcado, intercambia en el mapa
+  if (pair.leaf.checked) {
+    setWikiroutesVisibleLeaf(parentId, true, { fit });
   }
 }
 
@@ -455,7 +459,6 @@ export function reRenderVisibleSystem(sysId){
     }
   });
 
-  // En WR, vuelve a sincronizar paradas de todas las subcapas
   if (sysId==='wr'){
     const wr = state.systems.wr;
     wr.layers?.forEach((_layer, id) => syncOneWrStopsVisibility(id));
