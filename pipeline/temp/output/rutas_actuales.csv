@@ -1,0 +1,224 @@
+﻿seccion,grupo,ruta,ruta_color,codigo_anterior,codigo_anterior_color,alias,origen,destino,empresa
+actual,Rutas 1000,1001,#FFFFFF,1117,#FFFFFF,¿?,Santiago de Surco,San Isidro,¿?
+actual,Rutas 1000,1002,#004F08,1118,#FFFFFF,¿?,La Punta,La Victoria,¿?
+actual,Rutas 1000,1003,#FFE600,IO33B,#FFE600,La 9,Puente Piedra,Rímac,Empresa de Transportes Rosa de las Américas S.A.C. (ETROASAC)
+actual,Rutas 1000,1004,#FF6417,1212,#FF6417,Ninguno,Comas,San Martín de Porres,Empresa de Transportes Doce de Junio S.A. (ETDOJUSA)
+actual,Rutas 1000,1005,#FF0000,1217,#FF0000,La 13,Carabayllo,Rímac,Transportes y Servicios Santa Cruz S.A.
+actual,Rutas 1000,1006,#0CB7F2,1403,#0CB7F2,La C,Carabayllo,Ate,Empresa de Transportes Impulsa Progreso S.A.C.
+actual,Rutas 1000,1007,#FFCD82,1502,#FFCD82,La 87B,Puente Piedra,Lima,Empresa de Transportes y Servicios Amancaes S.A. (ETAMSA)
+actual,Rutas 1000,1008,#210BA3,1503,#210BA3,La 03,Carabayllo,Magdalena del Mar,Grupo Express del Perú S.A.C. (GEP) / Realidad Express del Perú 03 S.A.C. (REX)
+actual,Rutas 1000,1009,#762CB9,1504,#762CB9,La 06,Carabayllo,San Miguel,Empresa de Transportes Comercializadora e Importadora Unidos Punchauca S.A. (ETCIPSA)
+actual,Rutas 1000,1010,#143AB8,1505,#143AB8,La 46B,Puente Piedra,Magdalena del Mar,Empresa de Transportes Mariscal Ramón Castilla S.A. (ETMRCSA)
+actual,Rutas 1000,1011,#007DC4,1506,#007DC4,La 47,Carabayllo,Pueblo Libre,Translima S.A.
+actual,Rutas 1000,1012,#FF0F0F,1508,#FF0F0F,La B,Carabayllo,San Miguel,Empresa de Servicios de Transporte Unión Nacional S.A.C. (ESTUNSAC)
+actual,Rutas 1000,1013,#017BA1,1518,#017BA1,La 18,Carabayllo,Jesús María,Translima S.A.
+actual,Rutas 1000,1014,#26913B,1602,#26913B,Ninguno,Comas,San Luis,Empresa de Transportes y Servicios Catorce de Diciembre S.A.C.
+actual,Rutas 1000,1015,#121213,1604,#121213,La MG,Carabayllo,Lince,Empresa de Transportes Miguel Grau S.A. (ETMIGRASA)
+actual,Rutas 1000,1016,#0000B3,1607,#0000B3,Ninguno,Ancón,La Victoria,Empresa de Transportes y Servicios La Buena Estrella S.A.C. / Corporación Las Estrellas S.A.C. ​
+actual,Rutas 1000,1017,#0000BF,1608,#0000BF,Ninguno,Ancón,La Victoria,Novobus S.A.C. / Corporación Las Estrellas S.A.C. ​
+actual,Rutas 1000,1018,#56CCA1,1610,#56CCA1,Ninguno,Carabayllo,La Victoria,Empresa de Transportes Once de Noviembre S.A. (EMPTONSA)
+actual,Rutas 1000,1019,#D10F0F,1611,#D10F0F,La P,Puente Piedra,Magdalena del Mar,Empresa de Transportes Palmari S.A. / Grupo Empresarial El Rápido S.A.
+actual,Rutas 1000,1020,#264720,1612,#264720,La C,Puente Piedra,Miraflores,Empresa de Transportes Santa Luzmila S.A. (ETSLUSA)
+actual,Rutas 1000,1021,#D10F0F,1615,#D10F0F,La F,Carabayllo,Lince ​,Inversiones y Servicios CKF S.A. / Grupo Empresarial El Rápido S.A.
+actual,Rutas 1000,1022,#D10F0F,1617,#D10F0F,Ninguno,Carabayllo,Miraflores,Trans. Norcom Corporation S.A.C. / Grupo Empresarial El Rápido S.A.
+actual,Rutas 1000,1023,#FA8E00,1618,#FA8E00,La B,Carabayllo,Lince,Empresa de Transportes y Servicios Nueva América S.A. (TRANSNASA)
+actual,Rutas 1000,1024,#00BBFF,2204,#00BBFF,La U - La A - La B - La C,San Martín de Porres,San Martín de Porres,Empresa de Transportes Nor Lima S.A. (ETNOLSA)
+actual,Rutas 1000,1025,#006614,2209,#006614,La 73B,San Martín de Porres,Rímac,Empresa de Transportes Unidos de Pasajeros S.A. (ETUPSA)
+actual,Rutas 1000,1026,#0F8A01,2212,#0F8A01,La S2,San Martín de Porres,Rímac,Empresa de Transportes Especial Solidaridad S.A. (EMTESSA)
+actual,Rutas 1000,1027,#0C0E52,2412,#0C0E52,La 100,Rímac,Ate,Cooperativa de Transporte Comité Cien Ltda.
+actual,Rutas 1000,1028,#FFAA00,2502,#FFAA00,La B,San Martín de Porres,Lima,Empresa de Transportes y Servicios Pacific International S.A. (ETRASERPISA)
+actual,Rutas 1000,1029,#036900,2510,#036900,Ninguno,Independencia,San Miguel,Empresa de Transportes Alipio Ponce Vásquez S.A. (ETALPOVASA)
+actual,Rutas 1000,1030,#002BD9,2511,#002BD9,Ninguno,San Martín de Porres,San Martín de Porres,Empresa de Transportes Corazón de Jesús de San Diego S.A.
+actual,Rutas 1000,1031,#00FFEE,2513,#00FFEE,La 29,San Martín de Porres,Jesús María,Translima S.A.
+actual,Rutas 1000,1032,#F70707,2603,#F70707,La A,San Martín de Porres,La Victoria,Empresa de Transportes San Juan de La Cruz S.A.C. / Transportes y Servicios Lima Chorrillos S.A. (TRANSLICSA)
+actual,Rutas 1000,1033,#0B148F,2604,#0B148F,La C,San Martín de Porres,La Victoria,Empresa de Transportes De Luxe S.A.C.
+actual,Rutas 1000,1034,#218F00,2607,#218F00,La 36,Rímac,La Victoria,Empresa Independiente de Transportes S.A. (EITSA)
+actual,Rutas 1000,1035,#0B208C,2608,#0B208C,Ninguno,Rímac,La Victoria,Empresa de Transportes y Servicios Especiales La Bala S.A.
+actual,Rutas 1000,1036,#FFB34F,2609,#FFB34F,Ninguno,Rímac,La Victoria,Empresa de Transporte El Bajopontino S.A.
+actual,Rutas 1000,1037,#F20C0C,2611,#F20C0C,La B,San Martín de Porres,La Victoria,Transportes y Servicios Lima Chorrillos S.A. (TRANSLICSA)
+actual,Rutas 1000,1038,#1E8000,2613,#1E8000,La 28 - La 504,San Martín de Porres,Lince,Empresa de Transportes y Servicios El Porvenir S.A. (ETEPSA)
+actual,Rutas 1000,1039,#43B587,2901,#43B587,La 117,Independencia,Callao,Empresa de Transportes y Servicios 117 S.A. (ETSEDISA)
+actual,Rutas 1000,1040,#0044FF,3204,#0044FF,La SC - La San Ignacio,San Juan de Lurigancho,Rímac,Empresa de Transportes San Ignacio S.A. (ETSISA)
+actual,Rutas 1000,1041,#E81D1D,3403/TVE27,#E81D1D,Ninguno,San Juan de Lurigancho,Chaclacayo,Empresa de Transporte Santa Rosa de Jicamarca S.A. (ETSRJSA)
+actual,Rutas 1000,1042,#FF0F0F,3405,#FF0F0F,La 75A,San Juan de Lurigancho,Ate,Empresa de Transportes Las Águilas 75 S.A. (ETLA75SA)
+actual,Rutas 1000,1043,#4F200C,3408,#4F200C,La 40,San Juan de Lurigancho,La Molina,Empresa de Transportes Cuarenta Integrada S.A. (ETRANCISA)
+actual,Rutas 1000,1044,#FF3F0F,3509,#FF3F0F,La 104,San Juan de Lurigancho,Jesús María,Transportes y Servicios 104 S.A.C.
+actual,Rutas 1000,1045,#90333B,3511,#90333B,La 52C,San Juan de Lurigancho,Magdalena del Mar,Empresa de Transportes Unidos S.A. (ETUSA)
+actual,Rutas 1000,1046,#17A108,3603,#17A108,Ninguno,San Juan de Lurigancho,Lince,Transport Sabino S.A.C. (TRANSSABISAC)
+actual,Rutas 1000,1047,#7C47A1,3604,#7C47A1,La 10A,San Juan de Lurigancho,Miraflores,Empresa de Transportes Santo Cristo de Pachacamilla S.A. (ETRASCPSA)
+actual,Rutas 1000,1048,#DB1212,3607,#DB1212,Ninguno,San Juan de Lurigancho,Lince,Empresa de Transportes 12 de Enero S.A. (ETDESA)
+actual,Rutas 1000,1049,#258009,3611/TVE60,#258009,Ninguno,San Juan de Lurigancho,La Victoria,Empresa de Transportes Caminos del Inca S.A. (ETCISA)
+actual,Rutas 1000,1050,#FFCC00,3613,#FFCC00,La R-I,San Juan de Lurigancho,Lince,Empresa de Transportes El Lobito S.A.C.
+actual,Rutas 1000,1051,#90333B,3614/TVE68,#90333B,La 52J,San Juan de Lurigancho,San Isidro,Empresa de Transportes Unidos S.A. (ETUSA)
+actual,Rutas 1000,1052,#1510B0,3701,#1510B0,La HA,San Juan de Lurigancho,San Juan de Miraflores,Empresa de Transportes HA de Servicios Múltiples de Propietarios Unidos Huáscar S.A. (ETHASEMPUHUASA)
+actual,Rutas 1000,1053,#003CE0,3702,#003CE0,La H,San Juan de Lurigancho,Chorrillos,Empresa de Transportes y Servicios Múltiples Sur Lima S.A.
+actual,Rutas 1000,1054,#E3B03F,3705,#E3B03F,La E,San Juan de Lurigancho,Chorrillos,Empresa de Transporte Urbano Línea 4 S.A. (ETUL4SA)
+actual,Rutas 1000,1055,#FF0303,3707,#FF0303,La 31,San Juan de Lurigancho,Chorrillos,Transportes Lima Urban Company S.A.
+actual,Rutas 1000,1056,#B80000,3805,#B80000,La P,San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes y Servicios Arco Iris S.A. (ETSAISA)
+actual,Rutas 1000,1057,#0C5700,3806,#0C5700,La 23C,San Juan de Lurigancho,Villa María del Triunfo,Empresa de Servicios de Transportes Santa Catalina S.A. (ESTSACASA)
+actual,Rutas 1000,1058,#D8D821,3807/TVE21,#D8D821,La R28,San Juan de Lurigancho,Lurín,Transportes Huáscar S.A
+actual,Rutas 1000,1059,#0C5700,3809,#0C5700,La 23B,San Juan de Lurigancho,Villa María del Triunfo,Empresa de Servicios de Transporte Santa Catalina S.A. (ESTSACASA)
+actual,Rutas 1000,1060,#DE1212,3810,#DE1212,La 8,San Juan de Lurigancho,Villa María del Triunfo,Empresa de Transportes y Servicios Ocho S.A. (ETSOSA)
+actual,Rutas 1000,1061,#C5FF22,3813,#C5FF22,La M1,San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes y Servicios Preferencial M1 S.A. (ETSPM1SA)
+actual,Rutas 1000,1062,#FFF70A,3814,#FFF70A,La M1,San Juan de Lurigancho,Villa El Salvador,Empresa de Transportes Los Cuatro Suyos S.A. (ETCSSA)
+actual,Rutas 1000,1063,#FFB60A,3815,#FFB60A,La M,San Juan de Lurigancho,Pachacámac,Empresa de Transportes y Servicios Múltiples Los Magníficos S.A. (ETYSERMULMASA) / Transportes Negociaciones Santa Anita S.A.
+actual,Rutas 1000,1064,#DB0000,4304,#DB0000,La 49,Lurigancho/Chosica,San Juan de Lurigancho,Empresa de Transportes Santa Rosa de Jicamarca S.A. (ETSRJSA)
+actual,Rutas 1000,1065,#00126E,4405,#00126E,La 91,Ate,Ate,Empresa de Transportes Nuevo Horizonte S.A. (ETNHOSA)
+actual,Rutas 1000,1066,#D5BC8B,4502,#D5BC8B,La HCT - El Huaycanero,Huaycán,Lima,Empresa de Transporte y Turismo Huaycán S.A. (ETRANTURHSA)
+actual,Rutas 1000,1067,#FF0F0F,4503,#FF0F0F,Ninguno,Santa Anita,Lima,Empresa de Transportes y Servicios Peralitos S.A.
+actual,Rutas 1000,1068,#05016B,4504,#05016B,La HGK - El Huaycanero,Huaycán,Lima,Empresa de Servicios Múltiples Nuevo Perú S.A.
+actual,Rutas 1000,1069,#1F26FF,4507,#1F26FF,El Chosicano,Ricardo Palma,Lima,Empresa de Transportes y Servicios Nueva Era Señor de Muruhuay S.A. (ETSNESMSA)
+actual,Rutas 1000,1070,#9C1414,4510,#9C1414,Ninguno,Ate,Jesús María,Empresa de Transportes Bronco S.A. (ETBRONSA)
+actual,Rutas 1000,1071,#0758B5,4511,#0758B5,La IC,Ate,Lima,Multiservicios e Inversiones Virgen de Copacabana S.A.C. (MIVICOSAC)
+actual,Rutas 1000,1072,#0013BA,4607,#0013BA,Ninguno,Ate,La Victoria,Empresa de Transportes Unidos San Martín de Porres S.A. (ETUSMPSA)
+actual,Rutas 1000,1073,#151F5C,4609,#151F5C,La B,Ate,San Isidro,Empresa de Transportes Nuestra Señora del Sagrado Corazón S.A. (ETNUSSACSA)
+actual,Rutas 1000,1074,#1E2C82,4610,#1E2C82,La B - La 112,Ate,San Isidro,Empresa de Transportes Miraflores Monterrico S.A. (ETMIMSA)
+actual,Rutas 1000,1075,#00008A,4611,#00008A,La 51,Lurigancho/Chosica,La Victoria,Empresa de Transportes y Servicios San Juan Bautista S.A. (ETSSJBSA)
+actual,Rutas 1000,1076,#00990A,4612,#00990A,Ninguno,Huaycán,La Victoria,Empresa de Transportes y Servicios Múltiples Comercialización 14 de Mayo S.A.C.
+actual,Rutas 1000,1077,#006B0B,4613,#006B0B,Ninguno,Huaycán,La Victoria,Transportes y Servicios Múltiples Perla de Los Andes S.A.C. (TRASMPERSAC)
+actual,Rutas 1000,1078,#75574D,4614,#75574D,La 63,Ate,La Victoria,Empresa de Transportes y Servicios Sesentitrés S.A.
+actual,Rutas 1000,1079,#0013BA,4618,#0013BA,Ninguno,Ate,La Victoria,Empresa de Transportes Unidos San Martín de Porres S.A. (ETUSMPSA)
+actual,Rutas 1000,1080,#1BBFA4,4619,#1BBFA4,La HCT - El Huaycanero,Huaycán,La Victoria,Empresa de Transporte y Turismo Huaycán S.A. (ETRANTURHSA)
+actual,Rutas 1000,1081,#D61406,4620,#D61406,Ninguno,Huaycán,La Victoria,Empresa de Transportes Urbano Huaycán S.A.
+actual,Rutas 1000,1082,#FFEF08,4622,#FFEF08,Ninguno,Ate,Miraflores,Empresa de Transporte Angamos S.A.
+actual,Rutas 1000,1083,#FFA229,4623,#FFA229,Ninguno,Huaycán,La Victoria,Transportes e Inversiones Sin Fronteras S.A.C.
+actual,Rutas 1000,1084,#070A66,4703,#070A66,La 91,Ate,Chorrillos,Empresa de Transportes Consorcio Santo Cristo S.A.
+actual,Rutas 1000,1085,#25A605,5401,#25A605,El Chosicano,Lima,Santa Eulalia,Empresa de Transportes y Servicios Turismo Carretera Central S.A.C. (EMTRACACE)
+actual,Rutas 1000,1086,#B8B097,6901,#B8B097,Ninguno,San Borja,Callao,Empresa de Transportes Magdalena-San Miguel S.A. (ETRAMSMSA)
+actual,Rutas 1000,1087,#90333B,7501,#90333B,La 52T,Chorrillos,Jesús María,Empresa de Transportes Unidos S.A. (ETUSA)
+actual,Rutas 1000,1088,#7CFF0A,7505,#7CFF0A,Ninguno,Chorrillos,Lima,Servicios Generales y Transportes Renacimiento S.A. (SGTRENSA)
+actual,Rutas 1000,1089,#E80202,7601,#E80202,La 24,San Juan de Miraflores,Lince,Agrupación de Transportistas en Camionetas S.A. (ATCRSA)
+actual,Rutas 1000,1090,#E00202,7606,#E00202,La C,Chorrillos,San Isidro,Empresa de Transportes Unidos Chama S.A.
+actual,Rutas 1000,1091,#1465A3,7607,#1465A3,La 160,San Juan de Miraflores,La Victoria,Empresa de Transportes y Servicios Múltiples 160 S.A.C.
+actual,Rutas 1000,1092,#C4100A,7610,#C4100A,Ninguna,Chorrillos,La Victoria,Empresa de Transportes y Servicios Múltiples San Genaro S.A. (ETSEMUSAGESA)
+actual,Rutas 1000,1093,#0F0F0F,7612,#0F0F0F,La I,San Juan de Miraflores,San Isidro,Empresa de Transportes y Servicios Múltiples Sur Primero de Junio S.A.C. (ETPRIJUSAC)
+actual,Rutas 1000,1094,#0016A3,7613,#0016A3,La C,San Juan de Miraflores,Miraflores,Empresa de Transportes Unidos Doce de Noviembre S.A. (ETUSA)
+actual,Rutas 1000,1095,#0DBD7C,7614,#0DBD7C,La 57,Chorrillos,Miraflores,Empresa de Transporte Servicios Turismo e Inversiones Norteamérica S.A.C.
+actual,Rutas 1000,1096,#FFFF1C,8302/CH24,#FFFF1C,La B - La Banchero,Villa El Salvador,San Juan de Lurigancho,Empresa de Transportes Luis Banchero Rossi S.A. (LUBARSA)
+actual,Rutas 1000,1097,#7C47A1,8306,#7C47A1,La 10E,Villa El Salvador,San Juan de Lurigancho,Empresa de Transportes Santo Cristo de Pachacamilla S.A. (ETRASCPSA)
+actual,Rutas 1000,1098,#E3B03F,8308,#E3B03F,La 08 - La L,Lurín,San Juan de Lurigancho,Empresa de Transporte Urbano Línea 4 S.A. (ETUL4SA)
+actual,Rutas 1000,1099,#F4F78F,8403,#F4F78F,La 9 - La Banchero,Villa María del Triunfo,Jesús Maria,Empresa de Transportes Luis Banchero Rossi S.A. (LUBARSA)
+actual,Rutas 1100,1100,#E3B03F,8404,#E3B03F,La P,Villa María del Triunfo,Huaycán,Empresa de Transporte Urbano Línea 4 S.A. (ETUL4SA)
+actual,Rutas 1100,1107,#59D3FF,8513,#59D3FF,La C,Villa El Salvador,Lima,Empresa de Transportes Montenegro S.A.C. (ETMOSAC)
+actual,Rutas 1100,1108,#0C5700,8520,#0C5700,La 23A,Villa el Salvador,Lima,Empresa de Servicios de Transporte Santa Catalina S.A. (ESTSACASA)
+actual,Rutas 1100,1109,#276913,8523,#276913,La 25,Villa María del Triunfo,Miraflores,Empresa de Transportes Esfuerzos Unidos S.A. (ETEUSA)
+actual,Rutas 1100,1110,#FF0000,8524,#FF0000,La G,Pachacámac,Lima,Empresa de Transportes Unidos Chama S.A.
+actual,Rutas 1100,1111,#ACCB56,8525,#ACCB56,La 73A,Villa María del Triunfo,Lima,Empresa de Transportes Unidos de Pasajeros S.A. (ETUPSA)
+actual,Rutas 1100,1112,#21CBD1,8602,#21CBD1,Ninguno,Pachacámac,La Victoria,Red Lima Móvil S.A.
+actual,Rutas 1100,1113,#009FE3,8604,#009FE3,Ninguno,Villa María del Triunfo,Miraflores,Translima S.A.
+actual,Rutas 1100,1114,#0008FF,8605,#0008FF,La D2,Villa El Salvador,San Isidro,Empresa de Transportes y Servicios Los Ángeles del Perú S.A.C. (ETRAPERSAC)
+actual,Rutas 1100,1115,#0006B8,8611,#0006B8,La A,Lurín,Miraflores,Empresa de Transportes Express Pachacámac S.A. (ETEPSA)
+actual,Rutas 1100,1116,#FFFF00,8612,#FFFF00,La A,Pachacámac,Miraflores,Empresa de Transportes Edilberto Ramos S.A.C. (ETERSAC)
+actual,Rutas 1100,1117,#FFCB3D,8614,#FFCB3D,Ninguna,Villa María del Triunfo,Miraflores,Empresa de Transportes Tablada 2000 S.A. (ETTADOSA)
+actual,Rutas 1100,1118,#FF1414,8616,#FF1414,La U,Villa María del Triunfo,Miraflores,Comunicación Integral Turismo e Inversiones Urano Tours S.A.
+actual,Rutas 1100,1119,#E80202,8617,#E80202,La D,Villa El Salvador,Miraflores,Agrupación de Transportistas en Camionetas S.A. (ATCRSA)
+actual,Rutas 1100,1120,#D6B618,8618,#D6B618,La 190,Pachacámac,La Victoria,Real Star del Perú S.A.C.
+actual,Rutas 1100,1121,#27C716,8619,#27C716,La A,Villa El Salvador,La Victoria,Consorcio Línea 3 S.A.C.
+actual,Rutas 1100,1122,#FFFF00,8621,#FFFF00,La 6,Villa El Salvador,La Victoria,Lapso S.A.
+actual,Rutas 1100,1123,#DF3322,8626,#DF3322,La A,Pachacámac,Miraflores,Empresa de Transportes Unidos Chama S.A.
+actual,Rutas 1100,1124,#FFB12B,8703,#FFB12B,Ninguno,Villa María del Triunfo,Surquillo,Empresa de Transportes Expreso Tablada Y Asociados S.A.C.
+actual,Rutas 1100,1125,#0DE7FF,8704,#0DE7FF,Ninguno,Villa María del Triunfo,Surquillo,Empresa de Transportes Purca Gabriel Cora Cora S.A.
+actual,Rutas 1100,1126,#398F00,8711,#398F00,Ninguno,Lurín,Surquillo,Villa Alejandro S.A.
+actual,Rutas 1100,1127,#FF0505,8714,#FF0505,Ninguno,Lurín,Surquillo,Empresa de Transportes y Servicios Múltiples Esmirla Zevallos S.A.
+actual,Rutas 1100,1128,#68BCEB,8729,#68BCEB,La G - La 65,Pachacámac,Santiago de Surco,Carrocerías Rivera S.A.C.
+actual,Rutas 1100,1129,#05096E,8803,#05096E,La A - La B,Pachacámac,Pachacámac,Empresa de Transportes y Servicios San Juan de Dios S.A. (ETSAJUDSA)
+actual,Rutas 1100,1130,#20BA2F,9503,#20BA2F,Ninguno,Carmen de la Legua,Lima,Empresa de Transportes Once de Noviembre S.A. (EMPTONSA)
+actual,Rutas 1100,1131,#0ABF16,9601,#0ABF16,La D,Ventanilla,La Victoria,Empresa de Transportes y Servicios Virgen de La Puerta S.A. (VIPUSA)
+actual,Rutas 1100,1132,#004F08,9605,#004F08,El Urbanito,Callao,La Victoria,Empresa de Transporte y Servicios Múltiples Satélite S.A. (ETRASEMUSSA)
+actual,Rutas 1100,1133,#8D17E8,CR04,#8D17E8,Ninguno,La Punta,Lima,Empresa de Transportes Señor del Mar S.A. (ETSMARSA)
+actual,Rutas 1100,1134,#3189CC,CR07,#3189CC,La A,Callao,La Perla,Empresa de Transportes y Servicios La Estrella S.A.C. (ETSESAC)
+actual,Rutas 1100,1135,#BDBDBD,CR09,#BDBDBD,La 105,Callao,Lima,Empresa de Transportes Mariscal Ramón Castilla S.A.
+actual,Rutas 1100,1136,#8C6043,CR10,#8C6043,La 120,Callao,Lima,Consorcio Nueva Unión S.A.
+actual,Rutas 1100,1137,#DF2222,CR12,#DF2222,Ninguno,Carabayllo,La Victoria,Empresa de Transportes y Servicios San Antonio S.A.
+actual,Rutas 1100,1138,#F7FF0F,CR17,#F7FF0F,Ninguno,Carabayllo,San Miguel,Multiservicios e Inversiones Chimpum Callao S.A.
+actual,Rutas 1100,1139,#391170,CR27,#391170,Ninguno,Comas,Pueblo Libre,Consorcio Grupo Uvita S.A.C.
+actual,Rutas 1100,1140,#A322BD,CR30,#A322BD,Ninguno,Callao,Lima,Empresa de Transportes y Servicios Milagroso Inmaculado Señor Cautivo de Ayabaca S.A. (ETMISCASA)
+actual,Rutas 1100,1141,#BA0707,CR31,#BA0707,Ninguno,Callao,Santiago de Surco,Empresa de Transportes del Fondo Colectivo de Ayuda Mutua S.A. (ETFOCAMSA)
+actual,Rutas 1100,1142,#F5D50A,CR32,#F5D50A,Ninguno,Ventanilla,Lima,Empresa de Transporte y Servicios Proyecto 7 S.A.
+actual,Rutas 1100,1143,#FFE642,CR38,#FFE642,La 524,Callao,Santiago de Surco,Gruplan S.A.
+actual,Rutas 1100,1144,#38B6FF,CR40,#38B6FF,Ninguna,Callao,Lima,Empresa de Transportes y Servicios Conexos Néstor Gambetta S.A.
+actual,Rutas 1100,1145,#D6CBC1,CR43,#D6CBC1,Ninguno,Carabayllo,La Victoria,Empresa de Transportes y Servicios Callao S.A. (TRANSCALLAO)
+actual,Rutas 1100,1146,#EDB313,CR45,#EDB313,Ninguno,La Punta,Lima,Empresa de Transportes San Benito de Palermo S.A. (ETSABEPSA)
+actual,Rutas 1100,1147,#FF00A2,CR46,#FF00A2,Ninguno,La Punta,Lima,Empresa de Transportes y Servicios Generales Colonial S.A.
+actual,Rutas 1100,1148,#941212,CR47,#941212,Ninguno,Callao,Lima,Multiservicios de Buses de Waylluy S.A. (Multibus Way S.A.)
+actual,Rutas 1100,1149,#035220,CR48,#035220,Ninguno,Callao,Lima,Multiservicios de Buses de Waylluy S.A. (Multibus Way S.A.)
+actual,Rutas 1100,1150,#EFFF12,CR52,#EFFF12,Ninguno,Callao,Lima,Empresa de Transportes 102 S.A.
+actual,Rutas 1100,1151,#AD3A10,CR56,#AD3A10,Ninguno,Ventanilla,Lima,Empresa de Transportes Mi Perú Ventanilla S.A. (EPTEVESA)
+actual,Rutas 1100,1152,#136919,CR61,#136919,Ninguno,Ventanilla,Lima,Empresa de Servicios de Transportes Lima Ventanilla Turismo S.A.C. (LIVENTUR)
+actual,Rutas 1100,1153,#400707,CR62,#400707,Ninguno,Carabayllo,Carabayllo,Empresa de Transportes San Ignacio de Loyola S.A. (ETRASILSA)
+actual,Rutas 1100,1154,#100C8F,CR69,#100C8F,Ninguno,Carabayllo,Pueblo Libre,Consorcio Briza
+actual,Rutas 1100,1155,#FF860D,CR78,#FF860D,Ninguno,Callao,Lima,Grupo Holrex S.A. / Holding Real Express S.A
+actual,Rutas 1100,1156,#00EEFF,ICR02B,#00EEFF,Ninguno,Callao,Lima,Empresa de Transportes y Servicios Nuevo Reynoso S.A. (ETYSNURSA)
+actual,Rutas 1100,1157,#255710,IM19,#255710,Ninguno,Ventanilla,Lima,Cooperativa de Servicios Especiales Transportes Sol y Mar Ltda.
+actual,Rutas 1100,1158,#FFFFF1,IM20,#FFFFF1,Ninguno,Ventanilla,Lima,Servicio Interconectado de Transporte S.A.C. (SIT)
+actual,Rutas 1100,1159,#0099FF,IM21,#0099FF,La 21,Callao,Jesús María,Translima S.A.
+actual,Rutas 1100,1160,#FF872B,IM34B,#FF872B,La OP,Ventanilla,Ate,Multiservicios e Inversiones Chimpum Callao S.A.
+actual,Rutas 1100,1161,#37880B,IM40,#37880B,La 89,Callao,Ate,Empresa de Transportes Víctor Raúl Haya de La Torre S.A. (ETVRHTSA)
+actual,Rutas 1100,1162,#8C0B01,IM47,#8C0B01,Ninguno,Callao,San Miguel,Consorcio Briza
+actual,Rutas 1100,1163,#37FFD7,IO14,#37FFD7,La SV,Mi Perú,Santiago de Surco,Corporación Avagon S.A.C.
+actual,Rutas 1100,1164,#000880,IO19,#000880,Ninguno,Callao,Independencia,Cooperativa de Transportes Corazón de Jesús Ltda. (CTCJ)
+actual,Rutas 1100,1165,#0011FF,IO38B,#0011FF,Ninguno,Los Olivos,Callao,Consorcio Briza
+actual,Rutas 1100,1166,#032DFF,IO44B,#032DFF,Ninguno,Carabayllo,San Miguel,Empresa de Transportes Vía Bus S.A.C. (ETVIBUSAC)
+actual,Rutas 1100,1167,#634941,IO45,#634941,Ninguno,Carabayllo,Callao,Consorcio Briza
+actual,Rutas 1100,1168,#FFA305,IO47,#FFA305,Ninguno,Ventanilla,Lince,Inversiones y Servicios Múltiples La Nueva Estrella S.A.C. / Corporación Las Estrellas S.A.C. ​
+actual,Rutas 1100,1169,#808080,IO75B,#808080,Ninguno,Mi Perú,Lima,Transportes y Servicios Cielo Mar y Tierra S.A. (ETCIMATISA)
+actual,Rutas 1100,1170,#18D6C9,OM09,#18D6C9,La 93,Callao,Lima,Perla Argentina S.A. (PASA)
+actual,Rutas 1100,1171,#00B8FF,OM16,#00B8FF,La DC - La SB,Santa Rosa,La Victoria,Empresa de Transportes Álamo Express S.A. (ETALEXSA) / Consorcio Santa Bárbara S.A. (COSBASA)
+actual,Rutas 1100,1172,#078ED1,OM23,#078ED1,Ninguno,San Martín de Porres,Rímac,Corporación Empresa de Transportes Urbano Niño Jesús S.A. (ETUNIJESA)
+actual,Rutas 1100,1173,#0CBE00,OM32,#0CBE00,La 9V,San Martín de Porres,Santiago de Surco,Consorcio Movil Express S.A / Empresa de Transportes Santa Rosa de Lima S.A. (ETRASLISA)
+actual,Rutas 1100,1174,#FF0000,OM33,#FF0000,La D1,San Martín de Porres,San Martín de Porres,Corporación Inversiones Los Ángeles del Perú S.A. (CILAP)
+actual,Rutas 1100,1175,#02A9FD,1308,#02A9FD,La P,Puente Piedra,San Juan de Lurigancho,Empresa de Transportes Pegasso Express S.A.
+actual,Rutas 1100,1176,#FF9E00,1404,#FF9E00,La 6M - La Collique,Comas,Ate,Empresa de Transportes Virgen de La Puerta S.A. (EVIPUSA)
+actual,Rutas 1100,1177,#002FC9,1411,#002FC9,La 02,Carabayllo,Ate,Transportes Cruz del Centro S.A.
+actual,Rutas 1100,1178,#02A9FD,1412,#02A9FD,La E,Carabayllo,Ate,Empresa de Transportes La Encantada S.A.
+actual,Rutas 1100,1179,#BABABA,1701,#BABABA,El Anconero,Ancón,Santiago de Surco,Empresa de Transportes Turismo e Inversiones Señor de La Soledad S.A. (SESOSA)
+actual,Rutas 1100,1180,#FA8E00,1702,#FA8E00,La A,Carabayllo,San Juan de Miraflores,Empresa de Transportes y Servicios Nueva América S.A. (TRANSNASA)
+actual,Rutas 1100,1181,#247506,1703,#247506,La 70,Puente Piedra,Chorrillos,Empresa de Transportes Perú S.A.C.
+actual,Rutas 1100,1182,#3B68FF,1704,#3B68FF,La V,Carabayllo,San Juan de Miraflores,Vencedores C&P Inversiones S.A.C.
+actual,Rutas 1100,1183,#A6411A,1706,#A6411A,La A,Carabayllo,Santiago de Surco,Comunicación Integral Turismo e Inversiones Urano Tours S.A.
+actual,Rutas 1100,1184,#00B8FF,1801,#00B8FF,La B39 - La C,Santa Rosa,Pachacámac,Empresa de Transportes Edilberto Ramos S.A.C. (ETERSAC)
+actual,Rutas 1100,1185,#00B8FF,1802,#00B8FF,La A - El Chino,Puente Piedra,Villa El Salvador,Empresa de Transportes Urbano Los Chinos S.A. (ETUCHISA)
+actual,Rutas 1100,1186,#27781A,1804,#27781A,La A - el Anconero,Ancón,Pachacámac,Empresa de Transportes y Servicios Virgen de La Puerta S.A. (VIPUSA)
+actual,Rutas 1100,1187,#FFA305,2303,#FFA305,Ninguno,San Martín de Porres,San Juan de Lurigancho,Empresa de Transportes Señor Nazareno S.A.
+actual,Rutas 1100,1189,#239911,2404,#239911,La 35B,San Martín de Porres,La Molina,Empresa de Transportes y Servicios El Inti S.A. (ETINSA)
+actual,Rutas 1100,1190,#0839FF,2405,#0839FF,Ninguno,San Martín de Porres,Santa Anita,Empresa de Servicios y Transportes Inversiones El Rápido S.A. (ESTIRSA)
+actual,Rutas 1100,1191,#085E02,2406,#085E02,La 35A,San Martín de Porres,Ate,Empresa de Transportes y Servicios Múltiples Los Excelentes Unidos S.A.
+actual,Rutas 1100,1192,#FFEE00,2407,#FFEE00,Ninguno,Independencia,Ate,Empresa de Transportes y Servicios El Sol de Santa Clara S.A. (ETISSA)
+actual,Rutas 1100,1193,#A31E0F,2408,#A31E0F,La 148,Independencia,Ate,Empresa de Transportes Virgen de la Concepción S.A. (ETVIRCOSA)
+actual,Rutas 1100,1194,#A5C5EB,2409,#A5C5EB,La B,San Martín de Porres,Ate,Empresa Virgen de Fátima S.A. (EVIFASA)
+actual,Rutas 1100,1195,#D90000,2411,#D90000,La 42 - El Rápido,San Martín de Porres,Lurigancho/Chosica,Empresa de Transportes y Servicios El Rápido S.A. / Grupo Empresarial El Rápido S.A.
+actual,Rutas 1100,1196,#0006CC,2414,#0006CC,La A,Los Olivos,Santa Anita,Transportes Cruz del Centro S.A.
+actual,Rutas 1100,1197,#EB1515,2701,#EB1515,La 44A,San Martín de Porres,Santiago de Surco,Empresa de Transportes Diecisiete de Junio S.A. (ETRADIJUSA)
+actual,Rutas 1100,1199,#F5CC6C,2703,#F5CC6C,La 36,San Martín de Porres,Chorrillos,Empresa de Transportes 36 San Martín de Porres S.A. (ET36SMPSA)
+actual,Rutas 1200,1200,#169E11,2803,#169E11,La 9A,Lince,Villa María del Triunfo,Transportes Ingaruca S.A.C. (TRAINSAC) / Transportes 17 de Noviembre S.A.
+actual,Rutas 1200,1203,#FF00C3,3203,#FF00C3,La C - La 128 - La San Germán,San Juan de Lurigancho,San Martín de Porres,Transportes e Inversiones San Germán S.A. (TISGSA)
+actual,Rutas 1200,1204,#F0F3AF,3205,#F0F3AF,La 2H,San Juan de Lurigancho,San Martín de Porres,Empresa de Transportes y Servicios Huancayo City S.A. (ETHUCSA 2H)
+actual,Rutas 1200,1205,#FFFF39,3502,#00754E,La E,El Agustino,San Miguel,Empresa de Transporte y Servicios Vargasant S.A.C. / Empresa de Transporte y Servicios Niño Emanuel S.A.C.
+actual,Rutas 1200,1207,#FF9900,3507,#FF9900,La C1,San Juan de Lurigancho,San Miguel,Empresa de Transportes y Servicios La Huayrona S.A.
+actual,Rutas 1200,1210,#0E07D9,4102,#0E07D9,Ninguno,Santa Anita,Carabayllo,San Felipe Express S.A.
+actual,Rutas 1200,1214,#45FFA2,4210,#45FFA2,La 32A,Ate,San Martín de Porres,Empresa de Transportes Virgen de La Asunción S.A. (ETVASA)
+actual,Rutas 1200,1218,#D61A1A,4506/129p,#D61A1A,El Chosicano,Ricardo Palma,San Miguel,Empresa de Transportes y Servicios Lima Chosica S.A. (ETYSLCHSA)
+actual,Rutas 1200,1219,#FFF945,4512,#FFF945,La B,Lurigancho/Chosica,San Miguel,Vargasant S.A.C.
+actual,Rutas 1200,1220,#FF1919,4513,#FF1919,Ninguno,Lurigancho/Chosica,Lima,Empresa de Transportes y Servicios Peralitos S.A.
+actual,Rutas 1200,1221,#B80422,4516,#B80422,La 20,Ate,San Miguel,Empresa de Transportes y Servicios Los Expertos y Somos Más S.A.
+actual,Rutas 1200,1222,#AD9600,4901,#AD9600,La 19 - La N,Lurigancho/Chosica,Callao,Empresa de Transportes y Servicios San Cristóbal Palcamayo S.A.
+actual,Rutas 1200,1223,#21917F,4902,#21917F,La 129B,Ate,Callao,Transportes Pesqueros S.A.
+actual,Rutas 1200,1224,#FFD500,4904,#FFD500,La 19,Ate,Callao,Empresa de Transportes Gocarive 19 S.A.
+actual,Rutas 1200,1225,#00B8FF,4905,#00B8FF,La C - La 01,Ate,Callao,Empresa de Transportes Álamo Express S.A. (ETALEXSA)
+actual,Rutas 1200,1226,#7D0202,4908,#7D0202,La 71B,Ate,Callao,Empresa de Transportes El Carmen de la Punta S.A. (ETCAPSA)
+actual,Rutas 1200,1227,#30A130,4911,#30A130,Ninguno,Ate,Callao,Empresa de Transportes y Servicios Almirante Miguel Grau S.A. (ETSAMIGSA)
+actual,Rutas 1200,1228,#4FA500,4913,#4FA500,La H - La Z,Huaycán,La Perla,Empresa de Transportes y Servicios Santa Rosa de Lima S.A. (ETSRLSA)
+actual,Rutas 1200,1229,#FFFF00,5303,#FFFF00,La M,San Miguel,El Agustino,Empresa de Transportes Próceres S.A.
+actual,Rutas 1200,1230,#FFD600,7101,#FFD600,La 03,Chorrillos,Carabayllo,Empresa de Servicios Múltiples Fénix 2000 S.A.
+actual,Rutas 1200,1231,#0011FF,7103,#0011FF,La 35,Chorrillos,Carabayllo,"Empresa de Transportes, Servicios, Comercializadora, Importadora y Exportadora Machu Pichu S.A."
+actual,Rutas 1200,1232,#F70707,7202,#F70707,La A,San Juan de Miraflores,San Martín de Porres,Empresa de Transportes San Juan de La Cruz S.A.C. / Transportes y Servicios Lima Chorrillos S.A. (TRANSLICSA)
+actual,Rutas 1200,1233,#FF640A,7204,#FF640A,La P1,San Juan de Miraflores,San Martín de Porres,Empresa de Transportes y Servicios San Pedro de Pamplona S.A.
+actual,Rutas 1200,1234,#00DB34,7504,#00DB34,La W,San Juan de Miraflores,San Miguel,Empresa de Transportes La Unidad de Villa S.A.
+actual,Rutas 1200,1235,#2C6632,8102,#2C6632,La S,Pachacámac,Carabayllo,Empresa de Transportes Salamanca Parral S.A. (ETSPSA)
+actual,Rutas 1200,1236,#E30000,8104,#E30000,La 40,Villa El Salvador,Carabayllo,Grupo Express del Perú S.A.C. (GEP) / Empresa de Transportes Multiservicios Importadora y Exportadora San Francisco de Asís de Los Olivos S.A. (ETSAFRASA)
+actual,Rutas 1200,1237,#D10F0F,8105,#D10F0F,La 5,Villa El Salvador,Carabayllo,Empresa de Transportes y Servicios El Rápido S.A. / Grupo Empresarial El Rápido S.A.
+actual,Rutas 1200,1238,#091080,8107,#091080,La C,Villa El Salvador,Carabayllo,San Felipe Express S.A.
+actual,Rutas 1200,1239,#00B8FF,8108,#00B8FF,La C,Villa El Salvador,Puente Piedra,Empresa de Servicios Múltiples El Cóndor S.A.C. / Empresa de Transportes Urbano Los Chinos S.A. (ETUCHISA)
+actual,Rutas 1200,1240,#39913C,8109,#39913C,La A,Pachacámac,Ancón,Empresa de Transportes y Servicios Virgen de la Puerta S.A. (VIPUSA)
+actual,Rutas 1200,1241,#00B8FF,8110,#00B8FF,La C,Lurín,Carabayllo,Empresa de Transportes Roluesa S.A.C.
+actual,Rutas 1200,1242,#0BB8FF,8111,#0BB8FF,La C,Pachacámac,Ancón,Empresa de Servicios Múltiples Nuevo Perú S.A.

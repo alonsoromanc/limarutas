@@ -1,0 +1,10 @@
+﻿relation_id,ref_raw,base,direction,match,preferred_code,codigo_antiguo,codigo_nuevo,alias,empresa,origen,destino,grupo,seccion,color
+4224369,X-ECR02-I,ECR02,ida,none,ECR02,,,,,,,,,#b3de69
+4467064,X-ICR02B-I,ICR02B,ida,old_code,ICR02B,ICR02B,,,Empresa de Transportes y Servicios Nuevo Reynoso S.A. (ETYSNURSA),Callao,Lima,Rutas ICRxx,anterior,#1f77b4
+4753094,X-SCR01-I,SCR01,ida,none,SCR01,,,,,,,,,#bab0ab
+4793441,X-SCR38A-X,SCR38A,especial,none,SCR38A,,,,,,,,,#cab2d6
+4511802,CR13_I,CR13I,—,none,CR13I,,,,,,,,,#9467bd
+19413426,1007,1007,—,new_code,1007,,,La 87B,Empresa de Transportes y Servicios Amancaes S.A. (ETAMSA),Puente Piedra,Lima,Rutas 1000,actual,#e377c2
+19572753,1008,1008,—,new_code,1008,,,La 03,Grupo Express del Perú S.A.C. (GEP) / Realidad Express del Perú 03 S.A.C. (REX),Carabayllo,Magdalena del Mar,Rutas 1000,actual,#7f7f7f
+4227460,X-ECR32-I,ECR32,ida,none,ECR32,,,,,,,,,#bab0ab
+4629099,X-NCR04C_I,NCR04CI,—,none,NCR04CI,,,,,,,,,#f28e2b

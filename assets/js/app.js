@@ -12,7 +12,8 @@ import {
   initMap,
   reRenderVisibleSystem,
   reRenderVisible,
-  setBase
+  setBase,
+  setWikiroutesVisible   // ⬅️ IMPORTAMOS PARA poder encender WR sin depender del evento 'change'
 } from './mapLayers.js';
 import {
   fillMetList,
@@ -229,12 +230,14 @@ async function init(){
   // Construir UI
   buildUI();
 
-  // Auto-activar la WR si existe
-  const wrLeaf = document.querySelector('#p-wr .item input[type="checkbox"]');
-  if (wrLeaf && !wrLeaf.checked) {
-    wrLeaf.checked = true;
-    wrLeaf.dispatchEvent(new Event('change', { bubbles: true }));
-  }
+  // ⚙️ Fix: asegurar que las rutas WR marcadas se muestren realmente al cargar.
+  // Evitamos depender solo del evento 'change' (que a veces no dispara o llega muy pronto).
+  (state.systems.wr.routes || []).forEach(rt => {
+    const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${rt.id}"]`);
+    if (leaf && !leaf.checked) leaf.checked = true;          // refleja el estado en la UI
+    setWikiroutesVisible(rt.id, true, { fit: true });        // añade la capa al mapa y centra (si aplica)
+  });
+  syncAllTri(); // sincroniza la casilla de nivel superior
 }
 
 function buildUI(){
