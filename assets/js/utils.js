@@ -1,0 +1,42 @@
+// utils.js
+export const $  = sel => document.querySelector(sel);
+export const $$ = sel => Array.from(document.querySelectorAll(sel));
+
+export const el = (tag, attrs = {}, ...children) => {
+  const n = document.createElement(tag);
+  Object.entries(attrs).forEach(([k,v]) => {
+    if (k === 'class') n.className = v;
+    else if (k === 'html') n.innerHTML = v;
+    else n.setAttribute(k,v);
+  });
+  children.forEach(c => n.append(c));
+  return n;
+};
+
+export async function fetchJSON(path){
+  const r = await fetch(path);
+  if (!r.ok) throw new Error(`HTTP ${r.status} - ${path}`);
+  return r.json();
+}
+
+export const asLatLng = (pt) =>
+  Array.isArray(pt) ? [pt[1], pt[0]] : [pt.lat, pt.lon];
+
+export function stopsArrayToMap(stations){
+  const m = new Map();
+  (stations||[]).forEach(s => m.set(s.id, s));
+  return m;
+}
+
+export function uniqueOrder(arr){
+  const out = [];
+  let last = null;
+  for (const a of arr){
+    if (!a) continue;
+    if (!last || (a[0] !== last[0] || a[1] !== last[1])){
+      out.push(a);
+      last = a;
+    }
+  }
+  return out;
+}
