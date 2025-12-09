@@ -236,7 +236,6 @@ export function buildMetroFromJSON(json){
     (segmentsLatLon || []).forEach(seg => {
       if (!Array.isArray(seg) || !seg.length) return;
       if (Array.isArray(seg[0]) && typeof seg[0][0] === 'number') {
-        // No volvemos a llamar asLatLng aquí
         svc.segments.push(seg);
       }
     });
@@ -274,7 +273,6 @@ export function buildMetroFromJSON(json){
       const acc = byId.get(ref);
 
       if (g.type === 'LineString' || g.type === 'MultiLineString') {
-        // Aquí sí convertimos de [lon, lat] a [lat, lon]
         const segsLL = toSegments(g);
         segsLL.forEach(seg => acc.segments.push(seg));
       } else if (g.type === 'Point') {
@@ -291,7 +289,7 @@ export function buildMetroFromJSON(json){
       pushLine(id, v.name, v.color, v.segments, v.stations);
     }
 
-  // Caso alternativo: estructura con json.lines (por si la usas después)
+  // Caso alternativo: estructura con json.lines
   } else if (Array.isArray(json?.lines)) {
     for (const L of json.lines) {
       const rawTrack =
@@ -299,7 +297,6 @@ export function buildMetroFromJSON(json){
         Array.isArray(L.track)           ? [L.track] :
         [];
 
-      // Aquí sí transformamos explícitamente de [lon, lat] a [lat, lon]
       const segsLL = rawTrack.map(seg => seg.map(asLatLng));
       pushLine(L.id, L.name, L.color, segsLL, L.stations);
     }
@@ -308,79 +305,148 @@ export function buildMetroFromJSON(json){
   return { services: lines, stops };
 }
 
-
-
+// ======================
 // Wikiroutes helpers
+// ======================
+
+// Obtiene una primera coordenada para detectar orden XY
 function inspectFirstCoord(geojson) {
   let c = null;
   const walk = (g) => {
     if (!g) return;
     if (g.type === 'Point') c = g.coordinates;
-    else if (g.type === 'LineString') c = g.coordinates[0];
-    else if (g.type === 'MultiLineString') c = g.coordinates[0]?.[0];
+    else if (g.type === 'LineString') c = g.coordinates?.[0];
+    else if (g.type === 'MultiLineString') c = g.coordinates?.[0]?.[0];
     else if (g.type === 'Feature') walk(g.geometry);
-    else if (g.type === 'FeatureCollection') walk(g.features[0]?.geometry);
+    else if (g.type === 'FeatureCollection') walk(g.features?.[0]?.geometry);
   };
   walk(geojson);
   return Array.isArray(c) && c.length >= 2 ? c : null;
 }
 
-function swapXY(g) {
-  const clone = JSON.parse(JSON.stringify(g));
-  const swapArray = (arr) => {
-    for (let i=0;i<arr.length;i++){
-      const v = arr[i];
-      if (Array.isArray(v) && typeof v[0] === 'number' && typeof v[1] === 'number'){
-        arr[i] = [v[1], v[0]];
-      } else if (Array.isArray(v)) swapArray(v);
-    }
+// Intercambia XY solo dentro de geometrías
+function swapXYInGeometry(geom){
+  if (!geom) return geom;
+  const copy = JSON.parse(JSON.stringify(geom));
+
+  const swapPair = (p) => Array.isArray(p) && p.length>=2 && typeof p[0]==='number' && typeof p[1]==='number'
+    ? [p[1], p[0]] : p;
+
+  const rec = (coords, depth=0) => {
+    if (!Array.isArray(coords)) return coords;
+    if (typeof coords[0] === 'number') return swapPair(coords);
+    return coords.map(c => rec(c, depth+1));
   };
-  if (clone.type === 'FeatureCollection') swapArray(clone.features);
-  else if (clone.type === 'Feature') swapArray([clone.geometry]);
-  else swapArray([clone]);
-  return clone;
+
+  if (copy.type === 'Point') {
+    copy.coordinates = swapPair(copy.coordinates);
+  } else if (copy.type === 'LineString' || copy.type === 'MultiLineString' ||
+             copy.type === 'Polygon' || copy.type === 'MultiPolygon') {
+    copy.coordinates = rec(copy.coordinates);
+  }
+  return copy;
 }
 
 function fixIfLatLon(geojson) {
   const c = inspectFirstCoord(geojson);
   if (!c) return geojson;
-  // Para Lima: |lon| ~ 77, |lat| ~ 12. Si primer numero es mas chico, probablemente viene lat,lon.
-  if (Math.abs(c[0]) < Math.abs(c[1])) {
-    return swapXY(geojson);
+  // Para Lima: |lon| ~ 77, |lat| ~ 12. Si el primero se parece a lat y el segundo a lon, hay que invertir.
+  const looksLatLon = Math.abs(c[0]) < Math.abs(c[1]);
+  if (!looksLatLon) return geojson;
+
+  const clone = JSON.parse(JSON.stringify(geojson));
+  if (clone.type === 'FeatureCollection') {
+    clone.features = (clone.features || []).map(f => {
+      if (f && f.geometry) f.geometry = swapXYInGeometry(f.geometry);
+      return f;
+    });
+  } else if (clone.type === 'Feature') {
+    if (clone.geometry) clone.geometry = swapXYInGeometry(clone.geometry);
+  } else if (clone.type && clone.coordinates) {
+    return swapXYInGeometry(clone);
   }
-  return geojson;
+  return clone;
+}
+
+// Construye un FeatureCollection de líneas a partir de paraderos
+function buildLineFCFromStops(stops){
+  // Agrupar por direction si existe
+  const groups = new Map();
+  for (const s of stops){
+    const k = (s.properties?.direction || '').toString();
+    if (!groups.has(k)) groups.set(k, []);
+    // stops.geojson viene en XY. Asumimos que ya fue corregido con fixIfLatLon antes de llegar aquí.
+    groups.get(k).push(s);
+  }
+  const feats = [];
+  for (const [dir, arr] of groups.entries()){
+    const ordered = arr
+      .map(f => ({ f, seq: Number(f.properties?.sequence ?? Infinity) }))
+      .sort((a,b) => a.seq - b.seq)
+      .map(x => x.f);
+    const coords = ordered
+      .map(f => f.geometry?.coordinates)
+      .filter(p => Array.isArray(p) && p.length >= 2);
+    if (coords.length >= 2) {
+      feats.push({
+        type: 'Feature',
+        geometry: { type: 'LineString', coordinates: coords },
+        properties: { direction: dir || '' }
+      });
+    }
+  }
+  return { type: 'FeatureCollection', features: feats };
 }
 
 // Capa Wikiroutes
 export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
   const color = opts.color || '#00008C';
 
-  const [lineRaw, ptsRaw] = await Promise.all([
-    fetchJSON(`${folderPath}/line_approx.geojson`).catch(()=>null),
-    fetchJSON(`${folderPath}/stops.geojson`).catch(()=>null)
-  ]);
+  // Intentar trazado detallado primero
+  let lineRaw = await fetchJSON(`${folderPath}/route_track.geojson`).catch(()=>null);
+  if (!lineRaw) {
+    lineRaw = await fetchJSON(`${folderPath}/line_approx.geojson`).catch(()=>null);
+  }
 
-  if (!lineRaw && !ptsRaw) throw new Error('No se encontraron archivos line_approx.geojson ni stops.geojson');
+  // Paraderos
+  let ptsRaw = await fetchJSON(`${folderPath}/stops.geojson`).catch(()=>null);
+  if (!ptsRaw) {
+    ptsRaw = await fetchJSON(`${folderPath}/stops_from_map.geojson`).catch(()=>null);
+  }
+
+  // Si no hay nada, salimos
+  if (!lineRaw && !ptsRaw) {
+    throw new Error('No se encontraron archivos de trazado ni de paraderos en la carpeta Wikiroutes');
+  }
 
   // Corrige XY si fuera necesario
   const line = lineRaw ? fixIfLatLon(lineRaw) : null;
   const pts  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
 
-  const group = L.layerGroup();  // no se añade aún
+  // Si no hay líneas, intenta construirlas desde los paraderos
+  let lineFC = line;
+  if (!lineFC && pts?.type === 'FeatureCollection') {
+    const onlyPoints = pts.features?.filter(f => f?.geometry?.type === 'Point') || [];
+    if (onlyPoints.length >= 2) {
+      lineFC = buildLineFCFromStops(onlyPoints);
+    }
+  }
+
+  const group = L.layerGroup();
   let bounds = null;
 
-  if (line) {
-    const lineLyr = L.geoJSON(line, { style: () => ({ color, weight:4, opacity:0.95 }) });
+  if (lineFC) {
+    const lineLyr = L.geoJSON(lineFC, { style: () => ({ color, weight: 4, opacity: 0.95 }) });
     lineLyr.addTo(group);
     try { bounds = lineLyr.getBounds(); } catch {}
   }
 
   if (pts) {
     const stopLyr = L.geoJSON(pts, {
-      pointToLayer: (_, latlng) => L.circleMarker(latlng, { radius:3, weight:1 }),
+      pointToLayer: (_, latlng) => L.circleMarker(latlng, { radius: 3, weight: 1 }),
       onEachFeature: (f, layer) => {
         const q = f.properties || {};
-        const label = `${q.sequence ?? ''} ${q.stop_name ?? ''}`.trim();
+        const label = `${q.sequence ?? ''} ${q.stop_name ?? q.name ?? ''}`.trim();
         if (label) layer.bindTooltip(label);
       }
     });
