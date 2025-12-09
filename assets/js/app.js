@@ -1,6 +1,6 @@
 // app.js (punto de entrada)
 import { PATHS, state } from './config.js';
-import { $, $$, fetchJSON, stopsArrayToMap } from './utils.js';
+import { $, $$, fetchJSON, stopsArrayToMap, asLatLng } from './utils.js';
 import {
   filterByCatalogFor,
   buildAlimFromFC,
@@ -31,6 +31,59 @@ import {
 // import { setupTypeahead } from './search.js';
 import { wirePanelTogglesOnce } from './panels.js';
 
+/* ===========================
+   Helpers Macrorutas Metropolitano
+   =========================== */
+
+// south = norte a sur, north = sur a norte
+async function loadMetMacroSegments(macroId, suffix){
+  const path = `${PATHS.met}/trayectos-macro/${macroId}-${suffix}.geojson`;
+  try {
+    const gj = await fetchJSON(path);
+    if (!gj || gj.type !== 'FeatureCollection') {
+      console.warn('[Met macro]', macroId, suffix, 'no es FeatureCollection');
+      return null;
+    }
+    const segments = [];
+    (gj.features || []).forEach(f => {
+      const g = f.geometry;
+      if (!g || g.type !== 'LineString' || !Array.isArray(g.coordinates)) return;
+      const seg = g.coordinates.map(asLatLng); // [lon,lat] -> [lat,lon]
+      if (seg.length >= 2) segments.push(seg);
+    });
+    if (!segments.length) return null;
+    console.log('[Met macro]', macroId + '-' + suffix + ':', segments.length, 'segmentos');
+    return segments;
+  } catch (e) {
+    console.warn('[Met macro] No se pudo cargar', path, e.message);
+    return null;
+  }
+}
+
+async function loadMetMacros(){
+  state.systems.met.macros = {};
+
+  const macroIds = ['A', 'B'];
+  for (let i = 0; i < macroIds.length; i++) {
+    const mid = macroIds[i];
+    const northSouth = await loadMetMacroSegments(mid, 'south'); // norte a sur
+    const southNorth = await loadMetMacroSegments(mid, 'north'); // sur a norte
+
+    if (northSouth || southNorth) {
+      state.systems.met.macros[mid] = {};
+      if (northSouth) state.systems.met.macros[mid].north_south = northSouth;
+      if (southNorth) state.systems.met.macros[mid].south_north = southNorth;
+    }
+  }
+
+  const macroKeys = Object.keys(state.systems.met.macros);
+  console.log('[Met macro] Macros disponibles:', macroKeys.join(', ') || '(ninguna)');
+}
+
+/* ===========================
+   Init principal
+   =========================== */
+
 async function init(){
   initMap();
 
@@ -55,10 +108,13 @@ async function init(){
   }));
   state.systems.met.services = filterByCatalogFor('met', metAll, state.catalog);
 
+  // Macrorutas Metropolitano (trayectos-macro: A/B + north/south)
+  await loadMetMacros();
+
   // Alimentadores
   try {
     const alim = await fetchJSON(`${PATHS.met}/alimentadores.json`);
-    if (alim?.type === 'FeatureCollection') {
+    if (alim && alim.type === 'FeatureCollection') {
       const parsed = buildAlimFromFC(alim);
       state.systems.alim.stops    = parsed.stops;
       state.systems.alim.services = filterByCatalogFor('alim', parsed.services, state.catalog);
@@ -76,17 +132,18 @@ async function init(){
     let services = [];
     let infoLog  = '';
 
-    if (corrRaw?.type === 'FeatureCollection') {
+    if (corrRaw && corrRaw.type === 'FeatureCollection') {
       const parsed = buildCorredoresFromFC(corrRaw);
       state.systems.corr.stops = parsed.stops;
       services                 = parsed.services;
-      infoLog = `[Corredores] Rutas creadas: ${services.length} | Features sin ref: ${parsed.noRef}`;
-    } else if (Array.isArray(corrRaw?.services)) {
+      infoLog = '[Corredores] Rutas creadas: ' + services.length +
+                ' | Features sin ref: ' + parsed.noRef;
+    } else if (corrRaw && Array.isArray(corrRaw.services)) {
       services = corrRaw.services;
       state.systems.corr.stops = corrRaw.stops ? stopsArrayToMap(corrRaw.stops) : new Map();
-      infoLog = `[Corredores] Rutas (obj): ${services.length}`;
+      infoLog = '[Corredores] Rutas (obj): ' + services.length;
     } else {
-      console.warn('[Corredores] Formato no reconocido:', corrRaw?.type ?? typeof corrRaw);
+      console.warn('[Corredores] Formato no reconocido:', corrRaw ? corrRaw.type : typeof corrRaw);
       state.systems.corr.stops = new Map();
       services = [];
     }
@@ -112,8 +169,8 @@ async function init(){
         parsed = buildMetroFromJSON(metroGeo);
         source = 'metro.geojson';
       }
-    } catch (e) {
-      console.warn('[Metro] No se pudo leer metro.geojson:', e.message);
+    } catch (e1) {
+      console.warn('[Metro] No se pudo leer metro.geojson:', e1.message);
     }
 
     // 2) Si no hay GeoJSON o vino vacío, caer al JSON “viejo”
@@ -126,19 +183,20 @@ async function init(){
     state.systems.metro.stops    = parsed.stops;
     state.systems.metro.services = filterByCatalogFor('metro', parsed.services, state.catalog);
 
-    console.log(
-      '[Metro] Fuente:',
-      source,
-      '| Líneas detectadas:',
-      state.systems.metro.services.map(s => s.id).join(', ') || '-'
-    );
+    const metroIds = state.systems.metro.services.map(s => s.id);
+    console.log('[Metro] Fuente:', source, '| Líneas detectadas:', metroIds.join(', ') || '-');
   } catch (e) {
     console.warn('Metro no disponible:', e.message);
   }
 
-  // Wikiroutes: 1244
+  // Wikiroutes: 1244 (usa PATHS.wr/prueba)
   state.systems.wr.routes = [
-    { id: '1244', name: 'Ruta 1244 (Wikiroutes)', color: '#00008C', folder: `${PATHS.wr}/prueba` }
+    {
+      id: '1244',
+      name: 'Ruta 1244 (Wikiroutes)',
+      color: '#00008C',
+      folder: `${PATHS.wr}/prueba`
+    }
   ];
   try {
     await buildWikiroutesLayer('1244', `${PATHS.wr}/prueba`, { color: '#00008C' });
@@ -148,6 +206,13 @@ async function init(){
 
   // Construir UI
   buildUI();
+
+  // Auto-activar y centrar 1244 si existe en la lista
+  const wrLeaf = document.querySelector('#p-wr .item input[type="checkbox"][data-id="1244"]');
+  if (wrLeaf && !wrLeaf.checked) {
+    wrLeaf.checked = true;
+    wrLeaf.dispatchEvent(new Event('change', { bubbles: true }));
+  }
 }
 
 function buildUI(){
@@ -188,10 +253,21 @@ function buildUI(){
   wireHierarchy();
 
   // Base clara/oscura
-  $('#btnLight')?.addEventListener('click', () => setBase('light'));
-  $('#btnDark') ?.addEventListener('click', () => setBase('dark'));
+  const btnLight = $('#btnLight');
+  const btnDark  = $('#btnDark');
 
-  // Dirección
+  if (btnLight) {
+    btnLight.addEventListener('click', function () {
+      setBase('light');
+    });
+  }
+  if (btnDark) {
+    btnDark.addEventListener('click', function () {
+      setBase('dark');
+    });
+  }
+
+  // Dirección (expresos Metropolitano)
   $$('input[name="dir"]').forEach(r => {
     r.addEventListener('change', () => {
       if (r.checked) {
@@ -221,42 +297,43 @@ function buildUI(){
   }
 
   // Desmarcar todo
-  $('#btnClearAll')?.addEventListener('click', () => {
-    bulk(() => {
-      // Met
-      setLevel2Checked('met',  state.systems.met.ui.chkReg, false, { silentFit: true });
-      setLevel2Checked('met',  state.systems.met.ui.chkExp, false, { silentFit: true });
-      state.systems.met.ui.chkAll.checked = false;
-      // Alim
-      setLevel2Checked('alim', state.systems.alim.ui.chkN,  false, { silentFit: true });
-      setLevel2Checked('alim', state.systems.alim.ui.chkS,  false, { silentFit: true });
-      state.systems.alim.ui.chkAll.checked = false;
-      // Corr
-      if (state.systems.corr.ui.chkAll){
-        state.systems.corr.ui.chkAll.checked = false;
-        onLevel1ChangeCorr();
-      }
-      // Metro
-      if (state.systems.metro.ui.chkAll){
-        state.systems.metro.ui.chkAll.checked = false;
-        onLevel1ChangeMetro();
-      }
-      // Wikiroutes
-      if (state.systems.wr.ui.chkAll){
-        state.systems.wr.ui.chkAll.checked = false;
-        onLevel1ChangeWr();
-      }
+  const btnClearAll = $('#btnClearAll');
+  if (btnClearAll){
+    btnClearAll.addEventListener('click', () => {
+      bulk(() => {
+        // Met
+        setLevel2Checked('met',  state.systems.met.ui.chkReg, false, { silentFit: true });
+        setLevel2Checked('met',  state.systems.met.ui.chkExp, false, { silentFit: true });
+        state.systems.met.ui.chkAll.checked = false;
+        // Alim
+        setLevel2Checked('alim', state.systems.alim.ui.chkN,  false, { silentFit: true });
+        setLevel2Checked('alim', state.systems.alim.ui.chkS,  false, { silentFit: true });
+        state.systems.alim.ui.chkAll.checked = false;
+        // Corr
+        if (state.systems.corr.ui.chkAll){
+          state.systems.corr.ui.chkAll.checked = false;
+          onLevel1ChangeCorr();
+        }
+        // Metro
+        if (state.systems.metro.ui.chkAll){
+          state.systems.metro.ui.chkAll.checked = false;
+          onLevel1ChangeMetro();
+        }
+        // Wikiroutes
+        if (state.systems.wr.ui.chkAll){
+          state.systems.wr.ui.chkAll.checked = false;
+          onLevel1ChangeWr();
+        }
+      });
+      syncAllTri();
     });
-    syncAllTri();
-  });
-
-  // Buscar (desactivado mientras no se use search.js)
-  // setupTypeahead();
+  }
 
   // Pestañas desplegables
   wirePanelTogglesOnce();
 
-  $('#status') && ($('#status').textContent = 'Listo');
+  const statusEl = $('#status');
+  if (statusEl) statusEl.textContent = 'Listo';
 }
 
 // Lanzar
