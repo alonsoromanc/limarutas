@@ -213,54 +213,105 @@ export function buildMetroFromJSON(json){
 
   const pushStop = (lineId, st, idx) => {
     const id = `metro:${lineId}:${idx}`;
-    stops.set(id, { id, name: st.name || st.label || `Estación ${idx+1}`, lat: st.lat, lon: st.lon });
+    stops.set(id, {
+      id,
+      name: st.name || st.label || `Estación ${idx + 1}`,
+      lat: st.lat,
+      lon: st.lon
+    });
     return id;
   };
 
-  const pushLine = (LID, name, color, segments, stationObjs=[]) => {
+  const pushLine = (LID, name, color, segments, stationObjs = []) => {
     const id = String(LID).toUpperCase();
-    const svc = { id, name: name || `Línea ${id}`, color: color || '#0ea5e9', segments: [], stops: [] };
-    (segments||[]).forEach(seg=>{
+    const svc = {
+      id,
+      name: name || `Línea ${id}`,
+      color: color || '#0ea5e9',
+      segments: [],
+      stops: []
+    };
+
+    // Geometría de la vía (si viene en el JSON)
+    (segments || []).forEach(seg => {
       if (!seg) return;
       if (Array.isArray(seg[0]) && typeof seg[0][0] === 'number') {
         const latlngSeg = seg.map(asLatLng);
         svc.segments.push(latlngSeg);
       }
     });
-    (stationObjs||[]).forEach((st,i)=>{
-      if (typeof st?.lat === 'number' && typeof st?.lon === 'number'){
+
+    // Estaciones
+    (stationObjs || []).forEach((st, i) => {
+      if (typeof st?.lat === 'number' && typeof st?.lon === 'number') {
         svc.stops.push(pushStop(id, st, i));
       }
     });
+
     lines.push(svc);
   };
 
   if (json?.type === 'FeatureCollection') {
     const byId = new Map();
-    for (const f of (json.features||[])){
+
+    for (const f of (json.features || [])) {
       const g = f.geometry || {};
       const p = f.properties || {};
-      const ref = (p.ref || p.line || p.id || p.codigo || p.code || '').toString().toUpperCase();
+      const ref = (p.ref || p.line || p.id || p.codigo || p.code || '')
+        .toString()
+        .toUpperCase();
       if (!ref) continue;
-      if (!byId.has(ref)) byId.set(ref, { name: p.name || p.label || `Línea ${ref}`, color: p.stroke || p.color || '#0ea5e9', segments: [], stations: [] });
+
+      if (!byId.has(ref)) {
+        byId.set(ref, {
+          name: p.name || p.label || `Línea ${ref}`,
+          color: p.stroke || p.color || '#0ea5e9',
+          segments: [],
+          stations: []
+        });
+      }
+
+      const acc = byId.get(ref);
 
       if (g.type === 'LineString' || g.type === 'MultiLineString') {
-        toSegments(g).forEach(seg => byId.get(ref).segments.push(seg));
+        toSegments(g).forEach(seg => acc.segments.push(seg));
       } else if (g.type === 'Point') {
-        const [lat,lon] = asLatLng(g.coordinates || []);
-        byId.get(ref).stations.push({ name: p.name || p.label, lat, lon });
+        const [lat, lon] = asLatLng(g.coordinates || []);
+        acc.stations.push({ name: p.name || p.label, lat, lon });
       }
     }
-    for (const [id, v] of byId.entries()) pushLine(id, v.name, v.color, v.segments, v.stations);
+
+    for (const [id, v] of byId.entries()) {
+      pushLine(id, v.name, v.color, v.segments, v.stations);
+    }
+
   } else if (Array.isArray(json?.lines)) {
-    for (const L of json.lines){
-      const segs = Array.isArray(L.track?.[0]?.[0]) ? L.track : (Array.isArray(L.track) ? [L.track] : []);
+    // Formato tipo { lines: [ { id, name, color, track, stations } ] }
+    for (const L of json.lines) {
+      const segs = Array.isArray(L.track?.[0]?.[0])
+        ? L.track
+        : (Array.isArray(L.track) ? [L.track] : []);
       pushLine(L.id, L.name, L.color, segs, L.stations);
+    }
+  }
+
+  // Fallback: si una línea no tiene segments, dibujarla uniendo estaciones en orden
+  for (const svc of lines) {
+    if (!Array.isArray(svc.segments) || svc.segments.length === 0) {
+      const pts = (svc.stops || [])
+        .map(id => stops.get(id))
+        .filter(st => st && Number.isFinite(st.lat) && Number.isFinite(st.lon))
+        .map(st => [st.lat, st.lon]);
+
+      if (pts.length >= 2) {
+        svc.segments.push(pts);
+      }
     }
   }
 
   return { services: lines, stops };
 }
+
 
 // Wikiroutes helpers
 function inspectFirstCoord(geojson) {

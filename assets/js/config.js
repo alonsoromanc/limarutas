@@ -4,7 +4,7 @@ export const PATHS = {
   met:   'data/processed/metropolitano',
   corr:  'data/processed/corredores',
   metro: 'data/processed/metro',
-  wr:    'data/processed/wikiroutes',
+  wr:    'data/processed/transporte',
   icons: {
     met:   'assets/icons/metropolitano',
     corr:  'assets/icons/corredores',
