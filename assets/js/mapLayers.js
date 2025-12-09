@@ -7,6 +7,16 @@ const LIMA_BOUNDS = L.latLngBounds(
   L.latLng(-11.70, -76.70)
 );
 
+// Caja "grande" aproximada al cuadro rojo de tu captura
+const MAX_BOUNDS = L.latLngBounds(
+  L.latLng(-12.58, -77.55), // sur, algo más a la izquierda
+  L.latLng(-11.65, -76.50)  // norte, algo más a la derecha
+);
+
+// Switch para mostrar/ocultar el rectángulo de debug
+const SHOW_BOUNDS_RECT = false;
+let maxBoundsRect = null;
+
 export function initMap(){
   const map = L.map('map', { minZoom:10, maxZoom:19, zoomControl:false });
 
@@ -20,8 +30,22 @@ export function initMap(){
     { attribution: '&copy; OpenStreetMap & CARTO' }
   );
 
+  // Encadre inicial sobre Lima
   map.fitBounds(LIMA_BOUNDS);
-  map.setMaxBounds(LIMA_BOUNDS.pad(0.02));
+
+  // Límites de arrastre aproximados al cuadro rojo
+  map.setMaxBounds(MAX_BOUNDS);
+
+  // Placeholder opcional para ver la caja en el mapa
+  if (SHOW_BOUNDS_RECT) {
+    maxBoundsRect = L.rectangle(MAX_BOUNDS, {
+      color: '#22c55e',
+      weight: 1,
+      fill: false,
+      dashArray: '4 4'
+    }).addTo(map);
+  }
+
   L.control.zoom({ position:'bottomright' }).addTo(map);
 
   state.map = map;
@@ -71,7 +95,7 @@ export function renderService(systemId, id, opts={}){
 
   const drawSegments = (segments, color) => {
     (segments||[]).forEach(seg => {
-      if (!Array.isArray(seg) || seg.length<2) return;
+      if (!Array.isArray(seg) || seg.length < 2) return;
       const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
       bounds = bounds ? bounds.extend(poly.getBounds()) : poly.getBounds();
     });
@@ -87,7 +111,7 @@ export function renderService(systemId, id, opts={}){
 
   const routeDir = getDirFor(systemId, id);
 
-  if (systemId==='alim'){
+  if (systemId === 'alim'){
     if (routeDir === 'ambas'){
       const segs = svc.geom.length
         ? svc.geom
@@ -98,34 +122,71 @@ export function renderService(systemId, id, opts={}){
     } else if (routeDir === 'sur') {
       drawSegments(svc.geom_sur   || svc.geom, svc.color);
     }
-  } else if (systemId==='met' && svc.kind === 'regular'){
+  } else if (systemId === 'met' && svc.kind === 'regular'){
     drawByStops(svc.stops || [], svc.color);
-  } else if (systemId==='met') {
+  } else if (systemId === 'met') {
+    // Expresos / especiales
     if (routeDir === 'ambas'){
-      if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], svc.color);
-      if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], svc.color);
+      if (state.dir === 'ambas' || state.dir === 'ns') {
+        drawByStops(svc.north_south || [], svc.color);
+      }
+      if (state.dir === 'ambas' || state.dir === 'sn') {
+        drawByStops(svc.south_north || [], svc.color);
+      }
     } else if (routeDir === 'norte'){
+      // Norte = sentido Sur → Norte
       drawByStops(svc.south_north || [], svc.color);
     } else if (routeDir === 'sur'){
+      // Sur   = sentido Norte → Sur
       drawByStops(svc.north_south || [], svc.color);
     }
-  } else if (systemId==='corr'){
+  } else if (systemId === 'corr'){
     if (svc.segments?.length) drawSegments(svc.segments, svc.color);
     else if (svc.stops?.length) drawByStops(svc.stops, svc.color);
-  } else if (systemId==='metro'){
+  } else if (systemId === 'metro'){
     drawSegments(svc.segments || [], svc.color);
   }
 
-  if (state.showStops && Array.isArray(svc.stops)){
+  // Paraderos
+  let stopsToUse = [];
+
+  if (Array.isArray(svc.stops) && svc.stops.length){
+    // Caso general: servicios con lista de paraderos
+    stopsToUse = svc.stops;
+  } else if (systemId === 'met') {
+    // Metropolitano expresos: usar north_south / south_north según dir
+    const ns = Array.isArray(svc.north_south) ? svc.north_south : [];
+    const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
+
+    if (routeDir === 'ambas'){
+      if (state.dir === 'ambas'){
+        stopsToUse = [...ns, ...sn];
+      } else if (state.dir === 'ns'){
+        stopsToUse = ns;
+      } else if (state.dir === 'sn'){
+        stopsToUse = sn;
+      }
+    } else if (routeDir === 'norte'){
+      // Norte = Sur → Norte
+      stopsToUse = sn;
+    } else if (routeDir === 'sur'){
+      // Sur = Norte → Sur
+      stopsToUse = ns;
+    }
+  }
+
+  if (state.showStops && Array.isArray(stopsToUse) && stopsToUse.length){
     const used = new Set();
-    svc.stops.forEach(st => {
+    stopsToUse.forEach(st => {
       if (used.has(st)) return;
       used.add(st);
       const ll = getStopLatLng(sys, st);
       if (!ll) return;
-      const marker = L.marker(ll, { icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] }) }).addTo(gStop);
+      const marker = L.marker(ll, {
+        icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] })
+      }).addTo(gStop);
       const nm = sys.stops.get(st)?.name || st;
-      marker.bindTooltip(nm, {permanent:false, direction:'top'});
+      marker.bindTooltip(nm, { permanent:false, direction:'top' });
     });
   }
 

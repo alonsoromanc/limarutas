@@ -479,9 +479,10 @@ body {
 .stop-pin {
   width: 16px;
   height: 16px;
-  border-radius: 999px;
-  background: #f97316;
-  border: 2px solid #111827;
+  background: radial-gradient(circle at 50% 35%, #ffffff 0 28%, #d22 29% 30%, #f44 31% 100%);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  border: 1px solid #b00;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
 }
 
 /* Scrollbar ligera */
