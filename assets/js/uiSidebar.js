@@ -103,7 +103,7 @@ function makeServiceItemCorr(svc){
   const left = el('div',{class:'left'},
     tag,
     el('div',{},
-      el('div',{class:'name'}, `Expreso ${svc.id}`),
+      el('div',{class:'name'}, `Servicio ${svc.id}`),
       el('div',{class:'sub'}, svc.name || '')
     )
   );
@@ -163,7 +163,7 @@ function makeWrItem(rt){
   const left = el('div',{class:'left'},
     tag,
     el('div',{},
-      el('div',{class:'name'}, `Transporte publico ${rt.id}`),
+      el('div',{class:'name'}, `Wikiroutes ${rt.id}`),
       el('div',{class:'sub'}, rt.name || '')
     )
   );

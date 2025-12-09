@@ -18,13 +18,13 @@
       crossorigin=""
     ></script>
 
-    <!-- Ajusta esta ruta si tu CSS está en otra carpeta -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
   <body>
     <div id="app">
-      <!-- TOP: barra de búsqueda flotante -->
+      <!-- TOPBAR -->
       <div id="topbar">
         <div class="search">
           <span class="loupe">🔍</span>
@@ -34,7 +34,7 @@
         <button id="btnClearSearch" class="btn">Limpiar búsqueda</button>
       </div>
 
-      <!-- SIDEBAR flotante -->
+      <!-- SIDEBAR -->
       <aside id="sidebar">
         <div class="header">
           <h1>Mapa de Rutas de Lima y Callao</h1>
@@ -127,7 +127,7 @@
             <div id="p-metro" class="panel-body list" aria-label="Metro"></div>
           </section>
 
-          <!-- Transporte público -->
+          <!-- Transporte público (Wikiroutes) -->
           <section class="panel">
             <button class="panel-head" data-target="p-wr" aria-expanded="false">
               <span class="chev">▸</span>
@@ -180,17 +180,7 @@
       <main id="map"></main>
     </div>
 
-    <!-- JS principal del mapa (ES modules).
-         Entrada: assets/js/app.js
-         Módulos que importa internamente:
-           assets/js/app.state.js
-           assets/js/app.data.js
-           assets/js/app.ui-lists.js
-           assets/js/app.hierarchy.js
-           assets/js/app.render.js
-           assets/js/app.search.js
-           assets/js/app.init.js
-    -->
+    <!-- Entrada principal -->
     <script src="assets/js/app.js" type="module"></script>
   </body>
 </html>

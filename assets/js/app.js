@@ -28,7 +28,6 @@ import {
   onLevel1ChangeWr,
   syncAllTri
 } from './uiSidebar.js';
-// import { setupTypeahead } from './search.js';
 import { wirePanelTogglesOnce } from './panels.js';
 
 /* ===========================
@@ -52,7 +51,7 @@ async function loadMetMacroSegments(macroId, suffix){
       if (seg.length >= 2) segments.push(seg);
     });
     if (!segments.length) return null;
-    console.log('[Met macro]', macroId + '-' + suffix + ':', segments.length, 'segmentos');
+    console.log('[Met macro]', `${macroId}-${suffix}:`, segments.length, 'segmentos');
     return segments;
   } catch (e) {
     console.warn('[Met macro] No se pudo cargar', path, e.message);
@@ -64,20 +63,16 @@ async function loadMetMacros(){
   state.systems.met.macros = {};
 
   const macroIds = ['A', 'B'];
-  for (let i = 0; i < macroIds.length; i++) {
-    const mid = macroIds[i];
+  for (const mid of macroIds) {
     const northSouth = await loadMetMacroSegments(mid, 'south'); // norte a sur
     const southNorth = await loadMetMacroSegments(mid, 'north'); // sur a norte
-
     if (northSouth || southNorth) {
       state.systems.met.macros[mid] = {};
       if (northSouth) state.systems.met.macros[mid].north_south = northSouth;
       if (southNorth) state.systems.met.macros[mid].south_north = southNorth;
     }
   }
-
-  const macroKeys = Object.keys(state.systems.met.macros);
-  console.log('[Met macro] Macros disponibles:', macroKeys.join(', ') || '(ninguna)');
+  console.log('[Met macro] Macros disponibles:', Object.keys(state.systems.met.macros).join(', ') || '(ninguna)');
 }
 
 /* ===========================
@@ -108,7 +103,7 @@ async function init(){
   }));
   state.systems.met.services = filterByCatalogFor('met', metAll, state.catalog);
 
-  // Macrorutas Metropolitano (trayectos-macro: A/B + north/south)
+  // Macrorutas Metropolitano
   await loadMetMacros();
 
   // Alimentadores
@@ -162,7 +157,6 @@ async function init(){
     let parsed = null;
     let source = '';
 
-    // 1) Intentar primero con el GeoJSON (tiene el trazado)
     try {
       const metroGeo = await fetchJSON(`${PATHS.metro}/metro.geojson`);
       if (metroGeo && metroGeo.type === 'FeatureCollection') {
@@ -173,7 +167,6 @@ async function init(){
       console.warn('[Metro] No se pudo leer metro.geojson:', e1.message);
     }
 
-    // 2) Si no hay GeoJSON o vino vacío, caer al JSON “viejo”
     if (!parsed) {
       const metroRaw = await fetchJSON(`${PATHS.metro}/metro.json`);
       parsed = buildMetroFromJSON(metroRaw);
@@ -189,26 +182,39 @@ async function init(){
     console.warn('Metro no disponible:', e.message);
   }
 
-  // Wikiroutes: 1244 (usa PATHS.wr/prueba)
-  state.systems.wr.routes = [
-    {
-      id: '1244',
-      name: 'Ruta 1244 (Wikiroutes)',
-      color: '#00008C',
-      folder: `${PATHS.wr}/prueba`
-    }
-  ];
+  /* ===========================
+     Wikiroutes (desde data/processed/transporte/route_154193)
+     =========================== */
   try {
-    await buildWikiroutesLayer('1244', `${PATHS.wr}/prueba`, { color: '#00008C' });
+    const wrFolder = `${PATHS.wr}/route_154193`;
+
+    // Lee meta si existe para nombrar bien el item
+    const meta = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
+    const rid  = String(meta?.route_id || '154193');
+    const rname =
+      meta?.name ||
+      (meta?.ref ? `Ruta ${meta.ref}` : `Ruta ${rid}`) +
+      (meta?.city ? ` (${meta.city})` : '');
+
+    state.systems.wr.routes = [{
+      id: rid,
+      name: rname || `Ruta ${rid} (Wikiroutes)`,
+      color: '#00008C',
+      folder: wrFolder
+    }];
+
+    await buildWikiroutesLayer(rid, wrFolder, { color: '#00008C' });
+    console.log('[WR] Cargada', rid, 'desde', wrFolder);
   } catch (e) {
-    console.warn('Wikiroutes no disponible:', e.message);
+    console.warn('[WR] No se pudo construir la capa:', e.message);
+    state.systems.wr.routes = [];
   }
 
   // Construir UI
   buildUI();
 
-  // Auto-activar y centrar 1244 si existe en la lista
-  const wrLeaf = document.querySelector('#p-wr .item input[type="checkbox"][data-id="1244"]');
+  // Auto-activar la WR si existe
+  const wrLeaf = document.querySelector('#p-wr .item input[type="checkbox"]');
   if (wrLeaf && !wrLeaf.checked) {
     wrLeaf.checked = true;
     wrLeaf.dispatchEvent(new Event('change', { bubbles: true }));
@@ -255,17 +261,8 @@ function buildUI(){
   // Base clara/oscura
   const btnLight = $('#btnLight');
   const btnDark  = $('#btnDark');
-
-  if (btnLight) {
-    btnLight.addEventListener('click', function () {
-      setBase('light');
-    });
-  }
-  if (btnDark) {
-    btnDark.addEventListener('click', function () {
-      setBase('dark');
-    });
-  }
+  btnLight && btnLight.addEventListener('click', () => setBase('light'));
+  btnDark  && btnDark .addEventListener('click', () => setBase('dark'));
 
   // Dirección (expresos Metropolitano)
   $$('input[name="dir"]').forEach(r => {

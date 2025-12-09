@@ -3,20 +3,20 @@ import { state, getDirFor } from './config.js';
 import { $$, uniqueOrder } from './utils.js';
 
 const MIN_ZOOM = 10;
-const MAX_ZOOM = 18;
+const MAX_ZOOM = 19;
 
 const LIMA_BOUNDS = L.latLngBounds(
   L.latLng(-12.55, -77.25),
   L.latLng(-11.70, -76.70)
 );
 
-// Caja "grande" aproximada al cuadro rojo de tu captura
+// Caja amplia para limitar el arrastre
 const MAX_BOUNDS = L.latLngBounds(
-  L.latLng(-12.58, -77.55), // sur, algo más a la izquierda
-  L.latLng(-11.65, -76.50)  // norte, algo más a la derecha
+  L.latLng(-12.58, -77.55),
+  L.latLng(-11.65, -76.50)
 );
 
-// Switch para mostrar/ocultar el rectángulo de debug
+// Mostrar rectángulo de debug si lo necesitas
 const SHOW_BOUNDS_RECT = false;
 let maxBoundsRect = null;
 
@@ -29,27 +29,17 @@ export function initMap(){
 
   const light = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution: '&copy; OpenStreetMap & CARTO',
-      maxZoom: MAX_ZOOM
-    }
+    { attribution: '&copy; OpenStreetMap & CARTO', maxZoom: MAX_ZOOM }
   ).addTo(map);
 
   const dark = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    {
-      attribution: '&copy; OpenStreetMap & CARTO',
-      maxZoom: MAX_ZOOM
-    }
+    { attribution: '&copy; OpenStreetMap & CARTO', maxZoom: MAX_ZOOM }
   );
 
-  // Encadre inicial sobre Lima
   map.fitBounds(LIMA_BOUNDS);
-
-  // Límites de arrastre aproximados al cuadro rojo
   map.setMaxBounds(MAX_BOUNDS);
 
-  // Placeholder opcional para ver la caja en el mapa
   if (SHOW_BOUNDS_RECT) {
     maxBoundsRect = L.rectangle(MAX_BOUNDS, {
       color: '#22c55e',
@@ -98,14 +88,14 @@ export function fitTo(bounds){
    =========================== */
 
 // A y C siguen macro A; expresos macro B salvo el 10, que sigue macro A.
-// El resto de regulares, macro B por defecto.
+// Regulares: macro B por defecto.
 function getMetMacroId(svc){
   const id   = String(svc.id).toUpperCase();
   const name = (svc.name || '').toUpperCase();
 
   if (id === 'A' || id === 'C') return 'A';
 
-  if (svc.kind === 'expreso') {
+  if (svc.kind === 'expreso' || svc.kind === 'expreso corto' || svc.kind === 'expreso largo') {
     if (id === '10' || name.includes(' 10') || name.startsWith('10 ') || name.endsWith(' 10')) {
       return 'A';
     }
@@ -115,31 +105,28 @@ function getMetMacroId(svc){
   return 'B';
 }
 
-// Devuelve la secuencia de paraderos que usa el servicio en un sentido:
-// dirKey = 'sur' (norte -> sur) o 'norte' (sur -> norte).
+// Devuelve la secuencia de paraderos usada por sentido
+// dirKey: 'sur' (norte→sur) o 'norte' (sur→norte)
 function getMetStopsForDir(svc, dirKey){
   const kind = svc.kind;
 
-  // Expresos: tienen north_south (norte->sur) y south_north (sur->norte)
+  // Expresos con north_south (N→S) y south_north (S→N)
   if (kind === 'expreso' || kind === 'expreso corto' || kind === 'expreso largo') {
     const ns = Array.isArray(svc.north_south) ? svc.north_south : [];
     const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
 
     if (dirKey === 'sur')   return ns;
     if (dirKey === 'norte') return sn;
-
     return ns.concat(sn);
   }
 
-  // Regulares: stops completa (sirve para ambos sentidos, extremos iguales)
-  if (Array.isArray(svc.stops) && svc.stops.length) {
-    return svc.stops;
-  }
+  // Regulares: stops completa
+  if (Array.isArray(svc.stops) && svc.stops.length) return svc.stops;
 
   return [];
 }
 
-// Recorta la macrorruta a solo el tramo entre primer y último paradero de stopsIds.
+// Recorta la macrorruta al tramo entre primer y último paradero del servicio
 function cutMacroSegmentsToStops(segments, svc, dirKey){
   if (!segments || !segments.length) return segments;
 
@@ -150,7 +137,6 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
   const stopsMap = sysMet.stops;
   const startStop = stopsMap.get(stopIds[0]);
   const endStop   = stopsMap.get(stopIds[stopIds.length - 1]);
-
   if (!startStop || !endStop) return segments;
 
   const start = [startStop.lat, startStop.lon];
@@ -163,52 +149,38 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
       flat.push(seg[i]); // [lat, lon]
     }
   }
-
   if (flat.length < 2) return segments;
 
-  function dist2(a, b){
+  const dist2 = (a, b) => {
     const dx = a[0] - b[0];
     const dy = a[1] - b[1];
     return dx*dx + dy*dy;
-  }
+  };
 
-  let iStart = 0;
-  let dStart = Infinity;
-  let iEnd   = 0;
-  let dEnd   = Infinity;
+  let iStart = 0, dStart = Infinity;
+  let iEnd   = 0, dEnd   = Infinity;
 
   for (let i = 0; i < flat.length; i++){
     const p = flat[i];
     const ds = dist2(p, start);
-    if (ds < dStart){
-      dStart = ds;
-      iStart = i;
-    }
+    if (ds < dStart){ dStart = ds; iStart = i; }
     const de = dist2(p, end);
-    if (de < dEnd){
-      dEnd = de;
-      iEnd = i;
-    }
+    if (de < dEnd){ dEnd = de; iEnd = i; }
   }
 
-  if (iStart > iEnd){
-    const tmp = iStart;
-    iStart = iEnd;
-    iEnd = tmp;
-  }
+  if (iStart > iEnd) { const t = iStart; iStart = iEnd; iEnd = t; }
 
   const slice = flat.slice(iStart, iEnd + 1);
   if (slice.length < 2) return segments;
 
-  // Devolvemos una sola polyline con ese tramo
   return [slice];
 }
 
 /**
- * Dibuja la macroruta para un servicio del Metropolitano.
+ * Dibuja la macrorruta recortada a paraderos del servicio.
  * Usa:
- *   macros[macroId].north_south -> norte -> sur
- *   macros[macroId].south_north -> sur -> norte
+ *   macros[macroId].north_south -> norte→sur
+ *   macros[macroId].south_north -> sur→norte
  *
  * routeDir = 'ambas' | 'norte' | 'sur' (por ruta)
  * state.dir = 'ambas' | 'ns' | 'sn' (filtro global)
@@ -305,22 +277,18 @@ export function renderService(systemId, id, opts={}){
     }
 
   } else if (systemId === 'met') {
-    // Intentar primero con macroruta A/B recortada por estaciones
+    // Intentar macroruta A/B recortada
     const prevBounds = bounds;
     bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds);
 
-    // Si no hay macro (o no dibujó nada), fallback al comportamiento previo
+    // Si no dibujó nada, fallback a stops
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
         drawByStops(svc.stops || [], svc.color);
       } else {
         if (routeDir === 'ambas'){
-          if (state.dir === 'ambas' || state.dir === 'ns') {
-            drawByStops(svc.north_south || [], svc.color);
-          }
-          if (state.dir === 'ambas' || state.dir === 'sn') {
-            drawByStops(svc.south_north || [], svc.color);
-          }
+          if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], svc.color);
+          if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], svc.color);
         } else if (routeDir === 'norte'){
           drawByStops(svc.south_north || [], svc.color);
         } else if (routeDir === 'sur'){
@@ -347,13 +315,9 @@ export function renderService(systemId, id, opts={}){
     const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
 
     if (routeDir === 'ambas'){
-      if (state.dir === 'ambas'){
-        stopsToUse = ns.concat(sn);
-      } else if (state.dir === 'ns'){
-        stopsToUse = ns;
-      } else if (state.dir === 'sn'){
-        stopsToUse = sn;
-      }
+      if (state.dir === 'ambas')      stopsToUse = ns.concat(sn);
+      else if (state.dir === 'ns')    stopsToUse = ns;
+      else if (state.dir === 'sn')    stopsToUse = sn;
     } else if (routeDir === 'norte'){
       stopsToUse = sn;
     } else if (routeDir === 'sur'){
@@ -368,9 +332,7 @@ export function renderService(systemId, id, opts={}){
       used.add(st);
       const ll = getStopLatLng(sys, st);
       if (!ll) return;
-      const marker = L.marker(ll, {
-        icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] })
-      }).addTo(gStop);
+      const marker = L.marker(ll, { icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] }) }).addTo(gStop);
       const nm = sys.stops.get(st)?.name || st;
       marker.bindTooltip(nm, { permanent:false, direction:'top' });
     });
@@ -392,7 +354,10 @@ export function onToggleService(systemId, id, checked, opts={}){
   else hideService(systemId, id);
 }
 
-// Wikiroutes
+/* ===========================
+   Wikiroutes (capas ya creadas por parsers.js)
+   =========================== */
+
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
   const g = wr.layers.get(id);
