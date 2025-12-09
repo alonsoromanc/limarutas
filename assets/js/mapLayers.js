@@ -2,6 +2,9 @@
 import { state, getDirFor } from './config.js';
 import { $$, uniqueOrder } from './utils.js';
 
+const MIN_ZOOM = 10;
+const MAX_ZOOM = 18;
+
 const LIMA_BOUNDS = L.latLngBounds(
   L.latLng(-12.55, -77.25),
   L.latLng(-11.70, -76.70)
@@ -18,16 +21,26 @@ const SHOW_BOUNDS_RECT = false;
 let maxBoundsRect = null;
 
 export function initMap(){
-  const map = L.map('map', { minZoom:10, maxZoom:19, zoomControl:false });
+  const map = L.map('map', {
+    minZoom: MIN_ZOOM,
+    maxZoom: MAX_ZOOM,
+    zoomControl: false
+  });
 
   const light = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    { attribution: '&copy; OpenStreetMap & CARTO' }
+    {
+      attribution: '&copy; OpenStreetMap & CARTO',
+      maxZoom: MAX_ZOOM
+    }
   ).addTo(map);
 
   const dark = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    { attribution: '&copy; OpenStreetMap & CARTO' }
+    {
+      attribution: '&copy; OpenStreetMap & CARTO',
+      maxZoom: MAX_ZOOM
+    }
   );
 
   // Encadre inicial sobre Lima
@@ -84,14 +97,14 @@ export function fitTo(bounds){
    Macrorutas Metropolitano A/B
    =========================== */
 
+// A y C siguen macro A; expresos macro B salvo el 10, que sigue macro A.
+// El resto de regulares, macro B por defecto.
 function getMetMacroId(svc){
   const id   = String(svc.id).toUpperCase();
   const name = (svc.name || '').toUpperCase();
 
-  // Regulares: A y C van por macroruta A
   if (id === 'A' || id === 'C') return 'A';
 
-  // Expresos: todos por B salvo el 10 por A
   if (svc.kind === 'expreso') {
     if (id === '10' || name.includes(' 10') || name.startsWith('10 ') || name.endsWith(' 10')) {
       return 'A';
@@ -99,15 +112,103 @@ function getMetMacroId(svc){
     return 'B';
   }
 
-  // Resto de regulares al troncal B por defecto
   return 'B';
+}
+
+// Devuelve la secuencia de paraderos que usa el servicio en un sentido:
+// dirKey = 'sur' (norte -> sur) o 'norte' (sur -> norte).
+function getMetStopsForDir(svc, dirKey){
+  const kind = svc.kind;
+
+  // Expresos: tienen north_south (norte->sur) y south_north (sur->norte)
+  if (kind === 'expreso' || kind === 'expreso corto' || kind === 'expreso largo') {
+    const ns = Array.isArray(svc.north_south) ? svc.north_south : [];
+    const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
+
+    if (dirKey === 'sur')   return ns;
+    if (dirKey === 'norte') return sn;
+
+    return ns.concat(sn);
+  }
+
+  // Regulares: stops completa (sirve para ambos sentidos, extremos iguales)
+  if (Array.isArray(svc.stops) && svc.stops.length) {
+    return svc.stops;
+  }
+
+  return [];
+}
+
+// Recorta la macrorruta a solo el tramo entre primer y último paradero de stopsIds.
+function cutMacroSegmentsToStops(segments, svc, dirKey){
+  if (!segments || !segments.length) return segments;
+
+  const sysMet = state.systems.met;
+  const stopIds = getMetStopsForDir(svc, dirKey);
+  if (!stopIds || stopIds.length === 0) return segments;
+
+  const stopsMap = sysMet.stops;
+  const startStop = stopsMap.get(stopIds[0]);
+  const endStop   = stopsMap.get(stopIds[stopIds.length - 1]);
+
+  if (!startStop || !endStop) return segments;
+
+  const start = [startStop.lat, startStop.lon];
+  const end   = [endStop.lat,   endStop.lon];
+
+  const flat = [];
+  for (let s = 0; s < segments.length; s++){
+    const seg = segments[s];
+    for (let i = 0; i < seg.length; i++){
+      flat.push(seg[i]); // [lat, lon]
+    }
+  }
+
+  if (flat.length < 2) return segments;
+
+  function dist2(a, b){
+    const dx = a[0] - b[0];
+    const dy = a[1] - b[1];
+    return dx*dx + dy*dy;
+  }
+
+  let iStart = 0;
+  let dStart = Infinity;
+  let iEnd   = 0;
+  let dEnd   = Infinity;
+
+  for (let i = 0; i < flat.length; i++){
+    const p = flat[i];
+    const ds = dist2(p, start);
+    if (ds < dStart){
+      dStart = ds;
+      iStart = i;
+    }
+    const de = dist2(p, end);
+    if (de < dEnd){
+      dEnd = de;
+      iEnd = i;
+    }
+  }
+
+  if (iStart > iEnd){
+    const tmp = iStart;
+    iStart = iEnd;
+    iEnd = tmp;
+  }
+
+  const slice = flat.slice(iStart, iEnd + 1);
+  if (slice.length < 2) return segments;
+
+  // Devolvemos una sola polyline con ese tramo
+  return [slice];
 }
 
 /**
  * Dibuja la macroruta para un servicio del Metropolitano.
  * Usa:
- *   macros[macroId].north_south → norte → sur
- *   macros[macroId].south_north → sur → norte
+ *   macros[macroId].north_south -> norte -> sur
+ *   macros[macroId].south_north -> sur -> norte
  *
  * routeDir = 'ambas' | 'norte' | 'sur' (por ruta)
  * state.dir = 'ambas' | 'ns' | 'sn' (filtro global)
@@ -121,6 +222,7 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
   let bounds = boundsIn;
 
   const drawSegmentsDir = (segments) => {
+    if (!segments) return;
     (segments || []).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
       const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
@@ -131,19 +233,23 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
 
   if (routeDir === 'ambas'){
     if (state.dir === 'ambas' || state.dir === 'ns') {
-      // norte → sur
-      drawSegmentsDir(def.north_south);
+      const baseNS = def.north_south || [];
+      const segNS  = cutMacroSegmentsToStops(baseNS, svc, 'sur');
+      drawSegmentsDir(segNS);
     }
     if (state.dir === 'ambas' || state.dir === 'sn') {
-      // sur → norte
-      drawSegmentsDir(def.south_north);
+      const baseSN = def.south_north || [];
+      const segSN  = cutMacroSegmentsToStops(baseSN, svc, 'norte');
+      drawSegmentsDir(segSN);
     }
   } else if (routeDir === 'norte') {
-    // buses que van hacia el norte: sur → norte
-    drawSegmentsDir(def.south_north);
+    const baseSN = def.south_north || [];
+    const segSN  = cutMacroSegmentsToStops(baseSN, svc, 'norte');
+    drawSegmentsDir(segSN);
   } else if (routeDir === 'sur') {
-    // buses que van hacia el sur: norte → sur
-    drawSegmentsDir(def.north_south);
+    const baseNS = def.north_south || [];
+    const segNS  = cutMacroSegmentsToStops(baseNS, svc, 'sur');
+    drawSegmentsDir(segNS);
   }
 
   return bounds;
@@ -199,17 +305,15 @@ export function renderService(systemId, id, opts={}){
     }
 
   } else if (systemId === 'met') {
-    // Intentar primero con macroruta A/B
+    // Intentar primero con macroruta A/B recortada por estaciones
     const prevBounds = bounds;
     bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds);
 
     // Si no hay macro (o no dibujó nada), fallback al comportamiento previo
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
-        // Antes los regulares iban por stops
         drawByStops(svc.stops || [], svc.color);
       } else {
-        // Expresos / especiales por north_south / south_north
         if (routeDir === 'ambas'){
           if (state.dir === 'ambas' || state.dir === 'ns') {
             drawByStops(svc.north_south || [], svc.color);
@@ -218,10 +322,8 @@ export function renderService(systemId, id, opts={}){
             drawByStops(svc.south_north || [], svc.color);
           }
         } else if (routeDir === 'norte'){
-          // Norte = sentido Sur → Norte
           drawByStops(svc.south_north || [], svc.color);
         } else if (routeDir === 'sur'){
-          // Sur   = sentido Norte → Sur
           drawByStops(svc.north_south || [], svc.color);
         }
       }
@@ -239,26 +341,22 @@ export function renderService(systemId, id, opts={}){
   let stopsToUse = [];
 
   if (Array.isArray(svc.stops) && svc.stops.length){
-    // Caso general: servicios con lista de paraderos
     stopsToUse = svc.stops;
   } else if (systemId === 'met') {
-    // Metropolitano expresos: usar north_south / south_north según dir
     const ns = Array.isArray(svc.north_south) ? svc.north_south : [];
     const sn = Array.isArray(svc.south_north) ? svc.south_north : [];
 
     if (routeDir === 'ambas'){
       if (state.dir === 'ambas'){
-        stopsToUse = [...ns, ...sn];
+        stopsToUse = ns.concat(sn);
       } else if (state.dir === 'ns'){
         stopsToUse = ns;
       } else if (state.dir === 'sn'){
         stopsToUse = sn;
       }
     } else if (routeDir === 'norte'){
-      // Norte = Sur → Norte
       stopsToUse = sn;
     } else if (routeDir === 'sur'){
-      // Sur = Norte → Sur
       stopsToUse = ns;
     }
   }
