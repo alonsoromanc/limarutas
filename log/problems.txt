@@ -1,0 +1,5 @@
+Las rutas siguen el trayecto pero no se cortan en las estaciones
+Hacer click en el metro y en los corredores no lo centra como en el metropolitano
+No se muestran las rutas de transporte público en el mapa
+    - El script de Python no generó ninguna ruta
+        - Mejorar el script de Python

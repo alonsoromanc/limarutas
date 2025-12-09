@@ -80,6 +80,79 @@ export function fitTo(bounds){
   });
 }
 
+/* ===========================
+   Macrorutas Metropolitano A/B
+   =========================== */
+
+function getMetMacroId(svc){
+  const id   = String(svc.id).toUpperCase();
+  const name = (svc.name || '').toUpperCase();
+
+  // Regulares: A y C van por macroruta A
+  if (id === 'A' || id === 'C') return 'A';
+
+  // Expresos: todos por B salvo el 10 por A
+  if (svc.kind === 'expreso') {
+    if (id === '10' || name.includes(' 10') || name.startsWith('10 ') || name.endsWith(' 10')) {
+      return 'A';
+    }
+    return 'B';
+  }
+
+  // Resto de regulares al troncal B por defecto
+  return 'B';
+}
+
+/**
+ * Dibuja la macroruta para un servicio del Metropolitano.
+ * Usa:
+ *   macros[macroId].north_south → norte → sur
+ *   macros[macroId].south_north → sur → norte
+ *
+ * routeDir = 'ambas' | 'norte' | 'sur' (por ruta)
+ * state.dir = 'ambas' | 'ns' | 'sn' (filtro global)
+ */
+function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
+  const macros = (state.systems.met && state.systems.met.macros) || {};
+  const macroId = getMetMacroId(svc);
+  const def = macros[macroId];
+  if (!def) return boundsIn;
+
+  let bounds = boundsIn;
+
+  const drawSegmentsDir = (segments) => {
+    (segments || []).forEach(seg => {
+      if (!Array.isArray(seg) || seg.length < 2) return;
+      const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const b = poly.getBounds();
+      bounds = bounds ? bounds.extend(b) : b;
+    });
+  };
+
+  if (routeDir === 'ambas'){
+    if (state.dir === 'ambas' || state.dir === 'ns') {
+      // norte → sur
+      drawSegmentsDir(def.north_south);
+    }
+    if (state.dir === 'ambas' || state.dir === 'sn') {
+      // sur → norte
+      drawSegmentsDir(def.south_north);
+    }
+  } else if (routeDir === 'norte') {
+    // buses que van hacia el norte: sur → norte
+    drawSegmentsDir(def.south_north);
+  } else if (routeDir === 'sur') {
+    // buses que van hacia el sur: norte → sur
+    drawSegmentsDir(def.north_south);
+  }
+
+  return bounds;
+}
+
+/* ===========================
+   Render de servicios
+   =========================== */
+
 export function renderService(systemId, id, opts={}){
   const { silentFit=false } = opts;
   const sys = state.systems[systemId];
@@ -97,7 +170,8 @@ export function renderService(systemId, id, opts={}){
     (segments||[]).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
       const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
-      bounds = bounds ? bounds.extend(poly.getBounds()) : poly.getBounds();
+      const b = poly.getBounds();
+      bounds = bounds ? bounds.extend(b) : b;
     });
   };
 
@@ -105,7 +179,8 @@ export function renderService(systemId, id, opts={}){
     const pts = uniqueOrder(ids.map(st => getStopLatLng(sys, st)).filter(Boolean));
     if (pts.length >= 2){
       const poly = L.polyline(pts, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
-      bounds = bounds ? bounds.extend(poly.getBounds()) : poly.getBounds();
+      const b = poly.getBounds();
+      bounds = bounds ? bounds.extend(b) : b;
     }
   };
 
@@ -122,27 +197,40 @@ export function renderService(systemId, id, opts={}){
     } else if (routeDir === 'sur') {
       drawSegments(svc.geom_sur   || svc.geom, svc.color);
     }
-  } else if (systemId === 'met' && svc.kind === 'regular'){
-    drawByStops(svc.stops || [], svc.color);
+
   } else if (systemId === 'met') {
-    // Expresos / especiales
-    if (routeDir === 'ambas'){
-      if (state.dir === 'ambas' || state.dir === 'ns') {
-        drawByStops(svc.north_south || [], svc.color);
+    // Intentar primero con macroruta A/B
+    const prevBounds = bounds;
+    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds);
+
+    // Si no hay macro (o no dibujó nada), fallback al comportamiento previo
+    if (bounds === prevBounds) {
+      if (svc.kind === 'regular'){
+        // Antes los regulares iban por stops
+        drawByStops(svc.stops || [], svc.color);
+      } else {
+        // Expresos / especiales por north_south / south_north
+        if (routeDir === 'ambas'){
+          if (state.dir === 'ambas' || state.dir === 'ns') {
+            drawByStops(svc.north_south || [], svc.color);
+          }
+          if (state.dir === 'ambas' || state.dir === 'sn') {
+            drawByStops(svc.south_north || [], svc.color);
+          }
+        } else if (routeDir === 'norte'){
+          // Norte = sentido Sur → Norte
+          drawByStops(svc.south_north || [], svc.color);
+        } else if (routeDir === 'sur'){
+          // Sur   = sentido Norte → Sur
+          drawByStops(svc.north_south || [], svc.color);
+        }
       }
-      if (state.dir === 'ambas' || state.dir === 'sn') {
-        drawByStops(svc.south_north || [], svc.color);
-      }
-    } else if (routeDir === 'norte'){
-      // Norte = sentido Sur → Norte
-      drawByStops(svc.south_north || [], svc.color);
-    } else if (routeDir === 'sur'){
-      // Sur   = sentido Norte → Sur
-      drawByStops(svc.north_south || [], svc.color);
     }
+
   } else if (systemId === 'corr'){
     if (svc.segments?.length) drawSegments(svc.segments, svc.color);
     else if (svc.stops?.length) drawByStops(svc.stops, svc.color);
+
   } else if (systemId === 'metro'){
     drawSegments(svc.segments || [], svc.color);
   }
