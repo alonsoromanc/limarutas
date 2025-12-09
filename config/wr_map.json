@@ -1,0 +1,16 @@
+{
+  "routes": {
+    "1244-ida": {
+      "folder": "data/processed/transporte/route_154193",
+      "trip": 1,
+      "color": "#ACCB56",
+      "name": "1244 · Villa Las Palmas → Pan de Azúcar"
+    },
+    "1244-vuelta": {
+      "folder": "data/processed/transporte/route_154193",
+      "trip": 2,
+      "color": "#ACCB56",
+      "name": "1244 · Pan de Azúcar → Villa Las Palmas"
+    }
+  }
+}

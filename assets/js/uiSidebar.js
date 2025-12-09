@@ -12,7 +12,7 @@ export function bulk(fn){
 const labelForSvc = (s) =>
   s.kind==='regular' ? 'Ruta' : (s.kind==='expreso' ? 'Expreso' : 'Servicio');
 
-// Direcciones mini (Norte/Sur/Ambas)
+// Direcciones mini (Norte/Sur/Ambas) para Met/Alim
 function miniDir(systemId, svc){
   if (systemId === 'corr' || systemId === 'metro') return el('div');
   const cur = getDirFor(systemId, svc.id);
@@ -42,7 +42,10 @@ function miniDir(systemId, svc){
   return wrap;
 }
 
-// Items de lista
+/* =========================
+   Items por sistema
+   ========================= */
+
 function makeServiceItemMet(svc){
   const img = el('img',{
     src:`${PATHS.icons.met}/${String(svc.id).toUpperCase()}.png`,
@@ -157,24 +160,78 @@ function makeServiceItemMetro(svc){
   return body;
 }
 
+/* =============== Wikiroutes (ítem combinado Ida/Vuelta) =============== */
+
+function makeWrDirPairControls(chk){
+  // chk.dataset.sel = 'ida' | 'vuelta'
+  const wrap = el('div',{class:'dir-mini'});
+  const mk = (val,label) =>
+    el('button',{class:`segbtn-mini${(chk.dataset.sel||'ida')===val?' active':''}`,'data-dir':val},label);
+  const bIda = mk('ida','Ida');
+  const bVta = mk('vuelta','Vuelta');
+  wrap.append(bIda, bVta);
+
+  wrap.addEventListener('click',(e)=>{
+    const btn = e.target.closest('.segbtn-mini');
+    if (!btn) return;
+    const sel = btn.dataset.dir;
+    if (!sel || sel === chk.dataset.sel) return;
+    chk.dataset.sel = sel;
+    // actualizar UI
+    [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
+    // si está activado el ítem, cambiar capas visibles
+    if (chk.checked){
+      const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
+      if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:true}); setWikiroutesVisible(vta, false); }
+      else            { setWikiroutesVisible(vta, true, {fit:true}); setWikiroutesVisible(ida, false); }
+    }
+  });
+
+  return wrap;
+}
+
 // Item para Wikiroutes
 function makeWrItem(rt){
-  const tag = el('span',{class:'tag', style:`background:${rt.color}`}, String(rt.id).toUpperCase());
+  // rt puede ser "simple" (sin pair) o "combinado" (pair:{ida,vuelta}, defaultDir)
+  const labelId = (rt.pair ? String(rt.id) : String(rt.id)).toUpperCase();
+  const tag = el('span',{class:'tag', style:`background:${rt.color}`}, labelId);
   const left = el('div',{class:'left'},
     tag,
     el('div',{},
-      el('div',{class:'name'}, `Wikiroutes ${rt.id}`),
+      el('div',{class:'name'}, `Wikiroutes ${labelId}`),
       el('div',{class:'sub'}, rt.name || '')
     )
   );
-  const chk  = el('input',{type:'checkbox','data-id':rt.id,'data-system':'wr', checked:false});
+
+  const dataAttrs = rt.pair
+    ? {'data-id':rt.id, 'data-system':'wr', 'data-ida':rt.pair.ida, 'data-vuelta':rt.pair.vuelta, 'data-sel':(rt.defaultDir||'ida')}
+    : {'data-id':rt.id, 'data-system':'wr'};
+
+  const chk  = el('input', Object.assign({type:'checkbox', checked:false}, dataAttrs));
   const head = el('div',{class:'item-head'}, left, chk);
-  const body = el('div',{class:'item'}, head);
+
+  const body = rt.pair
+    ? el('div',{class:'item'}, head, makeWrDirPairControls(chk))
+    : el('div',{class:'item'}, head);
+
   chk.addEventListener('change', () => {
-    if (chk.checked) setWikiroutesVisible(rt.id, true, {fit:true});
-    else setWikiroutesVisible(rt.id, false);
+    if (rt.pair){
+      const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
+      const sel = chk.dataset.sel || 'ida';
+      if (chk.checked){
+        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:true}); setWikiroutesVisible(vta, false); }
+        else            { setWikiroutesVisible(vta, true, {fit:true}); setWikiroutesVisible(ida, false); }
+      } else {
+        setWikiroutesVisible(ida, false);
+        setWikiroutesVisible(vta, false);
+      }
+    } else {
+      if (chk.checked) setWikiroutesVisible(rt.id, true, {fit:true});
+      else setWikiroutesVisible(rt.id, false);
+    }
     syncTriFromLeaf('wr');
   });
+
   return body;
 }
 
@@ -186,7 +243,10 @@ function makeServiceItem(systemId, svc){
   return document.createTextNode('');
 }
 
-// Construcción de listas
+/* =========================
+   Construcción de listas
+   ========================= */
+
 export function fillMetList(){
   const sys = state.systems.met;
   sys.ui.listReg.innerHTML = '';
@@ -293,10 +353,16 @@ export function fillWrList(){
   const list = wr.ui.list;
   if (!list) return;
   list.innerHTML = '';
-  wr.routes.forEach(rt => list.appendChild(makeWrItem(rt)));
+
+  // Preferir la lista agrupada si está disponible
+  const src = Array.isArray(wr.routesUi) && wr.routesUi.length ? wr.routesUi : wr.routes;
+  (src || []).forEach(rt => list.appendChild(makeWrItem(rt)));
 }
 
-// Jerarquía / checks
+/* =========================
+   Jerarquía / checks
+   ========================= */
+
 export function routeCheckboxesOf(systemId, groupChk=null){
   if (systemId==='met'){
     if (groupChk === state.systems.met.ui.chkReg) return $$('#p-met-reg .item input[type=checkbox]');
@@ -331,7 +397,22 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
   leafChk.checked = checked;
   const id = leafChk.dataset.id;
   if (!id) return;
+
   if (systemId === 'wr') {
+    // Ítem combinado Ida/Vuelta
+    const ida = leafChk.dataset.ida, vta = leafChk.dataset.vuelta;
+    if (ida && vta){
+      const sel = leafChk.dataset.sel || 'ida';
+      if (checked){
+        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:!silentFit}); setWikiroutesVisible(vta, false); }
+        else            { setWikiroutesVisible(vta, true, {fit:!silentFit}); setWikiroutesVisible(ida, false); }
+      } else {
+        setWikiroutesVisible(ida, false);
+        setWikiroutesVisible(vta, false);
+      }
+      return;
+    }
+    // Ítem simple
     if (checked) setWikiroutesVisible(id, true, {fit:!silentFit});
     else setWikiroutesVisible(id, false);
   } else {

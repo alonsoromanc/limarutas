@@ -347,7 +347,7 @@ export function onToggleService(systemId, id, checked, opts={}){
 }
 
 /* ===========================
-   Wikiroutes (capas ya creadas por parsers.js)
+   Wikiroutes con viajes (1/2)
    =========================== */
 
 // Añade o quita la subcapa de paradas de WR directamente al mapa
@@ -359,33 +359,85 @@ function syncOneWrStopsVisibility(id){
 
   const routeVisible = g && state.map.hasLayer(g);
   if (routeVisible && state.showStops) {
-    // Mostrar paradas
     if (!state.map.hasLayer(stopSub)) stopSub.addTo(state.map);
   } else {
-    // Ocultar paradas
     if (state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
   }
 }
 
+// Mostrar/ocultar **sub-capa** WR (ID real de capa)
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
-  const g = wr.layers.get(id);
-  if (!g) return;
+  // Si es un sub-ID real, actúa directo
+  if (wr.layers?.has(id)) {
+    const g = wr.layers.get(id);
+    if (!g) return;
 
-  if (visible) {
-    g.addTo(state.map);
-    // sincroniza paradas con el toggle global
-    syncOneWrStopsVisibility(id);
+    if (visible) {
+      g.addTo(state.map);
+      syncOneWrStopsVisibility(id);
+      if (fit && wr.bounds.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
+    } else {
+      state.map.removeLayer(g);
+      const stopSub = wr.stopLayers?.get(id);
+      if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+    }
+    return;
+  }
 
-    if (fit && wr.bounds.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
-  } else {
-    state.map.removeLayer(g);
-    // ocultar también las paradas si estaban visibles
-    const stopSub = wr.stopLayers?.get(id);
-    if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+  // Si no es sub-ID, puede ser un padre (ej: "1244")
+  if (wr.tripIds?.has(id)) {
+    // delega al manejador de hoja padre
+    setWikiroutesVisibleLeaf(id, visible, { fit });
   }
 }
 
+// Devuelve el sub-ID para (parentId, trip)
+function wrSubId(parentId, trip){
+  const m = state.systems.wr.tripIds?.get(parentId);
+  if (!m) return null;
+  return m[trip] || m[String(trip)] || null;
+}
+
+// Muestra/oculta el viaje actualmente seleccionado del ítem padre
+export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
+  const wr = state.systems.wr;
+  if (!wr.tripSelected) wr.tripSelected = new Map();
+  if (!wr.tripIds) wr.tripIds = new Map();
+
+  const sel = wr.tripSelected.get(parentId) || 1;
+  const showId = wrSubId(parentId, sel);
+  const otherId = wrSubId(parentId, sel === 1 ? 2 : 1);
+
+  if (checked) {
+    if (otherId) setWikiroutesVisible(otherId, false);
+    if (showId)  setWikiroutesVisible(showId, true, { fit });
+  } else {
+    if (showId)  setWikiroutesVisible(showId, false);
+    if (otherId) setWikiroutesVisible(otherId, false);
+  }
+}
+
+// Cambia de viaje (IDA/VUELTA) para un ítem padre ya visible
+export function setWikiroutesTrip(parentId, trip, { fit=false } = {}){
+  const wr = state.systems.wr;
+  if (!wr.tripSelected) wr.tripSelected = new Map();
+  wr.tripSelected.set(parentId, trip === 2 ? 2 : 1);
+
+  // Si el checkbox del padre está ON, intercambia subcapas
+  const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${parentId}"]`);
+  const isOn = !!leaf?.checked;
+
+  const onId  = wrSubId(parentId, trip);
+  const offId = wrSubId(parentId, trip === 1 ? 2 : 1);
+
+  if (isOn) {
+    if (offId) setWikiroutesVisible(offId, false);
+    if (onId)  setWikiroutesVisible(onId, true, { fit });
+  }
+}
+
+// Re-render de lo visible
 export function reRenderVisibleSystem(sysId){
   const sel =
     sysId==='met'   ? '#p-met-reg .item input[type=checkbox], #p-met-exp .item input[type=checkbox]' :
@@ -396,15 +448,14 @@ export function reRenderVisibleSystem(sysId){
 
   $$(sel).forEach(chk=>{
     if (sysId==='wr'){
-      if (chk.checked) setWikiroutesVisible(chk.dataset.id, true, {fit:true});
-      else setWikiroutesVisible(chk.dataset.id, false);
+      setWikiroutesVisibleLeaf(chk.dataset.id, chk.checked, { fit:true });
     } else {
       if (chk.checked) onToggleService(sysId, chk.dataset.id, true, {silentFit:true});
       else hideService(sysId, chk.dataset.id);
     }
   });
 
-  // Si se trata de WR, después de re-renderizar, vuelve a sincronizar paradas
+  // En WR, vuelve a sincronizar paradas de todas las subcapas
   if (sysId==='wr'){
     const wr = state.systems.wr;
     wr.layers?.forEach((_layer, id) => syncOneWrStopsVisibility(id));
