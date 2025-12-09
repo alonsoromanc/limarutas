@@ -102,17 +102,40 @@ async function init(){
 
   // Metro
   try {
-    const metroRaw = await fetchJSON(`${PATHS.metro}/metro.json`);
-    const parsed   = buildMetroFromJSON(metroRaw);
+    let parsed = null;
+    let source = '';
+
+    // 1) Intentar primero con el GeoJSON (tiene el trazado)
+    try {
+      const metroGeo = await fetchJSON(`${PATHS.metro}/metro.geojson`);
+      if (metroGeo && metroGeo.type === 'FeatureCollection') {
+        parsed = buildMetroFromJSON(metroGeo);
+        source = 'metro.geojson';
+      }
+    } catch (e) {
+      console.warn('[Metro] No se pudo leer metro.geojson:', e.message);
+    }
+
+    // 2) Si no hay GeoJSON o vino vacío, caer al JSON “viejo”
+    if (!parsed) {
+      const metroRaw = await fetchJSON(`${PATHS.metro}/metro.json`);
+      parsed = buildMetroFromJSON(metroRaw);
+      source = 'metro.json';
+    }
+
     state.systems.metro.stops    = parsed.stops;
     state.systems.metro.services = filterByCatalogFor('metro', parsed.services, state.catalog);
+
     console.log(
-      '[Metro] Líneas detectadas:',
+      '[Metro] Fuente:',
+      source,
+      '| Líneas detectadas:',
       state.systems.metro.services.map(s => s.id).join(', ') || '-'
     );
   } catch (e) {
     console.warn('Metro no disponible:', e.message);
   }
+
 
   // Wikiroutes: 1244
   state.systems.wr.routes = [
