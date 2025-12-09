@@ -215,14 +215,15 @@ export function buildMetroFromJSON(json){
     const id = `metro:${lineId}:${idx}`;
     stops.set(id, {
       id,
-      name: st.name || st.label || `Estación ${idx + 1}`,
+      name: st.name || st.label || `Estación ${idx+1}`,
       lat: st.lat,
       lon: st.lon
     });
     return id;
   };
 
-  const pushLine = (LID, name, color, segments, stationObjs = []) => {
+  // Aquí asumimos que "segments" ya viene en [lat, lon]
+  const pushLine = (LID, name, color, segmentsLatLon, stationObjs = []) => {
     const id = String(LID).toUpperCase();
     const svc = {
       id,
@@ -232,16 +233,14 @@ export function buildMetroFromJSON(json){
       stops: []
     };
 
-    // Geometría de la vía (si viene en el JSON)
-    (segments || []).forEach(seg => {
-      if (!seg) return;
+    (segmentsLatLon || []).forEach(seg => {
+      if (!Array.isArray(seg) || !seg.length) return;
       if (Array.isArray(seg[0]) && typeof seg[0][0] === 'number') {
-        const latlngSeg = seg.map(asLatLng);
-        svc.segments.push(latlngSeg);
+        // No volvemos a llamar asLatLng aquí
+        svc.segments.push(seg);
       }
     });
 
-    // Estaciones
     (stationObjs || []).forEach((st, i) => {
       if (typeof st?.lat === 'number' && typeof st?.lon === 'number') {
         svc.stops.push(pushStop(id, st, i));
@@ -251,6 +250,7 @@ export function buildMetroFromJSON(json){
     lines.push(svc);
   };
 
+  // Caso: FeatureCollection (metro.json / metro.geojson)
   if (json?.type === 'FeatureCollection') {
     const byId = new Map();
 
@@ -274,10 +274,16 @@ export function buildMetroFromJSON(json){
       const acc = byId.get(ref);
 
       if (g.type === 'LineString' || g.type === 'MultiLineString') {
-        toSegments(g).forEach(seg => acc.segments.push(seg));
+        // Aquí sí convertimos de [lon, lat] a [lat, lon]
+        const segsLL = toSegments(g);
+        segsLL.forEach(seg => acc.segments.push(seg));
       } else if (g.type === 'Point') {
         const [lat, lon] = asLatLng(g.coordinates || []);
-        acc.stations.push({ name: p.name || p.label, lat, lon });
+        acc.stations.push({
+          name: p.name || p.label,
+          lat,
+          lon
+        });
       }
     }
 
@@ -285,32 +291,23 @@ export function buildMetroFromJSON(json){
       pushLine(id, v.name, v.color, v.segments, v.stations);
     }
 
+  // Caso alternativo: estructura con json.lines (por si la usas después)
   } else if (Array.isArray(json?.lines)) {
-    // Formato tipo { lines: [ { id, name, color, track, stations } ] }
     for (const L of json.lines) {
-      const segs = Array.isArray(L.track?.[0]?.[0])
-        ? L.track
-        : (Array.isArray(L.track) ? [L.track] : []);
-      pushLine(L.id, L.name, L.color, segs, L.stations);
-    }
-  }
+      const rawTrack =
+        Array.isArray(L.track?.[0]?.[0]) ? L.track :
+        Array.isArray(L.track)           ? [L.track] :
+        [];
 
-  // Fallback: si una línea no tiene segments, dibujarla uniendo estaciones en orden
-  for (const svc of lines) {
-    if (!Array.isArray(svc.segments) || svc.segments.length === 0) {
-      const pts = (svc.stops || [])
-        .map(id => stops.get(id))
-        .filter(st => st && Number.isFinite(st.lat) && Number.isFinite(st.lon))
-        .map(st => [st.lat, st.lon]);
-
-      if (pts.length >= 2) {
-        svc.segments.push(pts);
-      }
+      // Aquí sí transformamos explícitamente de [lon, lat] a [lat, lon]
+      const segsLL = rawTrack.map(seg => seg.map(asLatLng));
+      pushLine(L.id, L.name, L.color, segsLL, L.stations);
     }
   }
 
   return { services: lines, stops };
 }
+
 
 
 // Wikiroutes helpers
