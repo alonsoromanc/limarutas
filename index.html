@@ -137,7 +137,6 @@
             <div id="p-wr" class="panel-body list" aria-label="Transporte público"></div>
           </section>
 
-
           <!-- Opciones -->
           <section class="panel">
             <div class="panel-body">
@@ -181,7 +180,17 @@
       <main id="map"></main>
     </div>
 
-    <!-- Ajusta esta ruta si tu JS está en otra carpeta -->
+    <!-- JS principal del mapa (ES modules).
+         Entrada: assets/js/app.js
+         Módulos que importa internamente:
+           assets/js/app.state.js
+           assets/js/app.data.js
+           assets/js/app.ui-lists.js
+           assets/js/app.hierarchy.js
+           assets/js/app.render.js
+           assets/js/app.search.js
+           assets/js/app.init.js
+    -->
     <script src="assets/js/app.js" type="module"></script>
   </body>
 </html>
