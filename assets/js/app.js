@@ -82,9 +82,9 @@ async function loadMetMacros(){
 async function init(){
   initMap();
 
-  // Catálogo
+  // Catálogo: primero en /config fuera de /data
   try {
-    state.catalog = await fetchJSON(`${PATHS.data}/config/catalog.json`);
+    state.catalog = await fetchJSON(`config/catalog.json`);
     console.log('[Catálogo] Usando config/catalog.json');
   } catch {
     state.catalog = await fetchJSON(`${PATHS.data}/catalog.json`).catch(()=>null);
@@ -183,30 +183,46 @@ async function init(){
   }
 
   /* ===========================
-     Wikiroutes (desde data/processed/transporte/route_154193)
+     Wikiroutes (configurable)
      =========================== */
   try {
-    const wrFolder = `${PATHS.wr}/route_154193`;
+    // Opción 1: mapa de rutas en /config (fuera de /data). Si no existe, intentamos en data/config.
+    let wrMap = await fetchJSON(`config/wr_map.json`).catch(()=>null);
+    if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/config/wr_map.json`).catch(()=>null);
 
-    // Lee meta si existe para nombrar bien el item
-    const meta = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
-    const rid  = String(meta?.route_id || '154193');
-    const rname =
-      meta?.name ||
-      (meta?.ref ? `Ruta ${meta.ref}` : `Ruta ${rid}`) +
-      (meta?.city ? ` (${meta.city})` : '');
+    state.systems.wr.routes = [];
 
-    state.systems.wr.routes = [{
-      id: rid,
-      name: rname || `Ruta ${rid} (Wikiroutes)`,
-      color: '#00008C',
-      folder: wrFolder
-    }];
+    if (wrMap?.routes && typeof wrMap.routes === 'object') {
+      for (const [displayId, conf] of Object.entries(wrMap.routes)) {
+        const folderRel = conf.folder || `route_${displayId}`;
+        const folder = folderRel.startsWith('data/')
+          ? folderRel
+          : `${PATHS.wr}/${folderRel}`;
+        const color = conf.color || '#00008C';
+        const name  = conf.name  || `Ruta ${displayId} (Wikiroutes)`;
 
-    await buildWikiroutesLayer(rid, wrFolder, { color: '#00008C' });
-    console.log('[WR] Cargada', rid, 'desde', wrFolder);
+        state.systems.wr.routes.push({ id: String(displayId), name, color, folder });
+        await buildWikiroutesLayer(String(displayId), folder, { color });
+      }
+      console.log('[WR] Rutas cargadas desde wr_map.json:', state.systems.wr.routes.map(r=>r.id).join(', '));
+    } else {
+      // Opción 2: fallback a una carpeta conocida + overrides en /config
+      const wrFolder  = `${PATHS.wr}/route_154193`;
+      const meta      = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
+      const overrides = await fetchJSON(`config/wr_overrides.json`).catch(()=> ({}));
+      const ov = overrides?.['route_154193'] || overrides?.['154193'] || null;
+
+      const displayId = String(ov?.display_id || meta?.ref || '154193'); // saldrá 1244 si está en overrides o meta.ref
+      const color     = ov?.color || '#00008C';
+      const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
+
+      state.systems.wr.routes = [{ id: displayId, name, color, folder: wrFolder }];
+      await buildWikiroutesLayer(displayId, wrFolder, { color });
+
+      console.log('[WR] Cargada', displayId, 'desde', wrFolder);
+    }
   } catch (e) {
-    console.warn('[WR] No se pudo construir la capa:', e.message);
+    console.warn('[WR] No se pudo construir la(s) capa(s):', e.message);
     state.systems.wr.routes = [];
   }
 
