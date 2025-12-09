@@ -4,27 +4,43 @@ export function wirePanelTogglesOnce() {
   if (!sidebar || sidebar.dataset.togglesWired === '1') return;
   sidebar.dataset.togglesWired = '1';
 
+  const applyState = (head, isOpen) => {
+    const panel = head.closest('.panel');
+    if (!panel) return;
+    const bodyId = head.dataset.target;
+    const body = bodyId ? document.getElementById(bodyId) : null;
+
+    panel.classList.toggle('open', isOpen);
+    head.setAttribute('aria-expanded', String(!!isOpen));
+    if (body) body.style.display = isOpen ? 'block' : 'none';
+  };
+
+  // Estado inicial: cerrar todos los paneles que no vengan marcados como .open
+  sidebar.querySelectorAll('.panel-head[data-target]').forEach(head => {
+    const panel = head.closest('.panel');
+    const isOpen = !!(panel && panel.classList.contains('open'));
+    applyState(head, isOpen);
+  });
+
+  const handleToggle = (head) => {
+    const panel = head.closest('.panel');
+    if (!panel) return;
+    const nowOpen = !panel.classList.contains('open');
+    applyState(head, nowOpen);
+  };
+
   sidebar.addEventListener('click', (e) => {
     const head = e.target.closest('.panel-head');
     if (!head || !sidebar.contains(head)) return;
     if (e.target.closest('input[type="checkbox"]')) return;
-    const panel = head.closest('.panel');
-    const body = document.getElementById(head.dataset.target);
-    panel.classList.toggle('open');
-    head.setAttribute('aria-expanded', String(panel.classList.contains('open')));
-    if (body) body.style.display = panel.classList.contains('open') ? 'block' : 'none';
+    handleToggle(head);
   });
 
   sidebar.addEventListener('keydown', (e) => {
     const head = e.target.closest('.panel-head');
     if (!head || !sidebar.contains(head)) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      const panel = head.closest('.panel');
-      const body = document.getElementById(head.dataset.target);
-      panel.classList.toggle('open');
-      head.setAttribute('aria-expanded', String(panel.classList.contains('open')));
-      if (body) body.style.display = panel.classList.contains('open') ? 'block' : 'none';
-    }
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    handleToggle(head);
   });
 }
