@@ -13,7 +13,7 @@ import {
   reRenderVisibleSystem,
   reRenderVisible,
   setBase,
-  setWikiroutesVisible   // ⬅️ IMPORTAMOS PARA poder encender WR sin depender del evento 'change'
+  setWikiroutesVisible
 } from './mapLayers.js';
 import {
   fillMetList,
@@ -187,13 +187,14 @@ async function init(){
      Wikiroutes (configurable)
      =========================== */
   try {
-    // Opción 1: mapa de rutas en /config (fuera de /data). Si no existe, intentamos en data/config.
+    // 1) Intentar en /config, luego en /data/config
     let wrMap = await fetchJSON(`config/wr_map.json`).catch(()=>null);
     if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/config/wr_map.json`).catch(()=>null);
 
     state.systems.wr.routes = [];
 
     if (wrMap?.routes && typeof wrMap.routes === 'object') {
+      // Crear las capas físicas (uno por entrada; p. ej. 1244-ida, 1244-vuelta)
       for (const [displayId, conf] of Object.entries(wrMap.routes)) {
         const folderRel = conf.folder || `route_${displayId}`;
         const folder = folderRel.startsWith('data/')
@@ -203,41 +204,99 @@ async function init(){
         const name  = conf.name  || `Ruta ${displayId} (Wikiroutes)`;
 
         state.systems.wr.routes.push({ id: String(displayId), name, color, folder });
-        await buildWikiroutesLayer(String(displayId), folder, { color });
+        await buildWikiroutesLayer(String(displayId), folder, { color, trip: conf.trip });
       }
       console.log('[WR] Rutas cargadas desde wr_map.json:', state.systems.wr.routes.map(r=>r.id).join(', '));
+
+      // Agrupar para UI: combinar -ida / -vuelta en un único ítem
+      const entries = Object.entries(wrMap.routes);
+      const groups = new Map();
+      for (const [rid, conf] of entries) {
+        const m = rid.match(/^(.*?)-(ida|vuelta)$/i);
+        if (m) {
+          const base = m[1], dir = m[2].toLowerCase();
+          if (!groups.has(base)) groups.set(base, { base, ida:null, vuelta:null, color: conf.color || '#00008C' });
+          groups.get(base)[dir] = rid;
+        } else {
+          if (!groups.has(rid)) groups.set(rid, { single: rid });
+          else groups.get(rid).single = rid;
+        }
+      }
+      state.systems.wr.routesUi = [];
+      groups.forEach(g => {
+        if (g.single) {
+          const c = wrMap.routes[g.single] || {};
+          state.systems.wr.routesUi.push({
+            id: g.single,
+            name: c.name || `Ruta ${g.single}`,
+            color: c.color || '#00008C'
+          });
+        } else if (g.ida && g.vuelta) {
+          state.systems.wr.routesUi.push({
+            id: g.base,
+            name: `Wikiroutes ${g.base}`,
+            color: g.color || '#00008C',
+            pair: { ida: g.ida, vuelta: g.vuelta },
+            defaultDir: 'ida'
+          });
+        } else {
+          const only = g.ida || g.vuelta;
+          const c = wrMap.routes[only] || {};
+          state.systems.wr.routesUi.push({
+            id: only,
+            name: c.name || `Ruta ${only}`,
+            color: c.color || '#00008C'
+          });
+        }
+      });
+
     } else {
-      // Opción 2: fallback a una carpeta conocida + overrides en /config
+      // Fallback: carpeta fija + overrides en /config
       const wrFolder  = `${PATHS.wr}/route_154193`;
       const meta      = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
       const overrides = await fetchJSON(`config/wr_overrides.json`).catch(()=> ({}));
       const ov = overrides?.['route_154193'] || overrides?.['154193'] || null;
 
-      const displayId = String(ov?.display_id || meta?.ref || '154193'); // saldrá 1244 si está en overrides o meta.ref
+      const displayId = String(ov?.display_id || meta?.ref || '154193');
       const color     = ov?.color || '#00008C';
       const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
 
       state.systems.wr.routes = [{ id: displayId, name, color, folder: wrFolder }];
       await buildWikiroutesLayer(displayId, wrFolder, { color });
 
+      // UI simple
+      state.systems.wr.routesUi = [{ id: displayId, name, color }];
       console.log('[WR] Cargada', displayId, 'desde', wrFolder);
     }
   } catch (e) {
     console.warn('[WR] No se pudo construir la(s) capa(s):', e.message);
     state.systems.wr.routes = [];
+    state.systems.wr.routesUi = [];
   }
 
   // Construir UI
   buildUI();
 
-  // ⚙️ Fix: asegurar que las rutas WR marcadas se muestren realmente al cargar.
-  // Evitamos depender solo del evento 'change' (que a veces no dispara o llega muy pronto).
-  (state.systems.wr.routes || []).forEach(rt => {
-    const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${rt.id}"]`);
-    if (leaf && !leaf.checked) leaf.checked = true;          // refleja el estado en la UI
-    setWikiroutesVisible(rt.id, true, { fit: true });        // añade la capa al mapa y centra (si aplica)
-  });
-  syncAllTri(); // sincroniza la casilla de nivel superior
+  // Activación por defecto:
+  // Si hay ítems combinados Ida/Vuelta, activar solo Ida.
+  const wrChecks = $$('#p-wr .item input[type="checkbox"]');
+  if (wrChecks.length){
+    wrChecks.forEach(chk => {
+      const ida = chk.dataset.ida, vuelta = chk.dataset.vuelta;
+      if (ida && vuelta){
+        // por defecto dataset.sel ya es 'ida' (lo define makeWrItem), aseguramos y mostramos solo ida
+        chk.dataset.sel = chk.dataset.sel || 'ida';
+        chk.checked = true;
+        setWikiroutesVisible(ida, true, { fit:true });
+        setWikiroutesVisible(vuelta, false);
+      } else {
+        // rutas WR simples: encenderlas también (si así lo deseas)
+        chk.checked = true;
+        setWikiroutesVisible(chk.dataset.id, true, { fit:true });
+      }
+    });
+    syncAllTri();
+  }
 }
 
 function buildUI(){
