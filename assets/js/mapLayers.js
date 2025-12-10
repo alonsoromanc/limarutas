@@ -20,6 +20,66 @@ const MAX_BOUNDS = L.latLngBounds(
 const SHOW_BOUNDS_RECT = false;
 let maxBoundsRect = null;
 
+/* ===========================
+   Panes (orden de dibujo)
+   ===========================
+
+  Leaflet usa overlayPane con zIndex ~400 para vectores por defecto.
+  Para que Metropolitano, Corredores y Metro queden siempre encima de "transporte" (WR),
+  dibujamos estos sistemas en panes con zIndex mayor que 400.
+
+  Orden deseado (de abajo hacia arriba):
+  - WR (si cae en overlayPane ~400, queda abajo)
+  - Corredores / Metro
+  - Alimentadores / Metropolitano
+  - Metropolitano B y C por encima de todo
+*/
+const PANES = {
+  CORR: 'pane-corr',
+  METRO: 'pane-metro',
+  ALIM: 'pane-alim',
+  MET: 'pane-met',
+  MET_BC: 'pane-met-bc',
+  STOPS: 'pane-stops',
+  DEBUG: 'pane-debug'
+};
+
+function setupPanes(map) {
+  const defs = [
+    [PANES.CORR, 430],
+    [PANES.METRO, 440],
+    [PANES.ALIM, 448],
+    [PANES.MET, 450],
+    [PANES.MET_BC, 460],
+    [PANES.STOPS, 650],
+    [PANES.DEBUG, 700]
+  ];
+
+  defs.forEach(([name, z]) => {
+    if (!map.getPane(name)) map.createPane(name);
+    map.getPane(name).style.zIndex = String(z);
+  });
+}
+
+function paneForLine(systemId, svcId) {
+  const sid = String(systemId || '').toLowerCase();
+  if (sid === 'corr') return PANES.CORR;
+  if (sid === 'metro') return PANES.METRO;
+  if (sid === 'alim') return PANES.ALIM;
+
+  if (sid === 'met') {
+    const idU = String(svcId || '').toUpperCase();
+    if (idU === 'B' || idU === 'C') return PANES.MET_BC;
+    return PANES.MET;
+  }
+
+  return undefined;
+}
+
+function paneForStops() {
+  return PANES.STOPS;
+}
+
 export function initMap(){
   const map = L.map('map', {
     minZoom: MIN_ZOOM,
@@ -37,11 +97,14 @@ export function initMap(){
     { attribution: '&copy; OpenStreetMap & CARTO', maxZoom: MAX_ZOOM }
   );
 
+  setupPanes(map);
+
   map.fitBounds(LIMA_BOUNDS);
   map.setMaxBounds(MAX_BOUNDS);
 
   if (SHOW_BOUNDS_RECT) {
     maxBoundsRect = L.rectangle(MAX_BOUNDS, {
+      pane: PANES.DEBUG,
       color: '#22c55e',
       weight: 1,
       fill: false,
@@ -175,7 +238,7 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
 /**
  * Dibuja la macrorruta recortada a paraderos del servicio.
  */
-function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
+function drawMetMacro(svc, routeDir, gLine, color, boundsIn, pane){
   const macros = (state.systems.met && state.systems.met.macros) || {};
   const macroId = getMetMacroId(svc);
   const def = macros[macroId];
@@ -187,7 +250,7 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn){
     if (!segments) return;
     (segments || []).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -234,10 +297,13 @@ export function renderService(systemId, id, opts={}){
   const gStop = sys.stopLayers.get(svc.id);
   let bounds = null;
 
+  const linePane = paneForLine(systemId, svc.id);
+  const stopPane = paneForStops();
+
   const drawSegments = (segments, color) => {
     (segments||[]).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane: linePane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -246,7 +312,7 @@ export function renderService(systemId, id, opts={}){
   const drawByStops = (ids, color) => {
     const pts = uniqueOrder(ids.map(st => getStopLatLng(sys, st)).filter(Boolean));
     if (pts.length >= 2){
-      const poly = L.polyline(pts, { color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(pts, { pane: linePane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     }
@@ -268,7 +334,7 @@ export function renderService(systemId, id, opts={}){
 
   } else if (systemId === 'met') {
     const prevBounds = bounds;
-    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds);
+    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds, linePane);
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
         drawByStops(svc.stops || [], svc.color);
@@ -319,7 +385,10 @@ export function renderService(systemId, id, opts={}){
       used.add(st);
       const ll = getStopLatLng(sys, st);
       if (!ll) return;
-      const marker = L.marker(ll, { icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] }) }).addTo(gStop);
+      const marker = L.marker(ll, {
+        pane: stopPane,
+        icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] })
+      }).addTo(gStop);
       const nm = sys.stops.get(st)?.name || st;
       marker.bindTooltip(nm, { permanent:false, direction:'top' });
     });
@@ -469,7 +538,6 @@ export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
 
   // 1) Si es una subcapa real (id exacto en wr.layers), actúa directo.
-  // Evita que ids tipo "1244-ida" se interpreten como "padre" y apaguen ambas.
   if (wr.layers?.has(id)) {
     if (visible) showWrSub(id, fit);
     else hideWrSub(id);
@@ -486,7 +554,6 @@ export function setWikiroutesVisible(id, visible, { fit=false } = {}){
     applyWrPairVisibility(pair, visible, fit);
   }
 }
-
 
 // Compatibilidad: se mantiene esta API para el sidebar
 export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
@@ -524,7 +591,6 @@ export function setWikiroutesTrip(parentId, trip, { fit=false } = {}){
   pair.sel = sel;
   if (pair.leaf) pair.leaf.dataset.sel = sel;
 
-  // Si está visible (por checkbox o por capa), intercambia en el mapa
   const isVisible = (() => {
     if (pair.leaf && pair.leaf.checked) return true;
     const v = (rid) => {
