@@ -42,7 +42,13 @@ function ensureSidebarOverlay(){
   const sidebar = document.getElementById('sidebar');
   if (!sidebar) return null;
 
-  sidebar.style.position = sidebar.style.position || 'relative';
+  // NO pisar el layout del sidebar: solo si computed position es "static"
+  // (en muchos layouts el sidebar es fixed/absolute por CSS; eso NO debe cambiarse).
+  const cs = window.getComputedStyle(sidebar);
+  if (cs.position === 'static' && sidebar.dataset._posFixApplied !== '1') {
+    sidebar.dataset._posFixApplied = '1';
+    sidebar.style.position = 'relative';
+  }
 
   let ov = document.getElementById('sidebarLoading');
   if (!ov){
@@ -57,9 +63,13 @@ function ensureSidebarOverlay(){
     ov.style.alignItems = 'center';
     ov.style.justifyContent = 'center';
     ov.style.padding = '16px';
-    ov.style.pointerEvents = 'auto';
+
+    // Importante: que NO bloquee el scroll del contenedor
+    ov.style.pointerEvents = 'none';
+
     sidebar.appendChild(ov);
   }
+
   return ov;
 }
 
@@ -75,10 +85,15 @@ function setSidebarLoading(on, msg){
         <div style="opacity: 0.95;">${msg || 'Preparando rutas y paraderos...'}</div>
       </div>`;
     ov.style.display = 'flex';
-    sidebar.style.pointerEvents = 'none';
   } else {
     ov.style.display = 'none';
-    sidebar.style.pointerEvents = '';
+    ov.innerHTML = '';
+
+    // Revertir el fix SOLO si lo aplicamos nosotros
+    if (sidebar.dataset._posFixApplied === '1') {
+      delete sidebar.dataset._posFixApplied;
+      sidebar.style.position = '';
+    }
   }
 }
 
@@ -268,7 +283,7 @@ async function loadMetro(){
 }
 
 /* ===========================
-   Wikiroutes (lazy)
+   Wikiroutes (lazy meta)
    =========================== */
 
 function buildWrUiAndDefsFromWrMap(wrMap){
@@ -293,7 +308,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
     });
   }
 
-  // UI combinada (padre con ida/vuelta)
+  // UI combinada
   const groups = new Map();
   for (const rid of Object.keys(routesObj)) {
     const m = rid.match(/^(.*?)-(ida|vuelta)$/i);
@@ -348,7 +363,6 @@ async function loadWikiroutesMeta(){
 
       state.systems.wr.routeDefs = routeDefs;
 
-      // Aplicar catálogo por el id "padre" cuando exista (ej. 1244), o por el id directo
       const filteredUi = filterByCatalogFor('wr', routesUi, state.catalog);
       state.systems.wr.routesUi = filteredUi;
       state.systems.wr.routes = filteredUi;
@@ -367,7 +381,6 @@ async function loadWikiroutesMeta(){
     const color     = ov?.color || '#00008C';
     const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
 
-    // Def lazy: cuando el usuario active, mapLayers construye la capa
     state.systems.wr.routeDefs = new Map([[displayId, { folder: wrFolder, color, trip: 1, name }]]);
     state.systems.wr.routesUi = [{ id: displayId, name, color }];
     state.systems.wr.routes   = state.systems.wr.routesUi;
@@ -388,7 +401,7 @@ async function loadWikiroutesMeta(){
 async function init(){
   initMap();
 
-  // Sidebar: mostrar estado de carga desde el inicio
+  // Sidebar: estado de carga desde el inicio
   disableSidebarChecks(true);
   setSidebarLoading(true, 'Cargando rutas y paraderos...');
   setStatus('Cargando...');
@@ -402,13 +415,13 @@ async function init(){
   setListPlaceholder($('#p-metro'), 'Cargando Metro...');
   setListPlaceholder($('#p-wr'), 'Cargando Wikiroutes...');
 
-  // Pintar UI antes de empezar a descargar todo
+  // Pintar UI antes de descargar todo
   await nextFrame();
 
   // Catálogo primero
   await loadCatalog();
 
-  // Cargar sistemas en paralelo (WR solo meta, no geometría)
+  // Cargar sistemas en paralelo (WR solo meta)
   setStatus('Cargando datos...');
   await Promise.all([
     (async () => { setStatus('Cargando Metropolitano...'); await loadMetropolitano(); })(),
@@ -436,13 +449,13 @@ async function init(){
   if (topWr) { topWr.checked = false; topWr.indeterminate = false; }
   $$('#p-wr .item input[type="checkbox"]').forEach(chk => { chk.checked = false; });
 
-  // Si hay pares ida/vuelta, dejar “ida” como selección por defecto (sin dibujar)
+  // Si hay pares ida/vuelta, dejar “ida” por defecto (sin dibujar)
   (state.systems.wr.routesUi || state.systems.wr.routes || []).forEach(rt => {
     const leaf = document.querySelector(`#p-wr .item input[data-id="${rt.id}"]`);
     if (leaf && rt.pair) leaf.dataset.sel = 'ida';
   });
 
-  // Sincronizar tri estado y habilitar sidebar
+  // Final
   syncAllTri();
   disableSidebarChecks(false);
   setSidebarLoading(false);
@@ -476,7 +489,7 @@ function buildUI(){
   state.systems.wr.ui.list   = $('#p-wr');
   state.systems.wr.ui.chkAll = $('#chk-wr');
 
-  // Llenar listas (rápido, WR ahora es solo metadata)
+  // Llenar listas
   fillMetList();
   fillAlimList();
   fillCorrList();
