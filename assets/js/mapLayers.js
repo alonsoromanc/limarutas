@@ -1,6 +1,7 @@
 // mapLayers.js
 import { state, getDirFor } from './config.js';
 import { $$, uniqueOrder } from './utils.js';
+import { buildWikiroutesLayer } from './parsers.js';
 
 const MIN_ZOOM = 10;
 const MAX_ZOOM = 19;
@@ -22,62 +23,69 @@ let maxBoundsRect = null;
 
 /* ===========================
    Panes (orden de dibujo)
-   ===========================
+   =========================== */
 
-  Leaflet usa overlayPane con zIndex ~400 para vectores por defecto.
-  Para que Metropolitano, Corredores y Metro queden siempre encima de "transporte" (WR),
-  dibujamos estos sistemas en panes con zIndex mayor que 400.
-
-  Orden deseado (de abajo hacia arriba):
-  - WR (si cae en overlayPane ~400, queda abajo)
-  - Corredores / Metro
-  - Alimentadores / Metropolitano
-  - Metropolitano B y C por encima de todo
-*/
 const PANES = {
-  CORR: 'pane-corr',
-  METRO: 'pane-metro',
-  ALIM: 'pane-alim',
-  MET: 'pane-met',
-  MET_BC: 'pane-met-bc',
-  STOPS: 'pane-stops',
-  DEBUG: 'pane-debug'
+  // Wikiroutes (transporte general) se queda en el overlayPane por defecto (zIndex 400)
+  alimLine: 'alimLinePane',
+  corrLine: 'corrLinePane',
+  metroLine: 'metroLinePane',
+  metLine: 'metLinePane',
+  metTopLine: 'metTopLinePane',
+
+  stop: 'stopPane',
+  metTopStop: 'metTopStopPane'
 };
 
-function setupPanes(map) {
-  const defs = [
-    [PANES.CORR, 430],
-    [PANES.METRO, 440],
-    [PANES.ALIM, 448],
-    [PANES.MET, 450],
-    [PANES.MET_BC, 460],
-    [PANES.STOPS, 650],
-    [PANES.DEBUG, 700]
-  ];
+const Z = {
+  // overlayPane default ~400. Ponemos capas "prioritarias" por encima.
+  alimLine: 430,
+  corrLine: 440,
+  metroLine: 450,
+  metLine: 460,
+  metTopLine: 470,
 
-  defs.forEach(([name, z]) => {
-    if (!map.getPane(name)) map.createPane(name);
-    map.getPane(name).style.zIndex = String(z);
-  });
+  // markerPane default ~600. Creamos panes propios ligeramente arriba.
+  stop: 610,
+  metTopStop: 620
+};
+
+function ensurePane(map, name, zIndex){
+  if (map.getPane(name)) return;
+  const p = map.createPane(name);
+  p.style.zIndex = String(zIndex);
 }
 
-function paneForLine(systemId, svcId) {
-  const sid = String(systemId || '').toLowerCase();
-  if (sid === 'corr') return PANES.CORR;
-  if (sid === 'metro') return PANES.METRO;
-  if (sid === 'alim') return PANES.ALIM;
+function ensureCustomPanes(){
+  const map = state.map;
+  ensurePane(map, PANES.alimLine, Z.alimLine);
+  ensurePane(map, PANES.corrLine, Z.corrLine);
+  ensurePane(map, PANES.metroLine, Z.metroLine);
+  ensurePane(map, PANES.metLine, Z.metLine);
+  ensurePane(map, PANES.metTopLine, Z.metTopLine);
 
-  if (sid === 'met') {
-    const idU = String(svcId || '').toUpperCase();
-    if (idU === 'B' || idU === 'C') return PANES.MET_BC;
-    return PANES.MET;
+  ensurePane(map, PANES.stop, Z.stop);
+  ensurePane(map, PANES.metTopStop, Z.metTopStop);
+}
+
+function getLinePane(systemId, svc){
+  if (systemId === 'met'){
+    const idU = String(svc?.id ?? '').toUpperCase();
+    if (idU === 'B' || idU === 'C') return PANES.metTopLine;
+    return PANES.metLine;
   }
-
-  return undefined;
+  if (systemId === 'metro') return PANES.metroLine;
+  if (systemId === 'corr') return PANES.corrLine;
+  if (systemId === 'alim') return PANES.alimLine;
+  return undefined; // WR y otros: pane por defecto
 }
 
-function paneForStops() {
-  return PANES.STOPS;
+function getStopPane(systemId, svc){
+  if (systemId === 'met'){
+    const idU = String(svc?.id ?? '').toUpperCase();
+    if (idU === 'B' || idU === 'C') return PANES.metTopStop;
+  }
+  return PANES.stop;
 }
 
 export function initMap(){
@@ -97,14 +105,11 @@ export function initMap(){
     { attribution: '&copy; OpenStreetMap & CARTO', maxZoom: MAX_ZOOM }
   );
 
-  setupPanes(map);
-
   map.fitBounds(LIMA_BOUNDS);
   map.setMaxBounds(MAX_BOUNDS);
 
   if (SHOW_BOUNDS_RECT) {
     maxBoundsRect = L.rectangle(MAX_BOUNDS, {
-      pane: PANES.DEBUG,
       color: '#22c55e',
       weight: 1,
       fill: false,
@@ -117,6 +122,9 @@ export function initMap(){
   state.map = map;
   state.baseLayers.light = light;
   state.baseLayers.dark  = dark;
+
+  // Crear panes para ordenar el dibujo
+  ensureCustomPanes();
 }
 
 function getStopLatLng(sys, id){
@@ -238,7 +246,7 @@ function cutMacroSegmentsToStops(segments, svc, dirKey){
 /**
  * Dibuja la macrorruta recortada a paraderos del servicio.
  */
-function drawMetMacro(svc, routeDir, gLine, color, boundsIn, pane){
+function drawMetMacro(svc, routeDir, gLine, color, boundsIn, paneLine){
   const macros = (state.systems.met && state.systems.met.macros) || {};
   const macroId = getMetMacroId(svc);
   const def = macros[macroId];
@@ -250,7 +258,7 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn, pane){
     if (!segments) return;
     (segments || []).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { pane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -297,13 +305,13 @@ export function renderService(systemId, id, opts={}){
   const gStop = sys.stopLayers.get(svc.id);
   let bounds = null;
 
-  const linePane = paneForLine(systemId, svc.id);
-  const stopPane = paneForStops();
+  const paneLine = getLinePane(systemId, svc);
+  const paneStop = getStopPane(systemId, svc);
 
   const drawSegments = (segments, color) => {
     (segments||[]).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { pane: linePane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -312,7 +320,7 @@ export function renderService(systemId, id, opts={}){
   const drawByStops = (ids, color) => {
     const pts = uniqueOrder(ids.map(st => getStopLatLng(sys, st)).filter(Boolean));
     if (pts.length >= 2){
-      const poly = L.polyline(pts, { pane: linePane, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(pts, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     }
@@ -334,7 +342,7 @@ export function renderService(systemId, id, opts={}){
 
   } else if (systemId === 'met') {
     const prevBounds = bounds;
-    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds, linePane);
+    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds, paneLine);
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
         drawByStops(svc.stops || [], svc.color);
@@ -386,7 +394,7 @@ export function renderService(systemId, id, opts={}){
       const ll = getStopLatLng(sys, st);
       if (!ll) return;
       const marker = L.marker(ll, {
-        pane: stopPane,
+        pane: paneStop,
         icon: L.divIcon({ className:'stop-pin', iconSize:[16,16] })
       }).addTo(gStop);
       const nm = sys.stops.get(st)?.name || st;
@@ -411,7 +419,7 @@ export function onToggleService(systemId, id, checked, opts={}){
 }
 
 /* ===========================
-   Wikiroutes con viajes
+   Wikiroutes con viajes (lazy)
    =========================== */
 
 // Paradas WR on/off según visibilidad de cada subcapa
@@ -431,7 +439,6 @@ function syncOneWrStopsVisibility(id){
   }
 }
 
-// Normaliza un id base para ida/vuelta por convención
 function wrBaseId(id){
   return String(id).replace(/-(ida|vuelta)$/i, '');
 }
@@ -443,6 +450,39 @@ function wrCounterpartId(id){
   return null;
 }
 
+function wrHasDefOrLayer(id){
+  const wr = state.systems.wr;
+  return !!(wr.layers?.has(id) || wr.routeDefs?.has(id));
+}
+
+async function ensureWrLayer(id){
+  const wr = state.systems.wr;
+
+  if (wr.layers?.has(id)) return true;
+
+  const def = wr.routeDefs?.get(id);
+  if (!def) return false;
+
+  if (!wr._buildPromises) wr._buildPromises = new Map();
+
+  if (!wr._buildPromises.has(id)) {
+    const p = (async () => {
+      await buildWikiroutesLayer(String(id), def.folder, { color: def.color, trip: def.trip });
+    })()
+      .catch(e => {
+        console.warn('[WR] No se pudo construir capa', id, e?.message || e);
+      })
+      .finally(() => {
+        try { wr._buildPromises.delete(id); } catch {}
+      });
+
+    wr._buildPromises.set(id, p);
+  }
+
+  await wr._buildPromises.get(id);
+  return wr.layers?.has(id);
+}
+
 function hideWrSub(id){
   const wr = state.systems.wr;
   const g = wr.layers?.get(id);
@@ -452,14 +492,18 @@ function hideWrSub(id){
   if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
 }
 
-function showWrSub(id, fit){
+async function showWrSubAsync(id, fit){
   const wr = state.systems.wr;
-  const g = wr.layers?.get(id);
-  if (!g) return;
 
   // Exclusión automática por convención -ida/-vuelta
   const other = wrCounterpartId(id);
   if (other) hideWrSub(other);
+
+  const ok = await ensureWrLayer(id);
+  if (!ok) return;
+
+  const g = wr.layers?.get(id);
+  if (!g) return;
 
   if (!state.map.hasLayer(g)) g.addTo(state.map);
   syncOneWrStopsVisibility(id);
@@ -467,12 +511,15 @@ function showWrSub(id, fit){
   if (fit && wr.bounds?.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
 }
 
+function showWrSub(id, fit){
+  void showWrSubAsync(id, fit);
+}
+
 // Resolver ida/vuelta desde el DOM si existe, con fallback por convención
 function resolveWrPair(id){
   const wr = state.systems.wr;
   const root = document.getElementById('p-wr');
 
-  const hasLayers = (rid) => !!(rid && wr.layers?.has(rid));
   const hasPairData = (el) => !!(el && (el.dataset.ida || el.dataset.vuelta));
 
   const s = String(id);
@@ -511,8 +558,8 @@ function resolveWrPair(id){
     const vuelta = `${base}-vuelta`;
     const sel = /-vuelta$/i.test(s) ? 'vuelta' : 'ida';
 
-    // Solo considerar "par" si existe al menos una de las dos capas
-    if (hasLayers(ida) || hasLayers(vuelta)) {
+    // Solo considerar "par" si existe al menos una de las dos capas (def o capa ya construida)
+    if (wrHasDefOrLayer(ida) || wrHasDefOrLayer(vuelta)) {
       return { parentId: base, ida, vuelta, sel, leaf: null };
     }
   }
@@ -537,8 +584,8 @@ function applyWrPairVisibility(pair, checked, fit){
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
 
-  // 1) Si es una subcapa real (id exacto en wr.layers), actúa directo.
-  if (wr.layers?.has(id)) {
+  // 1) Si es una subcapa real (ya construida) o definida (lazy), actúa directo.
+  if (wrHasDefOrLayer(id)) {
     if (visible) showWrSub(id, fit);
     else hideWrSub(id);
     return;
@@ -548,7 +595,7 @@ export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const pair = resolveWrPair(id);
   const pairValid =
     pair &&
-    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
+    ((pair.ida && wrHasDefOrLayer(pair.ida)) || (pair.vuelta && wrHasDefOrLayer(pair.vuelta)));
 
   if (pairValid) {
     applyWrPairVisibility(pair, visible, fit);
@@ -562,7 +609,7 @@ export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
 
   const pairValid =
     pair &&
-    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
+    ((pair.ida && wrHasDefOrLayer(pair.ida)) || (pair.vuelta && wrHasDefOrLayer(pair.vuelta)));
 
   if (pairValid) {
     applyWrPairVisibility(pair, checked, fit);
@@ -570,7 +617,7 @@ export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
   }
 
   // No es par, interpretarlo como capa simple con ese id
-  if (wr.layers?.has(parentId)) {
+  if (wrHasDefOrLayer(parentId)) {
     if (checked) showWrSub(parentId, fit);
     else hideWrSub(parentId);
   }
@@ -583,7 +630,7 @@ export function setWikiroutesTrip(parentId, trip, { fit=false } = {}){
 
   const pairValid =
     pair &&
-    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
+    ((pair.ida && wrHasDefOrLayer(pair.ida)) || (pair.vuelta && wrHasDefOrLayer(pair.vuelta)));
 
   if (!pairValid) return;
 

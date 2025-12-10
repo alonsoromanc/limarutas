@@ -5,15 +5,13 @@ import {
   filterByCatalogFor,
   buildAlimFromFC,
   buildCorredoresFromFC,
-  buildMetroFromJSON,
-  buildWikiroutesLayer
+  buildMetroFromJSON
 } from './parsers.js';
 import {
   initMap,
   reRenderVisibleSystem,
   reRenderVisible,
-  setBase,
-  setWikiroutesVisible
+  setBase
 } from './mapLayers.js';
 import {
   fillMetList,
@@ -30,6 +28,80 @@ import {
   syncAllTri
 } from './uiSidebar.js';
 import { wirePanelTogglesOnce } from './panels.js';
+
+/* ===========================
+   Helpers UI de carga
+   =========================== */
+
+function setStatus(text){
+  const statusEl = $('#status');
+  if (statusEl) statusEl.textContent = text;
+}
+
+function ensureSidebarOverlay(){
+  const sidebar = document.getElementById('sidebar');
+  if (!sidebar) return null;
+
+  sidebar.style.position = sidebar.style.position || 'relative';
+
+  let ov = document.getElementById('sidebarLoading');
+  if (!ov){
+    ov = document.createElement('div');
+    ov.id = 'sidebarLoading';
+    ov.style.position = 'absolute';
+    ov.style.inset = '0';
+    ov.style.background = 'rgba(0,0,0,0.25)';
+    ov.style.backdropFilter = 'blur(2px)';
+    ov.style.zIndex = '9999';
+    ov.style.display = 'none';
+    ov.style.alignItems = 'center';
+    ov.style.justifyContent = 'center';
+    ov.style.padding = '16px';
+    ov.style.pointerEvents = 'auto';
+    sidebar.appendChild(ov);
+  }
+  return ov;
+}
+
+function setSidebarLoading(on, msg){
+  const sidebar = document.getElementById('sidebar');
+  const ov = ensureSidebarOverlay();
+  if (!sidebar || !ov) return;
+
+  if (on){
+    ov.innerHTML =
+      `<div style="background: rgba(15,15,15,0.75); color: #fff; padding: 12px 14px; border-radius: 10px; max-width: 360px; line-height: 1.25;">
+        <div style="font-weight: 700; margin-bottom: 6px;">Cargando</div>
+        <div style="opacity: 0.95;">${msg || 'Preparando rutas y paraderos...'}</div>
+      </div>`;
+    ov.style.display = 'flex';
+    sidebar.style.pointerEvents = 'none';
+  } else {
+    ov.style.display = 'none';
+    sidebar.style.pointerEvents = '';
+  }
+}
+
+function setListPlaceholder(el, text){
+  if (!el) return;
+  el.innerHTML = `<div style="opacity:0.75; font-size: 12px; padding: 8px 6px;">${text}</div>`;
+}
+
+function disableSidebarChecks(disabled){
+  const ids = [
+    'chk-met','chk-met-reg','chk-met-exp',
+    'chk-met-alim','chk-met-alim-n','chk-met-alim-s',
+    'chk-corr','chk-metro','chk-wr'
+  ];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.disabled = !!disabled;
+  });
+}
+
+function nextFrame(){
+  return new Promise(res => requestAnimationFrame(() => res()));
+}
 
 /* ===========================
    Helpers Macrorutas Metropolitano
@@ -52,7 +124,6 @@ async function loadMetMacroSegments(macroId, suffix){
       if (seg.length >= 2) segments.push(seg);
     });
     if (!segments.length) return null;
-    console.log('[Met macro]', `${macroId}-${suffix}:`, segments.length, 'segmentos');
     return segments;
   } catch (e) {
     console.warn('[Met macro] No se pudo cargar', path, e.message);
@@ -77,37 +148,41 @@ async function loadMetMacros(){
 }
 
 /* ===========================
-   Init principal
+   Loaders por sistema
    =========================== */
 
-async function init(){
-  initMap();
-
-  // Catálogo
+async function loadCatalog(){
   try {
     state.catalog = await fetchJSON(`config/catalog.json`);
     console.log('[Catálogo] Usando config/catalog.json');
-  } catch {
-    state.catalog = await fetchJSON(`${PATHS.data}/catalog.json`).catch(()=>null);
-    console.log('[Catálogo] Usando data/catalog.json');
-  }
+    return;
+  } catch {}
 
-  // Metropolitano
-  const stopsMet = await fetchJSON(`${PATHS.met}/metropolitano_stops.json`);
-  const svcsMet  = await fetchJSON(`${PATHS.met}/metropolitano_services.json`);
+  state.catalog = await fetchJSON(`${PATHS.data}/catalog.json`).catch(()=>null);
+  console.log('[Catálogo] Usando data/catalog.json');
+}
+
+async function loadMetropolitano(){
+  const [stopsMet, svcsMet] = await Promise.all([
+    fetchJSON(`${PATHS.met}/metropolitano_stops.json`),
+    fetchJSON(`${PATHS.met}/metropolitano_services.json`)
+  ]);
+
   state.systems.met.stops = stopsArrayToMap(stopsMet.stations);
+
   const colorsMet = svcsMet.colors || {};
   const metAll = (svcsMet.services || []).map(s => ({
     ...s,
     system: 'met',
     color: colorsMet[String(s.id)] || '#0ea5e9'
   }));
+
   state.systems.met.services = filterByCatalogFor('met', metAll, state.catalog);
 
-  // Macrorutas Metropolitano
   await loadMetMacros();
+}
 
-  // Alimentadores
+async function loadAlimentadores(){
   try {
     const alim = await fetchJSON(`${PATHS.met}/alimentadores.json`);
     if (alim && alim.type === 'FeatureCollection') {
@@ -117,12 +192,17 @@ async function init(){
       console.log('[Alimentadores] Rutas creadas:', parsed.services.length);
     } else {
       console.warn('[Alimentadores] El archivo no es FeatureCollection o está vacío.');
+      state.systems.alim.stops = new Map();
+      state.systems.alim.services = [];
     }
   } catch (e) {
     console.warn('Alimentadores no disponibles:', e.message);
+    state.systems.alim.stops = new Map();
+    state.systems.alim.services = [];
   }
+}
 
-  // Corredores
+async function loadCorredores(){
   try {
     const corrRaw = await fetchJSON(`${PATHS.corr}/corredores.json`);
     let services = [];
@@ -152,8 +232,9 @@ async function init(){
     state.systems.corr.stops = new Map();
     state.systems.corr.services = [];
   }
+}
 
-  // Metro
+async function loadMetro(){
   try {
     let parsed = null;
     let source = '';
@@ -181,106 +262,166 @@ async function init(){
     console.log('[Metro] Fuente:', source, '| Líneas detectadas:', metroIds.join(', ') || '-');
   } catch (e) {
     console.warn('Metro no disponible:', e.message);
+    state.systems.metro.stops = new Map();
+    state.systems.metro.services = [];
+  }
+}
+
+/* ===========================
+   Wikiroutes (lazy)
+   =========================== */
+
+function buildWrUiAndDefsFromWrMap(wrMap){
+  const routeDefs = new Map(); // id real -> {folder,color,trip,name}
+  const routesUi = [];
+
+  const routesObj = wrMap?.routes && typeof wrMap.routes === 'object' ? wrMap.routes : null;
+  if (!routesObj) return { routeDefs, routesUi };
+
+  // Defs físicas
+  for (const [rid, conf] of Object.entries(routesObj)) {
+    const folderRel = conf.folder || `route_${rid}`;
+    const folder = folderRel.startsWith('data/')
+      ? folderRel
+      : `${PATHS.wr}/${folderRel}`;
+
+    routeDefs.set(String(rid), {
+      folder,
+      color: conf.color || '#00008C',
+      trip: conf.trip,
+      name: conf.name || `Ruta ${rid}`
+    });
   }
 
-  /* ===========================
-     Wikiroutes (configurable)
-     =========================== */
+  // UI combinada (padre con ida/vuelta)
+  const groups = new Map();
+  for (const rid of Object.keys(routesObj)) {
+    const m = rid.match(/^(.*?)-(ida|vuelta)$/i);
+    if (m) {
+      const base = m[1], dir = m[2].toLowerCase();
+      if (!groups.has(base)) groups.set(base, { base, ida:null, vuelta:null });
+      groups.get(base)[dir] = rid;
+    } else {
+      routesUi.push({
+        id: rid,
+        name: routesObj[rid].name || `Ruta ${rid}`,
+        color: routesObj[rid].color || '#00008C'
+      });
+    }
+  }
+
+  groups.forEach(g => {
+    if (g.ida && g.vuelta) {
+      const baseColor = (routesObj[g.ida].color || routesObj[g.vuelta].color || '#00008C');
+      routesUi.push({
+        id: g.base,
+        name: `Wikiroutes ${g.base}`,
+        color: baseColor,
+        pair: { ida: g.ida, vuelta: g.vuelta }
+      });
+    } else {
+      const only = g.ida || g.vuelta;
+      if (only) {
+        routesUi.push({
+          id: only,
+          name: routesObj[only].name || `Ruta ${only}`,
+          color: routesObj[only].color || '#00008C'
+        });
+      }
+    }
+  });
+
+  return { routeDefs, routesUi };
+}
+
+async function loadWikiroutesMeta(){
   try {
-    // 1) Intentar en /config, luego en /data/config
     let wrMap = await fetchJSON(`config/wr_map.json`).catch(()=>null);
     if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/config/wr_map.json`).catch(()=>null);
 
-    state.systems.wr.routes = [];
     state.systems.wr.routesUi = [];
+    state.systems.wr.routes = [];
+    state.systems.wr.routeDefs = new Map();
 
     if (wrMap?.routes && typeof wrMap.routes === 'object') {
-      // Crear capas físicas (uno por entrada; p.ej. 1244-ida y 1244-vuelta)
-      for (const [displayId, conf] of Object.entries(wrMap.routes)) {
-        const folderRel = conf.folder || `route_${displayId}`;
-        const folder = folderRel.startsWith('data/')
-          ? folderRel
-          : `${PATHS.wr}/${folderRel}`;
-        const color = conf.color || '#00008C';
-        const name  = conf.name  || `Ruta ${displayId} (Wikiroutes)`;
+      const { routeDefs, routesUi } = buildWrUiAndDefsFromWrMap(wrMap);
 
-        // capas reales
-        await buildWikiroutesLayer(String(displayId), folder, { color, trip: conf.trip });
+      state.systems.wr.routeDefs = routeDefs;
 
-        // registro "físico" (opcional)
-        state.systems.wr.routes.push({ id: String(displayId), name, color, folder });
-      }
+      // Aplicar catálogo por el id "padre" cuando exista (ej. 1244), o por el id directo
+      const filteredUi = filterByCatalogFor('wr', routesUi, state.catalog);
+      state.systems.wr.routesUi = filteredUi;
+      state.systems.wr.routes = filteredUi;
 
-      // Agrupar para UI: combinar -ida/-vuelta bajo un solo ítem
-      const groups = new Map();
-      for (const rid of Object.keys(wrMap.routes)) {
-        const m = rid.match(/^(.*?)-(ida|vuelta)$/i);
-        if (m) {
-          const base = m[1], dir = m[2].toLowerCase();
-          if (!groups.has(base)) groups.set(base, { base, ida:null, vuelta:null });
-          groups.get(base)[dir] = rid;
-        } else {
-          // rutas sin par
-          state.systems.wr.routesUi.push({ id: rid, name: wrMap.routes[rid].name || `Ruta ${rid}`, color: wrMap.routes[rid].color || '#00008C' });
-        }
-      }
-      groups.forEach(g => {
-        if (g.ida && g.vuelta) {
-          const baseColor = (wrMap.routes[g.ida].color || wrMap.routes[g.vuelta].color || '#00008C');
-          state.systems.wr.routesUi.push({
-            id: g.base,                // aquí ya es el código moderno, ej. "1244"
-            name: `Wikiroutes ${g.base}`,
-            color: baseColor,
-            pair: { ida: g.ida, vuelta: g.vuelta }
-          });
-        } else {
-          const only = g.ida || g.vuelta;
-          if (only) {
-            state.systems.wr.routesUi.push({
-              id: only,
-              name: wrMap.routes[only].name || `Ruta ${only}`,
-              color: wrMap.routes[only].color || '#00008C'
-            });
-          }
-        }
-      });
-
-      // Aplicar catálogo "transporte" usando el código moderno
-      state.systems.wr.routesUi = filterByCatalogFor('wr', state.systems.wr.routesUi, state.catalog);
-
-      // Para que el sidebar funcione sin tocar fillWrList
-      state.systems.wr.routes = state.systems.wr.routesUi;
-      console.log('[WR] UI combinada + catálogo:',
-        state.systems.wr.routesUi.map(r => r.id).join(', ')
-      );
-    } else {
-      // Fallback: carpeta fija + overrides
-      const wrFolder  = `${PATHS.wr}/route_154193`;
-      const meta      = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
-      const overrides = await fetchJSON(`config/wr_overrides.json`).catch(()=> ({}));
-      const ov = overrides?.['route_154193'] || overrides?.['154193'] || null;
-
-      const displayId = String(ov?.display_id || meta?.ref || '154193');
-      const color     = ov?.color || '#00008C';
-      const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
-
-      await buildWikiroutesLayer(displayId, wrFolder, { color });
-
-      state.systems.wr.routesUi = [{ id: displayId, name, color }];
-      state.systems.wr.routes   = state.systems.wr.routesUi;
-      console.log('[WR] Fallback UI:', displayId);
+      console.log('[WR] UI (lazy):', state.systems.wr.routesUi.length, 'items');
+      return;
     }
+
+    // Fallback a un solo folder fijo
+    const wrFolder  = `${PATHS.wr}/route_154193`;
+    const meta      = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
+    const overrides = await fetchJSON(`config/wr_overrides.json`).catch(()=> ({}));
+    const ov = overrides?.['route_154193'] || overrides?.['154193'] || null;
+
+    const displayId = String(ov?.display_id || meta?.ref || '154193');
+    const color     = ov?.color || '#00008C';
+    const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
+
+    // Def lazy: cuando el usuario active, mapLayers construye la capa
+    state.systems.wr.routeDefs = new Map([[displayId, { folder: wrFolder, color, trip: 1, name }]]);
+    state.systems.wr.routesUi = [{ id: displayId, name, color }];
+    state.systems.wr.routes   = state.systems.wr.routesUi;
+
+    console.log('[WR] Fallback UI (lazy):', displayId);
   } catch (e) {
-    console.warn('[WR] No se pudo construir la(s) capa(s):', e.message);
+    console.warn('[WR] No se pudo preparar el catálogo:', e.message);
     state.systems.wr.routes   = [];
     state.systems.wr.routesUi = [];
+    state.systems.wr.routeDefs = new Map();
   }
+}
+
+/* ===========================
+   Init principal
+   =========================== */
+
+async function init(){
+  initMap();
+
+  // Sidebar: mostrar estado de carga desde el inicio
+  disableSidebarChecks(true);
+  setSidebarLoading(true, 'Cargando rutas y paraderos...');
+  setStatus('Cargando...');
+
+  // Placeholders visibles en listas
+  setListPlaceholder($('#p-met-reg'), 'Cargando Metropolitano (regulares)...');
+  setListPlaceholder($('#p-met-exp'), 'Cargando Metropolitano (expresos)...');
+  setListPlaceholder($('#p-met-alim-n'), 'Cargando Alimentadores (Norte)...');
+  setListPlaceholder($('#p-met-alim-s'), 'Cargando Alimentadores (Sur)...');
+  setListPlaceholder($('#p-corr-list'), 'Cargando Corredores...');
+  setListPlaceholder($('#p-metro'), 'Cargando Metro...');
+  setListPlaceholder($('#p-wr'), 'Cargando Wikiroutes...');
+
+  // Pintar UI antes de empezar a descargar todo
+  await nextFrame();
+
+  // Catálogo primero
+  await loadCatalog();
+
+  // Cargar sistemas en paralelo (WR solo meta, no geometría)
+  setStatus('Cargando datos...');
+  await Promise.all([
+    (async () => { setStatus('Cargando Metropolitano...'); await loadMetropolitano(); })(),
+    (async () => { setStatus('Cargando Alimentadores...'); await loadAlimentadores(); })(),
+    (async () => { setStatus('Cargando Corredores...'); await loadCorredores(); })(),
+    (async () => { setStatus('Cargando Metro...'); await loadMetro(); })(),
+    (async () => { setStatus('Cargando Wikiroutes...'); await loadWikiroutesMeta(); })()
+  ]);
 
   // Construir UI
   buildUI();
 
-  // --------- WR: NO auto-activar nada al iniciar ----------
-  // Apagar cualquier capa WR que pudiera haber quedado visible
+  // WR: NO auto activar nada al iniciar
   const wr = state.systems.wr;
   if (wr && wr.layers) {
     wr.layers.forEach((layer, id) => {
@@ -290,20 +431,22 @@ async function init(){
     });
   }
 
-  // Asegurar todos los checks de WR en OFF
+  // Asegurar checks WR OFF
   const topWr = document.getElementById('chk-wr');
   if (topWr) { topWr.checked = false; topWr.indeterminate = false; }
   $$('#p-wr .item input[type="checkbox"]').forEach(chk => { chk.checked = false; });
 
-  // Si hay pares ida/vuelta, deja “ida” como selección por defecto,
-  // pero SIN dibujar nada hasta que el usuario active el check.
+  // Si hay pares ida/vuelta, dejar “ida” como selección por defecto (sin dibujar)
   (state.systems.wr.routesUi || state.systems.wr.routes || []).forEach(rt => {
     const leaf = document.querySelector(`#p-wr .item input[data-id="${rt.id}"]`);
     if (leaf && rt.pair) leaf.dataset.sel = 'ida';
   });
 
-  // Sincroniza tri-estado después de forzar OFF
+  // Sincronizar tri estado y habilitar sidebar
   syncAllTri();
+  disableSidebarChecks(false);
+  setSidebarLoading(false);
+  setStatus('Listo');
 }
 
 function buildUI(){
@@ -333,7 +476,7 @@ function buildUI(){
   state.systems.wr.ui.list   = $('#p-wr');
   state.systems.wr.ui.chkAll = $('#chk-wr');
 
-  // Llenar listas
+  // Llenar listas (rápido, WR ahora es solo metadata)
   fillMetList();
   fillAlimList();
   fillCorrList();
@@ -413,14 +556,12 @@ function buildUI(){
 
   // Pestañas desplegables
   wirePanelTogglesOnce();
-
-  const statusEl = $('#status');
-  if (statusEl) statusEl.textContent = 'Listo';
 }
 
 // Lanzar
 init().catch(err => {
   console.error(err);
-  const status = document.getElementById('status');
-  if (status) status.textContent = 'Error al iniciar';
+  setSidebarLoading(false);
+  disableSidebarChecks(false);
+  setStatus('Error al iniciar');
 });
