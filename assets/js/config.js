@@ -41,8 +41,9 @@ export const state = {
     wr: {
       id:'wr',
       label:'Transporte público',
-      routes: [],              // [{id:'1244', name:'Ruta 1244 (Wikiroutes)', color:'#00008C', folder:`${PATHS.wr}/1244`}]
+      routes: [],
       layers: new Map(),       // id -> L.LayerGroup
+      stopLayers: new Map(),   // id -> L.LayerGroup (paraderos)
       bounds: new Map(),       // id -> LatLngBounds
       ui:{ list:null, chkAll:null }
     }

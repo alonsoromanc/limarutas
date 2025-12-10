@@ -409,6 +409,97 @@ function buildLineFCFromStops(stops){
 /* =========================================
    Capa Wikiroutes
    ========================================= */
+
+// Normaliza trip: 1=ida, 2=vuelta
+function normalizeWrTrip(trip){
+  const n = Number(trip);
+  return (n === 1 || n === 2) ? n : null;
+}
+
+function parseWrTripValue(v){
+  if (v === null || v === undefined) return null;
+  if (typeof v === 'number') return (v === 1 || v === 2) ? v : null;
+
+  const s = String(v).toLowerCase().trim();
+  if (!s) return null;
+
+  if (s === '1') return 1;
+  if (s === '2') return 2;
+
+  if (s === 'ida' || s.includes('ida') || s === 'outbound' || s === 'forward') return 1;
+  if (s === 'vuelta' || s.includes('vuelta') || s === 'return' || s === 'reverse' || s === 'back') return 2;
+
+  if (s === 'ns' || s === 'north_south' || s === 'north-south') return 1;
+  if (s === 'sn' || s === 'south_north' || s === 'south-north') return 2;
+
+  return null;
+}
+
+function featureMatchesWrTrip(f, tripNum){
+  const p = f?.properties || {};
+  const candidates = [
+    p.trip, p.trip_id,
+    p.direction, p.direction_id,
+    p.dir, p.sentido, p.way,
+    p.shape, p.shape_id,
+    p.route_dir
+  ];
+
+  for (const v of candidates){
+    const t = parseWrTripValue(v);
+    if (t !== null) return t === tripNum;
+  }
+
+  const s = `${p.id ?? ''} ${p.name ?? ''} ${p.title ?? ''}`.trim();
+  const t = parseWrTripValue(s);
+  if (t !== null) return t === tripNum;
+
+  return false;
+}
+
+function pickMultiLineByTrip(geojson, tripNum){
+  const pickCoords = (coords) => {
+    if (!Array.isArray(coords)) return null;
+    if (coords.length === 2 && (tripNum === 1 || tripNum === 2)) return coords[tripNum - 1];
+    return null;
+  };
+
+  if (geojson?.type === 'Feature' && geojson.geometry?.type === 'MultiLineString'){
+    const coords = pickCoords(geojson.geometry.coordinates);
+    if (coords) return { ...geojson, geometry: { type:'LineString', coordinates: coords } };
+  }
+
+  if (geojson?.type === 'FeatureCollection' && Array.isArray(geojson.features) && geojson.features.length === 1){
+    const f = geojson.features[0];
+    if (f?.geometry?.type === 'MultiLineString'){
+      const coords = pickCoords(f.geometry.coordinates);
+      if (coords) {
+        return { ...geojson, features: [{ ...f, geometry: { type:'LineString', coordinates: coords } }] };
+      }
+    }
+  }
+
+  if (geojson?.type === 'MultiLineString'){
+    const coords = pickCoords(geojson.coordinates);
+    if (coords) return { type:'LineString', coordinates: coords };
+  }
+
+  return geojson;
+}
+
+function filterGeoJSONByTrip(geojson, trip){
+  const tripNum = normalizeWrTrip(trip);
+  if (!tripNum || !geojson) return geojson;
+
+  if (geojson.type === 'FeatureCollection' && Array.isArray(geojson.features)) {
+    const matched = geojson.features.filter(f => featureMatchesWrTrip(f, tripNum));
+    if (matched.length) return { ...geojson, features: matched };
+  }
+
+  return pickMultiLineByTrip(geojson, tripNum);
+}
+
+
 export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
   const color = opts.color || '#00008C';
 
@@ -428,8 +519,15 @@ export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
     throw new Error('No se encontraron archivos de trazado ni de paraderos en la carpeta Wikiroutes');
   }
 
-  const line = lineRaw ? fixIfLatLon(lineRaw) : null;
-  const pts  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
+  const tripNum = normalizeWrTrip(opts.trip);
+
+  const line0 = lineRaw ? fixIfLatLon(lineRaw) : null;
+  const pts0  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
+
+  // Cada entrada (ida/vuelta) debe mostrar solo su viaje.
+  // Si los GeoJSON no traen metadata de viaje, el filtro no elimina nada.
+  const line = tripNum ? filterGeoJSONByTrip(line0, tripNum) : line0;
+  const pts  = tripNum ? filterGeoJSONByTrip(pts0,  tripNum) : pts0;
 
   // Si no hay líneas, intenta construirlas a partir de los puntos
   let lineFC = line;
