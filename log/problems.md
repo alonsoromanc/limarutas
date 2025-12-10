@@ -1,5 +1,6 @@
 # Errores
 
+- Eager loading
 - La centralización es individual
 - Las rutas de transporte público tienen dos direcciones.
     - Incluir en el script ambas direcciones
