@@ -1,0 +1,60 @@
+{
+  "routes": {
+    "Ruta": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_89824",
+      "name": "Ruta de autobús SP01 en el mapa de Lima",
+      "trip": 1,
+      "url": "https://wikiroutes.info/es/lima?routes=89824"
+    },
+    "Ruta-ida": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_50347",
+      "name": "Ruta de tranvía El Vagón del Recuerdo en el mapa de Lima (ida)",
+      "trip": 1,
+      "url": "https://wikiroutes.info/es/lima?routes=50347"
+    },
+    "Ruta-trip1": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_45220",
+      "name": "Ruta de autobús SXN en el mapa de Lima (trip 1)",
+      "trip": 1,
+      "url": "https://wikiroutes.info/es/lima?routes=45220"
+    },
+    "Ruta-trip2": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_45220",
+      "name": "Ruta de autobús SXN en el mapa de Lima (trip 2)",
+      "trip": 2,
+      "url": "https://wikiroutes.info/es/lima?routes=45220"
+    },
+    "Ruta-trip3": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_45220",
+      "name": "Ruta de autobús SXN en el mapa de Lima (trip 3)",
+      "trip": 3,
+      "url": "https://wikiroutes.info/es/lima?routes=45220"
+    },
+    "Ruta-trip4": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_45220",
+      "name": "Ruta de autobús SXN en el mapa de Lima (trip 4)",
+      "trip": 4,
+      "url": "https://wikiroutes.info/es/lima?routes=45220"
+    },
+    "Ruta-vuelta": {
+      "city": "Lima",
+      "color": "#00008C",
+      "folder": "data/processed/transporte/route_50347",
+      "name": "Ruta de tranvía El Vagón del Recuerdo en el mapa de Lima (vuelta)",
+      "trip": 2,
+      "url": "https://wikiroutes.info/es/lima?routes=50347"
+    }
+  }
+}

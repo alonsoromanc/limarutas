@@ -4,13 +4,17 @@
       "folder": "data/processed/transporte/route_154193",
       "trip": 1,
       "color": "#ACCB56",
-      "name": "1244 · Villa Las Palmas → Pan de Azúcar"
+      "name": "1244 · Villa Las Palmas → Pan de Azúcar (ida)",
+      "url": "https://wikiroutes.info/es/lima?routes=154193",
+      "city": "Lima"
     },
     "1244-vuelta": {
       "folder": "data/processed/transporte/route_154193",
       "trip": 2,
       "color": "#ACCB56",
-      "name": "1244 · Pan de Azúcar → Villa Las Palmas"
+      "name": "1244 · Villa Las Palmas → Pan de Azúcar (vuelta)",
+      "url": "https://wikiroutes.info/es/lima?routes=154193",
+      "city": "Lima"
     }
   }
 }

@@ -353,39 +353,114 @@ function syncOneWrStopsVisibility(id){
   if (!stopSub) return;
 
   const routeVisible = g && state.map.hasLayer(g);
-  if (routeVisible && state.showStops) {
+  const shouldShowStops = routeVisible && state.showStops;
+
+  if (shouldShowStops) {
     if (!state.map.hasLayer(stopSub)) stopSub.addTo(state.map);
   } else {
     if (state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
   }
 }
 
-// Leer mapeo ida/vuelta desde el DOM
-function getWrPairFromDOM(parentId){
-  const leaf = document.querySelector(`#p-wr .item input[type="checkbox"][data-id="${parentId}"]`);
-  if (!leaf) return null;
-  return {
-    ida: leaf.dataset.ida || null,
-    vuelta: leaf.dataset.vuelta || null,
-    sel: leaf.dataset.sel || 'ida',
-    leaf
-  };
+// Normaliza un id base para ida/vuelta por convención
+function wrBaseId(id){
+  return String(id).replace(/-(ida|vuelta)$/i, '');
 }
 
-// Mostrar/ocultar una subcapa WR por id real
-function toggleWrSub(id, visible, fit){
+function wrCounterpartId(id){
+  const s = String(id);
+  if (/-ida$/i.test(s)) return s.replace(/-ida$/i, '-vuelta');
+  if (/-vuelta$/i.test(s)) return s.replace(/-vuelta$/i, '-ida');
+  return null;
+}
+
+function hideWrSub(id){
+  const wr = state.systems.wr;
+  const g = wr.layers?.get(id);
+  if (g && state.map.hasLayer(g)) state.map.removeLayer(g);
+
+  const stopSub = wr.stopLayers?.get(id);
+  if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+}
+
+function showWrSub(id, fit){
   const wr = state.systems.wr;
   const g = wr.layers?.get(id);
   if (!g) return;
 
-  if (visible) {
-    g.addTo(state.map);
-    syncOneWrStopsVisibility(id);
-    if (fit && wr.bounds?.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
+  // Exclusión automática por convención -ida/-vuelta
+  const other = wrCounterpartId(id);
+  if (other) hideWrSub(other);
+
+  if (!state.map.hasLayer(g)) g.addTo(state.map);
+  syncOneWrStopsVisibility(id);
+
+  if (fit && wr.bounds?.get(id) && state.autoFit) fitTo(wr.bounds.get(id).pad(0.04));
+}
+
+// Resolver ida/vuelta desde el DOM si existe, con fallback por convención
+function resolveWrPair(id){
+  const wr = state.systems.wr;
+  const root = document.getElementById('p-wr');
+
+  const hasLayers = (rid) => !!(rid && wr.layers?.has(rid));
+  const hasPairData = (el) => !!(el && (el.dataset.ida || el.dataset.vuelta));
+
+  const s = String(id);
+  const base = wrBaseId(s);
+
+  if (root) {
+    const pick = (pid) =>
+      root.querySelector(`.item input[type="checkbox"][data-id="${pid}"]`);
+
+    const leafExact = pick(s);
+    if (hasPairData(leafExact)) {
+      return {
+        parentId: s,
+        ida: leafExact.dataset.ida || null,
+        vuelta: leafExact.dataset.vuelta || null,
+        sel: leafExact.dataset.sel || 'ida',
+        leaf: leafExact
+      };
+    }
+
+    const leafBase = pick(base);
+    if (hasPairData(leafBase)) {
+      return {
+        parentId: base,
+        ida: leafBase.dataset.ida || null,
+        vuelta: leafBase.dataset.vuelta || null,
+        sel: leafBase.dataset.sel || 'ida',
+        leaf: leafBase
+      };
+    }
+  }
+
+  // Fallback por convención si el id parece subcapa
+  if (base !== s) {
+    const ida = `${base}-ida`;
+    const vuelta = `${base}-vuelta`;
+    const sel = /-vuelta$/i.test(s) ? 'vuelta' : 'ida';
+
+    // Solo considerar "par" si existe al menos una de las dos capas
+    if (hasLayers(ida) || hasLayers(vuelta)) {
+      return { parentId: base, ida, vuelta, sel, leaf: null };
+    }
+  }
+
+  return null;
+}
+
+function applyWrPairVisibility(pair, checked, fit){
+  const showId  = pair.sel === 'vuelta' ? pair.vuelta : pair.ida;
+  const otherId = pair.sel === 'vuelta' ? pair.ida   : pair.vuelta;
+
+  if (checked) {
+    if (otherId) hideWrSub(otherId);
+    if (showId)  showWrSub(showId, fit);
   } else {
-    state.map.removeLayer(g);
-    const stopSub = wr.stopLayers?.get(id);
-    if (stopSub && state.map.hasLayer(stopSub)) state.map.removeLayer(stopSub);
+    if (pair.ida) hideWrSub(pair.ida);
+    if (pair.vuelta) hideWrSub(pair.vuelta);
   }
 }
 
@@ -393,51 +468,70 @@ function toggleWrSub(id, visible, fit){
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
 
-  // Si es subcapa real, actúa directo
-  if (wr.layers?.has(id)) {
-    toggleWrSub(id, visible, fit);
+  const pair = resolveWrPair(id);
+  const pairValid =
+    pair &&
+    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
+
+  if (pairValid) {
+    applyWrPairVisibility(pair, visible, fit);
     return;
   }
 
-  // Si es padre, delega al handler de hoja usando el DOM
-  const pair = getWrPairFromDOM(id);
-  if (pair) {
-    setWikiroutesVisibleLeaf(id, visible, { fit });
+  if (wr.layers?.has(id)) {
+    if (visible) showWrSub(id, fit);
+    else hideWrSub(id);
   }
 }
 
-// Mostrar/ocultar el viaje seleccionado de un padre
+// Compatibilidad: se mantiene esta API para el sidebar
 export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
-  const pair = getWrPairFromDOM(parentId);
+  const wr = state.systems.wr;
+  const pair = resolveWrPair(parentId);
 
-  if (!pair) {
-    // No es par, interpretar como capa simple con ese id
-    toggleWrSub(parentId, checked, fit);
+  const pairValid =
+    pair &&
+    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
+
+  if (pairValid) {
+    applyWrPairVisibility(pair, checked, fit);
     return;
   }
 
-  const showId  = pair.sel === 'vuelta' ? pair.vuelta : pair.ida;
-  const otherId = pair.sel === 'vuelta' ? pair.ida   : pair.vuelta;
-
-  if (checked) {
-    if (otherId) toggleWrSub(otherId, false, false);
-    if (showId)  toggleWrSub(showId,  true,  fit);
-  } else {
-    if (showId)  toggleWrSub(showId,  false, false);
-    if (otherId) toggleWrSub(otherId, false, false);
+  // No es par, interpretarlo como capa simple con ese id
+  if (wr.layers?.has(parentId)) {
+    if (checked) showWrSub(parentId, fit);
+    else hideWrSub(parentId);
   }
 }
 
 // Cambiar IDA/VUELTA de un padre ya existente
 export function setWikiroutesTrip(parentId, trip, { fit=false } = {}){
-  const pair = getWrPairFromDOM(parentId);
-  if (!pair) return;
+  const wr = state.systems.wr;
+  const pair = resolveWrPair(parentId);
 
-  pair.leaf.dataset.sel = trip === 2 ? 'vuelta' : 'ida';
+  const pairValid =
+    pair &&
+    ((pair.ida && wr.layers?.has(pair.ida)) || (pair.vuelta && wr.layers?.has(pair.vuelta)));
 
-  // Si el padre está marcado, intercambia en el mapa
-  if (pair.leaf.checked) {
-    setWikiroutesVisibleLeaf(parentId, true, { fit });
+  if (!pairValid) return;
+
+  const sel = trip === 2 ? 'vuelta' : 'ida';
+  pair.sel = sel;
+  if (pair.leaf) pair.leaf.dataset.sel = sel;
+
+  // Si está visible (por checkbox o por capa), intercambia en el mapa
+  const isVisible = (() => {
+    if (pair.leaf && pair.leaf.checked) return true;
+    const v = (rid) => {
+      const g = wr.layers?.get(rid);
+      return !!(g && state.map.hasLayer(g));
+    };
+    return (pair.ida && v(pair.ida)) || (pair.vuelta && v(pair.vuelta));
+  })();
+
+  if (isVisible) {
+    applyWrPairVisibility(pair, true, fit);
   }
 }
 
@@ -452,7 +546,7 @@ export function reRenderVisibleSystem(sysId){
 
   $$(sel).forEach(chk=>{
     if (sysId==='wr'){
-      setWikiroutesVisibleLeaf(chk.dataset.id, chk.checked, { fit:true });
+      setWikiroutesVisible(chk.dataset.id, chk.checked, { fit:true });
     } else {
       if (chk.checked) onToggleService(sysId, chk.dataset.id, true, {silentFit:true});
       else hideService(sysId, chk.dataset.id);
