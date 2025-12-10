@@ -468,6 +468,15 @@ function applyWrPairVisibility(pair, checked, fit){
 export function setWikiroutesVisible(id, visible, { fit=false } = {}){
   const wr = state.systems.wr;
 
+  // 1) Si es una subcapa real (id exacto en wr.layers), actúa directo.
+  // Evita que ids tipo "1244-ida" se interpreten como "padre" y apaguen ambas.
+  if (wr.layers?.has(id)) {
+    if (visible) showWrSub(id, fit);
+    else hideWrSub(id);
+    return;
+  }
+
+  // 2) Si es un "padre" Ida/Vuelta, usa el par (DOM o convención)
   const pair = resolveWrPair(id);
   const pairValid =
     pair &&
@@ -475,14 +484,9 @@ export function setWikiroutesVisible(id, visible, { fit=false } = {}){
 
   if (pairValid) {
     applyWrPairVisibility(pair, visible, fit);
-    return;
-  }
-
-  if (wr.layers?.has(id)) {
-    if (visible) showWrSub(id, fit);
-    else hideWrSub(id);
   }
 }
+
 
 // Compatibilidad: se mantiene esta API para el sidebar
 export function setWikiroutesVisibleLeaf(parentId, checked, { fit=false } = {}){
