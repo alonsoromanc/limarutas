@@ -293,7 +293,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
   const routesObj = wrMap?.routes && typeof wrMap.routes === 'object' ? wrMap.routes : null;
   if (!routesObj) return { routeDefs, routesUi };
 
-  // Defs físicas
+  // Definiciones físicas por id real (ej. "1244-ida", "1244-vuelta")
   for (const [rid, conf] of Object.entries(routesObj)) {
     const folderRel = conf.folder || `route_${rid}`;
     const folder = folderRel.startsWith('data/')
@@ -308,12 +308,13 @@ function buildWrUiAndDefsFromWrMap(wrMap){
     });
   }
 
-  // UI combinada
+  // UI combinada agrupando ida/vuelta bajo el código moderno (base)
   const groups = new Map();
   for (const rid of Object.keys(routesObj)) {
     const m = rid.match(/^(.*?)-(ida|vuelta)$/i);
     if (m) {
-      const base = m[1], dir = m[2].toLowerCase();
+      const base = m[1];
+      const dir  = m[2].toLowerCase();
       if (!groups.has(base)) groups.set(base, { base, ida:null, vuelta:null });
       groups.get(base)[dir] = rid;
     } else {
@@ -329,7 +330,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
     if (g.ida && g.vuelta) {
       const baseColor = (routesObj[g.ida].color || routesObj[g.vuelta].color || '#00008C');
       routesUi.push({
-        id: g.base,
+        id: g.base,                 // aquí el id visible es el código moderno, p.ej. "1244"
         name: `Wikiroutes ${g.base}`,
         color: baseColor,
         pair: { ida: g.ida, vuelta: g.vuelta }
@@ -343,7 +344,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
           color: routesObj[only].color || '#00008C'
         });
       }
-    }
+      }
   });
 
   return { routeDefs, routesUi };
@@ -354,24 +355,54 @@ async function loadWikiroutesMeta(){
     let wrMap = await fetchJSON(`config/wr_map.json`).catch(()=>null);
     if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/config/wr_map.json`).catch(()=>null);
 
-    state.systems.wr.routesUi = [];
-    state.systems.wr.routes = [];
+    state.systems.wr.routes    = [];
+    state.systems.wr.routesUi  = [];
     state.systems.wr.routeDefs = new Map();
 
     if (wrMap?.routes && typeof wrMap.routes === 'object') {
       const { routeDefs, routesUi } = buildWrUiAndDefsFromWrMap(wrMap);
 
-      state.systems.wr.routeDefs = routeDefs;
+      // Catalogo principal: se usa catalog.transporte y código moderno
+      const cat   = state.catalog || {};
+      const trans = cat.transporte || {};
+      const upper = s => String(s).toUpperCase();
 
-      const filteredUi = filterByCatalogFor('wr', routesUi, state.catalog);
-      state.systems.wr.routesUi = filteredUi;
-      state.systems.wr.routes = filteredUi;
+      const onlySet = Array.isArray(trans.only)
+        ? new Set(trans.only.map(upper))
+        : null;
+      const excSet  = Array.isArray(trans.exclude)
+        ? new Set(trans.exclude.map(upper))
+        : new Set();
 
-      console.log('[WR] UI (lazy):', state.systems.wr.routesUi.length, 'items');
+      // Filtrado de UI por código moderno (base antes de "-ida"/"-vuelta")
+      const filteredUi = routesUi.filter(rt => {
+        const base = upper(String(rt.id).split('-')[0]); // "1244-ida" -> "1244", "1244" -> "1244"
+        if (excSet.has(base)) return false;
+        if (onlySet && !onlySet.has(base)) return false;
+        return true;
+      });
+
+      // Filtrado de definiciones físicas por el mismo código moderno
+      const filteredDefs = new Map();
+      routeDefs.forEach((def, rid) => {
+        const base = upper(String(rid).split('-')[0]);
+        if (excSet.has(base)) return;
+        if (onlySet && !onlySet.has(base)) return;
+        filteredDefs.set(rid, def);
+      });
+
+      state.systems.wr.routeDefs = filteredDefs;
+      state.systems.wr.routesUi  = filteredUi;
+      state.systems.wr.routes    = filteredUi;
+
+      console.log(
+        '[WR] UI (lazy, filtrada por catalog.transporte):',
+        state.systems.wr.routesUi.map(r => r.id).join(', ') || '(ninguna)'
+      );
       return;
     }
 
-    // Fallback a un solo folder fijo
+    // Fallback a un solo folder fijo si no hay wr_map.routes
     const wrFolder  = `${PATHS.wr}/route_154193`;
     const meta      = await fetchJSON(`${wrFolder}/route.json`).catch(()=>null);
     const overrides = await fetchJSON(`config/wr_overrides.json`).catch(()=> ({}));
@@ -381,15 +412,17 @@ async function loadWikiroutesMeta(){
     const color     = ov?.color || '#00008C';
     const name      = ov?.name  || meta?.name || `Ruta ${displayId} (Wikiroutes)`;
 
-    state.systems.wr.routeDefs = new Map([[displayId, { folder: wrFolder, color, trip: 1, name }]]);
+    state.systems.wr.routeDefs = new Map([
+      [displayId, { folder: wrFolder, color, trip: 1, name }]
+    ]);
     state.systems.wr.routesUi = [{ id: displayId, name, color }];
     state.systems.wr.routes   = state.systems.wr.routesUi;
 
     console.log('[WR] Fallback UI (lazy):', displayId);
   } catch (e) {
     console.warn('[WR] No se pudo preparar el catálogo:', e.message);
-    state.systems.wr.routes   = [];
-    state.systems.wr.routesUi = [];
+    state.systems.wr.routes    = [];
+    state.systems.wr.routesUi  = [];
     state.systems.wr.routeDefs = new Map();
   }
 }
