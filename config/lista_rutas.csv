@@ -14,12 +14,12 @@ codigo_antiguo,codigo_nuevo,distrito_origen,distrito_destino,empresa_operadora,a
 1518,1013,Carabayllo,Jesús María,Translima S.A.,La 18,#017BA1
 1602,1014,Comas,San Luis,Empresa de Transportes y Servicios Catorce de Diciembre S.A.C.,Ninguno,#26913B
 1604,1015,Carabayllo,Lince,Empresa de Transportes Miguel Grau S.A. (ETMIGRASA),La MG,#121213
-1607,1016,Ancón,La Victoria,Empresa de Transportes y Servicios La Buena Estrella S.A.C. / Corporación Las Estrellas S.A.C.[4]​,Ninguno,#0000B3
-1608,1017,Ancón,La Victoria,Novobus S.A.C. / Corporación Las Estrellas S.A.C.[4]​,Ninguno,#0000BF
+1607,1016,Ancón,La Victoria,Empresa de Transportes y Servicios La Buena Estrella S.A.C. / Corporación Las Estrellas S.A.C.,Ninguno,#0000B3
+1608,1017,Ancón,La Victoria,Novobus S.A.C. / Corporación Las Estrellas S.A.C.​,Ninguno,#0000BF
 1610,1018,Carabayllo,La Victoria,Empresa de Transportes Once de Noviembre S.A. (EMPTONSA),Ninguno,#56CCA1
 1611,1019,Puente Piedra,Magdalena del Mar,Empresa de Transportes Palmari S.A. / Grupo Empresarial El Rápido S.A.,La P,#D10F0F
 1612,1020,Puente Piedra,Miraflores,Empresa de Transportes Santa Luzmila S.A. (ETSLUSA),La C,#264720
-1615,1021,Carabayllo,Lince[5]​,Inversiones y Servicios CKF S.A. / Grupo Empresarial El Rápido S.A.,La F,#D10F0F
+1615,1021,Carabayllo,Lince​,Inversiones y Servicios CKF S.A. / Grupo Empresarial El Rápido S.A.,La F,#D10F0F
 1617,1022,Carabayllo,Miraflores,Trans. Norcom Corporation S.A.C. / Grupo Empresarial El Rápido S.A.,Ninguno,#D10F0F
 1618,1023,Carabayllo,Lince,Empresa de Transportes y Servicios Nueva América S.A. (TRANSNASA),La B,#FA8E00
 2204,1024,San Martín de Porres,San Martín de Porres,Empresa de Transportes Nor Lima S.A. (ETNOLSA),La U - La A - La B - La C,#00BBFF
@@ -160,7 +160,7 @@ IO19,1164,Callao,Independencia,Cooperativa de Transportes Corazón de Jesús Ltd
 IO38,1165,Los Olivos,Callao,Consorcio Briza,Ninguno,#0011FF
 IO44,1166,Carabayllo,San Miguel,Empresa de Transportes Vía Bus S.A.C. (ETVIBUSAC),Ninguno,#032DFF
 IO45,1167,Carabayllo,Callao,Consorcio Briza,Ninguno,#634941
-IO47,1168,Ventanilla,Lince,Inversiones y Servicios Múltiples La Nueva Estrella S.A.C. / Corporación Las Estrellas S.A.C.[4]​,Ninguno,#FFA305
+IO47,1168,Ventanilla,Lince,Inversiones y Servicios Múltiples La Nueva Estrella S.A.C. / Corporación Las Estrellas S.A.C.​,El Anconero,#FFA305
 IO75B,1169,Mi Perú,Lima,Transportes y Servicios Cielo Mar y Tierra S.A. (ETCIMATISA),Ninguno,#808080
 OM09,1170,Callao,Lima,Perla Argentina S.A. (PASA),La 93,#18D6C9
 OM16,1171,Santa Rosa,La Victoria,Empresa de Transportes Álamo Express S.A. (ETALEXSA) / Consorcio Santa Bárbara S.A. (COSBASA),La DC - La SB,#00B8FF

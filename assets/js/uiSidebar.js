@@ -48,7 +48,6 @@ function miniDir(systemId, svc){
 
 function makeServiceItemMet(svc){
   const img = el('img',{
-// NOTE: The path uses upper-case IDs for Metropolitano icons
     src:`${PATHS.icons.met}/${String(svc.id).toUpperCase()}.png`,
     class:'badge',
     alt:svc.id
@@ -219,23 +218,97 @@ function loadWrListaMeta(){
   return wrListaMetaPromise;
 }
 
-function wrExtraerSiglasEmpresa(empresa){
+// Busca todas las siglas entre paréntesis; si hay varias, prioriza las que
+// empiezan por E; si no hay ninguna, devuelve cadena vacía.
+function wrFindSiglasEmpresa(empresa){
   if (!empresa) return '';
-  const m = empresa.match(/\(([^)]+)\)/);
-  return m ? m[1].trim() : '';
+  const matches = [...empresa.matchAll(/\(([^)]+)\)/g)];
+  if (!matches.length) return '';
+
+  if (matches.length === 1){
+    return matches[0][1].trim();
+  }
+
+  let withE = null;
+  for (const m of matches){
+    const txt = m[1].trim();
+    if (txt && txt[0].toUpperCase() === 'E'){
+      withE = txt;
+      break;
+    }
+  }
+  if (withE) return withE;
+  return matches[0][1].trim();
+}
+
+// Construye la versión "recortada" del nombre de empresa cuando no hay siglas
+// y tampoco alias.
+function wrBuildEmpresaDisplay(empresaRaw){
+  if (!empresaRaw) return '';
+  let s = empresaRaw.trim();
+  if (s.length <= 30) return s;
+
+  // Recorte al inicio
+  const prefixes = [
+    'Empresa de Transportes y Servicios',
+    'Empresa de Transportes',
+    'Empresa de Transporte'
+  ];
+  for (const pref of prefixes){
+    const needle = pref + ' ';
+    if (s.startsWith(needle)){
+      s = s.slice(needle.length);
+      break;
+    }
+  }
+
+  // Recorte al final
+  const suffixes = [' S.A.C.', ' S.A.'];
+  for (const suf of suffixes){
+    if (s.endsWith(suf)){
+      s = s.slice(0, s.length - suf.length);
+      break;
+    }
+  }
+
+  return s.trim();
 }
 
 function wrBuildTituloPrincipal(meta, rt){
-  const alias   = meta && meta.alias ? meta.alias.trim() : '';
-  const empresa = meta && meta.empresa_operadora ? meta.empresa_operadora.trim() : '';
-  const siglas  = wrExtraerSiglasEmpresa(empresa);
+  const rawAlias = meta && meta.alias ? meta.alias.trim() : '';
+  // "Ninguno" se trata como si no hubiera alias
+  const alias = rawAlias && !/^ningun[oa]$/i.test(rawAlias) ? rawAlias : '';
 
+  const empresa = meta && meta.empresa_operadora ? meta.empresa_operadora.trim() : '';
+  const siglas  = wrFindSiglasEmpresa(empresa);
+
+  // Caso con alias
   if (alias){
-    if (siglas) return `${alias} - ${siglas}`;
+    // Si hay siglas (ETUSA, ETIMGRASA, etc.), priorizarlas
+    if (siglas){
+      return `${alias} - ${siglas}`;
+    }
+    // Si no hay siglas, usar SIEMPRE el nombre de empresa "cropeado"
+    // (quitando "Empresa de Transportes..." y "S.A./S.A.C." si aplica)
+    if (empresa){
+      const recortado = wrBuildEmpresaDisplay(empresa);
+      if (recortado) return `${alias} - ${recortado}`;
+    }
+    // Si por alguna razón no hay empresa, al menos mostrar el alias
     return alias;
   }
-  if (empresa) return empresa;
 
+  // Caso SIN alias:
+  // Aquí se usa el nombre de la empresa COMPLETO (no recortado).
+  // Si hay siglas, se pueden seguir usando como identificador corto.
+  if (siglas){
+    return siglas;
+  }
+  if (empresa){
+    return empresa; // completo, sin crop
+  }
+
+  // Fallbacks si no hay meta
   if (rt && rt.name){
     const m = rt.name.match(/^\s*\d+\s*·\s*(.*)$/);
     if (m) return m[1];
@@ -245,15 +318,15 @@ function wrBuildTituloPrincipal(meta, rt){
   return '';
 }
 
+
 function wrParseBaseStops(rt){
   const rawName = rt && rt.name ? String(rt.name) : '';
   if (!rawName) return {from:'', to:'', label:''};
 
   let s = rawName;
-  s = s.replace(/^\s*\d+\s*·\s*/,'');                // quitar "1244 ·"
-  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');      // quitar "(ida)" o "(vuelta)"
+  s = s.replace(/^\s*\d+\s*·\s*/,'');
+  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
 
-  // Intentar con flecha
   let parts = s.split('→');
   if (parts.length === 2){
     const from = parts[0].trim();
@@ -261,7 +334,6 @@ function wrParseBaseStops(rt){
     return {from, to, label:`${from} \u2192 ${to}`};
   }
 
-  // Intentar con guion
   parts = s.split(/\s*-\s*/);
   if (parts.length === 2){
     const from = parts[0].trim();
@@ -311,7 +383,6 @@ function applyWrTextsToWrItem(item, direccion){
 }
 
 function makeWrDirPairControls(chk){
-  // chk.dataset.sel = 'ida' | 'vuelta'
   const wrap = el('div',{class:'dir-mini'});
   const mk = (val,label) =>
     el('button',{class:`segbtn-mini${(chk.dataset.sel||'ida')===val?' active':''}`,'data-dir':val},label);
@@ -325,16 +396,13 @@ function makeWrDirPairControls(chk){
     const sel = btn.dataset.dir;
     if (!sel || sel === chk.dataset.sel) return;
     chk.dataset.sel = sel;
-    // actualizar UI botones
     [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
 
-    // actualizar textos (título / distritos / barrios)
     const item = wrap.closest('.item');
     if (item){
       applyWrTextsToWrItem(item, sel);
     }
 
-    // si está activado el ítem, cambiar capas visibles
     if (chk.checked){
       const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
       if (sel==='ida'){
@@ -352,14 +420,13 @@ function makeWrDirPairControls(chk){
 
 // Item para Wikiroutes
 function makeWrItem(rt, metaByCodigo){
-  // rt puede ser "simple" (sin pair) o "combinado" (pair:{ida,vuelta}, defaultDir)
   const labelId = String(rt.id).toUpperCase();
   const tag = el('span',{class:'tag', style:`background:${rt.color}`}, labelId);
 
   const textBlock = el('div',{},
-    el('div',{class:'name wr-main-title'}, `Wikiroutes ${labelId}`),          // se sobreescribe luego
-    el('div',{class:'sub wr-subtitle-dist'}, ''),                             // distrito_origen → distrito_destino
-    el('div',{class:'sub wr-subtitle-route'}, rt.name || '')                  // Villa Las Palmas → Pan de Azúcar
+    el('div',{class:'name wr-main-title'}, `Wikiroutes ${labelId}`),
+    el('div',{class:'sub wr-subtitle-dist'}, ''),
+    el('div',{class:'sub wr-subtitle-route'}, rt.name || '')
   );
 
   const left = el('div',{class:'left'}, tag, textBlock);
@@ -375,7 +442,6 @@ function makeWrItem(rt, metaByCodigo){
     ? el('div',{class:'item'}, head, makeWrDirPairControls(chk))
     : el('div',{class:'item'}, head);
 
-  // Guardar meta y parsed stops en el propio item
   const key = wrCanonicalCode(rt.id);
   body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
   body.__wrRoute = rt;
@@ -531,7 +597,6 @@ export async function fillWrList(){
 
   const metaByCodigo = await loadWrListaMeta();
 
-  // Preferir la lista agrupada si está disponible
   const src = Array.isArray(wr.routesUi) && wr.routesUi.length ? wr.routesUi : wr.routes;
   (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo)));
 }
@@ -576,7 +641,6 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
   if (!id) return;
 
   if (systemId === 'wr') {
-    // Ítem combinado Ida/Vuelta
     const ida = leafChk.dataset.ida, vta = leafChk.dataset.vuelta;
     if (ida && vta){
       const sel = leafChk.dataset.sel || 'ida';
@@ -589,7 +653,6 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
       }
       return;
     }
-    // Ítem simple
     if (checked) setWikiroutesVisible(id, true, {fit:!silentFit});
     else setWikiroutesVisible(id, false);
   } else {
@@ -716,23 +779,18 @@ export function syncAllTri(){
 }
 
 export function wireHierarchy(){
-  // Met
   state.systems.met.ui.chkAll.addEventListener('change', onLevel1ChangeMet);
   state.systems.met.ui.chkReg.addEventListener('change', ()=> onLevel2ChangeMet(state.systems.met.ui.chkReg));
   state.systems.met.ui.chkExp.addEventListener('change', ()=> onLevel2ChangeMet(state.systems.met.ui.chkExp));
 
-  // Alimentadores
   state.systems.alim.ui.chkAll.addEventListener('change', onLevel1ChangeAlim);
   state.systems.alim.ui.chkN  .addEventListener('change', ()=> onLevel2ChangeAlim(state.systems.alim.ui.chkN));
   state.systems.alim.ui.chkS  .addEventListener('change', ()=> onLevel2ChangeAlim(state.systems.alim.ui.chkS));
 
-  // Corredores
   state.systems.corr.ui.chkAll.addEventListener('change', onLevel1ChangeCorr);
 
-  // Metro
   state.systems.metro.ui.chkAll.addEventListener('change', onLevel1ChangeMetro);
 
-  // Wikiroutes
   state.systems.wr.ui.chkAll.addEventListener('change', onLevel1ChangeWr);
 
   syncAllTri();
