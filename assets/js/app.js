@@ -228,13 +228,12 @@ async function init(){
         if (g.ida && g.vuelta) {
           const baseColor = (wrMap.routes[g.ida].color || wrMap.routes[g.vuelta].color || '#00008C');
           state.systems.wr.routesUi.push({
-            id: g.base,
+            id: g.base,                // aquí ya es el código moderno, ej. "1244"
             name: `Wikiroutes ${g.base}`,
             color: baseColor,
             pair: { ida: g.ida, vuelta: g.vuelta }
           });
         } else {
-          // si falta una de las dos, muestra la que exista como ítem simple
           const only = g.ida || g.vuelta;
           if (only) {
             state.systems.wr.routesUi.push({
@@ -246,10 +245,14 @@ async function init(){
         }
       });
 
-      // Para que el sidebar funcione sin tocar su fillWrList si usa wr.routes:
-      state.systems.wr.routes = state.systems.wr.routesUi;
+      // Aplicar catálogo "transporte" usando el código moderno
+      state.systems.wr.routesUi = filterByCatalogFor('wr', state.systems.wr.routesUi, state.catalog);
 
-      console.log('[WR] UI combinada:', state.systems.wr.routesUi.map(r=>r.id).join(', '));
+      // Para que el sidebar funcione sin tocar fillWrList
+      state.systems.wr.routes = state.systems.wr.routesUi;
+      console.log('[WR] UI combinada + catálogo:',
+        state.systems.wr.routesUi.map(r => r.id).join(', ')
+      );
     } else {
       // Fallback: carpeta fija + overrides
       const wrFolder  = `${PATHS.wr}/route_154193`;

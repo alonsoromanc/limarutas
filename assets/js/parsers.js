@@ -66,6 +66,28 @@ export function filterByCatalogFor(systemId, services, catalog){
     });
   }
 
+    if (systemId === 'wr') {
+    // Usar catálogo.transporte con clave = código moderno (base)
+    const tr = catalog?.transporte || {};
+    const only = Array.isArray(tr.only) ? new Set(tr.only.map(upper)) : null;
+    const exc  = Array.isArray(tr.exclude) ? new Set(tr.exclude.map(upper)) : new Set();
+
+    return services.filter(rt => {
+      // rt viene de state.systems.wr.routesUi o similar
+      // Si es par ida/vuelta, rt.id ya es el código base (1244)
+      let base = rt && rt.id != null ? upper(rt.id) : '';
+      // Si por alguna razón llega "1244-ida", recortar el sufijo
+      const m = base.match(/^(.*?)-(IDA|VUELTA)$/);
+      if (m) base = m[1];
+
+      if (!base) return false;
+
+      if (exc.has(base)) return false;
+      if (only) return only.has(base);
+      return true;
+    });
+  }
+
   return S;
 }
 
