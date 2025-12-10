@@ -48,6 +48,7 @@ function miniDir(systemId, svc){
 
 function makeServiceItemMet(svc){
   const img = el('img',{
+// NOTE: The path uses upper-case IDs for Metropolitano icons
     src:`${PATHS.icons.met}/${String(svc.id).toUpperCase()}.png`,
     class:'badge',
     alt:svc.id
@@ -162,6 +163,153 @@ function makeServiceItemMetro(svc){
 
 /* =============== Wikiroutes (ítem combinado Ida/Vuelta) =============== */
 
+/* ---- Carga de lista_rutas.csv y helpers de texto ---- */
+
+let wrListaMetaPromise = null;
+
+function wrCanonicalCode(value){
+  const s = String(value||'').trim();
+  if (!s) return '';
+  const n = Number(s);
+  if (!Number.isNaN(n)) return String(n);
+  return s.toUpperCase();
+}
+
+function loadWrListaMeta(){
+  if (!wrListaMetaPromise){
+    wrListaMetaPromise = fetch('config/lista_rutas.csv')
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.text();
+      })
+      .then(text => {
+        const lines = text.trim().split(/\r?\n/);
+        const metaByCodigo = {};
+        if (!lines.length) return metaByCodigo;
+
+        const header = lines[0].split(',');
+        const idxCodigo  = header.findIndex(h => h.trim() === 'codigo_nuevo');
+        const idxOri     = header.findIndex(h => h.trim() === 'distrito_origen');
+        const idxDes     = header.findIndex(h => h.trim() === 'distrito_destino');
+        const idxEmp     = header.findIndex(h => h.trim() === 'empresa_operadora');
+        const idxAlias   = header.findIndex(h => h.trim() === 'alias');
+
+        for (let i = 1; i < lines.length; i++){
+          const raw = lines[i].trim();
+          if (!raw) continue;
+          const cols = raw.split(',');
+          const codigo = (idxCodigo>=0 && cols[idxCodigo]) ? cols[idxCodigo].trim() : '';
+          if (!codigo) continue;
+          const key = wrCanonicalCode(codigo);
+          metaByCodigo[key] = {
+            codigo_nuevo: codigo,
+            distrito_origen: idxOri>=0 ? (cols[idxOri] || '').trim() : '',
+            distrito_destino: idxDes>=0 ? (cols[idxDes] || '').trim() : '',
+            empresa_operadora: idxEmp>=0 ? (cols[idxEmp] || '').trim() : '',
+            alias: idxAlias>=0 ? (cols[idxAlias] || '').trim() : ''
+          };
+        }
+        return metaByCodigo;
+      })
+      .catch(err => {
+        console.error('No se pudo cargar config/lista_rutas.csv', err);
+        return {};
+      });
+  }
+  return wrListaMetaPromise;
+}
+
+function wrExtraerSiglasEmpresa(empresa){
+  if (!empresa) return '';
+  const m = empresa.match(/\(([^)]+)\)/);
+  return m ? m[1].trim() : '';
+}
+
+function wrBuildTituloPrincipal(meta, rt){
+  const alias   = meta && meta.alias ? meta.alias.trim() : '';
+  const empresa = meta && meta.empresa_operadora ? meta.empresa_operadora.trim() : '';
+  const siglas  = wrExtraerSiglasEmpresa(empresa);
+
+  if (alias){
+    if (siglas) return `${alias} - ${siglas}`;
+    return alias;
+  }
+  if (empresa) return empresa;
+
+  if (rt && rt.name){
+    const m = rt.name.match(/^\s*\d+\s*·\s*(.*)$/);
+    if (m) return m[1];
+    return rt.name;
+  }
+  if (rt && rt.id != null) return `Wikiroutes ${String(rt.id).toUpperCase()}`;
+  return '';
+}
+
+function wrParseBaseStops(rt){
+  const rawName = rt && rt.name ? String(rt.name) : '';
+  if (!rawName) return {from:'', to:'', label:''};
+
+  let s = rawName;
+  s = s.replace(/^\s*\d+\s*·\s*/,'');                // quitar "1244 ·"
+  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');      // quitar "(ida)" o "(vuelta)"
+
+  // Intentar con flecha
+  let parts = s.split('→');
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+
+  // Intentar con guion
+  parts = s.split(/\s*-\s*/);
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+
+  return {from:'', to:'', label:s.trim()};
+}
+
+function applyWrTextsToWrItem(item, direccion){
+  const rt    = item.__wrRoute || null;
+  const meta  = item.__wrMeta  || null;
+  const stops = item.__wrStops || null;
+
+  const titleEl = item.querySelector('.wr-main-title');
+  const distEl  = item.querySelector('.wr-subtitle-dist');
+  const routeEl = item.querySelector('.wr-subtitle-route');
+
+  if (titleEl){
+    titleEl.textContent = wrBuildTituloPrincipal(meta, rt);
+  }
+
+  if (distEl){
+    let ori = meta && meta.distrito_origen  ? meta.distrito_origen  : '';
+    let des = meta && meta.distrito_destino ? meta.distrito_destino : '';
+    if (direccion === 'vuelta'){
+      [ori, des] = [des, ori];
+    }
+    distEl.textContent = (ori || des) ? `${ori} \u2192 ${des}` : '';
+  }
+
+  if (routeEl){
+    let from = stops && stops.from ? stops.from : '';
+    let to   = stops && stops.to   ? stops.to   : '';
+    if (direccion === 'vuelta' && from && to){
+      [from, to] = [to, from];
+    }
+    if (from || to){
+      routeEl.textContent = `${from} \u2192 ${to}`;
+    } else if (rt && rt.name){
+      routeEl.textContent = rt.name;
+    } else {
+      routeEl.textContent = '';
+    }
+  }
+}
+
 function makeWrDirPairControls(chk){
   // chk.dataset.sel = 'ida' | 'vuelta'
   const wrap = el('div',{class:'dir-mini'});
@@ -177,13 +325,25 @@ function makeWrDirPairControls(chk){
     const sel = btn.dataset.dir;
     if (!sel || sel === chk.dataset.sel) return;
     chk.dataset.sel = sel;
-    // actualizar UI
+    // actualizar UI botones
     [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
+
+    // actualizar textos (título / distritos / barrios)
+    const item = wrap.closest('.item');
+    if (item){
+      applyWrTextsToWrItem(item, sel);
+    }
+
     // si está activado el ítem, cambiar capas visibles
     if (chk.checked){
       const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
-      if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:true}); setWikiroutesVisible(vta, false); }
-      else            { setWikiroutesVisible(vta, true, {fit:true}); setWikiroutesVisible(ida, false); }
+      if (sel==='ida'){
+        setWikiroutesVisible(ida, true, {fit:true});
+        setWikiroutesVisible(vta, false);
+      } else {
+        setWikiroutesVisible(vta, true, {fit:true});
+        setWikiroutesVisible(ida, false);
+      }
     }
   });
 
@@ -191,17 +351,18 @@ function makeWrDirPairControls(chk){
 }
 
 // Item para Wikiroutes
-function makeWrItem(rt){
+function makeWrItem(rt, metaByCodigo){
   // rt puede ser "simple" (sin pair) o "combinado" (pair:{ida,vuelta}, defaultDir)
-  const labelId = (rt.pair ? String(rt.id) : String(rt.id)).toUpperCase();
+  const labelId = String(rt.id).toUpperCase();
   const tag = el('span',{class:'tag', style:`background:${rt.color}`}, labelId);
-  const left = el('div',{class:'left'},
-    tag,
-    el('div',{},
-      el('div',{class:'name'}, `Wikiroutes ${labelId}`),
-      el('div',{class:'sub'}, rt.name || '')
-    )
+
+  const textBlock = el('div',{},
+    el('div',{class:'name wr-main-title'}, `Wikiroutes ${labelId}`),          // se sobreescribe luego
+    el('div',{class:'sub wr-subtitle-dist'}, ''),                             // distrito_origen → distrito_destino
+    el('div',{class:'sub wr-subtitle-route'}, rt.name || '')                  // Villa Las Palmas → Pan de Azúcar
   );
+
+  const left = el('div',{class:'left'}, tag, textBlock);
 
   const dataAttrs = rt.pair
     ? {'data-id':rt.id, 'data-system':'wr', 'data-ida':rt.pair.ida, 'data-vuelta':rt.pair.vuelta, 'data-sel':(rt.defaultDir||'ida')}
@@ -214,13 +375,27 @@ function makeWrItem(rt){
     ? el('div',{class:'item'}, head, makeWrDirPairControls(chk))
     : el('div',{class:'item'}, head);
 
+  // Guardar meta y parsed stops en el propio item
+  const key = wrCanonicalCode(rt.id);
+  body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
+  body.__wrRoute = rt;
+  body.__wrStops = wrParseBaseStops(rt);
+
+  const initialDir = rt.pair ? (chk.dataset.sel || 'ida') : 'ida';
+  applyWrTextsToWrItem(body, initialDir);
+
   chk.addEventListener('change', () => {
     if (rt.pair){
       const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
       const sel = chk.dataset.sel || 'ida';
       if (chk.checked){
-        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:true}); setWikiroutesVisible(vta, false); }
-        else            { setWikiroutesVisible(vta, true, {fit:true}); setWikiroutesVisible(ida, false); }
+        if (sel==='ida'){
+          setWikiroutesVisible(ida, true, {fit:true});
+          setWikiroutesVisible(vta, false);
+        } else {
+          setWikiroutesVisible(vta, true, {fit:true});
+          setWikiroutesVisible(ida, false);
+        }
       } else {
         setWikiroutesVisible(ida, false);
         setWikiroutesVisible(vta, false);
@@ -348,15 +523,17 @@ export function fillMetroList(){
   sys.services.forEach(s => list.appendChild(makeServiceItem('metro', s)));
 }
 
-export function fillWrList(){
+export async function fillWrList(){
   const wr = state.systems.wr;
   const list = wr.ui.list;
   if (!list) return;
   list.innerHTML = '';
 
+  const metaByCodigo = await loadWrListaMeta();
+
   // Preferir la lista agrupada si está disponible
   const src = Array.isArray(wr.routesUi) && wr.routesUi.length ? wr.routesUi : wr.routes;
-  (src || []).forEach(rt => list.appendChild(makeWrItem(rt)));
+  (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo)));
 }
 
 /* =========================
