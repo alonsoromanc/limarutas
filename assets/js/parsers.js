@@ -499,35 +499,58 @@ function filterGeoJSONByTrip(geojson, trip){
   return pickMultiLineByTrip(geojson, tripNum);
 }
 
-
 export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
   const color = opts.color || '#00008C';
 
+  // Normalizar trip (1 = ida, 2 = vuelta) si viene configurado
+  let trip = opts.trip;
+  if (trip !== undefined && trip !== null) {
+    const tNum = Number(trip);
+    trip = (tNum === 1 || tNum === 2) ? tNum : null;
+  } else {
+    trip = null;
+  }
+
+  const tryJSON = async (relPath) =>
+    fetchJSON(`${folderPath}/${relPath}`).catch(() => null);
+
   // 1) Trazado
-  let lineRaw = await fetchJSON(`${folderPath}/route_track.geojson`).catch(()=>null);
+  let lineRaw = null;
+
+  if (trip) {
+    // Preferir archivos específicos por viaje, si existen
+    lineRaw = await tryJSON(`route_track_trip${trip}.geojson`);
+  }
+
   if (!lineRaw) {
-    lineRaw = await fetchJSON(`${folderPath}/line_approx.geojson`).catch(()=>null);
+    // Fallback a trazado general
+    lineRaw = await tryJSON('route_track.geojson');
+  }
+  if (!lineRaw) {
+    lineRaw = await tryJSON('line_approx.geojson');
   }
 
   // 2) Paraderos
-  let ptsRaw = await fetchJSON(`${folderPath}/stops.geojson`).catch(()=>null);
+  let ptsRaw = null;
+
+  if (trip) {
+    // Preferir archivos de paraderos por viaje
+    ptsRaw = await tryJSON(`stops_trip${trip}.geojson`);
+  }
+
   if (!ptsRaw) {
-    ptsRaw = await fetchJSON(`${folderPath}/stops_from_map.geojson`).catch(()=>null);
+    ptsRaw = await tryJSON('stops.geojson');
+  }
+  if (!ptsRaw) {
+    ptsRaw = await tryJSON('stops_from_map.geojson');
   }
 
   if (!lineRaw && !ptsRaw) {
     throw new Error('No se encontraron archivos de trazado ni de paraderos en la carpeta Wikiroutes');
   }
 
-  const tripNum = normalizeWrTrip(opts.trip);
-
-  const line0 = lineRaw ? fixIfLatLon(lineRaw) : null;
-  const pts0  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
-
-  // Cada entrada (ida/vuelta) debe mostrar solo su viaje.
-  // Si los GeoJSON no traen metadata de viaje, el filtro no elimina nada.
-  const line = tripNum ? filterGeoJSONByTrip(line0, tripNum) : line0;
-  const pts  = tripNum ? filterGeoJSONByTrip(pts0,  tripNum) : pts0;
+  const line = lineRaw ? fixIfLatLon(lineRaw) : null;
+  const pts  = ptsRaw  ? fixIfLatLon(ptsRaw)  : null;
 
   // Si no hay líneas, intenta construirlas a partir de los puntos
   let lineFC = line;
@@ -538,36 +561,42 @@ export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
     }
   }
 
-  // Asegura mapas internos
-  state.systems.wr.layers     ||= new Map();
-  state.systems.wr.bounds     ||= new Map();
-  state.systems.wr.stopLayers ||= new Map();
+  // Crear grupo de capas para esta ruta
+  const group      = L.layerGroup();
+  const stopsGroup = L.layerGroup();
+  let bounds       = null;
 
-  const group = L.layerGroup();       // capa principal (líneas)
-  const stopsGroup = L.layerGroup();  // subcapa de paradas (se añade en setWikiroutesVisible)
-  let bounds = null;
-
-  // Línea (si existe)
   if (lineFC) {
-    const lineLyr = L.geoJSON(lineFC, {
-      style: () => ({ color, weight: 4, opacity: 0.95 })
+    const style = f => ({
+      color,
+      weight: f?.properties?.weight || 5,
+      opacity: f?.properties?.opacity ?? 0.9
     });
+
+    const lineLyr = L.geoJSON(lineFC, { style });
     lineLyr.addTo(group);
-    try { bounds = lineLyr.getBounds(); } catch {}
+
+    try {
+      const b = lineLyr.getBounds?.();
+      if (b) bounds = bounds ? bounds.extend(b) : b;
+    } catch {}
   }
 
-  // Paradas (si existen)
-  if (pts) {
+  if (pts && pts.type === 'FeatureCollection') {
+    const stopStyle = {
+      radius: 4,
+      fillColor: color,
+      color: '#000',
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.9
+    };
+
     const stopLyr = L.geoJSON(pts, {
-      pointToLayer: (_f, latlng) =>
-        L.marker(latlng, { icon: L.divIcon({ className: 'stop-pin stop-wr', iconSize: [12,12] }) }),
-      onEachFeature: (f, layer) => {
-        const q = f.properties || {};
-        const label = `${q.sequence ?? ''} ${q.stop_name ?? q.name ?? ''}`.trim();
-        if (label) layer.bindTooltip(label);
-      }
+      pointToLayer: (_feat, latlng) => L.circleMarker(latlng, stopStyle)
     });
     stopLyr.addTo(stopsGroup);
+
     try {
       const b = stopLyr.getBounds?.();
       if (b) bounds = bounds ? bounds.extend(b) : b;
@@ -576,6 +605,7 @@ export async function buildWikiroutesLayer(id, folderPath, opts = {}) {
 
   // Registrar capas y bounds (no se agregan al mapa aquí)
   state.systems.wr.layers.set(id, group);
+  state.systems.wr.stopLayers ||= new Map();
   state.systems.wr.stopLayers.set(id, stopsGroup);
   if (bounds) state.systems.wr.bounds.set(id, bounds);
 }
