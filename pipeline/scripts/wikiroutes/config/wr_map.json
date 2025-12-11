@@ -3,18 +3,18 @@
     "Ruta": {
       "city": "Lima",
       "color": "#00008C",
-      "folder": "data/processed/transporte/route_89824",
-      "name": "Ruta de autobús SP01 en el mapa de Lima",
+      "folder": "data/processed/transporte/route_52610",
+      "name": "Ruta de autobús 2 (Expreso San Isidro) en el mapa de Lima",
       "trip": 1,
-      "url": "https://wikiroutes.info/es/lima?routes=89824"
+      "url": "https://wikiroutes.info/es/lima?routes=52610"
     },
     "Ruta-ida": {
       "city": "Lima",
       "color": "#00008C",
-      "folder": "data/processed/transporte/route_50347",
-      "name": "Ruta de tranvía El Vagón del Recuerdo en el mapa de Lima (ida)",
+      "folder": "data/processed/transporte/route_79767",
+      "name": "Ruta de autobús 020p en el mapa de Lima (ida)",
       "trip": 1,
-      "url": "https://wikiroutes.info/es/lima?routes=50347"
+      "url": "https://wikiroutes.info/es/lima?routes=79767"
     },
     "Ruta-trip1": {
       "city": "Lima",
@@ -51,10 +51,10 @@
     "Ruta-vuelta": {
       "city": "Lima",
       "color": "#00008C",
-      "folder": "data/processed/transporte/route_50347",
-      "name": "Ruta de tranvía El Vagón del Recuerdo en el mapa de Lima (vuelta)",
+      "folder": "data/processed/transporte/route_79767",
+      "name": "Ruta de autobús 020p en el mapa de Lima (vuelta)",
       "trip": 2,
-      "url": "https://wikiroutes.info/es/lima?routes=50347"
+      "url": "https://wikiroutes.info/es/lima?routes=79767"
     }
   }
 }

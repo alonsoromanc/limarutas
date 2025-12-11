@@ -1,6 +1,6 @@
 codigo_antiguo,codigo_nuevo,distrito_origen,distrito_destino,empresa_operadora,alias,color_hex
-1117,1001,Santiago de Surco,San Isidro,¿?,¿?,#FFFFFF
-1118,1002,La Punta,La Victoria,¿?,¿?,#004F08
+1117,1001,Santiago de Surco,San Isidro,Desconocido,Desconocido,#FFFFFF
+1118,1002,La Punta,La Victoria,Desconocido,Desconocido,#004F08
 1209,1003,Puente Piedra,Rímac,Empresa de Transportes Rosa de las Américas S.A.C. (ETROASAC),La 9,#FFFFFF
 1212,1004,Comas,San Martín de Porres,Empresa de Transportes Doce de Junio S.A. (ETDOJUSA),Ninguno,#FF6417
 1217,1005,Carabayllo,Rímac,Transportes y Servicios Santa Cruz S.A.,La 13,#FF0000

@@ -3595,6 +3595,10 @@
     "color": "#00008C",
     "display_id": "Ruta"
   },
+  "77878": {
+    "color": "#00008C",
+    "display_id": "Ruta"
+  },
   "78198": {
     "color": "#00008C",
     "display_id": "Ruta"
@@ -10797,6 +10801,11 @@
     "color": "#00008C",
     "display_id": "Ruta",
     "name": "Ruta de autobús 1106 en el mapa de Lima"
+  },
+  "route_77878": {
+    "color": "#00008C",
+    "display_id": "Ruta",
+    "name": "Ruta de autobús 015p (Lima - San Bartolomé) en el mapa de Lima"
   },
   "route_78198": {
     "color": "#00008C",

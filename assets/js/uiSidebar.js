@@ -47,7 +47,7 @@ function miniDir(systemId, svc){
    ========================= */
 
 function makeServiceItemMet(svc){
-  const img = el('img',{
+  const img = el('img', {
     src:`${PATHS.icons.met}/${String(svc.id).toUpperCase()}.png`,
     class:'badge',
     alt:svc.id
@@ -218,8 +218,23 @@ function loadWrListaMeta(){
   return wrListaMetaPromise;
 }
 
-// Busca todas las siglas entre paréntesis; si hay varias, prioriza las que
-// empiezan por E; si no hay ninguna, devuelve cadena vacía.
+// Valores tipo "Ninguno", "Desconocido", etc.
+function wrIsPlaceholder(text){
+  if (!text) return false;
+  const n = String(text).trim().toLowerCase();
+  return (
+    n === 'ninguno' ||
+    n === 'ninguna' ||
+    n === 'desconocido' ||
+    n === 'desconocida' ||
+    n === '?' ||
+    n === '¿?' ||
+    n === '-' ||
+    n === 'sin nombre'
+  );
+}
+
+// Busca todas las siglas entre paréntesis
 function wrFindSiglasEmpresa(empresa){
   if (!empresa) return '';
   const matches = [...empresa.matchAll(/\(([^)]+)\)/g)];
@@ -241,14 +256,12 @@ function wrFindSiglasEmpresa(empresa){
   return matches[0][1].trim();
 }
 
-// Construye la versión "recortada" del nombre de empresa cuando no hay siglas
-// y tampoco alias.
+// Versión recortada del nombre de empresa cuando no hay siglas ni alias
 function wrBuildEmpresaDisplay(empresaRaw){
   if (!empresaRaw) return '';
   let s = empresaRaw.trim();
   if (s.length <= 30) return s;
 
-  // Recorte al inicio
   const prefixes = [
     'Empresa de Transportes y Servicios',
     'Empresa de Transportes',
@@ -262,7 +275,6 @@ function wrBuildEmpresaDisplay(empresaRaw){
     }
   }
 
-  // Recorte al final
   const suffixes = [' S.A.C.', ' S.A.'];
   for (const suf of suffixes){
     if (s.endsWith(suf)){
@@ -275,53 +287,112 @@ function wrBuildEmpresaDisplay(empresaRaw){
 }
 
 function wrBuildTituloPrincipal(meta, rt){
-  const rawAlias = meta && meta.alias ? meta.alias.trim() : '';
-  // "Ninguno" se trata como si no hubiera alias
-  const alias = rawAlias && !/^ningun[oa]$/i.test(rawAlias) ? rawAlias : '';
+  const rawAlias = meta && meta.alias ? String(meta.alias).trim() : '';
+  const alias = rawAlias && !wrIsPlaceholder(rawAlias) ? rawAlias : '';
 
-  const empresa = meta && meta.empresa_operadora ? meta.empresa_operadora.trim() : '';
-  const siglas  = wrFindSiglasEmpresa(empresa);
+  const rawEmpresa = meta && meta.empresa_operadora
+    ? String(meta.empresa_operadora).trim()
+    : '';
+  const empresa = rawEmpresa && !wrIsPlaceholder(rawEmpresa) ? rawEmpresa : '';
+  const siglas  = wrFindSiglasEmpresa(rawEmpresa);
 
-  // Caso con alias
   if (alias){
-    // Si hay siglas (ETUSA, ETIMGRASA, etc.), priorizarlas
     if (siglas){
       return `${alias} - ${siglas}`;
     }
-    // Si no hay siglas, usar SIEMPRE el nombre de empresa "cropeado"
-    // (quitando "Empresa de Transportes..." y "S.A./S.A.C." si aplica)
-    if (empresa){
-      const recortado = wrBuildEmpresaDisplay(empresa);
-      if (recortado) return `${alias} - ${recortado}`;
-    }
-    // Si por alguna razón no hay empresa, al menos mostrar el alias
     return alias;
   }
 
-  // Caso SIN alias:
-  // Aquí se usa el nombre de la empresa COMPLETO (no recortado).
-  // Si hay siglas, se pueden seguir usando como identificador corto.
   if (siglas){
     return siglas;
   }
   if (empresa){
-    return empresa; // completo, sin crop
+    return wrBuildEmpresaDisplay(empresa);
   }
 
-  // Fallbacks si no hay meta
-  if (rt && rt.name){
-    const m = rt.name.match(/^\s*\d+\s*·\s*(.*)$/);
-    if (m) return m[1];
-    return rt.name;
+  if (rt && rt.id != null){
+    return String(rt.id).toUpperCase();
   }
-  if (rt && rt.id != null) return `Wikiroutes ${String(rt.id).toUpperCase()}`;
   return '';
 }
 
+// Intenta obtener paraderos extremos de un objeto de ruta o un string
+function wrParseBaseStops(source){
+  if (!source) return {from:'', to:'', label:''};
 
-function wrParseBaseStops(rt){
-  const rawName = rt && rt.name ? String(rt.name) : '';
-  if (!rawName) return {from:'', to:'', label:''};
+  // Si es string directo
+  if (typeof source === 'string'){
+    const raw = source.trim();
+    if (!raw) return {from:'', to:'', label:''};
+    let s = raw;
+    s = s.replace(/^\s*\d+\s*·\s*/,'');
+    s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+    let parts = s.split('→');
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    parts = s.split(/\s*-\s*/);
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    return {from:'', to:'', label:s.trim()};
+  }
+
+  // Si es objeto
+  const props = source;
+  // Intentar campos directos tipo from/to
+  const directFrom =
+    props.from ||
+    props.from_short ||
+    props.fromShort ||
+    props.origen ||
+    props.origin ||
+    null;
+  const directTo =
+    props.to ||
+    props.to_short ||
+    props.toShort ||
+    props.destino ||
+    props.destination ||
+    null;
+
+  if (directFrom || directTo){
+    const from = String(directFrom || '').trim();
+    const to   = String(directTo || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  // Si hay lista de paraderos con nombre, usar primero y último
+  if (Array.isArray(props.stops) && props.stops.length){
+    const first = props.stops[0];
+    const last  = props.stops[props.stops.length - 1];
+    const getName = st => {
+      if (!st) return '';
+      return (
+        st.name ||
+        st.title ||
+        st.label ||
+        ''
+      );
+    };
+    const from = String(getName(first) || '').trim();
+    const to   = String(getName(last) || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  // Finalmente, intentar con name/title
+  let rawName = '';
+  if (props.name != null) rawName = String(props.name);
+  else if (props.title != null) rawName = String(props.title);
+  else rawName = '';
+
+  if (!rawName.trim()) return {from:'', to:'', label:''};
 
   let s = rawName;
   s = s.replace(/^\s*\d+\s*·\s*/,'');
@@ -347,7 +418,17 @@ function wrParseBaseStops(rt){
 function applyWrTextsToWrItem(item, direccion){
   const rt    = item.__wrRoute || null;
   const meta  = item.__wrMeta  || null;
-  const stops = item.__wrStops || null;
+
+  const stopsIda     = item.__wrStopsIda || null;
+  const stopsVta     = item.__wrStopsVta || null;
+  const stopsDefault = item.__wrStops    || null;
+
+  let stops;
+  if (direccion === 'vuelta'){
+    stops = stopsVta || stopsIda || stopsDefault;
+  } else {
+    stops = stopsIda || stopsDefault;
+  }
 
   const titleEl = item.querySelector('.wr-main-title');
   const distEl  = item.querySelector('.wr-subtitle-dist');
@@ -367,17 +448,21 @@ function applyWrTextsToWrItem(item, direccion){
   }
 
   if (routeEl){
-    let from = stops && stops.from ? stops.from : '';
-    let to   = stops && stops.to   ? stops.to   : '';
-    if (direccion === 'vuelta' && from && to){
-      [from, to] = [to, from];
-    }
+    routeEl.textContent = '';
+
+    const from = stops && stops.from ? stops.from : '';
+    const to   = stops && stops.to   ? stops.to   : '';
+
     if (from || to){
       routeEl.textContent = `${from} \u2192 ${to}`;
     } else if (rt && rt.name){
-      routeEl.textContent = rt.name;
-    } else {
-      routeEl.textContent = '';
+      let base = String(rt.name).trim();
+      base = base.replace(/^\s*\d+\s*·\s*/, '');
+      base = base.replace(/\s*\((ida|vuelta)\)\s*$/i, '');
+      base = base.replace(/wikiroutes\s*\d*/ig, '').trim();
+      if (base){
+        routeEl.textContent = base;
+      }
     }
   }
 }
@@ -419,20 +504,56 @@ function makeWrDirPairControls(chk){
 }
 
 // Item para Wikiroutes
-function makeWrItem(rt, metaByCodigo){
+function makeWrItem(rt, metaByCodigo, routesById){
   const labelId = String(rt.id).toUpperCase();
   const tag = el('span',{class:'tag', style:`background:${rt.color}`}, labelId);
 
   const textBlock = el('div',{},
-    el('div',{class:'name wr-main-title'}, `Wikiroutes ${labelId}`),
+    el('div',{class:'name wr-main-title'}, ''),
     el('div',{class:'sub wr-subtitle-dist'}, ''),
-    el('div',{class:'sub wr-subtitle-route'}, rt.name || '')
+    el('div',{class:'sub wr-subtitle-route'}, '')
   );
 
   const left = el('div',{class:'left'}, tag, textBlock);
 
+  // Soportar tanto pair con ids como pair con objetos
+  let idaRoute = null;
+  let vtaRoute = null;
+  let idaId = null;
+  let vtaId = null;
+
+  if (rt.pair){
+    const pair = rt.pair;
+
+    if (pair.ida && typeof pair.ida === 'object'){
+      idaRoute = pair.ida;
+      if (pair.ida.id != null) idaId = pair.ida.id;
+    } else if (pair.ida != null){
+      idaId = pair.ida;
+      if (routesById){
+        idaRoute = routesById.get(String(pair.ida)) || null;
+      }
+    }
+
+    if (pair.vuelta && typeof pair.vuelta === 'object'){
+      vtaRoute = pair.vuelta;
+      if (pair.vuelta.id != null) vtaId = pair.vuelta.id;
+    } else if (pair.vuelta != null){
+      vtaId = pair.vuelta;
+      if (routesById){
+        vtaRoute = routesById.get(String(pair.vuelta)) || null;
+      }
+    }
+  }
+
   const dataAttrs = rt.pair
-    ? {'data-id':rt.id, 'data-system':'wr', 'data-ida':rt.pair.ida, 'data-vuelta':rt.pair.vuelta, 'data-sel':(rt.defaultDir||'ida')}
+    ? {
+        'data-id':rt.id,
+        'data-system':'wr',
+        ...(idaId != null ? {'data-ida':idaId} : {}),
+        ...(vtaId != null ? {'data-vuelta':vtaId} : {}),
+        'data-sel':(rt.defaultDir||'ida')
+      }
     : {'data-id':rt.id, 'data-system':'wr'};
 
   const chk  = el('input', Object.assign({type:'checkbox', checked:false}, dataAttrs));
@@ -445,14 +566,33 @@ function makeWrItem(rt, metaByCodigo){
   const key = wrCanonicalCode(rt.id);
   body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
   body.__wrRoute = rt;
-  body.__wrStops = wrParseBaseStops(rt);
+
+  let stopsIda = null;
+  let stopsVta = null;
+  let stopsDefault = null;
+
+  if (idaRoute){
+    stopsIda = wrParseBaseStops(idaRoute);
+  }
+  if (vtaRoute){
+    stopsVta = wrParseBaseStops(vtaRoute);
+  }
+
+  if (!stopsIda && !stopsVta){
+    stopsDefault = wrParseBaseStops(rt);
+  }
+
+  body.__wrStopsIda = stopsIda;
+  body.__wrStopsVta = stopsVta;
+  body.__wrStops    = stopsDefault;
 
   const initialDir = rt.pair ? (chk.dataset.sel || 'ida') : 'ida';
   applyWrTextsToWrItem(body, initialDir);
 
   chk.addEventListener('change', () => {
     if (rt.pair){
-      const ida = chk.dataset.ida, vta = chk.dataset.vuelta;
+      const ida = chk.dataset.ida;
+      const vta = chk.dataset.vuelta;
       const sel = chk.dataset.sel || 'ida';
       if (chk.checked){
         if (sel==='ida'){
@@ -597,8 +737,14 @@ export async function fillWrList(){
 
   const metaByCodigo = await loadWrListaMeta();
 
+  const allRoutes = Array.isArray(wr.routes) ? wr.routes : [];
+  const routesById = new Map();
+  allRoutes.forEach(r => {
+    if (r && r.id != null) routesById.set(String(r.id), r);
+  });
+
   const src = Array.isArray(wr.routesUi) && wr.routesUi.length ? wr.routesUi : wr.routes;
-  (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo)));
+  (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo, routesById)));
 }
 
 /* =========================
@@ -641,12 +787,18 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
   if (!id) return;
 
   if (systemId === 'wr') {
-    const ida = leafChk.dataset.ida, vta = leafChk.dataset.vuelta;
+    const ida = leafChk.dataset.ida;
+    const vta = leafChk.dataset.vuelta;
     if (ida && vta){
       const sel = leafChk.dataset.sel || 'ida';
       if (checked){
-        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:!silentFit}); setWikiroutesVisible(vta, false); }
-        else            { setWikiroutesVisible(vta, true, {fit:!silentFit}); setWikiroutesVisible(ida, false); }
+        if (sel==='ida'){
+          setWikiroutesVisible(ida, true, {fit:!silentFit});
+          setWikiroutesVisible(vta, false);
+        } else {
+          setWikiroutesVisible(vta, true, {fit:!silentFit});
+          setWikiroutesVisible(ida, false);
+        }
       } else {
         setWikiroutesVisible(ida, false);
         setWikiroutesVisible(vta, false);
@@ -770,7 +922,10 @@ export function syncTriFromLeaf(systemId){
     const leaves = routeCheckboxesOf('wr');
     const total = leaves.length;
     const checked = leaves.filter(c=>c.checked).length;
-    if (top){ top.indeterminate = checked>0 && checked<total; top.checked = total>0 && checked===total; }
+    if (top){
+      top.indeterminate = checked>0 && checked<total;
+      top.checked = total>0 && checked===total;
+    }
   }
 }
 
