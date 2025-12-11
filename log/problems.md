@@ -10,6 +10,7 @@
 
 # Pendientes
 
+- Revisar si son necesarios todos los html o se pueden eliminar
 - Asignar rutas por defecto al seleccionar
 - Hacer el trazado de la ruta del metropolitano
 - Hacer el split y corrección de la ruta para los corredores. Incluir las paradas
