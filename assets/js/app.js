@@ -1,4 +1,3 @@
-// app.js (punto de entrada)
 import { PATHS, state } from './config.js';
 import { $, $$, fetchJSON, stopsArrayToMap, asLatLng } from './utils.js';
 import {
@@ -28,6 +27,7 @@ import {
   syncAllTri
 } from './uiSidebar.js';
 import { wirePanelTogglesOnce } from './panels.js';
+import { setupSearch } from './search.js';
 
 /* ===========================
    Helpers UI de carga
@@ -601,8 +601,14 @@ function buildUI(){
   }
 
   // Pestañas desplegables
+  // Pestañas desplegables
   wirePanelTogglesOnce();
+
+  // Buscador de rutas, empresas y códigos
+  // Se inicializa al final para que todos los sistemas estén cargados.
+  setupSearch();
 }
+
 
 // Lanzar
 init().catch(err => {

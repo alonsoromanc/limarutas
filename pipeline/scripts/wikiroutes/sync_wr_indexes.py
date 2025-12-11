@@ -182,14 +182,19 @@ def find_repo_root(start: Path) -> Optional[Path]:
     start = start.resolve()
     candidates = [start] + list(start.parents)
 
+    # 1) Preferir siempre la carpeta que tenga config/lista_rutas.csv
+    #    Esto en tu caso es justo ...\Rutas\config\lista_rutas.csv
     for p in candidates:
+        if (p / "config" / "lista_rutas.csv").exists():
+            return p
+
+    # 2) Si por algún motivo no existe lista_rutas.csv,
+    #    usar la combinación config + data/processed/transporte,
+    #    pero prefiriendo el nivel MÁS ALTO (el root real).
+    for p in reversed(candidates):
         cfg = p / "config"
         data_root = p / "data" / "processed" / "transporte"
         if cfg.exists() and data_root.exists():
-            return p
-
-    for p in candidates:
-        if (p / "config" / "lista_rutas.csv").exists():
             return p
 
     return None
@@ -198,7 +203,8 @@ def find_repo_root(start: Path) -> Optional[Path]:
 def parse_args():
     p = argparse.ArgumentParser(description="Sincroniza wr_map.json y wr_overrides.json desde rutas descargadas.")
     p.add_argument("--root", type=str, default="", help="Ruta a la carpeta base del proyecto (Rutas).")
-    p.add_argument("--mode", choices=["merge", "replace"], default="merge")
+    p.add_argument("--mode", choices=["overwrite", "merge"], default="overwrite",
+                   help="Si es merge, mantiene entries existentes en wr_map/wr_overrides.")
     p.add_argument("--verbose", action="store_true")
     p.add_argument("--max-ok", type=int, default=80)
     p.add_argument("--max-skip", type=int, default=120)
@@ -210,7 +216,7 @@ def parse_args():
     p.add_argument("--sample-no-display", type=int, default=10,
                    help="Cantidad de ejemplos a imprimir de no_display_id_dump (por defecto 10).")
 
-    # NUEVO: casos donde display_id no matchea lista_rutas.csv
+    # Casos donde display_id no matchea lista_rutas.csv
     p.add_argument("--dump-unmatched-lista", type=str, default="config/unmatched_lista_rutas.json",
                    help="Ruta (relativa al ROOT) para guardar JSON con display_id que no está en lista_rutas.csv.")
     p.add_argument("--sample-unmatched-lista", type=int, default=10,
@@ -224,7 +230,8 @@ def _print_sample(label: str, arr: List[Dict], n: int) -> None:
     print("")
     print(f"Muestra {label}: {min(n, len(arr))} de {len(arr)}")
     for i, it in enumerate(arr[:n], start=1):
-        print(f"[{i}] folder={it.get('folder')} route_id={it.get('route_id')} display_id={it.get('display_id')} trips={it.get('trips_detected')}")
+        print(f"[{i}] folder={it.get('folder')} route_id={it.get('route_id')} "
+              f"display_id={it.get('display_id')} trips={it.get('trips_detected')}")
         print(f"    title={it.get('title')}")
         nums = it.get("title_numbers_all") or []
         if nums:
@@ -260,6 +267,13 @@ def main() -> None:
 
     lista = load_lista_rutas(LISTA_RUTAS_CSV)
 
+    # Índice auxiliar por código antiguo, para mapear por ejemplo 1217 -> 1005
+    lista_by_codigo_antiguo: Dict[str, ListaRutaRow] = {}
+    for lr in lista.values():
+        ca = (lr.codigo_antiguo or "").strip()
+        if ca:
+            lista_by_codigo_antiguo[ca] = lr
+
     wr_map: Dict = {"routes": {}}
     wr_overrides: Dict = {}
 
@@ -283,10 +297,10 @@ def main() -> None:
     ok_list = []
     skip_list = []
 
-    # Casos donde NO se pudo sacar display_id del title (se usará fallback route_id)
+    # Casos donde no se pudo sacar display_id del title (se usará fallback route_id)
     no_display_id_dump: List[Dict] = []
 
-    # Casos donde display_id existe pero NO está en lista_rutas.csv
+    # Casos donde display_id existe pero no está en lista_rutas.csv
     unmatched_lista_dump: List[Dict] = []
 
     for folder in folders:
@@ -335,7 +349,20 @@ def main() -> None:
                 "endpoints_from_html": {str(k): {"start": v[0], "end": v[1]} for k, v in endpoints.items()},
             })
 
+        # Primero intentamos matchear display_id como codigo_nuevo
         lr = lista.get(display_id)
+
+        # Si no hay match directo por codigo_nuevo, probar como codigo_antiguo (solo numérico)
+        if lr is None:
+            normalized = (display_id or "").strip()
+            if normalized.isdigit():
+                lr_alt = lista_by_codigo_antiguo.get(normalized)
+                if lr_alt is not None:
+                    if lr_alt.codigo_nuevo and lr_alt.codigo_nuevo != display_id:
+                        stats["display_id_from_codigo_antiguo"] += 1
+                        display_id = lr_alt.codigo_nuevo
+                        display_id_source = f"{display_id_source}+from_codigo_antiguo"
+                    lr = lr_alt
 
         if lr is None:
             stats["unmatched_lista_rutas"] += 1
@@ -420,6 +447,7 @@ def main() -> None:
         "skip_missing_route_json",
         "skip_no_trip_files",
         "fallback_display_id_used",
+        "display_id_from_codigo_antiguo",
         "unmatched_lista_rutas",
     ]:
         print(f"  {k}: {stats.get(k, 0)}")
@@ -436,13 +464,6 @@ def main() -> None:
     dump_unmatched.parent.mkdir(parents=True, exist_ok=True)
     dump_unmatched.write_text(json.dumps(unmatched_lista_dump, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print("")
-    print(f"Dump sin display_id extraíble (fallback route_id): {dump_no_display}")
-    print(f"Total fallback: {len(no_display_id_dump)}")
-
-    print(f"Dump sin match en lista_rutas.csv: {dump_unmatched}")
-    print(f"Total unmatched_lista_rutas: {len(unmatched_lista_dump)}")
-
     _print_sample("fallback_display_id (title sin código)", no_display_id_dump, args.sample_no_display)
     _print_sample("unmatched_lista_rutas (código no está en lista_rutas.csv)", unmatched_lista_dump, args.sample_unmatched_lista)
 
@@ -450,17 +471,6 @@ def main() -> None:
         print("")
         print("Array completo no_display_id_dump:")
         print(json.dumps(no_display_id_dump, ensure_ascii=False, indent=2))
-
-    if args.verbose:
-        print("")
-        print("Ejemplos OK (folder, route_id, display_id, trips, title):")
-        for row in ok_list:
-            print("  ", row)
-
-        print("")
-        print("Ejemplos SKIP (folder, reason, extra):")
-        for row in skip_list:
-            print("  ", row)
 
 
 if __name__ == "__main__":

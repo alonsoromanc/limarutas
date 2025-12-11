@@ -162,9 +162,10 @@ function makeServiceItemMetro(svc){
 
 /* =============== Wikiroutes (ítem combinado Ida/Vuelta) =============== */
 
-/* ---- Carga de lista_rutas.csv y helpers de texto ---- */
+/* ---- Carga de lista_rutas.csv / wr_extremes.json y helpers de texto ---- */
 
 let wrListaMetaPromise = null;
+let wrExtremesPromise = null;
 
 function wrCanonicalCode(value){
   const s = String(value||'').trim();
@@ -216,6 +217,21 @@ function loadWrListaMeta(){
       });
   }
   return wrListaMetaPromise;
+}
+
+function loadWrExtremes(){
+  if (!wrExtremesPromise){
+    wrExtremesPromise = fetch('config/wr_extremes.json')
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
+      .catch(err => {
+        console.error('No se pudo cargar config/wr_extremes.json', err);
+        return {};
+      });
+  }
+  return wrExtremesPromise;
 }
 
 // Valores tipo "Ninguno", "Desconocido", etc.
@@ -415,6 +431,39 @@ function wrParseBaseStops(source){
   return {from:'', to:'', label:s.trim()};
 }
 
+// Usa wr_extremes.json para obtener extremos si hay match
+// Usa wr_extremes.json para obtener extremos si hay match
+function wrStopsFromExtremesForRoute(routeLike, extremes, dirKey){
+  if (!routeLike || !extremes) return null;
+
+  const candidates = [];
+
+  // Si nos pasan directamente un id numérico o string, úsalo tal cual
+  if (typeof routeLike === 'string' || typeof routeLike === 'number'){
+    candidates.push(routeLike);
+  } else {
+    const r = routeLike;
+    if (r.wr_id   != null) candidates.push(r.wr_id);
+    if (r.wrId    != null) candidates.push(r.wrId);
+    if (r.route_id!= null) candidates.push(r.route_id);
+    if (r.routeId != null) candidates.push(r.routeId);
+    if (r.base_id != null) candidates.push(r.base_id);
+    if (r.id      != null) candidates.push(r.id);
+  }
+
+  for (const c of candidates){
+    const key = String(c);
+    const ext = extremes[key];
+    if (ext && ext[dirKey]){
+      const from = ext[dirKey].from ? String(ext[dirKey].from).trim() : '';
+      const to   = ext[dirKey].to   ? String(ext[dirKey].to).trim()   : '';
+      const label = (from || to) ? `${from} \u2192 ${to}` : '';
+      return {from, to, label};
+    }
+  }
+  return null;
+}
+
 function applyWrTextsToWrItem(item, direccion){
   const rt    = item.__wrRoute || null;
   const meta  = item.__wrMeta  || null;
@@ -504,9 +553,9 @@ function makeWrDirPairControls(chk){
 }
 
 // Item para Wikiroutes
-function makeWrItem(rt, metaByCodigo, routesById){
+function makeWrItem(rt, metaByCodigo, routesById, extremes){
   const labelId = String(rt.id).toUpperCase();
-  const tag = el('span',{class:'tag', style:`background:${rt.color}`}, labelId);
+  const tag = el('span',{ class:'tag', style:`background:${rt.color}` }, labelId);
 
   const textBlock = el('div',{},
     el('div',{class:'name wr-main-title'}, ''),
@@ -516,50 +565,67 @@ function makeWrItem(rt, metaByCodigo, routesById){
 
   const left = el('div',{class:'left'}, tag, textBlock);
 
-  // Soportar tanto pair con ids como pair con objetos
+  // =========================
+  // Normalizar pair ida/vuelta
+  // =========================
   let idaRoute = null;
   let vtaRoute = null;
   let idaId = null;
   let vtaId = null;
 
-  if (rt.pair){
-    const pair = rt.pair;
+  function normSide(side){
+    let id = null;
+    let route = null;
+    if (!side) return {id, route};
 
-    if (pair.ida && typeof pair.ida === 'object'){
-      idaRoute = pair.ida;
-      if (pair.ida.id != null) idaId = pair.ida.id;
-    } else if (pair.ida != null){
-      idaId = pair.ida;
-      if (routesById){
-        idaRoute = routesById.get(String(pair.ida)) || null;
+    // Si es id directo
+    if (typeof side === 'string' || typeof side === 'number'){
+      id = String(side);
+      route = routesById ? (routesById.get(id) || null) : null;
+    } else if (typeof side === 'object'){
+      if (side.id != null) id = String(side.id);
+      // Si tenemos mapa de rutas, lo usamos; si no, usamos el propio objeto
+      if (routesById && id){
+        route = routesById.get(id) || side;
+      } else {
+        route = side;
       }
     }
+    return {id, route};
+  }
 
-    if (pair.vuelta && typeof pair.vuelta === 'object'){
-      vtaRoute = pair.vuelta;
-      if (pair.vuelta.id != null) vtaId = pair.vuelta.id;
-    } else if (pair.vuelta != null){
-      vtaId = pair.vuelta;
-      if (routesById){
-        vtaRoute = routesById.get(String(pair.vuelta)) || null;
-      }
+  if (rt.pair){
+    const nIda = normSide(rt.pair.ida);
+    const nVta = normSide(rt.pair.vuelta);
+    idaId = nIda.id;
+    idaRoute = nIda.route;
+    vtaId = nVta.id;
+    vtaRoute = nVta.route;
+
+    // Ayuda para depurar si faltan IDs
+    if (!idaId || !vtaId){
+      console.warn('[WR] pair sin ambos IDs de ida/vuelta para ruta UI', rt);
     }
   }
 
-  const dataAttrs = rt.pair
+  const hasBothDirs = !!(idaId && vtaId);
+
+  const dataAttrs = hasBothDirs
     ? {
-        'data-id':rt.id,
-        'data-system':'wr',
-        ...(idaId != null ? {'data-ida':idaId} : {}),
-        ...(vtaId != null ? {'data-vuelta':vtaId} : {}),
-        'data-sel':(rt.defaultDir||'ida')
+        'data-id': String(rt.id),
+        'data-system': 'wr',
+        'data-ida': idaId,
+        'data-vuelta': vtaId,
+        'data-sel': (rt.defaultDir || 'ida')
       }
-    : {'data-id':rt.id, 'data-system':'wr'};
+    : {
+        'data-id': String(rt.id),
+        'data-system': 'wr'
+      };
 
   const chk  = el('input', Object.assign({type:'checkbox', checked:false}, dataAttrs));
   const head = el('div',{class:'item-head'}, left, chk);
-
-  const body = rt.pair
+  const body = hasBothDirs
     ? el('div',{class:'item'}, head, makeWrDirPairControls(chk))
     : el('div',{class:'item'}, head);
 
@@ -567,39 +633,64 @@ function makeWrItem(rt, metaByCodigo, routesById){
   body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
   body.__wrRoute = rt;
 
+  // =========================
+  // Extremos Ida / Vuelta / default
+  // =========================
   let stopsIda = null;
   let stopsVta = null;
   let stopsDefault = null;
 
-  if (idaRoute){
-    stopsIda = wrParseBaseStops(idaRoute);
+  function computeStops(prefId, routeObj, dirKey){
+    // 1) wr_extremes.json con el ID concreto
+    if (prefId != null){
+      const byId = wrStopsFromExtremesForRoute(String(prefId), extremes, dirKey);
+      if (byId) return byId;
+    }
+    // 2) wr_extremes.json con el propio objeto (por si hubiese otro campo de id)
+    if (routeObj){
+      const byObj = wrStopsFromExtremesForRoute(routeObj, extremes, dirKey);
+      if (byObj) return byObj;
+    }
+    // 3) Parseo "a pelo" del objeto/string
+    return routeObj ? wrParseBaseStops(routeObj) : {from:'', to:'', label:''};
   }
-  if (vtaRoute){
-    stopsVta = wrParseBaseStops(vtaRoute);
+
+  if (hasBothDirs){
+    stopsIda = computeStops(idaId, idaRoute, 'ida');
+    stopsVta = computeStops(vtaId, vtaRoute, 'vuelta');
   }
 
   if (!stopsIda && !stopsVta){
-    stopsDefault = wrParseBaseStops(rt);
+    // Fallback usando la propia ruta "agregada"
+    stopsDefault =
+      wrStopsFromExtremesForRoute(rt, extremes, 'ida') ||
+      wrParseBaseStops(rt);
+  } else {
+    stopsDefault = stopsIda || stopsVta || null;
   }
 
   body.__wrStopsIda = stopsIda;
   body.__wrStopsVta = stopsVta;
   body.__wrStops    = stopsDefault;
 
-  const initialDir = rt.pair ? (chk.dataset.sel || 'ida') : 'ida';
+  const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
   applyWrTextsToWrItem(body, initialDir);
 
+  // =========================
+  // Checkbox principal
+  // =========================
   chk.addEventListener('change', () => {
-    if (rt.pair){
+    if (hasBothDirs){
       const ida = chk.dataset.ida;
       const vta = chk.dataset.vuelta;
       const sel = chk.dataset.sel || 'ida';
+
       if (chk.checked){
-        if (sel==='ida'){
-          setWikiroutesVisible(ida, true, {fit:true});
+        if (sel === 'ida'){
+          setWikiroutesVisible(ida, true,  {fit:true});
           setWikiroutesVisible(vta, false);
         } else {
-          setWikiroutesVisible(vta, true, {fit:true});
+          setWikiroutesVisible(vta, true,  {fit:true});
           setWikiroutesVisible(ida, false);
         }
       } else {
@@ -607,14 +698,17 @@ function makeWrItem(rt, metaByCodigo, routesById){
         setWikiroutesVisible(vta, false);
       }
     } else {
+      // Ruta sin par ida/vuelta: se comporta como antes
       if (chk.checked) setWikiroutesVisible(rt.id, true, {fit:true});
-      else setWikiroutesVisible(rt.id, false);
+      else             setWikiroutesVisible(rt.id, false);
     }
     syncTriFromLeaf('wr');
   });
 
   return body;
 }
+
+
 
 function makeServiceItem(systemId, svc){
   if (systemId==='met')   return makeServiceItemMet(svc);
@@ -735,7 +829,10 @@ export async function fillWrList(){
   if (!list) return;
   list.innerHTML = '';
 
-  const metaByCodigo = await loadWrListaMeta();
+  const [metaByCodigo, extremes] = await Promise.all([
+    loadWrListaMeta(),
+    loadWrExtremes()
+  ]);
 
   const allRoutes = Array.isArray(wr.routes) ? wr.routes : [];
   const routesById = new Map();
@@ -744,7 +841,7 @@ export async function fillWrList(){
   });
 
   const src = Array.isArray(wr.routesUi) && wr.routesUi.length ? wr.routesUi : wr.routes;
-  (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo, routesById)));
+  (src || []).forEach(rt => list.appendChild(makeWrItem(rt, metaByCodigo, routesById, extremes)));
 }
 
 /* =========================
@@ -792,13 +889,8 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
     if (ida && vta){
       const sel = leafChk.dataset.sel || 'ida';
       if (checked){
-        if (sel==='ida'){
-          setWikiroutesVisible(ida, true, {fit:!silentFit});
-          setWikiroutesVisible(vta, false);
-        } else {
-          setWikiroutesVisible(vta, true, {fit:!silentFit});
-          setWikiroutesVisible(ida, false);
-        }
+        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:!silentFit}); setWikiroutesVisible(vta, false); }
+        else            { setWikiroutesVisible(vta, true, {fit:!silentFit}); setWikiroutesVisible(ida, false); }
       } else {
         setWikiroutesVisible(ida, false);
         setWikiroutesVisible(vta, false);

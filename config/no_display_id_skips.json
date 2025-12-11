@@ -78,6 +78,84 @@
     }
   },
   {
+    "folder": "route_106028",
+    "folder_rel": "data/processed/transporte/route_106028",
+    "route_id": "106028",
+    "display_id": "106028",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO30a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "30"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Los Pinos",
+        "end": "Pedro Valle Medina"
+      },
+      "2": {
+        "start": "Pedro Valle Medina",
+        "end": "Los Pinos"
+      }
+    }
+  },
+  {
+    "folder": "route_106030",
+    "folder_rel": "data/processed/transporte/route_106030",
+    "route_id": "106030",
+    "display_id": "106030",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO75a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "75"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Huertos de Manchay",
+        "end": "Plaza Matriz"
+      },
+      "2": {
+        "start": "Plaza Matriz",
+        "end": "Huertos de Manchay"
+      }
+    }
+  },
+  {
+    "folder": "route_106089",
+    "folder_rel": "data/processed/transporte/route_106089",
+    "route_id": "106089",
+    "display_id": "106089",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO18a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "18"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Carrillo",
+        "end": "El Portillo"
+      },
+      "2": {
+        "start": "El Portillo",
+        "end": "Carrillo"
+      }
+    }
+  },
+  {
     "folder": "route_106168",
     "folder_rel": "data/processed/transporte/route_106168",
     "route_id": "106168",
@@ -156,6 +234,80 @@
     }
   },
   {
+    "folder": "route_106834",
+    "folder_rel": "data/processed/transporte/route_106834",
+    "route_id": "106834",
+    "display_id": "106834",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO35a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "35"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Calle 5",
+        "end": "Uruguay"
+      },
+      "2": {
+        "start": "Uruguay",
+        "end": "Calle 5"
+      }
+    }
+  },
+  {
+    "folder": "route_108666",
+    "folder_rel": "data/processed/transporte/route_108666",
+    "route_id": "108666",
+    "display_id": "108666",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Huánuco (Móvil Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Móvil Bus",
+        "end": "Estrella Polar"
+      },
+      "2": {
+        "start": "Estrella Polar",
+        "end": "Terminal Móvil Bus"
+      }
+    }
+  },
+  {
+    "folder": "route_153145",
+    "folder_rel": "data/processed/transporte/route_153145",
+    "route_id": "153145",
+    "display_id": "153145",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús AeroDirecto Norte (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Unger",
+        "end": "Nuevo Aeropuerto"
+      },
+      "2": {
+        "start": "Nuevo Aeropuerto",
+        "end": "Unger"
+      }
+    }
+  },
+  {
     "folder": "route_153350",
     "folder_rel": "data/processed/transporte/route_153350",
     "route_id": "153350",
@@ -230,6 +382,182 @@
       "2": {
         "start": "10 (Canto Grande)",
         "end": "Manco Cápac"
+      }
+    }
+  },
+  {
+    "folder": "route_153460",
+    "folder_rel": "data/processed/transporte/route_153460",
+    "route_id": "153460",
+    "display_id": "153460",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús AeroDirecto Sur (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "La Doce (Mercado)",
+        "end": "Nuevo Aeropuerto"
+      },
+      "2": {
+        "start": "Nuevo Aeropuerto",
+        "end": "La Doce (Mercado)"
+      }
+    }
+  },
+  {
+    "folder": "route_153593",
+    "folder_rel": "data/processed/transporte/route_153593",
+    "route_id": "153593",
+    "display_id": "153593",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús AeroDirecto Centro (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Plaza San Martín",
+        "end": "Nuevo Aeropuerto"
+      },
+      "2": {
+        "start": "Nuevo Aeropuerto",
+        "end": "Plaza San Martín"
+      }
+    }
+  },
+  {
+    "folder": "route_153624",
+    "folder_rel": "data/processed/transporte/route_153624",
+    "route_id": "153624",
+    "display_id": "153624",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Trujillo (Ittsa Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      },
+      "2": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      },
+      "3": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      },
+      "4": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      },
+      "5": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terminal Ittsa Bus"
+      },
+      "6": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Terrestre Plaza Norte (Trujillo"
+      },
+      "7": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Terrestre Plaza Norte (Trujillo"
+      },
+      "8": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      }
+    }
+  },
+  {
+    "folder": "route_153697",
+    "folder_rel": "data/processed/transporte/route_153697",
+    "route_id": "153697",
+    "display_id": "153697",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Desaguadero (CIVA) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terminal Terrestre Desaguadero"
+      },
+      "2": {
+        "start": "Terminal Terrestre Desaguadero",
+        "end": "Terminal CIVA"
+      }
+    }
+  },
+  {
+    "folder": "route_153787",
+    "folder_rel": "data/processed/transporte/route_153787",
+    "route_id": "153787",
+    "display_id": "153787",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chimbote (Ittsa Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Terrestre El Chimbador (Con escala en Plaza Norte)"
+      },
+      "2": {
+        "start": "Terminal Terrestre El Chimbador",
+        "end": "Terminal Ittsa Bus"
+      },
+      "3": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Terrestre El Chimbador (Directo)"
+      },
+      "4": {
+        "start": "Terminal Terrestre El Chimbador",
+        "end": "Terminal Ittsa Bus"
+      }
+    }
+  },
+  {
+    "folder": "route_154043",
+    "folder_rel": "data/processed/transporte/route_154043",
+    "route_id": "154043",
+    "display_id": "154043",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Tumbes (OLTURSA) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal OLTURSA",
+        "end": "Terminal OLTURSA"
+      },
+      "2": {
+        "start": "Terminal OLTURSA",
+        "end": "Terminal OLTURSA"
       }
     }
   },
@@ -468,6 +796,194 @@
     }
   },
   {
+    "folder": "route_155873",
+    "folder_rel": "data/processed/transporte/route_155873",
+    "route_id": "155873",
+    "display_id": "155873",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chimbote (América Express) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "América Express",
+        "end": "Terminal Terrestre El Chimbador (Con escala en Plaza Norte)"
+      },
+      "2": {
+        "start": "Terminal Terrestre El Chimbador",
+        "end": "América Express"
+      },
+      "3": {
+        "start": "Terminal Transmar",
+        "end": "Terminal Terrestre El Chimbador (Salida desde Nicolás Arriola)"
+      },
+      "4": {
+        "start": "América Express",
+        "end": "Terminal Terrestre El Chimbador (Con escala en PZN y Los Olivos)"
+      },
+      "5": {
+        "start": "América Express",
+        "end": "Terminal Terrestre El Chimbador (Con escala en Los Olivos)"
+      },
+      "6": {
+        "start": "Terminal Transmar",
+        "end": "Terminal Terrestre El Chimbador (Salida desde Arriola, escala en PZN)"
+      }
+    }
+  },
+  {
+    "folder": "route_155897",
+    "folder_rel": "data/processed/transporte/route_155897",
+    "route_id": "155897",
+    "display_id": "155897",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chimbote (Transportes Línea) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Transportes Línea",
+        "end": "Terminal Terrestre El Chimbador"
+      },
+      "2": {
+        "start": "Terminal Terrestre El Chimbador",
+        "end": "Terminal Transportes Línea"
+      }
+    }
+  },
+  {
+    "folder": "route_155902",
+    "folder_rel": "data/processed/transporte/route_155902",
+    "route_id": "155902",
+    "display_id": "155902",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chiclayo (Transportes Línea) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Transportes Línea",
+        "end": "Terminal Línea"
+      },
+      "2": {
+        "start": "Terminal Línea",
+        "end": "Terminal Transportes Línea"
+      }
+    }
+  },
+  {
+    "folder": "route_155923",
+    "folder_rel": "data/processed/transporte/route_155923",
+    "route_id": "155923",
+    "display_id": "155923",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Tumbes (Ittsa Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      },
+      "2": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Ittsa Bus"
+      }
+    }
+  },
+  {
+    "folder": "route_156062",
+    "folder_rel": "data/processed/transporte/route_156062",
+    "route_id": "156062",
+    "display_id": "156062",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Huari (Julio César) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Julio César",
+        "end": "Terminal Terrestre de Huari"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Huari",
+        "end": "Terminal Julio César"
+      }
+    }
+  },
+  {
+    "folder": "route_156191",
+    "folder_rel": "data/processed/transporte/route_156191",
+    "route_id": "156191",
+    "display_id": "156191",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chiclayo (Ittsa Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Ittsa Bus (Chiclayo) (Con escala en Plaza Norte)"
+      },
+      "2": {
+        "start": "Ittsa Bus (Chiclayo)",
+        "end": "Terminal Ittsa Bus"
+      },
+      "3": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Ittsa Bus (Chiclayo) (Directo)"
+      }
+    }
+  },
+  {
+    "folder": "route_156220",
+    "folder_rel": "data/processed/transporte/route_156220",
+    "route_id": "156220",
+    "display_id": "156220",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Paita (Ittsa Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ittsa Bus",
+        "end": "Terminal Terrestre Madrid"
+      },
+      "2": {
+        "start": "Terminal Terrestre Madrid",
+        "end": "Terminal Ittsa Bus"
+      }
+    }
+  },
+  {
     "folder": "route_156365",
     "folder_rel": "data/processed/transporte/route_156365",
     "route_id": "156365",
@@ -488,6 +1004,54 @@
       "2": {
         "start": "Grifo",
         "end": "Flora Tristán"
+      }
+    }
+  },
+  {
+    "folder": "route_156463",
+    "folder_rel": "data/processed/transporte/route_156463",
+    "route_id": "156463",
+    "display_id": "156463",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Expreso CH (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Lazareto",
+        "end": "Plaza De Armas de Chosica"
+      },
+      "2": {
+        "start": "Plaza De Armas de Chosica",
+        "end": "Lazareto"
+      }
+    }
+  },
+  {
+    "folder": "route_156661",
+    "folder_rel": "data/processed/transporte/route_156661",
+    "route_id": "156661",
+    "display_id": "156661",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chincha (Perú Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal de Cercanías Soyuz",
+        "end": "Terminal de Cercanías Perú Bus"
+      },
+      "2": {
+        "start": "Terminal de Cercanías Perú Bus",
+        "end": "Terminal de Cercanías Soyuz (Servicio Estándar Chinchano -Vuelta)"
       }
     }
   },
@@ -514,6 +1078,30 @@
       "2": {
         "start": "El Parral",
         "end": "Thomas Edison"
+      }
+    }
+  },
+  {
+    "folder": "route_42099",
+    "folder_rel": "data/processed/transporte/route_42099",
+    "route_id": "42099",
+    "display_id": "42099",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de tren Lima - Huancayo en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Desamparados",
+        "end": "Huancayo"
+      },
+      "2": {
+        "start": "Huancayo",
+        "end": "Desamparados"
       }
     }
   },
@@ -750,6 +1338,46 @@
     }
   },
   {
+    "folder": "route_51441",
+    "folder_rel": "data/processed/transporte/route_51441",
+    "route_id": "51441",
+    "display_id": "51441",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Trujillo (Transportes Línea) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Transportes Línea",
+        "end": "Terminal Línea"
+      },
+      "2": {
+        "start": "Terminal Línea",
+        "end": "Terminal Transportes Línea (Con entrada en Plaza Norte)"
+      },
+      "3": {
+        "start": "Terminal Transportes Línea",
+        "end": "Terminal Línea"
+      },
+      "4": {
+        "start": "Terminal Línea",
+        "end": "Terminal Transportes Línea (Directo)"
+      },
+      "5": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terrapuerto Trujillo (PZN"
+      },
+      "6": {
+        "start": "Terrapuerto Trujillo",
+        "end": "Terminal Terrestre Plaza Norte (Terrapuerto TRU"
+      }
+    }
+  },
+  {
     "folder": "route_52727",
     "folder_rel": "data/processed/transporte/route_52727",
     "route_id": "52727",
@@ -834,6 +1462,80 @@
     }
   },
   {
+    "folder": "route_55402",
+    "folder_rel": "data/processed/transporte/route_55402",
+    "route_id": "55402",
+    "display_id": "55402",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Ica (Perú Bus) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal de Cercanías Soyuz",
+        "end": "Terminal de Cercanías Perú Bus"
+      },
+      "2": {
+        "start": "Terminal de Cercanías Perú Bus",
+        "end": "Terminal de Cercanías Soyuz (Servicio Estándar"
+      },
+      "3": {
+        "start": "Terminal de Cercanías Soyuz",
+        "end": "Terminal de Cercanías Perú Bus"
+      },
+      "4": {
+        "start": "Terminal de Cercanías Perú Bus",
+        "end": "Terminal de Cercanías Soyuz (Servicio Express Paracas-Vuelta)"
+      },
+      "5": {
+        "start": "Terminal de Cercanías Soyuz",
+        "end": "Terminal de Cercanías Perú Bus"
+      },
+      "6": {
+        "start": "Terminal de Cercanías Perú Bus",
+        "end": "Terminal de Cercanías Soyuz (Servicio Express Pisco"
+      },
+      "7": {
+        "start": "Terminal de Cercanías Soyuz",
+        "end": "Terminal de Cercanías Perú Bus"
+      },
+      "8": {
+        "start": "Terminal de Cercanías Perú Bus",
+        "end": "Terminal de Cercanías Soyuz (Servicio Vip"
+      }
+    }
+  },
+  {
+    "folder": "route_55575",
+    "folder_rel": "data/processed/transporte/route_55575",
+    "route_id": "55575",
+    "display_id": "55575",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IM34b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "34"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Pachacutec",
+        "end": "Julio César Tello"
+      },
+      "2": {
+        "start": "Julio César Tello",
+        "end": "Terminal Pachacutec"
+      }
+    }
+  },
+  {
     "folder": "route_60955",
     "folder_rel": "data/processed/transporte/route_60955",
     "route_id": "60955",
@@ -854,6 +1556,214 @@
       "2": {
         "start": "España",
         "end": "La Pascana"
+      }
+    }
+  },
+  {
+    "folder": "route_68811",
+    "folder_rel": "data/processed/transporte/route_68811",
+    "route_id": "68811",
+    "display_id": "68811",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO33b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "33"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Valle Hermoso",
+        "end": "Abelardo Gamarra"
+      },
+      "2": {
+        "start": "Abelardo Gamarra",
+        "end": "Valle Hermoso"
+      }
+    }
+  },
+  {
+    "folder": "route_68914",
+    "folder_rel": "data/processed/transporte/route_68914",
+    "route_id": "68914",
+    "display_id": "68914",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO37b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "37"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Pachacutec",
+        "end": "Las Lomas de Mariátegui"
+      },
+      "2": {
+        "start": "Las Lomas de Mariátegui",
+        "end": "Terminal Pachacutec"
+      }
+    }
+  },
+  {
+    "folder": "route_69001",
+    "folder_rel": "data/processed/transporte/route_69001",
+    "route_id": "69001",
+    "display_id": "69001",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO28b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "28"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Pachacutec",
+        "end": "Pablo Paulet"
+      },
+      "2": {
+        "start": "Pablo Paulet",
+        "end": "Terminal Pachacutec"
+      }
+    }
+  },
+  {
+    "folder": "route_69543",
+    "folder_rel": "data/processed/transporte/route_69543",
+    "route_id": "69543",
+    "display_id": "69543",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO38b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "38"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Central",
+        "end": "Cordialidad"
+      },
+      "2": {
+        "start": "Cordialidad",
+        "end": "Central"
+      }
+    }
+  },
+  {
+    "folder": "route_69553",
+    "folder_rel": "data/processed/transporte/route_69553",
+    "route_id": "69553",
+    "display_id": "69553",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO30b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "30"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Canta Callao",
+        "end": "Independencia"
+      },
+      "2": {
+        "start": "Independencia",
+        "end": "Canta Callao"
+      }
+    }
+  },
+  {
+    "folder": "route_69555",
+    "folder_rel": "data/processed/transporte/route_69555",
+    "route_id": "69555",
+    "display_id": "69555",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO32b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "32"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Huancavelica",
+        "end": "El Sol"
+      },
+      "2": {
+        "start": "El Sol",
+        "end": "Huancavelica"
+      }
+    }
+  },
+  {
+    "folder": "route_69636",
+    "folder_rel": "data/processed/transporte/route_69636",
+    "route_id": "69636",
+    "display_id": "69636",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO75b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "75"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Pablo Boner",
+        "end": "Salaverry"
+      },
+      "2": {
+        "start": "Salaverry",
+        "end": "Pablo Boner"
+      }
+    }
+  },
+  {
+    "folder": "route_69644",
+    "folder_rel": "data/processed/transporte/route_69644",
+    "route_id": "69644",
+    "display_id": "69644",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO80b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "80"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Izaguirre",
+        "end": "Lote 4"
+      },
+      "2": {
+        "start": "Lote 4",
+        "end": "Izaguirre"
       }
     }
   },
@@ -906,6 +1816,84 @@
       "2": {
         "start": "Huánuco",
         "end": "Pío Ayala Quispe"
+      }
+    }
+  },
+  {
+    "folder": "route_71838",
+    "folder_rel": "data/processed/transporte/route_71838",
+    "route_id": "71838",
+    "display_id": "71838",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús ICR02b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "02"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Sáenz Peña",
+        "end": "Plaza Unión"
+      },
+      "2": {
+        "start": "Plaza Unión",
+        "end": "Sáenz Peña"
+      }
+    }
+  },
+  {
+    "folder": "route_72008",
+    "folder_rel": "data/processed/transporte/route_72008",
+    "route_id": "72008",
+    "display_id": "72008",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO57b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "57"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Plaza Matriz",
+        "end": "Huertos de Manchay"
+      },
+      "2": {
+        "start": "Huertos de Manchay",
+        "end": "Plaza Matriz"
+      }
+    }
+  },
+  {
+    "folder": "route_72009",
+    "folder_rel": "data/processed/transporte/route_72009",
+    "route_id": "72009",
+    "display_id": "72009",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO18b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "18"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Carrillo",
+        "end": "Huarochirí"
+      },
+      "2": {
+        "start": "Huarochirí",
+        "end": "Carrillo"
       }
     }
   },
@@ -1014,6 +2002,32 @@
     }
   },
   {
+    "folder": "route_74205",
+    "folder_rel": "data/processed/transporte/route_74205",
+    "route_id": "74205",
+    "display_id": "74205",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús DA01a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "01"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Pachacutec",
+        "end": "Intisuyo"
+      },
+      "2": {
+        "start": "Intisuyo",
+        "end": "Terminal Pachacutec"
+      }
+    }
+  },
+  {
     "folder": "route_74341",
     "folder_rel": "data/processed/transporte/route_74341",
     "route_id": "74341",
@@ -1118,6 +2132,32 @@
     }
   },
   {
+    "folder": "route_75480",
+    "folder_rel": "data/processed/transporte/route_75480",
+    "route_id": "75480",
+    "display_id": "75480",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO62b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "62"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Jamaica",
+        "end": "Los Bambúes"
+      },
+      "2": {
+        "start": "Los Bambúes",
+        "end": "Andrés Cáceres"
+      }
+    }
+  },
+  {
     "folder": "route_75584",
     "folder_rel": "data/processed/transporte/route_75584",
     "route_id": "75584",
@@ -1166,6 +2206,32 @@
       "2": {
         "start": "Thomas Edison",
         "end": "Entrada Santa Isabel"
+      }
+    }
+  },
+  {
+    "folder": "route_75693",
+    "folder_rel": "data/processed/transporte/route_75693",
+    "route_id": "75693",
+    "display_id": "75693",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO38a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "38"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Trapiche",
+        "end": "Avenida Chuquitanta"
+      },
+      "2": {
+        "start": "Avenida Chuquitanta",
+        "end": "Trapiche"
       }
     }
   },
@@ -1326,6 +2392,32 @@
     }
   },
   {
+    "folder": "route_76210",
+    "folder_rel": "data/processed/transporte/route_76210",
+    "route_id": "76210",
+    "display_id": "76210",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO44b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "44"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Techo Propio",
+        "end": "Techo Propio (Brasil"
+      },
+      "2": {
+        "start": "Techo Propio",
+        "end": "Techo Propio (Universitaria"
+      }
+    }
+  },
+  {
     "folder": "route_76287",
     "folder_rel": "data/processed/transporte/route_76287",
     "route_id": "76287",
@@ -1378,6 +2470,32 @@
     }
   },
   {
+    "folder": "route_76291",
+    "folder_rel": "data/processed/transporte/route_76291",
+    "route_id": "76291",
+    "display_id": "76291",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús CH10a (Lima - Matucana) en el mapa de Lima",
+    "title_numbers_all": [
+      "10"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Anexo de Cacachaqui",
+        "end": "Terminal Rutas de Huarochirí"
+      },
+      "2": {
+        "start": "Terminal Rutas de Huarochirí",
+        "end": "Anexo de Cacachaqui"
+      }
+    }
+  },
+  {
     "folder": "route_76339",
     "folder_rel": "data/processed/transporte/route_76339",
     "route_id": "76339",
@@ -1426,6 +2544,32 @@
       "2": {
         "start": "Rómulo Betancourt",
         "end": "Rómulo Betancourt (Universitaria"
+      }
+    }
+  },
+  {
+    "folder": "route_76422",
+    "folder_rel": "data/processed/transporte/route_76422",
+    "route_id": "76422",
+    "display_id": "76422",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C62m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "62"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "24 de Junio",
+        "end": "Óvalo Centenario"
+      },
+      "2": {
+        "start": "Óvalo Centenario",
+        "end": "24 de Junio"
       }
     }
   },
@@ -1612,6 +2756,32 @@
     }
   },
   {
+    "folder": "route_76722",
+    "folder_rel": "data/processed/transporte/route_76722",
+    "route_id": "76722",
+    "display_id": "76722",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C72m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "72"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Santiago de Chuco",
+        "end": "Calle 30"
+      },
+      "2": {
+        "start": "Calle 30",
+        "end": "Metropolitana"
+      }
+    }
+  },
+  {
     "folder": "route_76890",
     "folder_rel": "data/processed/transporte/route_76890",
     "route_id": "76890",
@@ -1664,6 +2834,32 @@
     }
   },
   {
+    "folder": "route_76920",
+    "folder_rel": "data/processed/transporte/route_76920",
+    "route_id": "76920",
+    "display_id": "76920",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO78b (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "78"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Alameda",
+        "end": "Terminal Minka"
+      },
+      "2": {
+        "start": "Terminal Minka",
+        "end": "Alameda"
+      }
+    }
+  },
+  {
     "folder": "route_77039",
     "folder_rel": "data/processed/transporte/route_77039",
     "route_id": "77039",
@@ -1686,6 +2882,32 @@
       "2": {
         "start": "Óvalo Miraflores",
         "end": "Separadora Industrial"
+      }
+    }
+  },
+  {
+    "folder": "route_77878",
+    "folder_rel": "data/processed/transporte/route_77878",
+    "route_id": "77878",
+    "display_id": "77878",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 015p (Lima - San Bartolomé) en el mapa de Lima",
+    "title_numbers_all": [
+      "015"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Bartolome",
+        "end": "Terminal Rutas de Huarochirí"
+      },
+      "2": {
+        "start": "Terminal Rutas de Huarochirí",
+        "end": "San Bartolome"
       }
     }
   },
@@ -1764,6 +2986,32 @@
       "2": {
         "start": "Paradero Salida",
         "end": "Portón"
+      }
+    }
+  },
+  {
+    "folder": "route_79324",
+    "folder_rel": "data/processed/transporte/route_79324",
+    "route_id": "79324",
+    "display_id": "79324",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús NO88a (Lima - Canta) en el mapa de Lima",
+    "title_numbers_all": [
+      "88"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Kilómetro 22 (Túpac Amaru)",
+        "end": "Canta"
+      },
+      "2": {
+        "start": "Canta",
+        "end": "Kilómetro 22 (Túpac Amaru)"
       }
     }
   },
@@ -1872,6 +3120,32 @@
     }
   },
   {
+    "folder": "route_79781",
+    "folder_rel": "data/processed/transporte/route_79781",
+    "route_id": "79781",
+    "display_id": "79781",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 089p (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "089"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Bocanegra",
+        "end": "Cooperación Prialé"
+      },
+      "2": {
+        "start": "Cooperación Prialé",
+        "end": "Bocanegra"
+      }
+    }
+  },
+  {
     "folder": "route_79958",
     "folder_rel": "data/processed/transporte/route_79958",
     "route_id": "79958",
@@ -1898,6 +3172,150 @@
     }
   },
   {
+    "folder": "route_80303",
+    "folder_rel": "data/processed/transporte/route_80303",
+    "route_id": "80303",
+    "display_id": "80303",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Arequipa (Flores Hermanos) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Flores",
+        "end": "Terminal Privado Flores Hermanos S.R.L. (Arequipa)"
+      },
+      "2": {
+        "start": "Terminal Privado Flores Hermanos Dorado VIP (Arequipa)",
+        "end": "Terminal Flores"
+      }
+    }
+  },
+  {
+    "folder": "route_80521",
+    "folder_rel": "data/processed/transporte/route_80521",
+    "route_id": "80521",
+    "display_id": "80521",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Yauya en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Agencia Megabus La Victoria",
+        "end": "Yauya"
+      },
+      "2": {
+        "start": "Yauya",
+        "end": "Agencia Megabus La Victoria"
+      }
+    }
+  },
+  {
+    "folder": "route_80822",
+    "folder_rel": "data/processed/transporte/route_80822",
+    "route_id": "80822",
+    "display_id": "80822",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Marcona en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Terrestre Atocongo",
+        "end": "Terminal Terrestre Marcona"
+      },
+      "2": {
+        "start": "Terminal Terrestre Marcona",
+        "end": "Terminal Terrestre Atocongo"
+      }
+    }
+  },
+  {
+    "folder": "route_80974",
+    "folder_rel": "data/processed/transporte/route_80974",
+    "route_id": "80974",
+    "display_id": "80974",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Cajatambo en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Fiori",
+        "end": "Terminal Cajatambo"
+      },
+      "2": {
+        "start": "Terminal Cajatambo",
+        "end": "Terminal Fiori"
+      }
+    }
+  },
+  {
+    "folder": "route_81098",
+    "folder_rel": "data/processed/transporte/route_81098",
+    "route_id": "81098",
+    "display_id": "81098",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Moquegua en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Flores",
+        "end": "Terminal Terrestre de Moquegua"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Moquegua",
+        "end": "Terminal Flores"
+      }
+    }
+  },
+  {
+    "folder": "route_81332",
+    "folder_rel": "data/processed/transporte/route_81332",
+    "route_id": "81332",
+    "display_id": "81332",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Ferreñafe en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Ronco Perú",
+        "end": "Terminal Ferreñafe"
+      },
+      "2": {
+        "start": "Terminal Ferreñafe",
+        "end": "Terminal Ronco Perú"
+      }
+    }
+  },
+  {
     "folder": "route_81871",
     "folder_rel": "data/processed/transporte/route_81871",
     "route_id": "81871",
@@ -1920,6 +3338,101 @@
       "2": {
         "start": "México",
         "end": "Tello"
+      }
+    }
+  },
+  {
+    "folder": "route_82172",
+    "folder_rel": "data/processed/transporte/route_82172",
+    "route_id": "82172",
+    "display_id": "82172",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Cusco (Perú Hop) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Privado Perú Hop",
+        "end": "Terminal Terrestre Atocongo"
+      }
+    }
+  },
+  {
+    "folder": "route_82649",
+    "folder_rel": "data/processed/transporte/route_82649",
+    "route_id": "82649",
+    "display_id": "82649",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chulucanas en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Transportes Dora",
+        "end": "Transportes Dora"
+      },
+      "2": {
+        "start": "Transportes Dora",
+        "end": "Transportes Dora"
+      }
+    }
+  },
+  {
+    "folder": "route_83033",
+    "folder_rel": "data/processed/transporte/route_83033",
+    "route_id": "83033",
+    "display_id": "83033",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús CH04a (Matucana - Lima) en el mapa de Lima",
+    "title_numbers_all": [
+      "04"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Hospital San Juan de Matucana",
+        "end": "Terminal Rutas de Huarochirí"
+      },
+      "2": {
+        "start": "Terminal Rutas de Huarochirí",
+        "end": "Hospital San Juan de Matucana"
+      }
+    }
+  },
+  {
+    "folder": "route_83131",
+    "folder_rel": "data/processed/transporte/route_83131",
+    "route_id": "83131",
+    "display_id": "83131",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C0003a en el mapa de Lima",
+    "title_numbers_all": [
+      "0003"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Nicolás de Chosica",
+        "end": "Oscar Raimundo Benavides"
+      },
+      "2": {
+        "start": "Oscar Raimundo Benavides",
+        "end": "San Nicolás de Chosica"
       }
     }
   },
@@ -1974,6 +3487,32 @@
     }
   },
   {
+    "folder": "route_84327",
+    "folder_rel": "data/processed/transporte/route_84327",
+    "route_id": "84327",
+    "display_id": "84327",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús CH02a (Lima - San Mateo de Huanchor) en el mapa de Lima",
+    "title_numbers_all": [
+      "02"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Mercado Modelo Principal",
+        "end": "Carretera Central"
+      },
+      "2": {
+        "start": "Carretera Central",
+        "end": "Mercado Modelo Principal"
+      }
+    }
+  },
+  {
     "folder": "route_84663",
     "folder_rel": "data/processed/transporte/route_84663",
     "route_id": "84663",
@@ -1996,6 +3535,32 @@
       "2": {
         "start": "Penal de Lurigancho",
         "end": "Puente La Molina"
+      }
+    }
+  },
+  {
+    "folder": "route_85333",
+    "folder_rel": "data/processed/transporte/route_85333",
+    "route_id": "85333",
+    "display_id": "85333",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO44a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "44"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Manuel Prado",
+        "end": "Manuel Prado"
+      },
+      "2": {
+        "start": "Manuel Prado",
+        "end": "Manuel Prado"
       }
     }
   },
@@ -2078,6 +3643,30 @@
     }
   },
   {
+    "folder": "route_85682",
+    "folder_rel": "data/processed/transporte/route_85682",
+    "route_id": "85682",
+    "display_id": "85682",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Socosbamba en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Fiori",
+        "end": "Socosbamba"
+      },
+      "2": {
+        "start": "Socosbamba",
+        "end": "Terminal Fiori"
+      }
+    }
+  },
+  {
     "folder": "route_85699",
     "folder_rel": "data/processed/transporte/route_85699",
     "route_id": "85699",
@@ -2100,6 +3689,30 @@
       "2": {
         "start": "14 de Abril",
         "end": "Milagros Rin"
+      }
+    }
+  },
+  {
+    "folder": "route_85760",
+    "folder_rel": "data/processed/transporte/route_85760",
+    "route_id": "85760",
+    "display_id": "85760",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Tayabamba (La Perla del Altomayo) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Fiori",
+        "end": "Terminal Terrestre Tayabamba"
+      },
+      "2": {
+        "start": "Terminal Terrestre Tayabamba",
+        "end": "Terminal Fiori"
       }
     }
   },
@@ -2150,6 +3763,72 @@
       "2": {
         "start": "Tipac",
         "end": "Institución Educativa Santa Rosa"
+      }
+    }
+  },
+  {
+    "folder": "route_86982",
+    "folder_rel": "data/processed/transporte/route_86982",
+    "route_id": "86982",
+    "display_id": "86982",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús NO53c (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "53"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Minka",
+        "end": "Ayscough"
+      },
+      "2": {
+        "start": "Ayscough",
+        "end": "Terminal Minka"
+      }
+    }
+  },
+  {
+    "folder": "route_88077",
+    "folder_rel": "data/processed/transporte/route_88077",
+    "route_id": "88077",
+    "display_id": "88077",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Tumbes en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Turismo Tacna",
+        "end": "Terminal Turismo Tacna (Tumbes) (Todas las Escalas)"
+      },
+      "2": {
+        "start": "Terminal Turismo Tacna (Tumbes)",
+        "end": "Terminal Turismo Tacna"
+      },
+      "3": {
+        "start": "Terminal Terrestre Atocongo",
+        "end": "Terminal Turismo Tacna (Tumbes) (Salida desde Terminal Atocongo)"
+      },
+      "4": {
+        "start": "Terminal Turismo Tacna (Tumbes)",
+        "end": "Terminal Terrestre Atocongo (Llegada al Terminal Atocongo)"
+      },
+      "5": {
+        "start": "Terminal Turismo Tacna",
+        "end": "Terminal Turismo Tacna (Tumbes) (Escala en Chiclayo)"
+      },
+      "6": {
+        "start": "Terminal Turismo Tacna (Tumbes)",
+        "end": "Terminal Turismo Tacna"
       }
     }
   },
@@ -2206,6 +3885,58 @@
     }
   },
   {
+    "folder": "route_89605",
+    "folder_rel": "data/processed/transporte/route_89605",
+    "route_id": "89605",
+    "display_id": "89605",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C71m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "71"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Montevideo",
+        "end": "Plaza Matriz"
+      },
+      "2": {
+        "start": "Plaza Matriz",
+        "end": "Montevideo"
+      }
+    }
+  },
+  {
+    "folder": "route_89705",
+    "folder_rel": "data/processed/transporte/route_89705",
+    "route_id": "89705",
+    "display_id": "89705",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C1m (Lima - Ricardo Palma District) en el mapa de Lima",
+    "title_numbers_all": [
+      "1"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Abancay",
+        "end": "Parque Ángel Barroco"
+      },
+      "2": {
+        "start": "Parque Ángel Barroco",
+        "end": "Abancay"
+      }
+    }
+  },
+  {
     "folder": "route_89713",
     "folder_rel": "data/processed/transporte/route_89713",
     "route_id": "89713",
@@ -2228,6 +3959,32 @@
       "2": {
         "start": "24 de Junio",
         "end": "San Felipe"
+      }
+    }
+  },
+  {
+    "folder": "route_89725",
+    "folder_rel": "data/processed/transporte/route_89725",
+    "route_id": "89725",
+    "display_id": "89725",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C49m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "49"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Ciudad Satélite Santa Rosa",
+        "end": "Ciudad Satélite Santa Rosa (Ruta Habich"
+      },
+      "2": {
+        "start": "Ciudad Satélite Santa Rosa",
+        "end": "Ciudad Satélite Santa Rosa (Ruta Faucett"
       }
     }
   },
@@ -2360,6 +4117,32 @@
     }
   },
   {
+    "folder": "route_90017",
+    "folder_rel": "data/processed/transporte/route_90017",
+    "route_id": "90017",
+    "display_id": "90017",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C70m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "70"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Montevideo",
+        "end": "Óvalo La Perla"
+      },
+      "2": {
+        "start": "Óvalo La Perla",
+        "end": "Montevideo"
+      }
+    }
+  },
+  {
     "folder": "route_90045",
     "folder_rel": "data/processed/transporte/route_90045",
     "route_id": "90045",
@@ -2420,6 +4203,32 @@
     "title": "Ruta de autobús C139m en el mapa de Lima",
     "title_numbers_all": [
       "139"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Plaza 2 de Mayo",
+        "end": "Terminal Santa Eulália"
+      },
+      "2": {
+        "start": "Terminal Santa Eulália",
+        "end": "Plaza 2 de Mayo"
+      }
+    }
+  },
+  {
+    "folder": "route_90066",
+    "folder_rel": "data/processed/transporte/route_90066",
+    "route_id": "90066",
+    "display_id": "90066",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C4m (Lima - Santa Eulalia) en el mapa de Lima",
+    "title_numbers_all": [
+      "4"
     ],
     "trips_detected": [
       1,
@@ -2512,6 +4321,30 @@
       "2": {
         "start": "Mercado de Frutas",
         "end": "San Antonio de Torreblanca"
+      }
+    }
+  },
+  {
+    "folder": "route_90617",
+    "folder_rel": "data/processed/transporte/route_90617",
+    "route_id": "90617",
+    "display_id": "90617",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Arequipa - Lima (Abba Bus) en el mapa de Arequipa",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terminal de Cercanías"
+      },
+      "2": {
+        "start": "Terminal de Cercanías",
+        "end": "Terrapuerto Internacional de Arequipa"
       }
     }
   },
@@ -2646,6 +4479,148 @@
     }
   },
   {
+    "folder": "route_91864",
+    "folder_rel": "data/processed/transporte/route_91864",
+    "route_id": "91864",
+    "display_id": "91864",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO28a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "28"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Calle Alegría",
+        "end": "Unicachi"
+      },
+      "2": {
+        "start": "Unicachi",
+        "end": "Calle Alegría"
+      }
+    }
+  },
+  {
+    "folder": "route_92068",
+    "folder_rel": "data/processed/transporte/route_92068",
+    "route_id": "92068",
+    "display_id": "92068",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Rio de Janeiro - Lima en el mapa de Rio de Janeiro",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Rodoviária Novo Rio",
+        "end": "Terminal Terrestre Atocongo"
+      },
+      "2": {
+        "start": "Terminal Terrestre Atocongo",
+        "end": "Rodoviária Novo Rio"
+      }
+    }
+  },
+  {
+    "folder": "route_92929",
+    "folder_rel": "data/processed/transporte/route_92929",
+    "route_id": "92929",
+    "display_id": "92929",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Cotahuasi - Lima (Don Abraham) en el mapa de Cotahuasi",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Terrestre de Cotahuasi",
+        "end": "Agencia Don Abraham (Paseo de la República)"
+      },
+      "2": {
+        "start": "Agencia Don Abraham (Paseo de la República)",
+        "end": "Terminal Terrestre de Cotahuasi"
+      }
+    }
+  },
+  {
+    "folder": "route_93203",
+    "folder_rel": "data/processed/transporte/route_93203",
+    "route_id": "93203",
+    "display_id": "93203",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Andahuaylas (Molina Unión) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Terrestre de Yerbateros",
+        "end": "Terminal Expreso Molina Unión (Andahuaylas)"
+      },
+      "2": {
+        "start": "Terminal Expreso Molina Unión (Andahuaylas)",
+        "end": "Terminal Terrestre de Yerbateros"
+      }
+    }
+  },
+  {
+    "folder": "route_94022",
+    "folder_rel": "data/processed/transporte/route_94022",
+    "route_id": "94022",
+    "display_id": "94022",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Arequipa (CIVA) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal CIVA",
+        "end": "Terminal Terrestre de Arequipa"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Arequipa",
+        "end": "Terminal CIVA"
+      },
+      "3": {
+        "start": "Terminal ExcluCIVA",
+        "end": "Terrapuerto Internacional de Arequipa"
+      },
+      "4": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terminal ExcluCIVA"
+      },
+      "5": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terminal Terrestre de Arequipa"
+      },
+      "6": {
+        "start": "Terminal Terrestre de Arequipa",
+        "end": "Terminal Terrestre Plaza Norte"
+      },
+      "7": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terminal CIVA"
+      }
+    }
+  },
+  {
     "folder": "route_94217",
     "folder_rel": "data/processed/transporte/route_94217",
     "route_id": "94217",
@@ -2672,6 +4647,126 @@
     }
   },
   {
+    "folder": "route_94406",
+    "folder_rel": "data/processed/transporte/route_94406",
+    "route_id": "94406",
+    "display_id": "94406",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Huancayo (Cruz de San Cristóbal) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Terrestre (Manco Cápac)",
+        "end": "Terminal Terrestre de Huancayo"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Huancayo",
+        "end": "Terminal Terrestre (Manco Cápac)"
+      }
+    }
+  },
+  {
+    "folder": "route_94608",
+    "folder_rel": "data/processed/transporte/route_94608",
+    "route_id": "94608",
+    "display_id": "94608",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Huancayo (Nazareno - Hidalgo Express) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Fiori",
+        "end": "Terminal Terrestre (Jirón Puno)"
+      },
+      "2": {
+        "start": "Terminal Terrestre (Jirón Puno)",
+        "end": "Terminal Fiori"
+      }
+    }
+  },
+  {
+    "folder": "route_94961",
+    "folder_rel": "data/processed/transporte/route_94961",
+    "route_id": "94961",
+    "display_id": "94961",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Celendín (Turismo del Norte) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Agencia Turismo del Norte (Lima)",
+        "end": "Terminal Terrestre de Celendín"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Celendín",
+        "end": "Agencia Turismo del Norte (Lima)"
+      }
+    }
+  },
+  {
+    "folder": "route_94962",
+    "folder_rel": "data/processed/transporte/route_94962",
+    "route_id": "94962",
+    "display_id": "94962",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Chimbote (Emtrafesa - Ave Fénix) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Emtrafesa",
+        "end": "Terminal Terrestre El Chimbador"
+      },
+      "2": {
+        "start": "Terminal Terrestre El Chimbador",
+        "end": "Terminal Emtrafesa"
+      }
+    }
+  },
+  {
+    "folder": "route_94985",
+    "folder_rel": "data/processed/transporte/route_94985",
+    "route_id": "94985",
+    "display_id": "94985",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Nazca (Palomino) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terminal Terrestre de Nazca"
+      },
+      "2": {
+        "start": "Terminal Terrestre de Nazca",
+        "end": "Terminal Palomino (Luna Pizarro)"
+      }
+    }
+  },
+  {
     "folder": "route_95224",
     "folder_rel": "data/processed/transporte/route_95224",
     "route_id": "95224",
@@ -2694,6 +4789,126 @@
       "2": {
         "start": "San Felipe",
         "end": "Separadora Industrial"
+      }
+    }
+  },
+  {
+    "folder": "route_95368",
+    "folder_rel": "data/processed/transporte/route_95368",
+    "route_id": "95368",
+    "display_id": "95368",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Cusco (Turismo Palomino) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Ica y Nazca)"
+      },
+      "2": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Ica, Ancahuasi y Anta)"
+      },
+      "3": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Ica, NZC, CRH y Anta)"
+      },
+      "4": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Ica, NZC, CRH y Anta)"
+      },
+      "5": {
+        "start": "Terminal Palomino (Luna Pizarro)",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Ica, Puquio y Abancay)"
+      },
+      "6": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terrapuerto Grupo Palomino (Cusco) (Escala en Curahuasi y Anta)"
+      }
+    }
+  },
+  {
+    "folder": "route_95629",
+    "folder_rel": "data/processed/transporte/route_95629",
+    "route_id": "95629",
+    "display_id": "95629",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Arequipa - Lima (Cruz del Sur) en el mapa de Arequipa",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terminal Terrestre Plaza Norte"
+      },
+      "2": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terrapuerto Cruz del Sur (Lima) (ESCALA EN CAMANÁ, NASCA E ICA)"
+      },
+      "3": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terrapuerto Cruz del Sur (Lima) (ESCALA EN CAMANÁ E ICA)"
+      },
+      "4": {
+        "start": "Terrapuerto Internacional de Arequipa",
+        "end": "Terrapuerto Cruz del Sur (Lima) (ESCALA EN NASCA E ICA)"
+      },
+      "5": {
+        "start": "Terminal Terrestre Plaza Norte",
+        "end": "Terrapuerto Internacional de Arequipa"
+      },
+      "6": {
+        "start": "Terrapuerto Cruz del Sur (Lima)",
+        "end": "Terrapuerto Internacional de Arequipa (ESCALA EN PARACAS)"
+      },
+      "7": {
+        "start": "Terrapuerto Cruz del Sur (Lima)",
+        "end": "Terrapuerto Internacional de Arequipa (ESCALA EN ICA, NASCA Y CAMANÁ)"
+      },
+      "8": {
+        "start": "Terrapuerto Cruz del Sur (Lima)",
+        "end": "Terrapuerto Internacional de Arequipa (ESCALA EN ICA Y CAMANÁ)"
+      },
+      "9": {
+        "start": "Terrapuerto Cruz del Sur (Lima)",
+        "end": "Terrapuerto Internacional de Arequipa (ESCALA EN NASCA Y CAMANÁ)"
+      },
+      "10": {
+        "start": "Terminal Terrestre Atocongo",
+        "end": "Terrapuerto Internacional de Arequipa (PROVENIENTE DE JAVIER PRADO"
+      }
+    }
+  },
+  {
+    "folder": "route_95743",
+    "folder_rel": "data/processed/transporte/route_95743",
+    "route_id": "95743",
+    "display_id": "95743",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Yanahuanca (Cruzero Express) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Cruzero Express",
+        "end": "Cruzero Express Yanahuanca"
+      },
+      "2": {
+        "start": "Cruzero Express Yanahuanca",
+        "end": "Terminal Cruzero Express"
       }
     }
   },
@@ -2876,6 +5091,30 @@
       "2": {
         "start": "Plaza Unión",
         "end": "Virgo"
+      }
+    }
+  },
+  {
+    "folder": "route_96193",
+    "folder_rel": "data/processed/transporte/route_96193",
+    "route_id": "96193",
+    "display_id": "96193",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús Lima - Paita (Cavassa) en el mapa de Lima",
+    "title_numbers_all": [],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Terminal Cavassa",
+        "end": "Terminal Terrestre Madrid"
+      },
+      "2": {
+        "start": "Terminal Terrestre Madrid",
+        "end": "Terminal Cavassa"
       }
     }
   },
@@ -3192,6 +5431,32 @@
     }
   },
   {
+    "folder": "route_96998",
+    "folder_rel": "data/processed/transporte/route_96998",
+    "route_id": "96998",
+    "display_id": "96998",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús C98m (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "98"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Heliotropos",
+        "end": "Huánuco"
+      },
+      "2": {
+        "start": "Huánuco",
+        "end": "Heliotropos"
+      }
+    }
+  },
+  {
     "folder": "route_97458",
     "folder_rel": "data/processed/transporte/route_97458",
     "route_id": "97458",
@@ -3346,6 +5611,32 @@
       "2": {
         "start": "Centro Poblado Collanac",
         "end": "Praderas de La Molina"
+      }
+    }
+  },
+  {
+    "folder": "route_99255",
+    "folder_rel": "data/processed/transporte/route_99255",
+    "route_id": "99255",
+    "display_id": "99255",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús IO57a (Lima - Callao) en el mapa de Lima",
+    "title_numbers_all": [
+      "57"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Pampa Chica",
+        "end": "Plaza Matriz"
+      },
+      "2": {
+        "start": "Plaza Matriz",
+        "end": "Pampa Chica"
       }
     }
   },
