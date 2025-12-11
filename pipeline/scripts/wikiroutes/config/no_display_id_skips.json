@@ -1,0 +1,210 @@
+[
+  {
+    "folder": "route_75062",
+    "folder_rel": "data/processed/transporte/route_75062",
+    "route_id": "75062",
+    "display_id": "75062",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 018p en el mapa de Lima",
+    "title_numbers_all": [
+      "018"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Antonio de Torreblanca",
+        "end": "La Marina"
+      },
+      "2": {
+        "start": "La Marina",
+        "end": "San Antonio de Torreblanca"
+      }
+    }
+  },
+  {
+    "folder": "route_75063",
+    "folder_rel": "data/processed/transporte/route_75063",
+    "route_id": "75063",
+    "display_id": "75063",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 010p en el mapa de Lima",
+    "title_numbers_all": [
+      "010"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Antonio de Torreblanca",
+        "end": "San Antonio de Torreblanca"
+      },
+      "2": {
+        "start": "San Antonio de Torreblanca",
+        "end": "San Antonio de Torreblanca"
+      }
+    }
+  },
+  {
+    "folder": "route_76290",
+    "folder_rel": "data/processed/transporte/route_76290",
+    "route_id": "76290",
+    "display_id": "76290",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 018pa en el mapa de Lima",
+    "title_numbers_all": [
+      "018"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "El Sol",
+        "end": "Musa"
+      },
+      "2": {
+        "start": "Musa",
+        "end": "El Sol"
+      }
+    }
+  },
+  {
+    "folder": "route_76425",
+    "folder_rel": "data/processed/transporte/route_76425",
+    "route_id": "76425",
+    "display_id": "76425",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 014pb en el mapa de Lima",
+    "title_numbers_all": [
+      "014"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Chocas",
+        "end": "Musa"
+      },
+      "2": {
+        "start": "Musa",
+        "end": "Chocas"
+      }
+    }
+  },
+  {
+    "folder": "route_76429",
+    "folder_rel": "data/processed/transporte/route_76429",
+    "route_id": "76429",
+    "display_id": "76429",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 014pa en el mapa de Lima",
+    "title_numbers_all": [
+      "014"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "Chocas",
+        "end": "Mercado de Frutas"
+      },
+      "2": {
+        "start": "Mercado de Frutas",
+        "end": "Chocas"
+      }
+    }
+  },
+  {
+    "folder": "route_77878",
+    "folder_rel": "data/processed/transporte/route_77878",
+    "route_id": "77878",
+    "display_id": "77878",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 015p (Lima - San Bartolomé) en el mapa de Lima",
+    "title_numbers_all": [
+      "015"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Bartolome",
+        "end": "Terminal Rutas de Huarochirí"
+      },
+      "2": {
+        "start": "Terminal Rutas de Huarochirí",
+        "end": "San Bartolome"
+      }
+    }
+  },
+  {
+    "folder": "route_79767",
+    "folder_rel": "data/processed/transporte/route_79767",
+    "route_id": "79767",
+    "display_id": "79767",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 020p en el mapa de Lima",
+    "title_numbers_all": [
+      "020"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Antonio de Torreblanca",
+        "end": "El Sol"
+      },
+      "2": {
+        "start": "El Sol",
+        "end": "San Antonio de Torreblanca"
+      }
+    }
+  },
+  {
+    "folder": "route_90415",
+    "folder_rel": "data/processed/transporte/route_90415",
+    "route_id": "90415",
+    "display_id": "90415",
+    "display_id_source": "route_id_fallback",
+    "title": "Ruta de autobús 001p en el mapa de Lima",
+    "title_numbers_all": [
+      "001"
+    ],
+    "trips_detected": [
+      1,
+      2
+    ],
+    "has_route_html": true,
+    "endpoints_from_html": {
+      "1": {
+        "start": "San Antonio de Torreblanca",
+        "end": "Mercado de Frutas"
+      },
+      "2": {
+        "start": "Mercado de Frutas",
+        "end": "San Antonio de Torreblanca"
+      }
+    }
+  }
+]

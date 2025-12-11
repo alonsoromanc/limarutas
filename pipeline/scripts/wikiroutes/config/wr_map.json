@@ -1,60 +1,112 @@
 {
   "routes": {
-    "Ruta": {
-      "city": "Lima",
-      "color": "#00008C",
+    "1-ida": {
+      "folder": "data/processed/transporte/route_52587",
+      "trip": 1,
+      "color": "#888888",
+      "name": "1 · CEV Polar → CEV Polar"
+    },
+    "2-ida": {
       "folder": "data/processed/transporte/route_52610",
-      "name": "Ruta de autobús 2 (Expreso San Isidro) en el mapa de Lima",
       "trip": 1,
-      "url": "https://wikiroutes.info/es/lima?routes=52610"
+      "color": "#888888",
+      "name": "2 · Guardia Civil → Guardia Civil"
     },
-    "Ruta-ida": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_79767",
-      "name": "Ruta de autobús 020p en el mapa de Lima (ida)",
+    "75062-ida": {
+      "folder": "data/processed/transporte/route_75062",
       "trip": 1,
-      "url": "https://wikiroutes.info/es/lima?routes=79767"
+      "color": "#888888",
+      "name": "75062 · San Antonio de Torreblanca → La Marina"
     },
-    "Ruta-trip1": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_45220",
-      "name": "Ruta de autobús SXN en el mapa de Lima (trip 1)",
-      "trip": 1,
-      "url": "https://wikiroutes.info/es/lima?routes=45220"
-    },
-    "Ruta-trip2": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_45220",
-      "name": "Ruta de autobús SXN en el mapa de Lima (trip 2)",
+    "75062-vuelta": {
+      "folder": "data/processed/transporte/route_75062",
       "trip": 2,
-      "url": "https://wikiroutes.info/es/lima?routes=45220"
+      "color": "#888888",
+      "name": "75062 · La Marina → San Antonio de Torreblanca"
     },
-    "Ruta-trip3": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_45220",
-      "name": "Ruta de autobús SXN en el mapa de Lima (trip 3)",
-      "trip": 3,
-      "url": "https://wikiroutes.info/es/lima?routes=45220"
+    "75063-ida": {
+      "folder": "data/processed/transporte/route_75063",
+      "trip": 1,
+      "color": "#888888",
+      "name": "75063 · San Antonio de Torreblanca → San Antonio de Torreblanca"
     },
-    "Ruta-trip4": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_45220",
-      "name": "Ruta de autobús SXN en el mapa de Lima (trip 4)",
-      "trip": 4,
-      "url": "https://wikiroutes.info/es/lima?routes=45220"
-    },
-    "Ruta-vuelta": {
-      "city": "Lima",
-      "color": "#00008C",
-      "folder": "data/processed/transporte/route_79767",
-      "name": "Ruta de autobús 020p en el mapa de Lima (vuelta)",
+    "75063-vuelta": {
+      "folder": "data/processed/transporte/route_75063",
       "trip": 2,
-      "url": "https://wikiroutes.info/es/lima?routes=79767"
+      "color": "#888888",
+      "name": "75063 · San Antonio de Torreblanca → San Antonio de Torreblanca"
+    },
+    "76290-ida": {
+      "folder": "data/processed/transporte/route_76290",
+      "trip": 1,
+      "color": "#888888",
+      "name": "76290 · El Sol → Musa"
+    },
+    "76290-vuelta": {
+      "folder": "data/processed/transporte/route_76290",
+      "trip": 2,
+      "color": "#888888",
+      "name": "76290 · Musa → El Sol"
+    },
+    "76425-ida": {
+      "folder": "data/processed/transporte/route_76425",
+      "trip": 1,
+      "color": "#888888",
+      "name": "76425 · Chocas → Musa"
+    },
+    "76425-vuelta": {
+      "folder": "data/processed/transporte/route_76425",
+      "trip": 2,
+      "color": "#888888",
+      "name": "76425 · Musa → Chocas"
+    },
+    "76429-ida": {
+      "folder": "data/processed/transporte/route_76429",
+      "trip": 1,
+      "color": "#888888",
+      "name": "76429 · Chocas → Mercado de Frutas"
+    },
+    "76429-vuelta": {
+      "folder": "data/processed/transporte/route_76429",
+      "trip": 2,
+      "color": "#888888",
+      "name": "76429 · Mercado de Frutas → Chocas"
+    },
+    "77878-ida": {
+      "folder": "data/processed/transporte/route_77878",
+      "trip": 1,
+      "color": "#888888",
+      "name": "77878 · San Bartolome → Terminal Rutas de Huarochirí"
+    },
+    "77878-vuelta": {
+      "folder": "data/processed/transporte/route_77878",
+      "trip": 2,
+      "color": "#888888",
+      "name": "77878 · Terminal Rutas de Huarochirí → San Bartolome"
+    },
+    "79767-ida": {
+      "folder": "data/processed/transporte/route_79767",
+      "trip": 1,
+      "color": "#888888",
+      "name": "79767 · San Antonio de Torreblanca → El Sol"
+    },
+    "79767-vuelta": {
+      "folder": "data/processed/transporte/route_79767",
+      "trip": 2,
+      "color": "#888888",
+      "name": "79767 · El Sol → San Antonio de Torreblanca"
+    },
+    "90415-ida": {
+      "folder": "data/processed/transporte/route_90415",
+      "trip": 1,
+      "color": "#888888",
+      "name": "90415 · San Antonio de Torreblanca → Mercado de Frutas"
+    },
+    "90415-vuelta": {
+      "folder": "data/processed/transporte/route_90415",
+      "trip": 2,
+      "color": "#888888",
+      "name": "90415 · Mercado de Frutas → San Antonio de Torreblanca"
     }
   }
 }
