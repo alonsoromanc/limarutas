@@ -22,21 +22,12 @@
 
   "rutas_principales_inactivas": [
     { "servicio": "101", "origen": "Huertos de Naranjal (Avenida Canta Callao)", "destino": "Parque Zonal Huáscar" },
-    { "servicio": "107", "origen": "Avenida A (Huertos de Naranjal)", "destino": "Jockey Plaza" },
-    { "servicio": "202", "origen": "Huarochirí (Óvalo Melgarejo)", "destino": "Universitaria" },
-    { "servicio": "208", "origen": "Húsares de Junín", "destino": "Faucett" },
-    { "servicio": "302", "origen": "Amancaes", "destino": "Dos de Mayo (Arequipa)" },
-    { "servicio": "304", "origen": "Leoncio Prado", "destino": "Armendáriz" },
-    { "servicio": "306", "origen": "Flor de Amancaes", "destino": "Javier Prado" },
-    { "servicio": "409", "origen": "La Capilla (Montenegro)", "destino": "Juan de Arona (San Isidro)" },
-    { "servicio": "508", "origen": "Estación Grau", "destino": "Venezuela" },
-    { "servicio": "516", "origen": "México", "destino": "Huaycán" },
-
     { "servicio": "102", "origen": "Fundición (Puente Piedra)", "destino": "Caquetá" },
     { "servicio": "103", "origen": "Atocongo", "destino": "Plaza Bolognesi" },
     { "servicio": "104", "origen": "Óvalo Huandoy", "destino": "Plaza 2 de Mayo" },
     { "servicio": "105", "origen": "Fundición (Puente Piedra)", "destino": "Caquetá" },
     { "servicio": "106", "origen": "Puente Benavides", "destino": "Plaza Bolognesi" },
+    { "servicio": "107", "origen": "Avenida A (Huertos de Naranjal)", "destino": "Jockey Plaza" },
     { "servicio": "108", "origen": "Fundición (Puente Piedra)", "destino": "Atocongo" },
     { "servicio": "109", "origen": "Fundición (Puente Piedra)", "destino": "Atocongo" },
     { "servicio": "110", "origen": "Fundición (Puente Piedra)", "destino": "El Derby (Pentagonito)" },
@@ -47,24 +38,27 @@
     { "servicio": "115", "origen": "Plaza Bolognesi", "destino": "Atocongo" },
     { "servicio": "116", "origen": "Óvalo Huandoy", "destino": "Plaza 2 de Mayo" },
     { "servicio": "117", "origen": "Óvalo Huandoy", "destino": "Plaza 2 de Mayo" },
-
+    { "servicio": "202", "origen": "Huarochirí (Óvalo Melgarejo)", "destino": "Universitaria" },
     { "servicio": "203", "origen": "Contisuyo (Faucett)", "destino": "La Molina" },
     { "servicio": "205", "origen": "Venezuela (Faucett)", "destino": "Quiñones" },
     { "servicio": "207", "origen": "Venezuela (Faucett)", "destino": "Aviación" },
+    { "servicio": "208", "origen": "Húsares de Junín", "destino": "Faucett" },
     { "servicio": "210", "origen": "Venezuela (Faucett)", "destino": "Aviación" },
-
+    { "servicio": "302", "origen": "Amancaes", "destino": "Dos de Mayo (Arequipa)" },
+    { "servicio": "304", "origen": "Leoncio Prado", "destino": "Armendáriz" },
+    { "servicio": "306", "origen": "Flor de Amancaes", "destino": "Javier Prado" },
     { "servicio": "401", "origen": "Mariátegui", "destino": "La Virgen (Magdalena del Mar)" },
     { "servicio": "402", "origen": "Paradero 10 (Canto Grande)", "destino": "Tacna" },
     { "servicio": "403", "origen": "La Hacienda", "destino": "Bolívar" },
     { "servicio": "407", "origen": "Paradero 2 (Canto Grande)", "destino": "La Virgen (Magdalena del Mar)" },
     { "servicio": "408", "origen": "Farmacia Leo (Bayóvar)", "destino": "La Virgen (Magdalena del Mar)" },
+    { "servicio": "409", "origen": "La Capilla (Montenegro)", "destino": "Juan de Arona (San Isidro)" },
     { "servicio": "410", "origen": "Paradero 19 (Las Flores)", "destino": "Óvalo de Brasil" },
     { "servicio": "411", "origen": "Paradero 19 (Las Flores)", "destino": "La Virgen (Magdalena del Mar)" },
     { "servicio": "413", "origen": "Mariátegui", "destino": "Plaza Vea (El Agustino)" },
     { "servicio": "414", "origen": "Mariátegui", "destino": "Plaza Vea (El Agustino)" },
     { "servicio": "415", "origen": "La Cinco", "destino": "Zárate" },
     { "servicio": "416", "origen": "Mariátegui", "destino": "Zárate" },
-
     { "servicio": "501", "origen": "Santa Clara", "destino": "Faucett" },
     { "servicio": "502", "origen": "Santa Clara", "destino": "San Pablo (Cerro San Cosme)" },
     { "servicio": "503", "origen": "Santa Clara", "destino": "Plaza Unión" },
@@ -72,13 +66,15 @@
     { "servicio": "505", "origen": "Santa Clara", "destino": "Universidad Nacional Mayor de San Marcos (Universitaria)" },
     { "servicio": "506", "origen": "Santa Clara", "destino": "Plaza Bolognesi" },
     { "servicio": "507", "origen": "Óvalo Santa Anita", "destino": "Universidad Nacional Mayor de San Marcos (Universitaria)" },
+    { "servicio": "508", "origen": "Estación Grau", "destino": "Venezuela" },
     { "servicio": "509", "origen": "Santa Clara", "destino": "Plaza Almirante Miguel Grau" },
     { "servicio": "510", "origen": "Santa Clara", "destino": "Universidad Nacional Mayor de San Marcos (Universitaria)" },
     { "servicio": "511", "origen": "Santa Clara", "destino": "Faucett" },
     { "servicio": "512", "origen": "Santa Clara", "destino": "Plaza Unión" },
     { "servicio": "513", "origen": "Santa Clara", "destino": "San Pablo (Cerro San Cosme)" },
     { "servicio": "514", "origen": "Santa Clara", "destino": "San Pablo (Cerro San Cosme)" },
-    { "servicio": "515", "origen": "Santa Clara", "destino": "San Pablo (Cerro San Cosme)" }
+    { "servicio": "515", "origen": "Santa Clara", "destino": "San Pablo (Cerro San Cosme)" },
+    { "servicio": "516", "origen": "México", "destino": "Huaycán" }
   ],
 
   "rutas_alimentadoras_inactivas": [
@@ -212,7 +208,7 @@
     { "servicio": "583", "origen": "Tagore (Ceres)", "destino": "Puente Santa Anita" },
     { "servicio": "584", "origen": "A.H. Media Luna", "destino": "Santa Clara" },
 
-    { "servicio": "SP01", "origen": "Parque Kennedy", "destino": "Parque Kennedy" },
-    { "servicio": "SE-02", "origen": "Wiesse", "destino": "Acho" }
+    { "servicio": "SE-02", "origen": "Wiesse", "destino": "Acho" },
+    { "servicio": "SP01", "origen": "Parque Kennedy", "destino": "Parque Kennedy" }
   ]
 }
