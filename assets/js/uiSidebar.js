@@ -12,6 +12,22 @@ export function bulk(fn){
 const labelForSvc = (s) =>
   s.kind==='regular' ? 'Ruta' : (s.kind==='expreso' ? 'Expreso' : 'Servicio');
 
+// Colores oficiales para corredores según primer dígito del servicio
+const CORR_COLORS = {
+  '1': '#ffcd00', // Amarillo
+  '2': '#e4002b', // Rojo
+  '3': '#003594', // Azul
+  '4': '#9b26b6', // Morado
+  '5': '#8e8c13'  // Verde
+};
+
+function corrColorForId(id){
+  const s = String(id || '').trim();
+  if (!s) return null;
+  const first = s[0];
+  return CORR_COLORS[first] || null;
+}
+
 // Direcciones mini (Norte/Sur/Ambas) para Met/Alim
 function miniDir(systemId, svc){
   if (systemId === 'corr' || systemId === 'metro') return el('div');
@@ -102,11 +118,14 @@ function makeServiceItemAlim(svc){
 }
 
 function makeServiceItemCorr(svc){
-  const tag = el('span',{class:'tag', style:`background:${svc.color}`}, String(svc.id));
+  const code = String(svc.id);
+  const color = corrColorForId(code) || svc.color || '#10b981';
+
+  const tag = el('span',{class:'tag', style:`background:${color}`}, code);
   const left = el('div',{class:'left'},
     tag,
     el('div',{},
-      el('div',{class:'name'}, `Servicio ${svc.id}`),
+      el('div',{class:'name'}, `Servicio ${code}`),
       el('div',{class:'sub'}, svc.name || '')
     )
   );
@@ -342,7 +361,9 @@ function wrParseBaseStops(source){
     if (!raw) return {from:'', to:'', label:''};
     let s = raw;
     s = s.replace(/^\s*\d+\s*·\s*/,'');
+
     s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+
     let parts = s.split('→');
     if (parts.length === 2){
       const from = parts[0].trim();
@@ -412,6 +433,7 @@ function wrParseBaseStops(source){
 
   let s = rawName;
   s = s.replace(/^\s*\d+\s*·\s*/,'');
+
   s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
 
   let parts = s.split('→');
@@ -431,7 +453,6 @@ function wrParseBaseStops(source){
   return {from:'', to:'', label:s.trim()};
 }
 
-// Usa wr_extremes.json para obtener extremos si hay match
 // Usa wr_extremes.json para obtener extremos si hay match
 function wrStopsFromExtremesForRoute(routeLike, extremes, dirKey){
   if (!routeLike || !extremes) return null;
@@ -742,25 +763,26 @@ export function fillAlimList(){
     .forEach(s => sys.ui.listS.appendChild(makeServiceItem('alim', s)));
 }
 
-// Corredores agrupados
+// Corredores agrupados por color oficial (primer dígito)
 function corridorGroupName(s){
-  const nm = s.name || '';
-  const m = /Corredor\s+(Azul|Morado|Rojo|Amarillo)/i.exec(nm);
-  if (m) return `Corredor ${m[1][0].toUpperCase()}${m[1].slice(1).toLowerCase()}`;
-  const c = String(s.color||'').toUpperCase();
-  const inAny = (arr) => arr.some(hex => hex.toUpperCase() === c);
-  if (inAny(['#1565C0','#1E40AF','#0D47A1','#1D4ED8','#0A4ACF','#0074D9'])) return 'Corredor Azul';
-  if (inAny(['#6A1B9A','#7E22CE','#8B5CF6','#673AB7','#7E3AF2']))          return 'Corredor Morado';
-  if (inAny(['#C62828','#DC2626','#EF4444','#B91C1C','#E53E3E']))          return 'Corredor Rojo';
-  if (inAny(['#F59E0B','#F9A825','#FFC107','#FBBF24']))                    return 'Corredor Amarillo';
-  return 'Otros';
+  const code = String(s.id || '').trim();
+  const first = code[0];
+  switch (first){
+    case '1': return 'Corredor Amarillo';
+    case '2': return 'Corredor Rojo';
+    case '3': return 'Corredor Azul';
+    case '4': return 'Corredor Morado';
+    case '5': return 'Corredor Verde';
+    default:  return 'Otros';
+  }
 }
 function keyFromGroupName(label){
   const k = label.toLowerCase();
-  if (k.includes('azul')) return 'azul';
-  if (k.includes('morado')) return 'morado';
-  if (k.includes('rojo')) return 'rojo';
   if (k.includes('amarillo')) return 'amarillo';
+  if (k.includes('rojo'))     return 'rojo';
+  if (k.includes('azul'))     return 'azul';
+  if (k.includes('morado'))   return 'morado';
+  if (k.includes('verde'))    return 'verde';
   return 'otros';
 }
 function buildCorrGroupSection(container, key, label){
@@ -799,7 +821,14 @@ export function fillCorrList(){
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(s);
   });
-  const order = ['Corredor Azul','Corredor Morado','Corredor Rojo','Corredor Amarillo','Otros'];
+  const order = [
+    'Corredor Amarillo',
+    'Corredor Rojo',
+    'Corredor Azul',
+    'Corredor Morado',
+    'Corredor Verde',
+    'Otros'
+  ];
   const keys = [...groups.keys()].sort((a,b)=>{
     const ia = order.indexOf(a), ib = order.indexOf(b);
     if (ia===-1 && ib===-1) return a.localeCompare(b);

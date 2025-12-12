@@ -1,10 +1,12 @@
+// app.js (punto de entrada)
 import { PATHS, state } from './config.js';
 import { $, $$, fetchJSON, stopsArrayToMap, asLatLng } from './utils.js';
 import {
   filterByCatalogFor,
   buildAlimFromFC,
   buildCorredoresFromFC,
-  buildMetroFromJSON
+  buildMetroFromJSON,
+  buildCorrFromWrRoutes
 } from './parsers.js';
 import {
   initMap,
@@ -344,7 +346,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
           color: routesObj[only].color || '#00008C'
         });
       }
-      }
+    }
   });
 
   return { routeDefs, routesUi };
@@ -428,6 +430,40 @@ async function loadWikiroutesMeta(){
 }
 
 /* ===========================
+   Corredores desde Wikiroutes (vista corrWr)
+   =========================== */
+
+async function loadCorrFromWikiroutes(){
+  try {
+    const listaCorr = await fetchJSON(PATHS.listaCorredores);
+    const wrRoutes  = state.systems.wr.routes || [];
+
+    state.corrWr = buildCorrFromWrRoutes(wrRoutes, listaCorr);
+
+    const total = state.corrWr.services.length;
+    const activos = state.corrWr.groups.principales_activas.length +
+                    state.corrWr.groups.alimentadoras_activas.length;
+
+    console.log(
+      '[Corr-WR] Rutas de corredor basadas en Wikiroutes:',
+      total,
+      '| activas:', activos
+    );
+  } catch (e) {
+    console.warn('[Corr-WR] No se pudo construir la vista de corredores desde Wikiroutes:', e.message);
+    state.corrWr = {
+      services: [],
+      groups: {
+        principales_activas: [],
+        principales_inactivas: [],
+        alimentadoras_activas: [],
+        alimentadoras_inactivas: []
+      }
+    };
+  }
+}
+
+/* ===========================
    Init principal
    =========================== */
 
@@ -463,6 +499,10 @@ async function init(){
     (async () => { setStatus('Cargando Metro...'); await loadMetro(); })(),
     (async () => { setStatus('Cargando Wikiroutes...'); await loadWikiroutesMeta(); })()
   ]);
+
+  // Vista de corredores basada en Wikiroutes (usa lista_corredores.json)
+  setStatus('Clasificando corredores desde Wikiroutes...');
+  await loadCorrFromWikiroutes();
 
   // Construir UI
   buildUI();
@@ -601,14 +641,12 @@ function buildUI(){
   }
 
   // Pestañas desplegables
-  // Pestañas desplegables
   wirePanelTogglesOnce();
 
   // Buscador de rutas, empresas y códigos
   // Se inicializa al final para que todos los sistemas estén cargados.
   setupSearch();
 }
-
 
 // Lanzar
 init().catch(err => {

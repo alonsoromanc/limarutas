@@ -1,6 +1,6 @@
 // parsers.js
 import { asLatLng, fetchJSON } from './utils.js';
-import { COLOR_AN, COLOR_AS, state } from './config.js';
+import { COLOR_AN, COLOR_AS, COLOR_CORR, state } from './config.js';
 
 /* =========================================
    Catálogo (filter only/exclude)
@@ -66,7 +66,7 @@ export function filterByCatalogFor(systemId, services, catalog){
     });
   }
 
-    if (systemId === 'wr') {
+  if (systemId === 'wr') {
     // Usar catálogo.transporte con clave = código moderno (base)
     const tr = catalog?.transporte || {};
     const only = Array.isArray(tr.only) ? new Set(tr.only.map(upper)) : null;
@@ -183,7 +183,7 @@ export function buildAlimFromFC(json){
 }
 
 /* =========================================
-   Corredores
+   Corredores (GeoJSON oficial)
    ========================================= */
 export function buildCorredoresFromFC(json){
   const routes = new Map();     // id -> {id,name,color,segments:[],stops:[]}
@@ -336,6 +336,136 @@ export function buildMetroFromJSON(json){
 }
 
 /* =========================================
+   Corredores desde rutas Wikiroutes (transporte.json)
+   ========================================= */
+
+// Construye un índice servicio -> metadata usando lista_corredores.json
+function buildCorrIndexFromList(listaCorr) {
+  const index = new Map();
+
+  function addArray(arr, tipo, activa) {
+    if (!Array.isArray(arr)) return;
+    for (const item of arr) {
+      if (!item || !item.servicio) continue;
+      const raw = String(item.servicio).trim();
+      if (!raw) continue;
+
+      const firstChar = raw[0];
+      const colorKey = COLOR_CORR[firstChar] ? firstChar : null;
+      const color = colorKey ? COLOR_CORR[colorKey] : undefined;
+
+      index.set(raw, {
+        servicio: raw,
+        origen: item.origen || '',
+        destino: item.destino || '',
+        tipo,      // 'principal' o 'alimentador'
+        activa,    // true o false
+        colorKey,
+        color
+      });
+    }
+  }
+
+  addArray(listaCorr?.rutas_principales_activas,   'principal',    true);
+  addArray(listaCorr?.rutas_alimentadoras_activas, 'alimentador',  true);
+  addArray(listaCorr?.rutas_principales_inactivas, 'principal',    false);
+  addArray(listaCorr?.rutas_alimentadoras_inactivas, 'alimentador', false);
+
+  return index;
+}
+
+// Intenta emparejar una ruta Wikiroutes con la tabla de corredores
+function findCorrMetaForRoute(rt, corrIndex) {
+  const candidates = [];
+
+  if (rt?.id != null)       candidates.push(String(rt.id).trim());
+  if (rt?.code != null)     candidates.push(String(rt.code).trim());
+  if (rt?.servicio != null) candidates.push(String(rt.servicio).trim());
+  if (rt?.route_id != null) candidates.push(String(rt.route_id).trim());
+
+  for (const key of candidates) {
+    if (!key) continue;
+    const meta = corrIndex.get(key);
+    if (meta) return { key, meta };
+  }
+  return null;
+}
+
+/**
+ * Construye la vista de corredores basados en rutas de transporte (Wikiroutes).
+ *
+ * routes: array de rutas de transporte.json (state.systems.wr.routes)
+ *         donde cada ruta tiene al menos un campo que coincide con "servicio"
+ *         en lista_corredores.json (id, code, servicio, route_id, etc.).
+ *
+ * listaCorr: objeto cargado desde config/lista_corredores.json
+ *
+ * Devuelve:
+ * {
+ *   services: [ ...rutas de corredor enriquecidas... ],
+ *   groups: {
+ *     principales_activas: [...],
+ *     principales_inactivas: [...],
+ *     alimentadoras_activas: [...],
+ *     alimentadoras_inactivas: [...]
+ *   }
+ * }
+ */
+export function buildCorrFromWrRoutes(routes, listaCorr) {
+  if (!Array.isArray(routes) || !listaCorr) {
+    return {
+      services: [],
+      groups: {
+        principales_activas: [],
+        principales_inactivas: [],
+        alimentadoras_activas: [],
+        alimentadoras_inactivas: []
+      }
+    };
+  }
+
+  const corrIndex = buildCorrIndexFromList(listaCorr);
+  const corrServices = [];
+
+  for (const rt of routes) {
+    const hit = findCorrMetaForRoute(rt, corrIndex);
+    if (!hit) continue;
+
+    const { meta } = hit;
+
+    // Clonamos la ruta y añadimos metadata de corredor
+    corrServices.push({
+      ...rt,
+      corrServicio: meta.servicio,
+      corrOrigen: meta.origen,
+      corrDestino: meta.destino,
+      corrTipo: meta.tipo,       // 'principal'|'alimentador'
+      corrActiva: meta.activa,   // true|false
+      corrColor: meta.color || null,
+      corrColorKey: meta.colorKey || null
+    });
+  }
+
+  return {
+    services: corrServices,
+    groups: {
+      principales_activas: corrServices.filter(
+        s => s.corrTipo === 'principal' && s.corrActiva
+      ),
+      principales_inactivas: corrServices.filter(
+        s => s.corrTipo === 'principal' && !s.corrActiva
+      ),
+      alimentadoras_activas: corrServices.filter(
+        s => s.corrTipo === 'alimentador' && s.corrActiva
+      ),
+      alimentadoras_inactivas: corrServices.filter(
+        s => s.corrTipo === 'alimentador' && !s.corrActiva
+      )
+    }
+  };
+}
+
+/* =========================================
    Wikiroutes helpers
    ========================================= */
 
@@ -429,7 +559,7 @@ function buildLineFCFromStops(stops){
 }
 
 /* =========================================
-   Capa Wikiroutes
+   Capa Wikiroutes (por ruta)
    ========================================= */
 
 // Normaliza trip: 1=ida, 2=vuelta
