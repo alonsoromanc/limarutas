@@ -3,12 +3,11 @@
 - Arreglar ruta aerodirecto
 - Eager loading
 - La centralización es individual
-- Las rutas de transporte público tienen dos direcciones.
-    - Incluir en el script ambas direcciones
-    - Crear un mapa de distritos para simbolizar distrito de origen y de fin
-        - Agregar una excepción en caso ambos sean iguales
 
 # Pendientes
+
+- Deshacer el spaghetti generado en scripts.
+    - Ver si pycache sirve y crear un solo ipynb ejecutor y los otros .py
 
 - Revisar si son necesarios todos los html o se pueden eliminar
 - Asignar rutas por defecto al seleccionar
@@ -18,3 +17,5 @@
 # Futuros
 
 - Arreglar barra de búsqueda y UI
+- Incorporar sección de proyectados
+- Mejorar UI dando opcion a mostrar solo las lineas formales
