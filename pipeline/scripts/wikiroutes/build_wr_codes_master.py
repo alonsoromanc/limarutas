@@ -203,6 +203,98 @@ def extract_trip_endpoints_from_html(route_html_path: Path) -> Dict[int, Tuple[s
 
 
 # ==========================
+# Clasificación por categoría
+# ==========================
+
+# Patrones para "Transporte Formal sin Codigo Nuevo"
+# Aplicados sobre display_id_raw (normalizado en mayúsculas)
+CODIGO_FORMAL_SN_PATTERNS = [
+    r"^CR\d{2}$",
+    r"^DA\d{2}$",
+    r"^ICR\d{2}$",
+    r"^IM\d{2}$",
+    r"^IO\d{2}$",
+    r"^IPC\d{2}$",
+    r"^OCR\d{2}$",
+    r"^OM\d{2}$",
+    r"^SP\d{2}$",
+
+    r"^\d{3}P$",      # xxxP (001P, 018P, etc.)
+    r"^C-\d{4}$",     # C-0000
+    r"^CCH\d{2}$",
+    r"^CH\d{2}$",
+
+    r"^IH\d{2}$",
+    r"^NH\d{2}$",
+    r"^PCH\d{2}$",
+    r"^PNH\d{2}$",
+    r"^PSH\d{2}$",
+    r"^R\d{2}$",
+    r"^RA\d{2}$",
+    r"^SH\d{2}$",
+    r"^TCH\d{2}$",
+    r"^TH\d{2}$",
+    r"^TLU\d{2}$",
+    r"^TMA\d{2}$",
+    r"^TRI\d{2}$",
+    r"^TSE\d{2}$",
+    r"^TVE\d{2}$",
+]
+
+# Patrones que preferimos detectar en el título (porque el display_id_raw puede perder el guion)
+TITLE_FORMAL_SN_PATTERNS = [
+    r"\b\d{3}-96\b",      # xxx-96
+    r"\bRTU-M-\d{2}\b",   # RTU-M-xx
+]
+
+
+def clasificar_categoria(
+    display_id_raw: str,
+    cand_match_type: str,
+    cand_codigo_nuevo: str,
+    title: str,
+) -> str:
+    """
+    Devuelve una de:
+      - "Transporte Formalizado por la ATU"
+      - "Transporte Formal sin Codigo Nuevo"
+      - "Transporte Semiformal y Otros"
+    según las reglas indicadas.
+    """
+    code = (display_id_raw or "").strip()
+    code_upper = code.upper()
+    title_upper = (title or "").upper()
+
+    # 1) Transporte Formalizado por la ATU:
+    #    4 números que están en lista_rutas como codigo_nuevo
+    if cand_match_type == "codigo_nuevo":
+        cn = (cand_codigo_nuevo or "").strip()
+        if cn.isdigit() and len(cn) == 4:
+            return "Transporte Formalizado por la ATU"
+
+    # 2) Transporte Formal sin Codigo Nuevo:
+    #    - 4 dígitos pero NO en lista_rutas como codigo_nuevo
+    #    - O tiene alguno de los formatos especificados
+    is_four_digit = code.isdigit() and len(code) == 4
+
+    # Patrones sobre el código
+    matches_formal_sn_code = any(
+        re.match(pat, code_upper) for pat in CODIGO_FORMAL_SN_PATTERNS
+    )
+
+    # Patrones sobre el título
+    matches_formal_sn_title = any(
+        re.search(pat, title_upper) for pat in TITLE_FORMAL_SN_PATTERNS
+    )
+
+    if is_four_digit or matches_formal_sn_code or matches_formal_sn_title:
+        return "Transporte Formal sin Codigo Nuevo"
+
+    # 3) Resto
+    return "Transporte Semiformal y Otros"
+
+
+# ==========================
 # CLI
 # ==========================
 
@@ -329,6 +421,14 @@ def main() -> None:
             cand_origen = lr.distrito_origen
             cand_destino = lr.distrito_destino
 
+        # Categoría automática
+        categoria = clasificar_categoria(
+            display_id_raw=display_id_raw,
+            cand_match_type=cand_match_type,
+            cand_codigo_nuevo=cand_codigo_nuevo,
+            title=title,
+        )
+
         folder_rel = folder.resolve().relative_to(ROOT).as_posix()
 
         row = {
@@ -357,6 +457,9 @@ def main() -> None:
             "cand_empresa_operadora": cand_empresa,
             "cand_distrito_origen": cand_origen,
             "cand_distrito_destino": cand_destino,
+
+            # Clasificación automática
+            "categoria": categoria,
 
             # Campos manuales para que tú revises en Excel
             "codigo_final": "",       # tú decides qué código debe usar el mapa

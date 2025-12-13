@@ -117,27 +117,174 @@ function makeServiceItemAlim(svc){
   return body;
 }
 
-function makeServiceItemCorr(svc){
-  const code = String(svc.id);
-  const color = corrColorForId(code) || svc.color || '#10b981';
+/* =============== Corredores (vista Corr-WR con ida/vuelta) =============== */
 
-  const tag = el('span',{class:'tag', style:`background:${color}`}, code);
-  const left = el('div',{class:'left'},
-    tag,
-    el('div',{},
-      el('div',{class:'name'}, `Servicio ${code}`),
-      el('div',{class:'sub'}, svc.name || '')
-    )
+function corrTipoLabel(svc){
+  if (!svc) return '';
+  if (svc.corrTipo === 'principal') return 'Ruta principal';
+  if (svc.corrTipo === 'alimentador') return 'Ruta alimentadora';
+  return '';
+}
+
+function corrDisplayCode(svc){
+  // Preferir el código de lista_corredores (servicio), luego id
+  return String(svc?.corrServicio || svc?.id || '').trim();
+}
+
+function corrDisplayColor(svc){
+  return (
+    svc?.corrColor ||
+    corrColorForId(corrDisplayCode(svc)) ||
+    svc?.color ||
+    '#10b981'
   );
-  const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'corr'});
-  const head = el('div',{class:'item-head'}, left, chk);
-  const body = el('div',{class:'item'}, head);
-  chk.addEventListener('change', () => {
-    if (!state.bulk) {
-      onToggleService('corr', svc.id, chk.checked);
-      syncTriFromLeaf('corr');
+}
+
+function applyCorrTextsToItem(item, direccion){
+  const svc = item.__corrSvc || null;
+  if (!svc) return;
+
+  const code = corrDisplayCode(svc);
+
+  const titleEl = item.querySelector('.corr-main-title');
+  const tipoEl  = item.querySelector('.corr-subtitle-type');
+  const routeEl = item.querySelector('.corr-subtitle-route');
+
+  if (titleEl){
+    titleEl.textContent = code ? `Servicio ${code}` : 'Servicio';
+  }
+
+  if (tipoEl){
+    tipoEl.textContent = corrTipoLabel(svc);
+  }
+
+  if (routeEl){
+    const o = String(svc.corrOrigen || '').trim();
+    const d = String(svc.corrDestino || '').trim();
+    let from = o, to = d;
+    if (direccion === 'vuelta') [from, to] = [d, o];
+    routeEl.textContent = (from || to) ? `${from} → ${to}` : (svc.name || '');
+  }
+}
+
+function makeCorrDirPairControls(chk){
+  const wrap = el('div',{class:'dir-mini'});
+  const mk = (val,label) =>
+    el('button',{class:`segbtn-mini${(chk.dataset.sel||'ida')===val?' active':''}`,'data-dir':val},label);
+
+  const bIda = mk('ida','Ida');
+  const bVta = mk('vuelta','Vuelta');
+  wrap.append(bIda, bVta);
+
+  wrap.addEventListener('click',(e)=>{
+    const btn = e.target.closest('.segbtn-mini');
+    if (!btn) return;
+    const sel = btn.dataset.dir;
+    if (!sel || sel === chk.dataset.sel) return;
+
+    chk.dataset.sel = sel;
+    [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
+
+    const item = wrap.closest('.item');
+    if (item) applyCorrTextsToItem(item, sel);
+
+    if (chk.checked){
+      const ida = chk.dataset.ida;
+      const vta = chk.dataset.vuelta;
+      if (sel==='ida'){
+        setWikiroutesVisible(ida, true,  {fit:true});
+        setWikiroutesVisible(vta, false);
+      } else {
+        setWikiroutesVisible(vta, true,  {fit:true});
+        setWikiroutesVisible(ida, false);
+      }
     }
   });
+
+  return wrap;
+}
+
+// Item de corredor basado en Wikiroutes (usa setWikiroutesVisible)
+function makeServiceItemCorr(svc){
+  const code = corrDisplayCode(svc);
+  const color = corrDisplayColor(svc);
+
+  const tag = el('span',{class:'tag', style:`background:${color}`}, code || '-');
+
+  const textBlock = el('div',{},
+    el('div',{class:'name corr-main-title'}, ''),
+    el('div',{class:'sub corr-subtitle-type'}, ''),
+    el('div',{class:'sub corr-subtitle-route'}, '')
+  );
+
+  const left = el('div',{class:'left'}, tag, textBlock);
+
+  // Normalizar pair ida/vuelta (si existe)
+  let idaId = null;
+  let vtaId = null;
+
+  if (svc && svc.pair){
+    const ida = svc.pair.ida;
+    const vta = svc.pair.vuelta;
+    if (ida != null) idaId = String(ida);
+    if (vta != null) vtaId = String(vta);
+  }
+
+  const hasBothDirs = !!(idaId && vtaId);
+
+  const dataAttrs = hasBothDirs
+    ? {
+        'data-id': String(svc.id),
+        'data-system': 'corr',
+        'data-ida': idaId,
+        'data-vuelta': vtaId,
+        'data-sel': (svc.defaultDir || 'ida')
+      }
+    : {
+        'data-id': String(svc.id),
+        'data-system': 'corr'
+      };
+
+  const chk  = el('input', Object.assign({type:'checkbox', checked:false}, dataAttrs));
+  const head = el('div',{class:'item-head'}, left, chk);
+  const body = hasBothDirs
+    ? el('div',{class:'item'}, head, makeCorrDirPairControls(chk))
+    : el('div',{class:'item'}, head);
+
+  body.__corrSvc = svc;
+
+  const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
+  applyCorrTextsToItem(body, initialDir);
+
+  chk.addEventListener('change', () => {
+    const id = chk.dataset.id;
+    if (!id) return;
+
+    if (hasBothDirs){
+      const ida = chk.dataset.ida;
+      const vta = chk.dataset.vuelta;
+      const sel = chk.dataset.sel || 'ida';
+
+      if (chk.checked){
+        if (sel === 'ida'){
+          setWikiroutesVisible(ida, true,  {fit:true});
+          setWikiroutesVisible(vta, false);
+        } else {
+          setWikiroutesVisible(vta, true,  {fit:true});
+          setWikiroutesVisible(ida, false);
+        }
+      } else {
+        setWikiroutesVisible(ida, false);
+        setWikiroutesVisible(vta, false);
+      }
+    } else {
+      if (chk.checked) setWikiroutesVisible(id, true, {fit:true});
+      else             setWikiroutesVisible(id, false);
+    }
+
+    syncTriFromLeaf('corr');
+  });
+
   return body;
 }
 
@@ -253,11 +400,10 @@ function loadWrExtremes(){
   return wrExtremesPromise;
 }
 
-/* ---- Filtrado por grupo usando catalog.json ---- */
-
+// Filtrado por grupo usando catalog.json (transporte, aerodirecto y otros)
 function wrFilterRoutesByGroup(groupName, routes){
   const catalog = state.catalog || {};
-  const upper = s => String(s).toUpperCase().trim();
+  const upper = s => String(s).toUpperCase();
 
   let cfg = null;
   if (groupName === 'transporte'){
@@ -275,34 +421,17 @@ function wrFilterRoutesByGroup(groupName, routes){
   const only = Array.isArray(cfg.only) ? new Set(cfg.only.map(upper)) : null;
   const exc  = Array.isArray(cfg.exclude) ? new Set(cfg.exclude.map(upper)) : new Set();
 
-  const basesFor = (idRaw) => {
-    let base = upper(idRaw || '');
-    const mTrip = base.match(/^(.*?)-(IDA|VUELTA)$/i);
-    if (mTrip) base = mTrip[1];
-
-    const out = new Set();
-    if (base) out.add(base);
-
-    // Si termina en _12345, también permitir el prefijo (ej: 1_52587 -> 1)
-    const m = base.match(/^(.+)_\d+$/);
-    if (m && m[1]) out.add(m[1]);
-
-    // Si es numérico con ceros a la izquierda, normaliza (ej: 02 -> 2)
-    if (/^\d+$/.test(base)) out.add(String(Number(base)));
-
-    return Array.from(out);
-  };
-
   return (routes || []).filter(rt => {
-    const bases = basesFor(rt && rt.id != null ? rt.id : '');
-    if (!bases.length) return false;
+    let base = rt && rt.id != null ? upper(rt.id) : '';
+    const m = base.match(/^(.*?)-(IDA|VUELTA)$/i);
+    if (m) base = m[1];
 
-    if (bases.some(b => exc.has(b))) return false;
-    if (only) return bases.some(b => only.has(b));
+    if (!base) return false;
+    if (exc.has(base)) return false;
+    if (only) return only.has(base);
     return true;
   });
 }
-
 
 // Valores tipo "Ninguno", "Desconocido", etc.
 function wrIsPlaceholder(text){
@@ -419,13 +548,13 @@ function wrParseBaseStops(source){
     if (parts.length === 2){
       const from = parts[0].trim();
       const to   = parts[1].trim();
-      return {from, to, label:`${from} \u2192 ${to}`};
+      return {from, to, label:`${from} → ${to}`};
     }
     parts = s.split(/\s*-\s*/);
     if (parts.length === 2){
       const from = parts[0].trim();
       const to   = parts[1].trim();
-      return {from, to, label:`${from} \u2192 ${to}`};
+      return {from, to, label:`${from} → ${to}`};
     }
     return {from:'', to:'', label:s.trim()};
   }
@@ -451,7 +580,7 @@ function wrParseBaseStops(source){
   if (directFrom || directTo){
     const from = String(directFrom || '').trim();
     const to   = String(directTo || '').trim();
-    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    const label = (from || to) ? `${from} → ${to}` : '';
     return {from, to, label};
   }
 
@@ -470,7 +599,7 @@ function wrParseBaseStops(source){
     };
     const from = String(getName(first) || '').trim();
     const to   = String(getName(last) || '').trim();
-    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    const label = (from || to) ? `${from} → ${to}` : '';
     return {from, to, label};
   }
 
@@ -491,14 +620,14 @@ function wrParseBaseStops(source){
   if (parts.length === 2){
     const from = parts[0].trim();
     const to   = parts[1].trim();
-    return {from, to, label:`${from} \u2192 ${to}`};
+    return {from, to, label:`${from} → ${to}`};
   }
 
   parts = s.split(/\s*-\s*/);
   if (parts.length === 2){
     const from = parts[0].trim();
     const to   = parts[1].trim();
-    return {from, to, label:`${from} \u2192 ${to}`};
+    return {from, to, label:`${from} → ${to}`};
   }
 
   return {from:'', to:'', label:s.trim()};
@@ -529,7 +658,7 @@ function wrStopsFromExtremesForRoute(routeLike, extremes, dirKey){
     if (ext && ext[dirKey]){
       const from = ext[dirKey].from ? String(ext[dirKey].from).trim() : '';
       const to   = ext[dirKey].to   ? String(ext[dirKey].to).trim()   : '';
-      const label = (from || to) ? `${from} \u2192 ${to}` : '';
+      const label = (from || to) ? `${from} → ${to}` : '';
       return {from, to, label};
     }
   }
@@ -565,7 +694,7 @@ function applyWrTextsToWrItem(item, direccion){
     if (direccion === 'vuelta'){
       [ori, des] = [des, ori];
     }
-    distEl.textContent = (ori || des) ? `${ori} \u2192 ${des}` : '';
+    distEl.textContent = (ori || des) ? `${ori} → ${des}` : '';
   }
 
   if (routeEl){
@@ -575,7 +704,7 @@ function applyWrTextsToWrItem(item, direccion){
     const to   = stops && stops.to   ? stops.to   : '';
 
     if (from || to){
-      routeEl.textContent = `${from} \u2192 ${to}`;
+      routeEl.textContent = `${from} → ${to}`;
     } else if (rt && rt.name){
       let base = String(rt.name).trim();
       base = base.replace(/^\s*\d+\s*·\s*/, '');
@@ -625,10 +754,9 @@ function makeWrDirPairControls(chk){
 }
 
 // Item para Wikiroutes
-function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
+function makeWrItem(rt, metaByCodigo, routesById, extremes, syncSystemId='wr'){
   const labelId = String(rt.id).toUpperCase();
-  const tagColor = rt && rt.color ? rt.color : '#64748b';
-  const tag = el('span',{ class:'tag', style:`background:${tagColor}` }, labelId);
+  const tag = el('span',{ class:'tag', style:`background:${rt.color}` }, labelId);
 
   const textBlock = el('div',{},
     el('div',{class:'name wr-main-title'}, ''),
@@ -638,7 +766,9 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
 
   const left = el('div',{class:'left'}, tag, textBlock);
 
+  // =========================
   // Normalizar pair ida/vuelta
+  // =========================
   let idaRoute = null;
   let vtaRoute = null;
   let idaId = null;
@@ -649,11 +779,13 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
     let route = null;
     if (!side) return {id, route};
 
+    // Si es id directo
     if (typeof side === 'string' || typeof side === 'number'){
       id = String(side);
       route = routesById ? (routesById.get(id) || null) : null;
     } else if (typeof side === 'object'){
       if (side.id != null) id = String(side.id);
+      // Si tenemos mapa de rutas, lo usamos; si no, usamos el propio objeto
       if (routesById && id){
         route = routesById.get(id) || side;
       } else {
@@ -671,6 +803,7 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
     vtaId = nVta.id;
     vtaRoute = nVta.route;
 
+    // Ayuda para depurar si faltan IDs
     if (!idaId || !vtaId){
       console.warn('[WR] pair sin ambos IDs de ida/vuelta para ruta UI', rt);
     }
@@ -681,14 +814,14 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   const dataAttrs = hasBothDirs
     ? {
         'data-id': String(rt.id),
-        'data-system': systemId,
+        'data-system': 'wr',
         'data-ida': idaId,
         'data-vuelta': vtaId,
         'data-sel': (rt.defaultDir || 'ida')
       }
     : {
         'data-id': String(rt.id),
-        'data-system': systemId
+        'data-system': 'wr'
       };
 
   const chk  = el('input', Object.assign({type:'checkbox', checked:false}, dataAttrs));
@@ -701,20 +834,25 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
   body.__wrRoute = rt;
 
+  // =========================
   // Extremos Ida / Vuelta / default
+  // =========================
   let stopsIda = null;
   let stopsVta = null;
   let stopsDefault = null;
 
   function computeStops(prefId, routeObj, dirKey){
+    // 1) wr_extremes.json con el ID concreto
     if (prefId != null){
       const byId = wrStopsFromExtremesForRoute(String(prefId), extremes, dirKey);
       if (byId) return byId;
     }
+    // 2) wr_extremes.json con el propio objeto (por si hubiese otro campo de id)
     if (routeObj){
       const byObj = wrStopsFromExtremesForRoute(routeObj, extremes, dirKey);
       if (byObj) return byObj;
     }
+    // 3) Parseo "a pelo" del objeto/string
     return routeObj ? wrParseBaseStops(routeObj) : {from:'', to:'', label:''};
   }
 
@@ -724,6 +862,7 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   }
 
   if (!stopsIda && !stopsVta){
+    // Fallback usando la propia ruta "agregada"
     stopsDefault =
       wrStopsFromExtremesForRoute(rt, extremes, 'ida') ||
       wrParseBaseStops(rt);
@@ -738,7 +877,9 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
   applyWrTextsToWrItem(body, initialDir);
 
+  // =========================
   // Checkbox principal
+  // =========================
   chk.addEventListener('change', () => {
     if (hasBothDirs){
       const ida = chk.dataset.ida;
@@ -758,14 +899,17 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
         setWikiroutesVisible(vta, false);
       }
     } else {
+      // Ruta sin par ida/vuelta: se comporta como antes
       if (chk.checked) setWikiroutesVisible(rt.id, true, {fit:true});
       else             setWikiroutesVisible(rt.id, false);
     }
-    syncTriFromLeaf(systemId);
+    syncTriFromLeaf(syncSystemId);
   });
 
   return body;
 }
+
+
 
 function makeServiceItem(systemId, svc){
   if (systemId==='met')   return makeServiceItemMet(svc);
@@ -841,22 +985,36 @@ export function fillCorrList(){
   const sys = state.systems.corr;
   const container = sys.ui.list;
   const empty = $('#p-corr-empty');
+
   container.innerHTML = '';
   sys.ui.groups.clear();
-  if (!sys.services.length){
+
+  const corrWr = state.corrWr || null;
+  const activeWr = corrWr
+    ? [
+        ...(corrWr.groups?.principales_activas || []),
+        ...(corrWr.groups?.alimentadoras_activas || [])
+      ]
+    : [];
+
+  const services = activeWr.length ? activeWr : (sys.services || []);
+
+  if (!services.length){
     empty && (empty.style.display = 'block');
     sys.ui.chkAll && (sys.ui.chkAll.disabled = true);
     return;
   }
+
   empty && (empty.style.display = 'none');
   sys.ui.chkAll && (sys.ui.chkAll.disabled = false);
 
   const groups = new Map();
-  sys.services.forEach(s => {
+  services.forEach(s => {
     const key = corridorGroupName(s);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(s);
   });
+
   const order = [
     'Corredor Amarillo',
     'Corredor Rojo',
@@ -865,6 +1023,18 @@ export function fillCorrList(){
     'Corredor Verde',
     'Otros'
   ];
+
+  const sortId = (a, b) => {
+    const A = corrDisplayCode(a).toUpperCase();
+    const B = corrDisplayCode(b).toUpperCase();
+    const ma = A.match(/^(\d+)/);
+    const mb = B.match(/^(\d+)/);
+    const na = ma ? Number(ma[1]) : Infinity;
+    const nb = mb ? Number(mb[1]) : Infinity;
+    if (na !== nb) return na - nb;
+    return A.localeCompare(B, 'es');
+  };
+
   const keys = [...groups.keys()].sort((a,b)=>{
     const ia = order.indexOf(a), ib = order.indexOf(b);
     if (ia===-1 && ib===-1) return a.localeCompare(b);
@@ -872,11 +1042,12 @@ export function fillCorrList(){
     if (ib===-1) return -1;
     return ia-ib;
   });
+
   keys.forEach(label => {
     const key = keyFromGroupName(label);
     buildCorrGroupSection(container, key, label);
     const grp = state.systems.corr.ui.groups.get(key);
-    groups.get(label).forEach(svc => grp.body.appendChild(makeServiceItem('corr', svc)));
+    groups.get(label).sort(sortId).forEach(svc => grp.body.appendChild(makeServiceItemCorr(svc)));
   });
 }
 
@@ -888,11 +1059,12 @@ export function fillMetroList(){
   sys.services.forEach(s => list.appendChild(makeServiceItem('metro', s)));
 }
 
+
 /* =========================
    Wikiroutes: listas por grupo
    ========================= */
 
-async function fillWrGroup(list, groupName, systemIdForItems){
+async function fillWrGroup(list, groupName, syncSystemId){
   if (!list) return;
   list.innerHTML = '';
 
@@ -912,7 +1084,7 @@ async function fillWrGroup(list, groupName, systemIdForItems){
   const src = wrFilterRoutesByGroup(groupName, srcBase);
 
   (src || []).forEach(rt =>
-    list.appendChild(makeWrItem(rt, metaByCodigo, routesById, extremes, systemIdForItems))
+    list.appendChild(makeWrItem(rt, metaByCodigo, routesById, extremes, syncSystemId))
   );
 }
 
@@ -973,28 +1145,39 @@ export function routeCheckboxesOf(systemId, groupChk=null){
 export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={}){
   if (leafChk.checked === checked) return;
   leafChk.checked = checked;
+
   const id = leafChk.dataset.id;
   if (!id) return;
 
-  if (systemId === 'wr' || systemId === 'wrAero' || systemId === 'wrOtros') {
+  // Corredores (Corr-WR) y Transporte (WR) usan el mismo motor de dibujo (Wikiroutes)
+  if (systemId === 'wr' || systemId === 'wrAero' || systemId === 'wrOtros' || systemId === 'corr') {
     const ida = leafChk.dataset.ida;
     const vta = leafChk.dataset.vuelta;
+
     if (ida && vta){
       const sel = leafChk.dataset.sel || 'ida';
       if (checked){
-        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:!silentFit}); setWikiroutesVisible(vta, false); }
-        else            { setWikiroutesVisible(vta, true, {fit:!silentFit}); setWikiroutesVisible(ida, false); }
+        if (sel==='ida'){
+          setWikiroutesVisible(ida, true, {fit:!silentFit});
+          setWikiroutesVisible(vta, false);
+        } else {
+          setWikiroutesVisible(vta, true, {fit:!silentFit});
+          setWikiroutesVisible(ida, false);
+        }
       } else {
         setWikiroutesVisible(ida, false);
         setWikiroutesVisible(vta, false);
       }
       return;
     }
+
     if (checked) setWikiroutesVisible(id, true, {fit:!silentFit});
     else setWikiroutesVisible(id, false);
-  } else {
-    onToggleService(systemId, id, checked, {silentFit});
+    return;
   }
+
+  // Sistemas nativos (Met, Alim, Metro)
+  onToggleService(systemId, id, checked, {silentFit});
 }
 
 export function setLevel2Checked(systemId, groupChk, checked, {silentFit=false}={}){
@@ -1060,6 +1243,7 @@ export function onLevel1ChangeWr(){
   syncAllTri();
 }
 
+
 export function onLevel1ChangeWrAero(){
   const ui = state.systems.wr.ui;
   if (!ui.chkAero) return;
@@ -1094,6 +1278,7 @@ export function syncTriFromLeaf(systemId){
     const top = state.systems.met.ui.chkAll;
     top.indeterminate = anyChecked && !allChecked;
     top.checked = allChecked;
+
   } else if (systemId==='alim'){
     syncTriOfGroup('alim', state.systems.alim.ui.chkN);
     syncTriOfGroup('alim', state.systems.alim.ui.chkS);
@@ -1103,14 +1288,18 @@ export function syncTriFromLeaf(systemId){
     const top = state.systems.alim.ui.chkAll;
     top.indeterminate = anyChecked && !allChecked;
     top.checked = allChecked;
+
   } else if (systemId==='corr'){
-    for (const {chk} of state.systems.corr.ui.groups.values()){ syncTriOfGroup('corr', chk); }
+    for (const {chk} of state.systems.corr.ui.groups.values()){
+      syncTriOfGroup('corr', chk);
+    }
     const leaves = routeCheckboxesOf('corr');
     const total = leaves.length;
     const checked = leaves.filter(c=>c.checked).length;
     const top = state.systems.corr.ui.chkAll;
     top.indeterminate = checked>0 && checked<total;
     top.checked = total>0 && checked===total;
+
   } else if (systemId==='metro'){
     const top = state.systems.metro.ui.chkAll;
     const leaves = routeCheckboxesOf('metro');
@@ -1118,6 +1307,7 @@ export function syncTriFromLeaf(systemId){
     const checked = leaves.filter(c=>c.checked).length;
     top.indeterminate = checked>0 && checked<total;
     top.checked = total>0 && checked===total;
+
   } else if (systemId==='wr'){
     const top = state.systems.wr.ui.chkAll;
     const leaves = routeCheckboxesOf('wr');
@@ -1127,6 +1317,7 @@ export function syncTriFromLeaf(systemId){
       top.indeterminate = checked>0 && checked<total;
       top.checked = total>0 && checked===total;
     }
+
   } else if (systemId==='wrAero'){
     const top = state.systems.wr.ui.chkAero;
     if (!top) return;
@@ -1135,6 +1326,7 @@ export function syncTriFromLeaf(systemId){
     const checked = leaves.filter(c=>c.checked).length;
     top.indeterminate = checked>0 && checked<total;
     top.checked = total>0 && checked===total;
+
   } else if (systemId==='wrOtros'){
     const top = state.systems.wr.ui.chkOtros;
     if (!top) return;
@@ -1145,6 +1337,7 @@ export function syncTriFromLeaf(systemId){
     top.checked = total>0 && checked===total;
   }
 }
+
 
 export function syncAllTri(){
   ['met','alim','corr','metro','wr','wrAero','wrOtros'].forEach(syncTriFromLeaf);
