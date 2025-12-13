@@ -17,7 +17,7 @@
     ]
   },
   "metro": {
-    "only": ["L1"]
+    "only": ["L1","L2"]
   },
   "transporte": {
     "only": [
