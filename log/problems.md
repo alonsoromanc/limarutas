@@ -1,5 +1,6 @@
 # Errores
 
+- Hay otra ruta 302 que estorba en wikiroutes por lo que se debe garantizar exactitud completa
 - Arreglar ruta aerodirecto
 - Eager loading
 - La centralización es individual
