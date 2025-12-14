@@ -233,7 +233,7 @@ CODIGO_FORMAL_SN_PATTERNS = [
 
     r"^\d{3}P$",       # xxxP (001P, 018P, etc.)
     r"^C-\d{4}$",      # C-0000
-    r"^C\d{4}$",       # C0000 (en caso el guion se pierda)
+    r"^C\d{4}$",       # C0000
 
     r"^CCH\d{2}$",
     r"^CH\d{2}$",
@@ -274,7 +274,7 @@ def clasificar_categoria(
       - "Transporte Formalizado por la ATU"
       - "Transporte Formal sin Codigo Nuevo"
       - "Otros"
-    según las reglas que definiste.
+    según las reglas.
     """
     code = (display_id_raw or "").strip()
     code_upper = code.upper()
@@ -482,9 +482,10 @@ def main() -> None:
             # Ámbito basado en el título ((X - Y) o Lima)
             "ambito_title": ambito_title,
 
-            # Campos manuales para revisión
-            "codigo_final": "",
-            "usar_en_mapa": "",
+            # Campos manuales inicializados por defecto
+            # Por defecto: usamos el código traído (display_id_raw) y activamos la ruta
+            "codigo_final": display_id_raw,
+            "usar_en_mapa": "TRUE",
             "es_codigo_nuevo": "",
             "comentario": "",
         }

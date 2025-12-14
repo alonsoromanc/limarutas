@@ -3,7 +3,10 @@ import { PATHS, COLOR_AN, COLOR_AS, state, getDirFor, setDirFor } from './config
 import { $, $$, el } from './utils.js';
 import { onToggleService, setWikiroutesVisible } from './mapLayers.js';
 
-// Utilidad de "operaciones en lote"
+/* =========================
+   Utilidad de "operaciones en lote"
+   ========================= */
+
 export function bulk(fn){
   state.bulk = true;
   try { fn(); } finally { state.bulk = false; }
@@ -12,7 +15,10 @@ export function bulk(fn){
 const labelForSvc = (s) =>
   s.kind==='regular' ? 'Ruta' : (s.kind==='expreso' ? 'Expreso' : 'Servicio');
 
-// Colores oficiales para corredores según primer dígito del servicio
+/* =========================
+   Corredores: colores y activos por Catalog o por Lista (switch interno)
+   ========================= */
+
 const CORR_COLORS = {
   '1': '#ffcd00', // Amarillo
   '2': '#e4002b', // Rojo
@@ -20,12 +26,6 @@ const CORR_COLORS = {
   '4': '#9b26b6', // Morado
   '5': '#8e8c13'  // Verde
 };
-
-/* =========================
-   Corredores: activos por Catalog o por Lista (switch)
-   ========================= */
-
-const CORR_ACTIVE_SOURCE = 'catalog'; // 'catalog' | 'lista'
 
 const CORR_DIGIT_TO_KEY = {
   '1': 'amarillo',
@@ -54,6 +54,18 @@ const CORR_KEY_COLOR = {
 
 const CORR_GROUP_ORDER = ['amarillo','rojo','azul','morado','verde','otros'];
 
+/* Switch interno:
+   - Por defecto: 'catalog'
+   - Si existe en localStorage la llave, se respeta.
+*/
+const CORR_MODE_DEFAULT = 'catalog'; // 'catalog' | 'lista'
+const CORR_MODE_LS_KEY = 'limarutas.corrActiveSource';
+
+/* Si algún día quieres mostrar el toggle en UI, ponlo en true
+   (por defecto debe quedar oculto).
+*/
+const CORR_ENABLE_SOURCE_TOGGLE_UI = false;
+
 function lsGet(key){
   try { return localStorage.getItem(key); } catch { return null; }
 }
@@ -62,11 +74,14 @@ function lsSet(key, val){
 }
 
 function corrGetMode(){
-  return (CORR_ACTIVE_SOURCE === 'lista') ? 'lista' : 'catalog';
+  const v = (lsGet(CORR_MODE_LS_KEY) || '').trim().toLowerCase();
+  if (v === 'lista' || v === 'catalog') return v;
+  return CORR_MODE_DEFAULT;
 }
 
 function corrSetMode(mode){
-  lsSet(CORR_MODE_LS_KEY, mode === 'lista' ? 'lista' : 'catalog');
+  const m = (mode === 'lista') ? 'lista' : 'catalog';
+  lsSet(CORR_MODE_LS_KEY, m);
 }
 
 function corrGetCatalogCfg(){
@@ -84,6 +99,7 @@ function corrCanonical(value){
 function corrBasesFor(codeRaw){
   let base = corrCanonical(codeRaw);
   base = base.replace(/-(IDA|VUELTA)$/i,'');
+
   const out = new Set();
   if (base) out.add(base);
 
@@ -230,7 +246,7 @@ function loadCorrListaCorredores(){
   return corrListaPromise;
 }
 
-function corrListaAsSet(){
+function corrListaAsSetAndOrder(){
   const upper = s => String(s).toUpperCase().trim();
   const j = corrListaCache;
 
@@ -240,12 +256,14 @@ function corrListaAsSet(){
   else if (j && Array.isArray(j.activos)) arr = j.activos;
   else if (j && j.corredores && Array.isArray(j.corredores.only)) arr = j.corredores.only;
 
-  if (!arr) return null;
-  return new Set(arr.map(corrCanonical).map(upper));
+  if (!arr) return { set: null, order: [] };
+
+  const order = arr.map(corrCanonical).map(upper).filter(Boolean);
+  return { set: new Set(order), order };
 }
 
 function corrFilterServicesByLista(services){
-  const set = corrListaAsSet();
+  const { set } = corrListaAsSetAndOrder();
   if (!set) return services || [];
 
   const upper = s => String(s).toUpperCase().trim();
@@ -256,6 +274,7 @@ function corrFilterServicesByLista(services){
   });
 }
 
+/* Toggle UI opcional (por defecto oculto) */
 function makeCorrSourceToggle(){
   const mode = corrGetMode();
   const wrap = el('div',{class:'dir-mini', style:'margin:6px 0;'});
@@ -293,7 +312,10 @@ function corrColorForId(id){
   return corrColorForCode(id);
 }
 
-// Direcciones mini (Norte/Sur/Ambas) para Met/Alim
+/* =========================
+   Direcciones mini (Norte/Sur/Ambas) para Met/Alim
+   ========================= */
+
 function miniDir(systemId, svc){
   if (systemId === 'corr' || systemId === 'metro') return el('div');
   const cur = getDirFor(systemId, svc.id);
@@ -308,8 +330,10 @@ function miniDir(systemId, svc){
     if (!b) return;
     const dir = b.dataset.dir;
     if (!dir || dir===getDirFor(systemId, svc.id)) return;
+
     setDirFor(systemId, svc.id, dir);
     wrap.querySelectorAll('.segbtn-mini').forEach(x=>x.classList.toggle('active', x===b));
+
     const chk = wrap.parentElement.querySelector('.item-head input[type="checkbox"]');
     if (chk){
       if (!chk.checked){
@@ -320,6 +344,7 @@ function miniDir(systemId, svc){
       }
     }
   });
+
   return wrap;
 }
 
@@ -348,12 +373,14 @@ function makeServiceItemMet(svc){
   const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'met'});
   const head = el('div',{class:'item-head'}, left, chk);
   const body = el('div',{class:'item'}, head, miniDir('met', svc));
+
   chk.addEventListener('change', () => {
     if (!state.bulk) {
       onToggleService('met', svc.id, chk.checked);
       syncTriFromLeaf('met');
     }
   });
+
   return body;
 }
 
@@ -363,6 +390,7 @@ function makeServiceItemAlim(svc){
     class:'tag',
     style:`background:${svc.color || (code.startsWith('AN')?COLOR_AN:COLOR_AS)}`
   }, code);
+
   const left = el('div',{class:'left'},
     tag,
     el('div',{},
@@ -373,12 +401,14 @@ function makeServiceItemAlim(svc){
   const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'alim'});
   const head = el('div',{class:'item-head'}, left, chk);
   const body = el('div',{class:'item'}, head, miniDir('alim', svc));
+
   chk.addEventListener('change', () => {
     if (!state.bulk) {
       onToggleService('alim', svc.id, chk.checked);
       syncTriFromLeaf('alim');
     }
   });
+
   return body;
 }
 
@@ -390,6 +420,7 @@ function wrParseBaseStops(source){
   if (typeof source === 'string'){
     const raw = source.trim();
     if (!raw) return {from:'', to:'', label:''};
+
     let s = raw;
     s = s.replace(/^\s*\d+\s*·\s*/,'');
     s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
@@ -586,7 +617,6 @@ function makeServiceItemCorr(svc){
   const code = servicio || String(svc.id || '').trim();
 
   const color = corrColorForCode(code) || svc.corrColor || svc.color || '#10b981';
-
   const tag = el('span',{class:'tag', style:`background:${color}`}, code || 'Corr');
 
   const textBlock = el('div',{},
@@ -658,10 +688,12 @@ function makeServiceItemMetro(svc){
   const fileBaseNow = code.replace(/^L/i, '');
   const primary = `${PATHS.icons.metro}/${fileBaseNow}.png`;
   const alt     = `${PATHS.icons.metro}/${code}.png`;
+
   const ico = new Image();
   ico.alt = code;
   ico.className = 'badge';
   ico.src = primary;
+
   ico.onerror = () => {
     if (!ico.dataset.altTried) {
       ico.dataset.altTried = '1';
@@ -672,6 +704,7 @@ function makeServiceItemMetro(svc){
       );
     }
   };
+
   const left = el('div',{class:'left'},
     ico,
     el('div',{},
@@ -682,16 +715,240 @@ function makeServiceItemMetro(svc){
   const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'metro'});
   const head = el('div',{class:'item-head'}, left, chk);
   const body = el('div',{class:'item'}, head);
+
   chk.addEventListener('change', () => {
     if (!state.bulk) {
       onToggleService('metro', svc.id, chk.checked);
       syncTriFromLeaf('metro');
     }
   });
+
   return body;
 }
 
-/* =============== Wikiroutes (ítem combinado Ida/Vuelta) =============== */
+function makeServiceItem(systemId, svc){
+  if (systemId==='met')   return makeServiceItemMet(svc);
+  if (systemId==='alim')  return makeServiceItemAlim(svc);
+  if (systemId==='corr')  return makeServiceItemCorr(svc);
+  if (systemId==='metro') return makeServiceItemMetro(svc);
+  return document.createTextNode('');
+}
+
+/* =========================
+   Construcción de listas
+   ========================= */
+
+export function fillMetList(){
+  const sys = state.systems.met;
+  sys.ui.listReg.innerHTML = '';
+  sys.ui.listExp.innerHTML = '';
+  const reg = sys.services.filter(s => s.kind === 'regular');
+  const exp = sys.services.filter(s => s.kind === 'expreso');
+  reg.forEach(s => sys.ui.listReg.appendChild(makeServiceItem('met', s)));
+  exp.forEach(s => sys.ui.listExp.appendChild(makeServiceItem('met', s)));
+}
+
+export function fillAlimList(){
+  const sys = state.systems.alim;
+  sys.ui.listN.innerHTML = '';
+  sys.ui.listS.innerHTML = '';
+  sys.services.filter(s => s.zone === 'NORTE')
+    .forEach(s => sys.ui.listN.appendChild(makeServiceItem('alim', s)));
+  sys.services.filter(s => s.zone === 'SUR')
+    .forEach(s => sys.ui.listS.appendChild(makeServiceItem('alim', s)));
+}
+
+function buildCorrGroupSection(container, key, label){
+  const secId = `p-corr-${key}`;
+  const chkId = `chk-corr-${key}`;
+  const section = el('section',{class:'panel nested'});
+  const head = el('button',{class:'panel-head','data-target':secId,'aria-expanded':'false'},
+    el('span',{class:'chev'},'▸'),
+    el('span',{class:'title'},label),
+    el('input',{type:'checkbox',id:chkId,class:'right','data-group':key})
+  );
+  const body = el('div',{id:secId,class:'panel-body list'});
+  section.append(head, body);
+  container.appendChild(section);
+  const chk = head.querySelector('input[type="checkbox"]');
+  state.systems.corr.ui.groups.set(key,{chk,body});
+  chk.addEventListener('change',()=> onLevel2ChangeCorr(chk));
+}
+
+function corrBetterScore(s){
+  if (!s) return 0;
+  const hasPair = !!(s.pair || (s.ida && s.vuelta));
+  const hasOD = !!(s.corrOrigen || s.corrDestino || s.name || s.title);
+  const active = (s.corrActiva == null) ? 0 : (s.corrActiva ? 1 : -1);
+  return (hasPair ? 10 : 0) + (hasOD ? 1 : 0) + active;
+}
+
+function corrPickBetter(a, b){
+  return corrBetterScore(b) > corrBetterScore(a) ? b : a;
+}
+
+function corrCmpByCode(a, b){
+  const ca = corrCanonical(corrServiceCodeOf(a));
+  const cb = corrCanonical(corrServiceCodeOf(b));
+  const na = /^\d+$/.test(ca) ? Number(ca) : null;
+  const nb = /^\d+$/.test(cb) ? Number(cb) : null;
+  if (na != null && nb != null) return na - nb;
+  if (na != null && nb == null) return -1;
+  if (na == null && nb != null) return 1;
+  return String(ca).localeCompare(String(cb), 'es', { sensitivity: 'base' });
+}
+
+function corrPlaceholderFor(code){
+  const c = String(code || '').trim();
+  return {
+    id: c,
+    corrServicio: c,
+    corrOrigen: '',
+    corrDestino: '',
+    corrActiva: true
+  };
+}
+
+export function fillCorrList(){
+  const sys = state.systems.corr;
+  const container = sys.ui.list;
+  const empty = $('#p-corr-empty');
+
+  container.innerHTML = '';
+  sys.ui.groups.clear();
+
+  const cfg = corrGetCatalogCfg() || {};
+  const upper = s => String(s).toUpperCase().trim();
+
+  const catalogOnly = Array.isArray(cfg.only) ? cfg.only : null;
+  const catalogExc  = Array.isArray(cfg.exclude) ? cfg.exclude : [];
+
+  const onlyOrderCatalog = catalogOnly
+    ? catalogOnly.map(corrCanonical).map(upper).filter(Boolean)
+    : [];
+
+  const onlySetCatalog = catalogOnly
+    ? new Set(onlyOrderCatalog)
+    : null;
+
+  const excSetCatalog = new Set((catalogExc || []).map(corrCanonical).map(upper).filter(Boolean));
+
+  const mode = corrGetMode();
+
+  const baseA = (state.corrWr && Array.isArray(state.corrWr.services)) ? state.corrWr.services : [];
+  const baseB = Array.isArray(sys.services) ? sys.services : [];
+  const merged = [...baseA, ...baseB].filter(Boolean);
+
+  const byCode = new Map();
+  for (const svc of merged){
+    const code = corrServiceCodeOf(svc);
+    if (!code) continue;
+    const key = upper(corrCanonical(code));
+    if (!key) continue;
+    byCode.set(key, byCode.has(key) ? corrPickBetter(byCode.get(key), svc) : svc);
+  }
+
+  const byBase = new Map();
+  for (const svc of merged){
+    const code = corrServiceCodeOf(svc);
+    if (!code) continue;
+    const bases = corrBasesFor(code).map(x => upper(corrCanonical(x))).filter(Boolean);
+    for (const b of bases){
+      const cur = byBase.get(b);
+      byBase.set(b, cur ? corrPickBetter(cur, svc) : svc);
+    }
+  }
+
+  let services = [];
+
+  if (mode === 'lista'){
+    if (!corrListaCache){
+      loadCorrListaCorredores().finally(() => { fillCorrList(); syncAllTri(); });
+      return;
+    }
+
+    const { set: listSet, order: listOrder } = corrListaAsSetAndOrder();
+
+    const wanted = listOrder.filter(code => !excSetCatalog.has(code));
+
+    services = wanted.map(code => byBase.get(code) || byCode.get(code) || corrPlaceholderFor(code));
+
+    services = services.filter(svc => {
+      const code = upper(corrCanonical(corrServiceCodeOf(svc)));
+      return code && !excSetCatalog.has(code);
+    });
+  } else {
+    if (onlySetCatalog){
+      const wanted = onlyOrderCatalog.filter(code => !excSetCatalog.has(code));
+      services = wanted.map(code => byBase.get(code) || byCode.get(code) || corrPlaceholderFor(code));
+
+      services = services.filter(svc => {
+        const code = upper(corrCanonical(corrServiceCodeOf(svc)));
+        return code && !excSetCatalog.has(code);
+      });
+    } else {
+      services = corrFilterServicesByCatalog(merged);
+
+      services = (services || []).filter(s => {
+        if (!s) return false;
+        if (s.corrActiva == null) return true;
+        return !!s.corrActiva;
+      });
+
+      const uniq = new Map();
+      for (const svc of services){
+        const code = upper(corrCanonical(corrServiceCodeOf(svc)));
+        if (!code) continue;
+        uniq.set(code, uniq.has(code) ? corrPickBetter(uniq.get(code), svc) : svc);
+      }
+      services = Array.from(uniq.values()).sort(corrCmpByCode);
+    }
+  }
+
+  if (CORR_ENABLE_SOURCE_TOGGLE_UI){
+    container.appendChild(makeCorrSourceToggle());
+  }
+
+  if (!services.length){
+    empty && (empty.style.display = 'block');
+    sys.ui.chkAll && (sys.ui.chkAll.disabled = true);
+    return;
+  }
+
+  empty && (empty.style.display = 'none');
+  sys.ui.chkAll && (sys.ui.chkAll.disabled = false);
+
+  const groups = new Map();
+  services.forEach(s => {
+    const code = corrServiceCodeOf(s);
+    const key = corrGroupKeyForCode(code);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(s);
+  });
+
+  CORR_GROUP_ORDER.forEach(key => {
+    const arr = groups.get(key);
+    if (!arr || !arr.length) return;
+
+    const label = CORR_KEY_LABEL[key] || 'Otros';
+    buildCorrGroupSection(container, key, label);
+
+    const grp = state.systems.corr.ui.groups.get(key);
+    arr.forEach(svc => grp.body.appendChild(makeServiceItem('corr', svc)));
+  });
+}
+
+export function fillMetroList(){
+  const sys = state.systems.metro;
+  const list = sys.ui.list;
+  if (!list) return;
+  list.innerHTML = '';
+  sys.services.forEach(s => list.appendChild(makeServiceItem('metro', s)));
+}
+
+/* =========================
+   Wikiroutes (ítem combinado Ida/Vuelta)
+   ========================= */
 
 /* ---- Carga de lista_rutas.csv / wr_extremes.json y helpers de texto ---- */
 
@@ -812,7 +1069,6 @@ function wrFilterRoutesByGroup(groupName, routes){
     return true;
   });
 }
-
 
 // Valores tipo "Ninguno", "Desconocido", etc.
 function wrIsPlaceholder(text){
@@ -1008,6 +1264,7 @@ function makeWrDirPairControls(chk){
     if (!btn) return;
     const sel = btn.dataset.dir;
     if (!sel || sel === chk.dataset.sel) return;
+
     chk.dataset.sel = sel;
     [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
 
@@ -1171,122 +1428,6 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   return body;
 }
 
-function makeServiceItem(systemId, svc){
-  if (systemId==='met')   return makeServiceItemMet(svc);
-  if (systemId==='alim')  return makeServiceItemAlim(svc);
-  if (systemId==='corr')  return makeServiceItemCorr(svc);
-  if (systemId==='metro') return makeServiceItemMetro(svc);
-  return document.createTextNode('');
-}
-
-/* =========================
-   Construcción de listas
-   ========================= */
-
-export function fillMetList(){
-  const sys = state.systems.met;
-  sys.ui.listReg.innerHTML = '';
-  sys.ui.listExp.innerHTML = '';
-  const reg = sys.services.filter(s => s.kind === 'regular');
-  const exp = sys.services.filter(s => s.kind === 'expreso');
-  reg.forEach(s => sys.ui.listReg.appendChild(makeServiceItem('met', s)));
-  exp.forEach(s => sys.ui.listExp.appendChild(makeServiceItem('met', s)));
-}
-
-export function fillAlimList(){
-  const sys = state.systems.alim;
-  sys.ui.listN.innerHTML = '';
-  sys.ui.listS.innerHTML = '';
-  sys.services.filter(s => s.zone === 'NORTE')
-    .forEach(s => sys.ui.listN.appendChild(makeServiceItem('alim', s)));
-  sys.services.filter(s => s.zone === 'SUR')
-    .forEach(s => sys.ui.listS.appendChild(makeServiceItem('alim', s)));
-}
-
-function buildCorrGroupSection(container, key, label){
-  const secId = `p-corr-${key}`;
-  const chkId = `chk-corr-${key}`;
-  const section = el('section',{class:'panel nested'});
-  const head = el('button',{class:'panel-head','data-target':secId,'aria-expanded':'false'},
-    el('span',{class:'chev'},'▸'),
-    el('span',{class:'title'},label),
-    el('input',{type:'checkbox',id:chkId,class:'right','data-group':key})
-  );
-  const body = el('div',{id:secId,class:'panel-body list'});
-  section.append(head, body);
-  container.appendChild(section);
-  const chk = head.querySelector('input[type="checkbox"]');
-  state.systems.corr.ui.groups.set(key,{chk,body});
-  chk.addEventListener('change',()=> onLevel2ChangeCorr(chk));
-}
-
-export function fillCorrList(){
-  const sys = state.systems.corr;
-  const container = sys.ui.list;
-  const empty = $('#p-corr-empty');
-
-  container.innerHTML = '';
-  sys.ui.groups.clear();
-
-  const baseSrc = (state.corrWr && Array.isArray(state.corrWr.services) && state.corrWr.services.length)
-    ? state.corrWr.services
-    : sys.services;
-
-  let services = (baseSrc || []).filter(s => {
-    if (!s) return false;
-    if (s.corrActiva == null) return true;
-    return !!s.corrActiva;
-  });
-
-  const mode = corrGetMode();
-
-  if (mode === 'catalog'){
-    services = corrFilterServicesByCatalog(services);
-  } else {
-    if (!corrListaCache){
-      loadCorrListaCorredores().finally(() => { fillCorrList(); syncAllTri(); });
-      return; // importante: evita render incompleto mientras carga
-    }
-    services = corrFilterServicesByLista(services);
-  }
-
-  if (!services.length){
-    empty && (empty.style.display = 'block');
-    sys.ui.chkAll && (sys.ui.chkAll.disabled = true);
-    return;
-  }
-
-  empty && (empty.style.display = 'none');
-  sys.ui.chkAll && (sys.ui.chkAll.disabled = false);
-
-  const groups = new Map();
-  services.forEach(s => {
-    const code = corrServiceCodeOf(s);
-    const key = corrGroupKeyForCode(code);
-    if (!groups.has(key)) groups.set(key, []);
-    groups.get(key).push(s);
-  });
-
-  CORR_GROUP_ORDER.forEach(key => {
-    const arr = groups.get(key);
-    if (!arr || !arr.length) return;
-
-    const label = CORR_KEY_LABEL[key] || 'Otros';
-    buildCorrGroupSection(container, key, label);
-
-    const grp = state.systems.corr.ui.groups.get(key);
-    arr.forEach(svc => grp.body.appendChild(makeServiceItem('corr', svc)));
-  });
-}
-
-export function fillMetroList(){
-  const sys = state.systems.metro;
-  const list = sys.ui.list;
-  if (!list) return;
-  list.innerHTML = '';
-  sys.services.forEach(s => list.appendChild(makeServiceItem('metro', s)));
-}
-
 /* =========================
    Wikiroutes: listas por grupo
    ========================= */
@@ -1375,7 +1516,6 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
   const id = leafChk.dataset.id;
   if (!id) return;
 
-  // Corredores: si viene como par ida/vuelta (corrWr), togglear como WR
   if (systemId === 'corr'){
     const ida = leafChk.dataset.ida;
     const vta = leafChk.dataset.vuelta;
