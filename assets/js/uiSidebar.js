@@ -173,6 +173,29 @@ function corrOverrideToColor(v){
   return null;
 }
 
+function corrNormalizeAlpha(code){
+  return String(code || '')
+    .toUpperCase()
+    .replace(/_/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function corrSpecialGroupKeyForCode(code){
+  const s = corrNormalizeAlpha(code);
+  if (!s) return null;
+
+  // SE-xx y SPxx son del Corredor Morado
+  if (/^SE[-\s]*\d+/.test(s)) return 'morado';
+  if (/^SP[-\s]*\d+/.test(s)) return 'morado';
+
+  // COLE BUS es del Corredor Azul (acepta variaciones comunes)
+  if (/^COLE(?:[-\s]*BUS)?$/.test(s)) return 'azul';
+  if (/\bCOLE\b/.test(s)) return 'azul';
+
+  return null;
+}
+
 function corrGroupKeyForCode(code){
   const s = String(code || '').trim().toUpperCase();
   if (!s) return 'otros';
@@ -182,6 +205,9 @@ function corrGroupKeyForCode(code){
 
   const g = corrOverrideToGroupKey(v);
   if (g) return g;
+
+  const special = corrSpecialGroupKeyForCode(s);
+  if (special) return special;
 
   const first = s[0];
   return CORR_DIGIT_TO_KEY[first] || 'otros';
@@ -197,9 +223,13 @@ function corrColorForCode(code){
   const c = corrOverrideToColor(v);
   if (c) return c;
 
+  const special = corrSpecialGroupKeyForCode(s);
+  if (special) return CORR_KEY_COLOR[special] || null;
+
   const first = s[0];
   return CORR_COLORS[first] || null;
 }
+
 
 function corrFilterServicesByCatalog(services){
   const cfg = corrGetCatalogCfg();
