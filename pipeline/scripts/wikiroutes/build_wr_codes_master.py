@@ -52,7 +52,7 @@ def write_csv(path: Path, rows: List[Dict[str, str]], fieldnames: List[str]) -> 
 def find_repo_root(start: Path) -> Optional[Path]:
     """
     Prefiere el nivel donde exista config/lista_rutas.csv.
-    Si no lo encuentra, busca config + data/processed/transporte, y se queda
+    Si no lo encuentra, busca config + data/processed/transporte y se queda
     con el nivel más alto que cumpla eso.
     """
     start = start.resolve()
@@ -100,8 +100,6 @@ def load_lista_rutas(csv_path: Path) -> Dict[str, ListaRutaRow]:
     return out
 
 
-# Índice auxiliar por código antiguo
-
 def build_index_by_codigo_antiguo(lista: Dict[str, ListaRutaRow]) -> Dict[str, ListaRutaRow]:
     idx: Dict[str, ListaRutaRow] = {}
     for lr in lista.values():
@@ -134,7 +132,6 @@ def _normalize_code(code: str) -> str:
 def extract_display_id_from_title(route_title: str) -> Optional[str]:
     """
     Intenta sacar un código compacto a partir del título Wikiroutes.
-    Ejemplos:
       - "Ruta de autobús 1244 en el mapa de Lima" -> "1244"
       - "Ruta de autobús EM40 en el mapa de Lima" -> "EM40"
       - "Ruta de autobús 018p en el mapa de Lima" -> "018p"
@@ -154,7 +151,7 @@ def extract_display_id_from_title(route_title: str) -> Optional[str]:
     if not nums:
         return None
 
-    # Preferir números de 3+ dígitos (para evitar un "3" suelto por ejemplo)
+    # Preferir números de 3+ dígitos
     for x in nums:
         if len(x) >= 3:
             return x
@@ -203,6 +200,21 @@ def extract_trip_endpoints_from_html(route_html_path: Path) -> Dict[int, Tuple[s
 
 
 # ==========================
+# Ámbito desde el título: (X - Y) o Lima
+# ==========================
+
+AMBITO_RE = re.compile(r"\(([^()]*?\s-\s[^()]*?)\)")
+
+
+def extract_ambito_from_title(title: str) -> str:
+    t = title or ""
+    m = AMBITO_RE.search(t)
+    if m:
+        return m.group(1).strip()
+    return "Lima"
+
+
+# ==========================
 # Clasificación por categoría
 # ==========================
 
@@ -219,8 +231,10 @@ CODIGO_FORMAL_SN_PATTERNS = [
     r"^OM\d{2}$",
     r"^SP\d{2}$",
 
-    r"^\d{3}P$",      # xxxP (001P, 018P, etc.)
-    r"^C-\d{4}$",     # C-0000
+    r"^\d{3}P$",       # xxxP (001P, 018P, etc.)
+    r"^C-\d{4}$",      # C-0000
+    r"^C\d{4}$",       # C0000 (en caso el guion se pierda)
+
     r"^CCH\d{2}$",
     r"^CH\d{2}$",
 
@@ -241,7 +255,7 @@ CODIGO_FORMAL_SN_PATTERNS = [
     r"^TVE\d{2}$",
 ]
 
-# Patrones que preferimos detectar en el título (porque el display_id_raw puede perder el guion)
+# Patrones que preferimos detectar en el título
 TITLE_FORMAL_SN_PATTERNS = [
     r"\b\d{3}-96\b",      # xxx-96
     r"\bRTU-M-\d{2}\b",   # RTU-M-xx
@@ -256,33 +270,35 @@ def clasificar_categoria(
 ) -> str:
     """
     Devuelve una de:
+      - "Corredores"
       - "Transporte Formalizado por la ATU"
       - "Transporte Formal sin Codigo Nuevo"
-      - "Transporte Semiformal y Otros"
-    según las reglas indicadas.
+      - "Otros"
+    según las reglas que definiste.
     """
     code = (display_id_raw or "").strip()
     code_upper = code.upper()
     title_upper = (title or "").upper()
 
-    # 1) Transporte Formalizado por la ATU:
-    #    4 números que están en lista_rutas como codigo_nuevo
+    # Corredores: código de 3 dígitos
+    if code.isdigit() and len(code) == 3:
+        return "Corredores"
+
+    # Transporte Formalizado por la ATU:
+    # 4 números que están en lista_rutas como codigo_nuevo
     if cand_match_type == "codigo_nuevo":
         cn = (cand_codigo_nuevo or "").strip()
         if cn.isdigit() and len(cn) == 4:
             return "Transporte Formalizado por la ATU"
 
-    # 2) Transporte Formal sin Codigo Nuevo:
-    #    - 4 dígitos pero NO en lista_rutas como codigo_nuevo
-    #    - O tiene alguno de los formatos especificados
+    # Transporte Formal sin Código Nuevo:
+    # - 4 dígitos pero NO en lista_rutas como codigo_nuevo
+    # - o tiene alguno de los formatos especificados
     is_four_digit = code.isdigit() and len(code) == 4
 
-    # Patrones sobre el código
     matches_formal_sn_code = any(
         re.match(pat, code_upper) for pat in CODIGO_FORMAL_SN_PATTERNS
     )
-
-    # Patrones sobre el título
     matches_formal_sn_title = any(
         re.search(pat, title_upper) for pat in TITLE_FORMAL_SN_PATTERNS
     )
@@ -290,8 +306,8 @@ def clasificar_categoria(
     if is_four_digit or matches_formal_sn_code or matches_formal_sn_title:
         return "Transporte Formal sin Codigo Nuevo"
 
-    # 3) Resto
-    return "Transporte Semiformal y Otros"
+    # Resto
+    return "Otros"
 
 
 # ==========================
@@ -364,7 +380,6 @@ def main() -> None:
         route_html_path = folder / "route.html"
 
         if not route_json_path.exists():
-            # Igual lo listamos, pero con campos vacíos
             route_id = ""
             title = ""
         else:
@@ -429,6 +444,9 @@ def main() -> None:
             title=title,
         )
 
+        # Ámbito desde el título
+        ambito_title = extract_ambito_from_title(title)
+
         folder_rel = folder.resolve().relative_to(ROOT).as_posix()
 
         row = {
@@ -449,9 +467,9 @@ def main() -> None:
             "end2_end": end2_end,
 
             # Candidatos desde lista_rutas.csv
-            "cand_match_type": cand_match_type,          # "", "codigo_nuevo", "codigo_antiguo"
-            "cand_codigo_nuevo": cand_codigo_nuevo,      # candidato de 4 dígitos o similar
-            "cand_codigo_antiguo": cand_codigo_antiguo,  # si vino por codigo_antiguo
+            "cand_match_type": cand_match_type,
+            "cand_codigo_nuevo": cand_codigo_nuevo,
+            "cand_codigo_antiguo": cand_codigo_antiguo,
             "cand_alias": cand_alias,
             "cand_color_hex": cand_color_hex,
             "cand_empresa_operadora": cand_empresa,
@@ -461,11 +479,14 @@ def main() -> None:
             # Clasificación automática
             "categoria": categoria,
 
-            # Campos manuales para que tú revises en Excel
-            "codigo_final": "",       # tú decides qué código debe usar el mapa
-            "usar_en_mapa": "",       # TRUE / FALSE
-            "es_codigo_nuevo": "",    # TRUE / FALSE, para marcar si ya es código ATU nuevo
-            "comentario": "",         # notas libres
+            # Ámbito basado en el título ((X - Y) o Lima)
+            "ambito_title": ambito_title,
+
+            # Campos manuales para revisión
+            "codigo_final": "",
+            "usar_en_mapa": "",
+            "es_codigo_nuevo": "",
+            "comentario": "",
         }
 
         rows.append(row)
