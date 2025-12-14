@@ -33,28 +33,95 @@ const CORR_COLORS = {
   '5': '#8e8c13'  // Verde
 };
 
-function corrColorForId(id){
-  const s = String(id ?? '').trim().toUpperCase();
-  if (!s) return '#9ca3af';
+const CORR_FALLBACK = '#9ca3af';
 
-  // Regla principal: primer dígito
-  const m = s.match(/^([1-5])/);
-  if (m && CORR_COLORS[m[1]]) return CORR_COLORS[m[1]];
-
-  // Casos especiales por prefijo (según tu criterio)
-  if (/^(SE|SP)\b/.test(s)) return CORR_COLORS['4'];   // morado
-  if (/^COLE\b/.test(s) || /^COLEBUS\b/.test(s) || /^COLE\s*BUS\b/.test(s)) return CORR_COLORS['3']; // azul
-
-  return '#9ca3af';
+function normStr(v){
+  return String(v ?? '').trim().toUpperCase();
 }
 
-// Si algo (CSS) pisa el stroke, esto lo fuerza en SVG
+function pickFirstNonEmpty(obj, keys){
+  for (const k of keys){
+    const v = obj?.[k];
+    if (v !== undefined && v !== null && String(v).trim() !== '') return v;
+  }
+  return null;
+}
+
+function digitFromCorrCode(sUpper){
+  const s = normStr(sUpper);
+  if (!s) return null;
+
+  // 101, 204, 371...
+  const m3 = s.match(/^([1-5])\d{2}\b/);
+  if (m3) return m3[1];
+
+  // "SE-02", "SP-01", "SE 02"
+  if (/^(SE|SP)\b/.test(s)) return '4';
+
+  // "COLE BUS", "COLEBUS", "COLE ..."
+  if (/^COLE\b/.test(s) || /^COLEBUS\b/.test(s) || /^COLE\s*BUS\b/.test(s)) return '3';
+
+  return null;
+}
+
+function digitFromKeywords(sUpper){
+  const s = normStr(sUpper);
+  if (!s) return null;
+
+  if (s.includes('AMARILLO')) return '1';
+  if (s.includes('ROJO')) return '2';
+  if (s.includes('AZUL')) return '3';
+  if (s.includes('MORADO')) return '4';
+  if (s.includes('VERDE')) return '5';
+
+  return null;
+}
+
+function corrColorForId(anyId){
+  const s = normStr(anyId);
+  const d = digitFromCorrCode(s) || digitFromKeywords(s);
+  if (d && CORR_COLORS[d]) return CORR_COLORS[d];
+  return CORR_FALLBACK;
+}
+
+function corrColorForSvc(svc){
+  // Prioridad: code/ref/id, luego name/label, luego keywords
+  const idLike = pickFirstNonEmpty(svc, ['id', 'code', 'ref', 'codigo', 'route', 'ruta', 'service', 'service_id']);
+  const nameLike = pickFirstNonEmpty(svc, ['name', 'label', 'nombre', 'title', 'descripcion', 'description']);
+
+  const d1 = digitFromCorrCode(idLike);
+  if (d1 && CORR_COLORS[d1]) return CORR_COLORS[d1];
+
+  // Si el id viene embebido en el nombre: "301 Principal", "Ruta 204", etc.
+  const d2 = digitFromCorrCode(nameLike);
+  if (d2 && CORR_COLORS[d2]) return CORR_COLORS[d2];
+
+  const d3 = digitFromKeywords(idLike) || digitFromKeywords(nameLike);
+  if (d3 && CORR_COLORS[d3]) return CORR_COLORS[d3];
+
+  // Como último recurso, si svc.color existe y es un hex válido y no es gris, úsalo
+  const c = String(svc?.color ?? '').trim();
+  if (/^#[0-9a-fA-F]{6}$/.test(c) && c.toLowerCase() !== CORR_FALLBACK) return c;
+
+  return CORR_FALLBACK;
+}
+
+// Fuerza stroke cuando Leaflet está en SVG y algún CSS lo pisa
 function forceStroke(layer, color){
   try {
     const p = layer && layer._path;
-    if (p) {
-      p.setAttribute('stroke', color);
-      p.style.stroke = color;
+    if (!p) return;
+
+    p.setAttribute('stroke', color);
+
+    // inline style normal
+    p.style.stroke = color;
+
+    // inline style con prioridad
+    if (p.style && p.style.setProperty) {
+      p.style.setProperty('stroke', color, 'important');
+      p.style.setProperty('stroke-opacity', '0.95', 'important');
+      p.style.setProperty('fill', 'none', 'important');
     }
   } catch {}
 }
@@ -213,7 +280,7 @@ function getMetMacroId(svc){
   return 'B';
 }
 
-// dirKey: 'sur' (norte→sur) o 'norte' (sur→norte)
+// dirKey: 'sur' (norte->sur) o 'norte' (sur->norte)
 function getMetStopsForDir(svc, dirKey){
   const kind = svc.kind;
 
@@ -296,7 +363,8 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn, paneLine){
     if (!segments) return;
     (segments || []).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95, lineCap:'round', lineJoin:'round' }).addTo(gLine);
+      try { poly.setStyle({ color }); } catch {}
       forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
@@ -350,7 +418,8 @@ export function renderService(systemId, id, opts={}){
   const drawSegments = (segments, color) => {
     (segments||[]).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
-      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95, lineCap:'round', lineJoin:'round' }).addTo(gLine);
+      try { poly.setStyle({ color }); } catch {}
       forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
@@ -360,7 +429,8 @@ export function renderService(systemId, id, opts={}){
   const drawByStops = (ids, color) => {
     const pts = uniqueOrder(ids.map(st => getStopLatLng(sys, st)).filter(Boolean));
     if (pts.length >= 2){
-      const poly = L.polyline(pts, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      const poly = L.polyline(pts, { pane: paneLine, color, weight: 4, opacity: 0.95, lineCap:'round', lineJoin:'round' }).addTo(gLine);
+      try { poly.setStyle({ color }); } catch {}
       forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
@@ -370,46 +440,42 @@ export function renderService(systemId, id, opts={}){
   const routeDir = getDirFor(systemId, id);
 
   if (systemId === 'alim'){
-    const c = svc.color || '#9ca3af';
     if (routeDir === 'ambas'){
       const segs = svc.geom.length
         ? svc.geom
         : [...(svc.geom_norte||[]), ...(svc.geom_sur||[])];
-      drawSegments(segs, c);
+      drawSegments(segs, svc.color);
     } else if (routeDir === 'norte') {
-      drawSegments(svc.geom_norte || svc.geom, c);
+      drawSegments(svc.geom_norte || svc.geom, svc.color);
     } else if (routeDir === 'sur') {
-      drawSegments(svc.geom_sur   || svc.geom, c);
+      drawSegments(svc.geom_sur   || svc.geom, svc.color);
     }
 
   } else if (systemId === 'met') {
-    const c = svc.color || '#9ca3af';
     const prevBounds = bounds;
-    bounds = drawMetMacro(svc, routeDir, gLine, c, bounds, paneLine);
+    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds, paneLine);
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
-        drawByStops(svc.stops || [], c);
+        drawByStops(svc.stops || [], svc.color);
       } else {
         if (routeDir === 'ambas'){
-          if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], c);
-          if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], c);
+          if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], svc.color);
+          if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], svc.color);
         } else if (routeDir === 'norte'){
-          drawByStops(svc.south_north || [], c);
+          drawByStops(svc.south_north || [], svc.color);
         } else if (routeDir === 'sur'){
-          drawByStops(svc.north_south || [], c);
+          drawByStops(svc.north_south || [], svc.color);
         }
       }
     }
 
   } else if (systemId === 'corr'){
-    // Aqui estaba el problema: se usaba svc.color (gris en tu data)
-    const c = corrColorForId(svc.id);
+    const c = corrColorForSvc(svc);
     if (svc.segments?.length) drawSegments(svc.segments, c);
     else if (svc.stops?.length) drawByStops(svc.stops, c);
 
   } else if (systemId === 'metro'){
-    const c = svc.color || '#9ca3af';
-    drawSegments(svc.segments || [], c);
+    drawSegments(svc.segments || [], svc.color);
   }
 
   // Paraderos
@@ -501,6 +567,27 @@ function wrHasDefOrLayer(id){
   return !!(wr.layers?.has(id) || wr.routeDefs?.has(id));
 }
 
+function isCorrLikeWrId(id){
+  const base = wrBaseId(id);
+  const s = normStr(base);
+
+  // 3 dígitos 1xx..5xx
+  if (/^[1-5]\d{2}$/.test(s)) return true;
+
+  // SE/SP
+  if (/^(SE|SP)[-_ ]?\d{2}$/.test(s)) return true;
+
+  // COLE BUS
+  if (/^COLE\b/.test(s) || /^COLEBUS\b/.test(s) || /^COLE\s*BUS\b/.test(s)) return true;
+
+  return false;
+}
+
+function corrColorForWrId(id){
+  const base = wrBaseId(id);
+  return corrColorForId(base);
+}
+
 async function ensureWrLayer(id){
   const wr = state.systems.wr;
 
@@ -513,7 +600,33 @@ async function ensureWrLayer(id){
 
   if (!wr._buildPromises.has(id)) {
     const p = (async () => {
-      await buildWikiroutesLayer(String(id), def.folder, { color: def.color, trip: def.trip });
+      // Si el ID WR parece un corredor (101, 301, SE-02, SP-01, COLE BUS),
+      // sobreescribe el color al del corredor.
+      const autoColor = isCorrLikeWrId(id) ? corrColorForWrId(id) : null;
+      const colorToUse = autoColor && autoColor !== CORR_FALLBACK ? autoColor : def.color;
+
+      await buildWikiroutesLayer(String(id), def.folder, { color: colorToUse, trip: def.trip });
+
+      // Post-fix: si el layer quedó en SVG y algo pisó el stroke, forzar.
+      const g = wr.layers?.get(id);
+      if (g && g.eachLayer && isCorrLikeWrId(id) && colorToUse) {
+        try {
+          g.eachLayer(sub => {
+            if (sub && typeof sub.setStyle === 'function') {
+              try { sub.setStyle({ color: colorToUse }); } catch {}
+            }
+            forceStroke(sub, colorToUse);
+            if (sub && typeof sub.eachLayer === 'function') {
+              sub.eachLayer(ch => {
+                if (ch && typeof ch.setStyle === 'function') {
+                  try { ch.setStyle({ color: colorToUse }); } catch {}
+                }
+                forceStroke(ch, colorToUse);
+              });
+            }
+          });
+        } catch {}
+      }
     })()
       .catch(e => {
         console.warn('[WR] No se pudo construir capa', id, e?.message || e);
