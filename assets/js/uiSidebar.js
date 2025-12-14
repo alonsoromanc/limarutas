@@ -145,14 +145,14 @@ function corrOverrideToColor(v){
 
 /* Casos especiales (porque no arrancan con dígito) */
 function corrSpecialGroupKey(codeUpper){
-  const s = String(codeUpper || '').trim().toUpperCase();
-  if (!s) return null;
+  const raw = String(codeUpper || '').trim().toUpperCase();
+  if (!raw) return null;
 
-  if (s === 'COLE BUS' || s === 'COLEBUS') return 'azul';
-  if (s === 'SE-02') return 'morado';
+  const compact = raw.replace(/[\s_-]+/g, '');
 
-  // SP01 suele venir como SP01, SP-01, SP 01
-  if (/^SP[\s-]?0?1$/.test(s)) return 'morado';
+  if (compact === 'COLEBUS') return 'azul';
+  if (/^SE0?2$/.test(compact)) return 'morado';
+  if (/^SP0?1$/.test(compact)) return 'morado';
 
   return null;
 }
@@ -1239,31 +1239,51 @@ export function fillAlimList(){
     .forEach(s => sys.ui.listS.appendChild(makeServiceItem('alim', s)));
 }
 
+/* Panel por color (nivel 2) */
 function buildCorrGroupSection(container, key, label){
   const secId = `p-corr-${key}`;
   const chkId = `chk-corr-${key}`;
+
   const section = el('section',{class:'panel nested'});
   const head = el('button',{class:'panel-head','data-target':secId,'aria-expanded':'false'},
     el('span',{class:'chev'},'▸'),
     el('span',{class:'title'},label),
     el('input',{type:'checkbox',id:chkId,class:'right','data-group':key})
   );
-  const body = el('div',{id:secId,class:'panel-body list'});
+
+  const body = el('div',{id:secId,class:'panel-body'}); // ojo: ya no "list", porque adentro van pestañas
+
   section.append(head, body);
   container.appendChild(section);
+
   const chk = head.querySelector('input[type="checkbox"]');
-  state.systems.corr.ui.groups.set(key,{chk,body});
+
+  const entry = { chk, body, tabs: new Map() };
+  state.systems.corr.ui.groups.set(key, entry);
+
   chk.addEventListener('change',()=> onLevel2ChangeCorr(chk));
 }
 
-function buildCorrSubSection(parentBody, label){
-  const head = el('div',{
-    class:'sub',
-    style:'margin:8px 6px 4px; opacity:0.85; font-weight:600;'
-  }, label);
-  const list = el('div',{class:'list'});
-  parentBody.append(head, list);
-  return list;
+/* Pestaña (nivel 3) dentro del color: Principales / Alimentadores */
+function buildCorrTabSection(parentBody, groupKey, tabKey, label){
+  const secId = `p-corr-${groupKey}-${tabKey}`;
+  const chkId = `chk-corr-${groupKey}-${tabKey}`;
+
+  const section = el('section',{class:'panel nested'});
+  const head = el('button',{class:'panel-head','data-target':secId,'aria-expanded':'false'},
+    el('span',{class:'chev'},'▸'),
+    el('span',{class:'title'},label),
+    el('input',{type:'checkbox',id:chkId,class:'right','data-group':groupKey,'data-sub':tabKey})
+  );
+  const body = el('div',{id:secId,class:'panel-body list'});
+
+  section.append(head, body);
+  parentBody.appendChild(section);
+
+  const chk = head.querySelector('input[type="checkbox"]');
+  chk.addEventListener('change',()=> onLevel3ChangeCorr(chk));
+
+  return { chk, body };
 }
 
 export function fillCorrList(){
@@ -1289,7 +1309,7 @@ export function fillCorrList(){
   // NO filtrar por corrActiva (no distinguir activa/inactiva)
   let services = (baseSrc || []).filter(s => !!s);
 
-  // Activos por catalog.json (lista "only"/"exclude")
+  // Filtrado por catalog.json (only/exclude)
   services = corrFilterServicesByCatalog(services);
 
   if (!services.length){
@@ -1311,7 +1331,7 @@ export function fillCorrList(){
 
   CORR_GROUP_ORDER.forEach(key => {
     const arr = groups.get(key);
-    if (!arr || !arr.length) return;
+    if (!arr || !arr.length) return; // si "Otros" queda vacío, no se crea
 
     const label = CORR_KEY_LABEL[key] || 'Otros';
     buildCorrGroupSection(container, key, label);
@@ -1330,13 +1350,16 @@ export function fillCorrList(){
     corrSortServices(principales);
     corrSortServices(alimentadores);
 
+    // Pestañas estilo Metropolitano
     if (principales.length){
-      const listP = buildCorrSubSection(grp.body, 'Principales');
-      principales.forEach(svc => listP.appendChild(makeServiceItem('corr', svc)));
+      const tab = buildCorrTabSection(grp.body, key, 'p', 'Principales');
+      grp.tabs.set('p', tab);
+      principales.forEach(svc => tab.body.appendChild(makeServiceItem('corr', svc)));
     }
     if (alimentadores.length){
-      const listA = buildCorrSubSection(grp.body, 'Alimentadores');
-      alimentadores.forEach(svc => listA.appendChild(makeServiceItem('corr', svc)));
+      const tab = buildCorrTabSection(grp.body, key, 'a', 'Alimentadores');
+      grp.tabs.set('a', tab);
+      alimentadores.forEach(svc => tab.body.appendChild(makeServiceItem('corr', svc)));
     }
   });
 }
@@ -1409,7 +1432,9 @@ export function routeCheckboxesOf(systemId, groupChk=null){
   }
   if (systemId==='corr'){
     if (groupChk && groupChk.dataset.group){
-      const panel = $(`#p-corr-${groupChk.dataset.group}`);
+      const g = groupChk.dataset.group;
+      const sub = groupChk.dataset.sub;
+      const panel = sub ? $(`#p-corr-${g}-${sub}`) : $(`#p-corr-${g}`);
       return panel
         ? Array.from(panel.querySelectorAll('.item input[type=checkbox]'))
         : [];
@@ -1525,6 +1550,11 @@ function onLevel2ChangeCorr(groupChk){
   bulk(()=> setLevel2Checked('corr', groupChk, v, {silentFit:true}));
   syncAllTri();
 }
+function onLevel3ChangeCorr(subChk){
+  const v = subChk.checked;
+  bulk(()=> setLevel2Checked('corr', subChk, v, {silentFit:true}));
+  syncAllTri();
+}
 
 export function onLevel1ChangeMetro(){
   const v = state.systems.metro.ui.chkAll.checked;
@@ -1582,7 +1612,16 @@ export function syncTriFromLeaf(systemId){
     top.indeterminate = anyChecked && !allChecked;
     top.checked = allChecked;
   } else if (systemId==='corr'){
-    for (const {chk} of state.systems.corr.ui.groups.values()){ syncTriOfGroup('corr', chk); }
+    // Primero, pestañas (nivel 3), luego grupos (nivel 2)
+    for (const g of state.systems.corr.ui.groups.values()){
+      if (g && g.tabs){
+        for (const t of g.tabs.values()){
+          if (t && t.chk) syncTriOfGroup('corr', t.chk);
+        }
+      }
+      if (g && g.chk) syncTriOfGroup('corr', g.chk);
+    }
+
     const leaves = routeCheckboxesOf('corr');
     const total = leaves.length;
     const checked = leaves.filter(c=>c.checked).length;
