@@ -21,11 +21,276 @@ const CORR_COLORS = {
   '5': '#8e8c13'  // Verde
 };
 
-function corrColorForId(id){
-  const s = String(id || '').trim();
+/* =========================
+   Corredores: activos por Catalog o por Lista (switch)
+   ========================= */
+
+const CORR_ACTIVE_SOURCE = 'catalog'; // 'catalog' | 'lista'
+
+const CORR_DIGIT_TO_KEY = {
+  '1': 'amarillo',
+  '2': 'rojo',
+  '3': 'azul',
+  '4': 'morado',
+  '5': 'verde'
+};
+
+const CORR_KEY_LABEL = {
+  amarillo: 'Corredor Amarillo',
+  rojo: 'Corredor Rojo',
+  azul: 'Corredor Azul',
+  morado: 'Corredor Morado',
+  verde: 'Corredor Verde',
+  otros: 'Otros'
+};
+
+const CORR_KEY_COLOR = {
+  amarillo: '#ffcd00',
+  rojo: '#e4002b',
+  azul: '#003594',
+  morado: '#9b26b6',
+  verde: '#8e8c13'
+};
+
+const CORR_GROUP_ORDER = ['amarillo','rojo','azul','morado','verde','otros'];
+
+function lsGet(key){
+  try { return localStorage.getItem(key); } catch { return null; }
+}
+function lsSet(key, val){
+  try { localStorage.setItem(key, val); } catch {}
+}
+
+function corrGetMode(){
+  return (CORR_ACTIVE_SOURCE === 'lista') ? 'lista' : 'catalog';
+}
+
+function corrSetMode(mode){
+  lsSet(CORR_MODE_LS_KEY, mode === 'lista' ? 'lista' : 'catalog');
+}
+
+function corrGetCatalogCfg(){
+  const cat = state.catalog || {};
+  return cat.corredores || cat.corr || null;
+}
+
+function corrCanonical(value){
+  const s = String(value || '').trim();
+  if (!s) return '';
+  if (/^\d+$/.test(s)) return String(Number(s));
+  return s.toUpperCase();
+}
+
+function corrBasesFor(codeRaw){
+  let base = corrCanonical(codeRaw);
+  base = base.replace(/-(IDA|VUELTA)$/i,'');
+  const out = new Set();
+  if (base) out.add(base);
+
+  const m = base.match(/^(.+)_\d+$/);
+  if (m && m[1]) out.add(m[1]);
+
+  return Array.from(out);
+}
+
+function corrServiceCodeOf(svc){
+  return String((svc && (svc.corrServicio || svc.id)) || '').trim();
+}
+
+function corrGetColorOverrides(){
+  const cfg = corrGetCatalogCfg() || {};
+  const raw =
+    cfg.color_overrides ||
+    cfg.colorOverrides ||
+    {};
+
+  const map = {};
+  for (const [k, v] of Object.entries(raw || {})){
+    const kk = String(k || '').toUpperCase().trim();
+    if (!kk) continue;
+    map[kk] = v;
+  }
+  return map;
+}
+
+function corrOverrideToGroupKey(v){
+  if (!v) return null;
+
+  if (typeof v === 'object'){
+    const g = v.group || v.grupo || v.key || null;
+    const gg = g ? String(g).trim().toLowerCase() : '';
+    return CORR_KEY_COLOR[gg] ? gg : null;
+  }
+
+  if (typeof v === 'string'){
+    const s = v.trim().toLowerCase();
+
+    if (CORR_KEY_COLOR[s]) return s;
+
+    if (s.startsWith('#')){
+      for (const [k, hex] of Object.entries(CORR_KEY_COLOR)){
+        if (hex.toLowerCase() === s) return k;
+      }
+    }
+  }
+
+  return null;
+}
+
+function corrOverrideToColor(v){
+  if (!v) return null;
+
+  if (typeof v === 'object'){
+    const c = v.color || v.hex || null;
+    if (c && typeof c === 'string' && c.trim().startsWith('#')) return c.trim();
+    const g = corrOverrideToGroupKey(v);
+    return g ? CORR_KEY_COLOR[g] : null;
+  }
+
+  if (typeof v === 'string'){
+    const s = v.trim();
+    if (s.startsWith('#')) return s;
+    const g = corrOverrideToGroupKey(s);
+    return g ? CORR_KEY_COLOR[g] : null;
+  }
+
+  return null;
+}
+
+function corrGroupKeyForCode(code){
+  const s = String(code || '').trim().toUpperCase();
+  if (!s) return 'otros';
+
+  const ov = corrGetColorOverrides();
+  const v = ov[s];
+
+  const g = corrOverrideToGroupKey(v);
+  if (g) return g;
+
+  const first = s[0];
+  return CORR_DIGIT_TO_KEY[first] || 'otros';
+}
+
+function corrColorForCode(code){
+  const s = String(code || '').trim().toUpperCase();
   if (!s) return null;
+
+  const ov = corrGetColorOverrides();
+  const v = ov[s];
+
+  const c = corrOverrideToColor(v);
+  if (c) return c;
+
   const first = s[0];
   return CORR_COLORS[first] || null;
+}
+
+function corrFilterServicesByCatalog(services){
+  const cfg = corrGetCatalogCfg();
+  if (!cfg) return services || [];
+
+  const upper = s => String(s).toUpperCase().trim();
+  const onlySet = Array.isArray(cfg.only)
+    ? new Set(cfg.only.map(corrCanonical).map(upper))
+    : null;
+
+  const excSet = Array.isArray(cfg.exclude)
+    ? new Set(cfg.exclude.map(corrCanonical).map(upper))
+    : new Set();
+
+  return (services || []).filter(svc => {
+    const code = corrServiceCodeOf(svc);
+    const bases = corrBasesFor(code).map(upper);
+    if (!bases.length) return false;
+
+    if (bases.some(b => excSet.has(b))) return false;
+    if (onlySet) return bases.some(b => onlySet.has(b));
+    return true;
+  });
+}
+
+/* ---- Lista alternativa: config/lista_corredores.json (opcional) ---- */
+
+let corrListaPromise = null;
+let corrListaCache = null;
+
+function loadCorrListaCorredores(){
+  if (corrListaPromise) return corrListaPromise;
+
+  const url =
+    (PATHS && PATHS.listas && PATHS.listas.corredores)
+      ? PATHS.listas.corredores
+      : 'config/lista_corredores.json';
+
+  corrListaPromise = fetch(url)
+    .then(r => (r.ok ? r.json() : null))
+    .then(json => { corrListaCache = json; return json; })
+    .catch(() => { corrListaCache = null; return null; });
+
+  return corrListaPromise;
+}
+
+function corrListaAsSet(){
+  const upper = s => String(s).toUpperCase().trim();
+  const j = corrListaCache;
+
+  let arr = null;
+  if (Array.isArray(j)) arr = j;
+  else if (j && Array.isArray(j.only)) arr = j.only;
+  else if (j && Array.isArray(j.activos)) arr = j.activos;
+  else if (j && j.corredores && Array.isArray(j.corredores.only)) arr = j.corredores.only;
+
+  if (!arr) return null;
+  return new Set(arr.map(corrCanonical).map(upper));
+}
+
+function corrFilterServicesByLista(services){
+  const set = corrListaAsSet();
+  if (!set) return services || [];
+
+  const upper = s => String(s).toUpperCase().trim();
+  return (services || []).filter(svc => {
+    const code = corrServiceCodeOf(svc);
+    const bases = corrBasesFor(code).map(upper);
+    return bases.some(b => set.has(b));
+  });
+}
+
+function makeCorrSourceToggle(){
+  const mode = corrGetMode();
+  const wrap = el('div',{class:'dir-mini', style:'margin:6px 0;'});
+  const mk = (val, label, title) =>
+    el('button', { class:`segbtn-mini${mode===val?' active':''}`, 'data-src':val, title }, label);
+
+  wrap.append(
+    mk('catalog','Catalog','Activos según config/catalog.json'),
+    mk('lista','Lista','Activos según config/lista_corredores.json')
+  );
+
+  wrap.addEventListener('click', (e) => {
+    const b = e.target.closest('.segbtn-mini');
+    if (!b) return;
+
+    const next = b.dataset.src;
+    if (!next || next === corrGetMode()) return;
+
+    corrSetMode(next);
+
+    if (next === 'lista' && !corrListaCache){
+      loadCorrListaCorredores().finally(() => { fillCorrList(); syncAllTri(); });
+      return;
+    }
+
+    fillCorrList();
+    syncAllTri();
+  });
+
+  return wrap;
+}
+
+/* Alias por compatibilidad con tu código */
+function corrColorForId(id){
+  return corrColorForCode(id);
 }
 
 // Direcciones mini (Norte/Sur/Ambas) para Met/Alim
@@ -117,27 +382,274 @@ function makeServiceItemAlim(svc){
   return body;
 }
 
-function makeServiceItemCorr(svc){
-  const code = String(svc.id);
-  const color = corrColorForId(code) || svc.color || '#10b981';
+/* =============== Helpers para items tipo Ida/Vuelta (Corredores y WR) =============== */
 
-  const tag = el('span',{class:'tag', style:`background:${color}`}, code);
-  const left = el('div',{class:'left'},
-    tag,
-    el('div',{},
-      el('div',{class:'name'}, `Servicio ${code}`),
-      el('div',{class:'sub'}, svc.name || '')
-    )
-  );
-  const chk  = el('input',{type:'checkbox','data-id':svc.id,'data-system':'corr'});
-  const head = el('div',{class:'item-head'}, left, chk);
-  const body = el('div',{class:'item'}, head);
-  chk.addEventListener('change', () => {
-    if (!state.bulk) {
-      onToggleService('corr', svc.id, chk.checked);
-      syncTriFromLeaf('corr');
+function wrParseBaseStops(source){
+  if (!source) return {from:'', to:'', label:''};
+
+  if (typeof source === 'string'){
+    const raw = source.trim();
+    if (!raw) return {from:'', to:'', label:''};
+    let s = raw;
+    s = s.replace(/^\s*\d+\s*·\s*/,'');
+    s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+
+    let parts = s.split('→');
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    parts = s.split(/\s*-\s*/);
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    return {from:'', to:'', label:s.trim()};
+  }
+
+  const props = source;
+  const directFrom =
+    props.from ||
+    props.from_short ||
+    props.fromShort ||
+    props.origen ||
+    props.origin ||
+    null;
+  const directTo =
+    props.to ||
+    props.to_short ||
+    props.toShort ||
+    props.destino ||
+    props.destination ||
+    null;
+
+  if (directFrom || directTo){
+    const from = String(directFrom || '').trim();
+    const to   = String(directTo || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  if (Array.isArray(props.stops) && props.stops.length){
+    const first = props.stops[0];
+    const last  = props.stops[props.stops.length - 1];
+    const getName = st => {
+      if (!st) return '';
+      return (st.name || st.title || st.label || '');
+    };
+    const from = String(getName(first) || '').trim();
+    const to   = String(getName(last) || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  let rawName = '';
+  if (props.name != null) rawName = String(props.name);
+  else if (props.title != null) rawName = String(props.title);
+  else rawName = '';
+
+  if (!rawName.trim()) return {from:'', to:'', label:''};
+
+  let s = rawName;
+  s = s.replace(/^\s*\d+\s*·\s*/,'');
+  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+
+  let parts = s.split('→');
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+  parts = s.split(/\s*-\s*/);
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+
+  return {from:'', to:'', label:s.trim()};
+}
+
+function normPairId(side){
+  if (!side) return null;
+  if (typeof side === 'string' || typeof side === 'number') return String(side);
+  if (typeof side === 'object'){
+    if (side.id != null) return String(side.id);
+    if (side.route_id != null) return String(side.route_id);
+    if (side.routeId != null) return String(side.routeId);
+  }
+  return null;
+}
+
+/* =========================
+   Corredores desde corrWr (Ida/Vuelta como Wikiroutes)
+   ========================= */
+
+function applyCorrTextsToItem(item, direccion){
+  const svc = item.__corrSvc || null;
+  if (!svc) return;
+
+  const titleEl = item.querySelector('.corr-main-title');
+  const odEl    = item.querySelector('.corr-subtitle-od');
+  const extraEl = item.querySelector('.corr-subtitle-extra');
+
+  const servicio = String(svc.corrServicio || svc.id || '').trim();
+
+  if (titleEl){
+    titleEl.textContent = servicio ? `Servicio ${servicio}` : 'Servicio';
+  }
+
+  let ori = (svc.corrOrigen != null ? String(svc.corrOrigen).trim() : '');
+  let des = (svc.corrDestino != null ? String(svc.corrDestino).trim() : '');
+
+  if (!(ori || des)){
+    const parsed = wrParseBaseStops(svc.name || svc.title || '');
+    ori = parsed.from || '';
+    des = parsed.to || '';
+  }
+
+  if (direccion === 'vuelta'){
+    [ori, des] = [des, ori];
+  }
+
+  if (odEl){
+    odEl.textContent = (ori || des) ? `${ori} \u2192 ${des}` : (svc.name || '');
+  }
+
+  if (extraEl){
+    extraEl.textContent = '';
+  }
+}
+
+function toggleCorrPair(chk, checked, {silentFit=false}={}){
+  const ida = chk.dataset.ida;
+  const vta = chk.dataset.vuelta;
+  if (!ida || !vta) return;
+
+  const sel = chk.dataset.sel || 'ida';
+  if (checked){
+    if (sel === 'ida'){
+      setWikiroutesVisible(ida, true,  {fit:!silentFit});
+      setWikiroutesVisible(vta, false);
+    } else {
+      setWikiroutesVisible(vta, true,  {fit:!silentFit});
+      setWikiroutesVisible(ida, false);
+    }
+  } else {
+    setWikiroutesVisible(ida, false);
+    setWikiroutesVisible(vta, false);
+  }
+}
+
+function makeCorrDirPairControls(chk){
+  const wrap = el('div',{class:'dir-mini'});
+  const mk = (val,label) =>
+    el('button',{class:`segbtn-mini${(chk.dataset.sel||'ida')===val?' active':''}`,'data-dir':val},label);
+
+  const bIda = mk('ida','Ida');
+  const bVta = mk('vuelta','Vuelta');
+  wrap.append(bIda, bVta);
+
+  wrap.addEventListener('click',(e)=>{
+    const btn = e.target.closest('.segbtn-mini');
+    if (!btn) return;
+
+    const sel = btn.dataset.dir;
+    if (!sel || sel === chk.dataset.sel) return;
+
+    chk.dataset.sel = sel;
+    [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
+
+    const item = wrap.closest('.item');
+    if (item){
+      applyCorrTextsToItem(item, sel);
+    }
+
+    if (chk.checked){
+      if (sel==='ida'){
+        setWikiroutesVisible(chk.dataset.ida, true, {fit:true});
+        setWikiroutesVisible(chk.dataset.vuelta, false);
+      } else {
+        setWikiroutesVisible(chk.dataset.vuelta, true, {fit:true});
+        setWikiroutesVisible(chk.dataset.ida, false);
+      }
     }
   });
+
+  return wrap;
+}
+
+function makeServiceItemCorr(svc){
+  const servicio = String(svc.corrServicio || svc.id || '').trim();
+  const code = servicio || String(svc.id || '').trim();
+
+  const color = corrColorForCode(code) || svc.corrColor || svc.color || '#10b981';
+
+  const tag = el('span',{class:'tag', style:`background:${color}`}, code || 'Corr');
+
+  const textBlock = el('div',{},
+    el('div',{class:'name corr-main-title'}, ''),
+    el('div',{class:'sub corr-subtitle-od'}, ''),
+    el('div',{class:'sub corr-subtitle-extra'}, '')
+  );
+
+  const left = el('div',{class:'left'}, tag, textBlock);
+
+  let idaId = null;
+  let vtaId = null;
+
+  if (svc.pair){
+    idaId = normPairId(svc.pair.ida);
+    vtaId = normPairId(svc.pair.vuelta);
+  } else if (svc.ida && svc.vuelta){
+    idaId = normPairId(svc.ida);
+    vtaId = normPairId(svc.vuelta);
+  }
+
+  const hasBothDirs = !!(idaId && vtaId);
+
+  const dataAttrs = hasBothDirs
+    ? {
+        'data-id': String(svc.id),
+        'data-system': 'corr',
+        'data-ida': idaId,
+        'data-vuelta': vtaId,
+        'data-sel': (svc.defaultDir || 'ida')
+      }
+    : {
+        'data-id': String(svc.id),
+        'data-system': 'corr'
+      };
+
+  const chk  = el('input', Object.assign({type:'checkbox','data-system':'corr'}, dataAttrs));
+  const head = el('div',{class:'item-head'}, left, chk);
+
+  const body = hasBothDirs
+    ? el('div',{class:'item'}, head, makeCorrDirPairControls(chk))
+    : el('div',{class:'item'}, head);
+
+  body.__corrSvc = svc;
+
+  const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
+  applyCorrTextsToItem(body, initialDir);
+
+  chk.addEventListener('change', () => {
+    if (hasBothDirs){
+      toggleCorrPair(chk, chk.checked, {silentFit:false});
+    } else {
+      const id = chk.dataset.id;
+      if (id && /^\d+$/.test(String(id))){
+        if (chk.checked) setWikiroutesVisible(id, true, {fit:true});
+        else setWikiroutesVisible(id, false);
+      } else {
+        onToggleService('corr', svc.id, chk.checked);
+      }
+    }
+    syncTriFromLeaf('corr');
+  });
+
   return body;
 }
 
@@ -283,11 +795,9 @@ function wrFilterRoutesByGroup(groupName, routes){
     const out = new Set();
     if (base) out.add(base);
 
-    // Si termina en _12345, también permitir el prefijo (ej: 1_52587 -> 1)
     const m = base.match(/^(.+)_\d+$/);
     if (m && m[1]) out.add(m[1]);
 
-    // Si es numérico con ceros a la izquierda, normaliza (ej: 02 -> 2)
     if (/^\d+$/.test(base)) out.add(String(Number(base)));
 
     return Array.from(out);
@@ -402,115 +912,12 @@ function wrBuildTituloPrincipal(meta, rt){
   return '';
 }
 
-// Intenta obtener paraderos extremos de un objeto de ruta o un string
-function wrParseBaseStops(source){
-  if (!source) return {from:'', to:'', label:''};
-
-  // Si es string directo
-  if (typeof source === 'string'){
-    const raw = source.trim();
-    if (!raw) return {from:'', to:'', label:''};
-    let s = raw;
-    s = s.replace(/^\s*\d+\s*·\s*/,'');
-
-    s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
-
-    let parts = s.split('→');
-    if (parts.length === 2){
-      const from = parts[0].trim();
-      const to   = parts[1].trim();
-      return {from, to, label:`${from} \u2192 ${to}`};
-    }
-    parts = s.split(/\s*-\s*/);
-    if (parts.length === 2){
-      const from = parts[0].trim();
-      const to   = parts[1].trim();
-      return {from, to, label:`${from} \u2192 ${to}`};
-    }
-    return {from:'', to:'', label:s.trim()};
-  }
-
-  // Si es objeto
-  const props = source;
-  // Intentar campos directos tipo from/to
-  const directFrom =
-    props.from ||
-    props.from_short ||
-    props.fromShort ||
-    props.origen ||
-    props.origin ||
-    null;
-  const directTo =
-    props.to ||
-    props.to_short ||
-    props.toShort ||
-    props.destino ||
-    props.destination ||
-    null;
-
-  if (directFrom || directTo){
-    const from = String(directFrom || '').trim();
-    const to   = String(directTo || '').trim();
-    const label = (from || to) ? `${from} \u2192 ${to}` : '';
-    return {from, to, label};
-  }
-
-  // Si hay lista de paraderos con nombre, usar primero y último
-  if (Array.isArray(props.stops) && props.stops.length){
-    const first = props.stops[0];
-    const last  = props.stops[props.stops.length - 1];
-    const getName = st => {
-      if (!st) return '';
-      return (
-        st.name ||
-        st.title ||
-        st.label ||
-        ''
-      );
-    };
-    const from = String(getName(first) || '').trim();
-    const to   = String(getName(last) || '').trim();
-    const label = (from || to) ? `${from} \u2192 ${to}` : '';
-    return {from, to, label};
-  }
-
-  // Finalmente, intentar con name/title
-  let rawName = '';
-  if (props.name != null) rawName = String(props.name);
-  else if (props.title != null) rawName = String(props.title);
-  else rawName = '';
-
-  if (!rawName.trim()) return {from:'', to:'', label:''};
-
-  let s = rawName;
-  s = s.replace(/^\s*\d+\s*·\s*/,'');
-
-  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
-
-  let parts = s.split('→');
-  if (parts.length === 2){
-    const from = parts[0].trim();
-    const to   = parts[1].trim();
-    return {from, to, label:`${from} \u2192 ${to}`};
-  }
-
-  parts = s.split(/\s*-\s*/);
-  if (parts.length === 2){
-    const from = parts[0].trim();
-    const to   = parts[1].trim();
-    return {from, to, label:`${from} \u2192 ${to}`};
-  }
-
-  return {from:'', to:'', label:s.trim()};
-}
-
 // Usa wr_extremes.json para obtener extremos si hay match
 function wrStopsFromExtremesForRoute(routeLike, extremes, dirKey){
   if (!routeLike || !extremes) return null;
 
   const candidates = [];
 
-  // Si nos pasan directamente un id numérico o string, úsalo tal cual
   if (typeof routeLike === 'string' || typeof routeLike === 'number'){
     candidates.push(routeLike);
   } else {
@@ -638,7 +1045,6 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
 
   const left = el('div',{class:'left'}, tag, textBlock);
 
-  // Normalizar pair ida/vuelta
   let idaRoute = null;
   let vtaRoute = null;
   let idaId = null;
@@ -701,7 +1107,6 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   body.__wrMeta  = metaByCodigo ? (metaByCodigo[key] || null) : null;
   body.__wrRoute = rt;
 
-  // Extremos Ida / Vuelta / default
   let stopsIda = null;
   let stopsVta = null;
   let stopsDefault = null;
@@ -738,7 +1143,6 @@ function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
   const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
   applyWrTextsToWrItem(body, initialDir);
 
-  // Checkbox principal
   chk.addEventListener('change', () => {
     if (hasBothDirs){
       const ida = chk.dataset.ida;
@@ -799,28 +1203,6 @@ export function fillAlimList(){
     .forEach(s => sys.ui.listS.appendChild(makeServiceItem('alim', s)));
 }
 
-// Corredores agrupados por color oficial (primer dígito)
-function corridorGroupName(s){
-  const code = String(s.id || '').trim();
-  const first = code[0];
-  switch (first){
-    case '1': return 'Corredor Amarillo';
-    case '2': return 'Corredor Rojo';
-    case '3': return 'Corredor Azul';
-    case '4': return 'Corredor Morado';
-    case '5': return 'Corredor Verde';
-    default:  return 'Otros';
-  }
-}
-function keyFromGroupName(label){
-  const k = label.toLowerCase();
-  if (k.includes('amarillo')) return 'amarillo';
-  if (k.includes('rojo'))     return 'rojo';
-  if (k.includes('azul'))     return 'azul';
-  if (k.includes('morado'))   return 'morado';
-  if (k.includes('verde'))    return 'verde';
-  return 'otros';
-}
 function buildCorrGroupSection(container, key, label){
   const secId = `p-corr-${key}`;
   const chkId = `chk-corr-${key}`;
@@ -837,46 +1219,63 @@ function buildCorrGroupSection(container, key, label){
   state.systems.corr.ui.groups.set(key,{chk,body});
   chk.addEventListener('change',()=> onLevel2ChangeCorr(chk));
 }
+
 export function fillCorrList(){
   const sys = state.systems.corr;
   const container = sys.ui.list;
   const empty = $('#p-corr-empty');
+
   container.innerHTML = '';
   sys.ui.groups.clear();
-  if (!sys.services.length){
+
+  const baseSrc = (state.corrWr && Array.isArray(state.corrWr.services) && state.corrWr.services.length)
+    ? state.corrWr.services
+    : sys.services;
+
+  let services = (baseSrc || []).filter(s => {
+    if (!s) return false;
+    if (s.corrActiva == null) return true;
+    return !!s.corrActiva;
+  });
+
+  const mode = corrGetMode();
+
+  if (mode === 'catalog'){
+    services = corrFilterServicesByCatalog(services);
+  } else {
+    if (!corrListaCache){
+      loadCorrListaCorredores().finally(() => { fillCorrList(); syncAllTri(); });
+      return; // importante: evita render incompleto mientras carga
+    }
+    services = corrFilterServicesByLista(services);
+  }
+
+  if (!services.length){
     empty && (empty.style.display = 'block');
     sys.ui.chkAll && (sys.ui.chkAll.disabled = true);
     return;
   }
+
   empty && (empty.style.display = 'none');
   sys.ui.chkAll && (sys.ui.chkAll.disabled = false);
 
   const groups = new Map();
-  sys.services.forEach(s => {
-    const key = corridorGroupName(s);
+  services.forEach(s => {
+    const code = corrServiceCodeOf(s);
+    const key = corrGroupKeyForCode(code);
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(s);
   });
-  const order = [
-    'Corredor Amarillo',
-    'Corredor Rojo',
-    'Corredor Azul',
-    'Corredor Morado',
-    'Corredor Verde',
-    'Otros'
-  ];
-  const keys = [...groups.keys()].sort((a,b)=>{
-    const ia = order.indexOf(a), ib = order.indexOf(b);
-    if (ia===-1 && ib===-1) return a.localeCompare(b);
-    if (ia===-1) return 1;
-    if (ib===-1) return -1;
-    return ia-ib;
-  });
-  keys.forEach(label => {
-    const key = keyFromGroupName(label);
+
+  CORR_GROUP_ORDER.forEach(key => {
+    const arr = groups.get(key);
+    if (!arr || !arr.length) return;
+
+    const label = CORR_KEY_LABEL[key] || 'Otros';
     buildCorrGroupSection(container, key, label);
+
     const grp = state.systems.corr.ui.groups.get(key);
-    groups.get(label).forEach(svc => grp.body.appendChild(makeServiceItem('corr', svc)));
+    arr.forEach(svc => grp.body.appendChild(makeServiceItem('corr', svc)));
   });
 }
 
@@ -953,7 +1352,7 @@ export function routeCheckboxesOf(systemId, groupChk=null){
         ? Array.from(panel.querySelectorAll('.item input[type=checkbox]'))
         : [];
     }
-    return $$('#p-corr .item input[type=checkbox]');
+    return $$('#p-corr-list .item input[type=checkbox]');
   }
   if (systemId==='metro'){
     return $$('#p-metro .item input[type=checkbox]');
@@ -975,6 +1374,23 @@ export function setLeafChecked(systemId, leafChk, checked, {silentFit=false}={})
   leafChk.checked = checked;
   const id = leafChk.dataset.id;
   if (!id) return;
+
+  // Corredores: si viene como par ida/vuelta (corrWr), togglear como WR
+  if (systemId === 'corr'){
+    const ida = leafChk.dataset.ida;
+    const vta = leafChk.dataset.vuelta;
+    if (ida && vta){
+      const sel = leafChk.dataset.sel || 'ida';
+      if (checked){
+        if (sel==='ida'){ setWikiroutesVisible(ida, true, {fit:!silentFit}); setWikiroutesVisible(vta, false); }
+        else            { setWikiroutesVisible(vta, true, {fit:!silentFit}); setWikiroutesVisible(ida, false); }
+      } else {
+        setWikiroutesVisible(ida, false);
+        setWikiroutesVisible(vta, false);
+      }
+      return;
+    }
+  }
 
   if (systemId === 'wr' || systemId === 'wrAero' || systemId === 'wrOtros') {
     const ida = leafChk.dataset.ida;
