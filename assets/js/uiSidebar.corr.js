@@ -1,11 +1,11 @@
 // uiSidebar.corr.js
 import { PATHS, state } from './config.js';
 import { $, el } from './utils.js';
-import { makeServiceItem } from './uiSidebar.items.js';
-import { onLevel2ChangeCorr, onLevel3ChangeCorr, syncAllTri } from './uiSidebar.hierarchy.js';
+import { onToggleService, setWikiroutesVisible } from './mapLayers.js';
+import { syncTriFromLeaf, syncAllTri, onLevel2ChangeCorr, onLevel3ChangeCorr } from './uiSidebar.hierarchy.js';
 
 /* =========================
-   Corredores: colores y grupos
+   Corredores
    ========================= */
 
 // Colores oficiales para corredores según primer dígito del servicio
@@ -44,32 +44,22 @@ const CORR_KEY_COLOR = {
 
 const CORR_GROUP_ORDER = ['amarillo','rojo','azul','morado','verde','otros'];
 
-/* =========================
-   Tipos (Principales vs Alimentadores)
-   =========================
-   Intenta leer de config/lista_corredores.json (si trae esa info).
-   Si no existe o no trae estructura, usa heurística numérica:
-   150-199, 250-299, 350-399, 450-499, 550-599 => Alimentadores.
-*/
 let corrTiposPromise = null;
 let corrTiposCache = { principales: null, alimentadores: null };
 
-/* =========================
-   Helpers Corr
-   ========================= */
 function corrGetCatalogCfg(){
   const cat = state.catalog || {};
   return cat.corredores || cat.corr || null;
 }
 
-export function corrCanonical(value){
+function corrCanonical(value){
   const s = String(value || '').trim();
   if (!s) return '';
   if (/^\d+$/.test(s)) return String(Number(s));
   return s.toUpperCase();
 }
 
-export function corrServiceCodeOf(svc){
+function corrServiceCodeOf(svc){
   return String((svc && (svc.corrServicio || svc.id)) || '').trim();
 }
 
@@ -138,24 +128,20 @@ function corrOverrideToColor(v){
   return null;
 }
 
-/* Casos especiales (porque no arrancan con dígito) */
 function corrSpecialGroupKey(codeUpper){
   const raw = String(codeUpper || '').trim().toUpperCase();
   if (!raw) return null;
 
   const compact = raw.replace(/[\s_-]+/g, '');
 
-  // COLE BUS debe ir a Azul
   if (compact === 'COLEBUS') return 'azul';
-
-  // SE-02 y SP-01 deben ir a Morado
   if (/^SE0?2$/.test(compact)) return 'morado';
   if (/^SP0?1$/.test(compact)) return 'morado';
 
   return null;
 }
 
-export function corrGroupKeyForCode(code){
+function corrGroupKeyForCode(code){
   const s = String(code || '').trim().toUpperCase();
   if (!s) return 'otros';
 
@@ -171,7 +157,7 @@ export function corrGroupKeyForCode(code){
   return CORR_DIGIT_TO_KEY[first] || 'otros';
 }
 
-export function corrColorForCode(code){
+function corrColorForCode(code){
   const s = String(code || '').trim().toUpperCase();
   if (!s) return null;
 
@@ -187,17 +173,11 @@ export function corrColorForCode(code){
   return CORR_COLORS[first] || null;
 }
 
-// Alias por compatibilidad si lo usas en otros módulos
-export function corrColorForId(id){
-  return corrColorForCode(id);
-}
-
-export function corrFilterServicesByCatalog(services){
+function corrFilterServicesByCatalog(services){
   const cfg = corrGetCatalogCfg();
   if (!cfg) return services || [];
 
   const upper = x => String(x).toUpperCase().trim();
-
   const onlySet = Array.isArray(cfg.only)
     ? new Set(cfg.only.map(corrCanonical).map(upper))
     : null;
@@ -217,9 +197,6 @@ export function corrFilterServicesByCatalog(services){
   });
 }
 
-/* =========================
-   Tipos: cargar y resolver alimentador
-   ========================= */
 function corrPickArray(node){
   if (!node) return null;
   if (Array.isArray(node)) return node;
@@ -288,10 +265,8 @@ function loadCorrTipos(){
 function corrIsAlimentadorByHeuristic(code){
   const s = corrCanonical(code);
   if (!/^\d+$/.test(s)) return false;
-
   const n = Number(s);
   if (!Number.isFinite(n)) return false;
-
   const inRange = (a, b) => n >= a && n <= b;
 
   return (
@@ -303,7 +278,7 @@ function corrIsAlimentadorByHeuristic(code){
   );
 }
 
-export function corrIsAlimentador(code){
+function corrIsAlimentador(code){
   const upper = x => String(x).toUpperCase().trim();
   const c = upper(corrCanonical(code));
 
@@ -313,7 +288,7 @@ export function corrIsAlimentador(code){
   return corrIsAlimentadorByHeuristic(code);
 }
 
-export function corrSortServices(arr){
+function corrSortServices(arr){
   const canonUpper = (svc) => String(corrCanonical(corrServiceCodeOf(svc))).toUpperCase().trim();
 
   const keyOf = (svc) => {
@@ -331,9 +306,256 @@ export function corrSortServices(arr){
   });
 }
 
-/* =========================
-   UI builders: grupo (color) y pestañas (P/A)
-   ========================= */
+function wrParseBaseStops(source){
+  if (!source) return {from:'', to:'', label:''};
+
+  if (typeof source === 'string'){
+    const raw = source.trim();
+    if (!raw) return {from:'', to:'', label:''};
+    let s = raw;
+    s = s.replace(/^\s*\d+\s*·\s*/,'');
+    s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+
+    let parts = s.split('→');
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    parts = s.split(/\s*-\s*/);
+    if (parts.length === 2){
+      const from = parts[0].trim();
+      const to   = parts[1].trim();
+      return {from, to, label:`${from} \u2192 ${to}`};
+    }
+    return {from:'', to:'', label:s.trim()};
+  }
+
+  const props = source;
+  const directFrom =
+    props.from || props.from_short || props.fromShort || props.origen || props.origin || null;
+  const directTo =
+    props.to || props.to_short || props.toShort || props.destino || props.destination || null;
+
+  if (directFrom || directTo){
+    const from = String(directFrom || '').trim();
+    const to   = String(directTo || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  if (Array.isArray(props.stops) && props.stops.length){
+    const first = props.stops[0];
+    const last  = props.stops[props.stops.length - 1];
+    const getName = st => (st ? (st.name || st.title || st.label || '') : '');
+    const from = String(getName(first) || '').trim();
+    const to   = String(getName(last) || '').trim();
+    const label = (from || to) ? `${from} \u2192 ${to}` : '';
+    return {from, to, label};
+  }
+
+  let rawName = '';
+  if (props.name != null) rawName = String(props.name);
+  else if (props.title != null) rawName = String(props.title);
+
+  if (!rawName.trim()) return {from:'', to:'', label:''};
+
+  let s = rawName;
+  s = s.replace(/^\s*\d+\s*·\s*/,'');
+  s = s.replace(/\s*\((ida|vuelta)\)\s*$/i,'');
+
+  let parts = s.split('→');
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+  parts = s.split(/\s*-\s*/);
+  if (parts.length === 2){
+    const from = parts[0].trim();
+    const to   = parts[1].trim();
+    return {from, to, label:`${from} \u2192 ${to}`};
+  }
+
+  return {from:'', to:'', label:s.trim()};
+}
+
+function normPairId(side){
+  if (!side) return null;
+  if (typeof side === 'string' || typeof side === 'number') return String(side);
+  if (typeof side === 'object'){
+    if (side.id != null) return String(side.id);
+    if (side.route_id != null) return String(side.route_id);
+    if (side.routeId != null) return String(side.routeId);
+  }
+  return null;
+}
+
+function applyCorrTextsToItem(item, direccion){
+  const svc = item.__corrSvc || null;
+  if (!svc) return;
+
+  const titleEl = item.querySelector('.corr-main-title');
+  const odEl    = item.querySelector('.corr-subtitle-od');
+  const extraEl = item.querySelector('.corr-subtitle-extra');
+
+  const servicio = String(svc.corrServicio || svc.id || '').trim();
+
+  if (titleEl){
+    titleEl.textContent = servicio ? `Servicio ${servicio}` : 'Servicio';
+  }
+
+  let ori = (svc.corrOrigen != null ? String(svc.corrOrigen).trim() : '');
+  let des = (svc.corrDestino != null ? String(svc.corrDestino).trim() : '');
+
+  if (!(ori || des)){
+    const parsed = wrParseBaseStops(svc.name || svc.title || '');
+    ori = parsed.from || '';
+    des = parsed.to || '';
+  }
+
+  if (direccion === 'vuelta'){
+    [ori, des] = [des, ori];
+  }
+
+  if (odEl){
+    odEl.textContent = (ori || des) ? `${ori} \u2192 ${des}` : (svc.name || '');
+  }
+
+  if (extraEl){
+    extraEl.textContent = '';
+  }
+}
+
+function toggleCorrPair(chk, checked, {silentFit=false}={}){
+  const ida = chk.dataset.ida;
+  const vta = chk.dataset.vuelta;
+  if (!ida || !vta) return;
+
+  const sel = chk.dataset.sel || 'ida';
+  if (checked){
+    if (sel === 'ida'){
+      setWikiroutesVisible(ida, true,  {fit:!silentFit});
+      setWikiroutesVisible(vta, false);
+    } else {
+      setWikiroutesVisible(vta, true,  {fit:!silentFit});
+      setWikiroutesVisible(ida, false);
+    }
+  } else {
+    setWikiroutesVisible(ida, false);
+    setWikiroutesVisible(vta, false);
+  }
+}
+
+function makeCorrDirPairControls(chk){
+  const wrap = el('div',{class:'dir-mini'});
+  const mk = (val,label) =>
+    el('button',{class:`segbtn-mini${(chk.dataset.sel||'ida')===val?' active':''}`,'data-dir':val},label);
+
+  const bIda = mk('ida','Ida');
+  const bVta = mk('vuelta','Vuelta');
+  wrap.append(bIda, bVta);
+
+  wrap.addEventListener('click',(e)=>{
+    const btn = e.target.closest('.segbtn-mini');
+    if (!btn) return;
+
+    const sel = btn.dataset.dir;
+    if (!sel || sel === chk.dataset.sel) return;
+
+    chk.dataset.sel = sel;
+    [bIda,bVta].forEach(b=>b.classList.toggle('active', b===btn));
+
+    const item = wrap.closest('.item');
+    if (item){
+      applyCorrTextsToItem(item, sel);
+    }
+
+    if (chk.checked){
+      if (sel==='ida'){
+        setWikiroutesVisible(chk.dataset.ida, true, {fit:true});
+        setWikiroutesVisible(chk.dataset.vuelta, false);
+      } else {
+        setWikiroutesVisible(chk.dataset.vuelta, true, {fit:true});
+        setWikiroutesVisible(chk.dataset.ida, false);
+      }
+    }
+  });
+
+  return wrap;
+}
+
+function makeServiceItemCorr(svc){
+  const servicio = String(svc.corrServicio || svc.id || '').trim();
+  const code = servicio || String(svc.id || '').trim();
+
+  const color = corrColorForCode(code) || svc.corrColor || svc.color || '#10b981';
+  const tag = el('span',{class:'tag', style:`background:${color}`}, code || 'Corr');
+
+  const textBlock = el('div',{},
+    el('div',{class:'name corr-main-title'}, ''),
+    el('div',{class:'sub corr-subtitle-od'}, ''),
+    el('div',{class:'sub corr-subtitle-extra'}, '')
+  );
+
+  const left = el('div',{class:'left'}, tag, textBlock);
+
+  let idaId = null;
+  let vtaId = null;
+
+  if (svc.pair){
+    idaId = normPairId(svc.pair.ida);
+    vtaId = normPairId(svc.pair.vuelta);
+  } else if (svc.ida && svc.vuelta){
+    idaId = normPairId(svc.ida);
+    vtaId = normPairId(svc.vuelta);
+  }
+
+  const hasBothDirs = !!(idaId && vtaId);
+
+  const dataAttrs = hasBothDirs
+    ? {
+        'data-id': String(svc.id),
+        'data-system': 'corr',
+        'data-ida': idaId,
+        'data-vuelta': vtaId,
+        'data-sel': (svc.defaultDir || 'ida')
+      }
+    : {
+        'data-id': String(svc.id),
+        'data-system': 'corr'
+      };
+
+  const chk  = el('input', Object.assign({type:'checkbox','data-system':'corr'}, dataAttrs));
+  const head = el('div',{class:'item-head'}, left, chk);
+
+  const body = hasBothDirs
+    ? el('div',{class:'item'}, head, makeCorrDirPairControls(chk))
+    : el('div',{class:'item'}, head);
+
+  body.__corrSvc = svc;
+
+  const initialDir = hasBothDirs ? (chk.dataset.sel || 'ida') : 'ida';
+  applyCorrTextsToItem(body, initialDir);
+
+  chk.addEventListener('change', () => {
+    if (hasBothDirs){
+      toggleCorrPair(chk, chk.checked, {silentFit:false});
+    } else {
+      const id = chk.dataset.id;
+      if (id && /^\d+$/.test(String(id))){
+        if (chk.checked) setWikiroutesVisible(id, true, {fit:true});
+        else setWikiroutesVisible(id, false);
+      } else {
+        onToggleService('corr', svc.id, chk.checked);
+      }
+    }
+    syncTriFromLeaf('corr');
+  });
+
+  return body;
+}
+
 function buildCorrGroupSection(container, key, label){
   const secId = `p-corr-${key}`;
   const chkId = `chk-corr-${key}`;
@@ -345,7 +567,6 @@ function buildCorrGroupSection(container, key, label){
     el('input',{type:'checkbox',id:chkId,class:'right','data-group':key})
   );
 
-  // Ojo: sin "list" aquí porque adentro van pestañas como paneles
   const body = el('div',{id:secId,class:'panel-body'});
 
   section.append(head, body);
@@ -354,11 +575,9 @@ function buildCorrGroupSection(container, key, label){
   const chk = head.querySelector('input[type="checkbox"]');
 
   const entry = { chk, body, tabs: new Map() };
-  const sys = state.systems.corr;
-  if (!sys.ui.groups || !(sys.ui.groups instanceof Map)) sys.ui.groups = new Map();
-  sys.ui.groups.set(key, entry);
+  state.systems.corr.ui.groups.set(key, entry);
 
-  chk.addEventListener('change', () => onLevel2ChangeCorr(chk));
+  chk.addEventListener('change',()=> onLevel2ChangeCorr(chk));
 }
 
 function buildCorrTabSection(parentBody, groupKey, tabKey, label){
@@ -377,27 +596,19 @@ function buildCorrTabSection(parentBody, groupKey, tabKey, label){
   parentBody.appendChild(section);
 
   const chk = head.querySelector('input[type="checkbox"]');
-  chk.addEventListener('change', () => onLevel3ChangeCorr(chk));
+  chk.addEventListener('change',()=> onLevel3ChangeCorr(chk));
 
   return { chk, body };
 }
 
-/* =========================
-   Fill Corr List
-   ========================= */
 export function fillCorrList(){
   const sys = state.systems.corr;
   const container = sys.ui.list;
   const empty = $('#p-corr-empty');
 
-  if (!container) return;
-
   container.innerHTML = '';
-
-  if (!sys.ui.groups || !(sys.ui.groups instanceof Map)) sys.ui.groups = new Map();
   sys.ui.groups.clear();
 
-  // Disparar carga de tipos (si existe) y refrescar al terminar
   if (!corrTiposPromise){
     loadCorrTipos().finally(() => {
       fillCorrList();
@@ -409,22 +620,18 @@ export function fillCorrList(){
     ? state.corrWr.services
     : sys.services;
 
-  // No distinguir activa/inactiva
   let services = (baseSrc || []).filter(s => !!s);
-
-  // Filtrado por catalog.json (only/exclude)
   services = corrFilterServicesByCatalog(services);
 
   if (!services.length){
-    if (empty) empty.style.display = 'block';
-    if (sys.ui.chkAll) sys.ui.chkAll.disabled = true;
+    empty && (empty.style.display = 'block');
+    sys.ui.chkAll && (sys.ui.chkAll.disabled = true);
     return;
   }
 
-  if (empty) empty.style.display = 'none';
-  if (sys.ui.chkAll) sys.ui.chkAll.disabled = false;
+  empty && (empty.style.display = 'none');
+  sys.ui.chkAll && (sys.ui.chkAll.disabled = false);
 
-  // Agrupar por color
   const groups = new Map();
   services.forEach(s => {
     const code = corrServiceCodeOf(s);
@@ -433,7 +640,6 @@ export function fillCorrList(){
     groups.get(key).push(s);
   });
 
-  // Construir en orden y omitir "Otros" si queda vacío (y cualquier grupo vacío)
   CORR_GROUP_ORDER.forEach(key => {
     const arr = groups.get(key);
     if (!arr || !arr.length) return;
@@ -441,7 +647,7 @@ export function fillCorrList(){
     const label = CORR_KEY_LABEL[key] || 'Otros';
     buildCorrGroupSection(container, key, label);
 
-    const grp = sys.ui.groups.get(key);
+    const grp = state.systems.corr.ui.groups.get(key);
 
     const principales = [];
     const alimentadores = [];
@@ -455,17 +661,15 @@ export function fillCorrList(){
     corrSortServices(principales);
     corrSortServices(alimentadores);
 
-    // Pestañas estilo "Metropolitano": paneles anidados con checkbox
     if (principales.length){
       const tab = buildCorrTabSection(grp.body, key, 'p', 'Principales');
       grp.tabs.set('p', tab);
-      principales.forEach(svc => tab.body.appendChild(makeServiceItem('corr', svc)));
+      principales.forEach(svc => tab.body.appendChild(makeServiceItemCorr(svc)));
     }
-
     if (alimentadores.length){
       const tab = buildCorrTabSection(grp.body, key, 'a', 'Alimentadores');
       grp.tabs.set('a', tab);
-      alimentadores.forEach(svc => tab.body.appendChild(makeServiceItem('corr', svc)));
+      alimentadores.forEach(svc => tab.body.appendChild(makeServiceItemCorr(svc)));
     }
   });
 }
