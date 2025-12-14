@@ -22,6 +22,44 @@ const SHOW_BOUNDS_RECT = false;
 let maxBoundsRect = null;
 
 /* ===========================
+   Colores Corredores
+   =========================== */
+
+const CORR_COLORS = {
+  '1': '#ffcd00', // Amarillo
+  '2': '#e4002b', // Rojo
+  '3': '#003594', // Azul
+  '4': '#9b26b6', // Morado
+  '5': '#8e8c13'  // Verde
+};
+
+function corrColorForId(id){
+  const s = String(id ?? '').trim().toUpperCase();
+  if (!s) return '#9ca3af';
+
+  // Regla principal: primer dígito
+  const m = s.match(/^([1-5])/);
+  if (m && CORR_COLORS[m[1]]) return CORR_COLORS[m[1]];
+
+  // Casos especiales por prefijo (según tu criterio)
+  if (/^(SE|SP)\b/.test(s)) return CORR_COLORS['4'];   // morado
+  if (/^COLE\b/.test(s) || /^COLEBUS\b/.test(s) || /^COLE\s*BUS\b/.test(s)) return CORR_COLORS['3']; // azul
+
+  return '#9ca3af';
+}
+
+// Si algo (CSS) pisa el stroke, esto lo fuerza en SVG
+function forceStroke(layer, color){
+  try {
+    const p = layer && layer._path;
+    if (p) {
+      p.setAttribute('stroke', color);
+      p.style.stroke = color;
+    }
+  } catch {}
+}
+
+/* ===========================
    Panes (orden de dibujo)
    =========================== */
 
@@ -259,6 +297,7 @@ function drawMetMacro(svc, routeDir, gLine, color, boundsIn, paneLine){
     (segments || []).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
       const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -312,6 +351,7 @@ export function renderService(systemId, id, opts={}){
     (segments||[]).forEach(seg => {
       if (!Array.isArray(seg) || seg.length < 2) return;
       const poly = L.polyline(seg, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     });
@@ -321,6 +361,7 @@ export function renderService(systemId, id, opts={}){
     const pts = uniqueOrder(ids.map(st => getStopLatLng(sys, st)).filter(Boolean));
     if (pts.length >= 2){
       const poly = L.polyline(pts, { pane: paneLine, color, weight: 4, opacity: 0.95 }).addTo(gLine);
+      forceStroke(poly, color);
       const b = poly.getBounds();
       bounds = bounds ? bounds.extend(b) : b;
     }
@@ -329,41 +370,46 @@ export function renderService(systemId, id, opts={}){
   const routeDir = getDirFor(systemId, id);
 
   if (systemId === 'alim'){
+    const c = svc.color || '#9ca3af';
     if (routeDir === 'ambas'){
       const segs = svc.geom.length
         ? svc.geom
         : [...(svc.geom_norte||[]), ...(svc.geom_sur||[])];
-      drawSegments(segs, svc.color);
+      drawSegments(segs, c);
     } else if (routeDir === 'norte') {
-      drawSegments(svc.geom_norte || svc.geom, svc.color);
+      drawSegments(svc.geom_norte || svc.geom, c);
     } else if (routeDir === 'sur') {
-      drawSegments(svc.geom_sur   || svc.geom, svc.color);
+      drawSegments(svc.geom_sur   || svc.geom, c);
     }
 
   } else if (systemId === 'met') {
+    const c = svc.color || '#9ca3af';
     const prevBounds = bounds;
-    bounds = drawMetMacro(svc, routeDir, gLine, svc.color, bounds, paneLine);
+    bounds = drawMetMacro(svc, routeDir, gLine, c, bounds, paneLine);
     if (bounds === prevBounds) {
       if (svc.kind === 'regular'){
-        drawByStops(svc.stops || [], svc.color);
+        drawByStops(svc.stops || [], c);
       } else {
         if (routeDir === 'ambas'){
-          if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], svc.color);
-          if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], svc.color);
+          if (state.dir === 'ambas' || state.dir === 'ns') drawByStops(svc.north_south || [], c);
+          if (state.dir === 'ambas' || state.dir === 'sn') drawByStops(svc.south_north || [], c);
         } else if (routeDir === 'norte'){
-          drawByStops(svc.south_north || [], svc.color);
+          drawByStops(svc.south_north || [], c);
         } else if (routeDir === 'sur'){
-          drawByStops(svc.north_south || [], svc.color);
+          drawByStops(svc.north_south || [], c);
         }
       }
     }
 
   } else if (systemId === 'corr'){
-    if (svc.segments?.length) drawSegments(svc.segments, svc.color);
-    else if (svc.stops?.length) drawByStops(svc.stops, svc.color);
+    // Aqui estaba el problema: se usaba svc.color (gris en tu data)
+    const c = corrColorForId(svc.id);
+    if (svc.segments?.length) drawSegments(svc.segments, c);
+    else if (svc.stops?.length) drawByStops(svc.stops, c);
 
   } else if (systemId === 'metro'){
-    drawSegments(svc.segments || [], svc.color);
+    const c = svc.color || '#9ca3af';
+    drawSegments(svc.segments || [], c);
   }
 
   // Paraderos
