@@ -1,0 +1,8 @@
+sandbox/
+pipeline/temp/
+pipeline/scripts/wikiroutes/data_wikiroutes/
+pipeline/scripts/wikiroutes/data/
+**/__pycache__/
+*.pyc
+*.zip
+log/
