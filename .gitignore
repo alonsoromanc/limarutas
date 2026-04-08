@@ -8,3 +8,4 @@ pipeline/scripts/wikiroutes/data/
 log/
 pipeline/scripts/wikiroutes/active_routes.txt
 _legacy/
+filetree/*.txt
