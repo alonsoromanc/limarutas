@@ -185,7 +185,7 @@ def find_repo_root(start: Path) -> Optional[Path]:
     # 1) Preferir siempre la carpeta que tenga config/lista_rutas.csv
     #    Esto en tu caso es justo ...\Rutas\config\lista_rutas.csv
     for p in candidates:
-        if (p / "config" / "lista_rutas.csv").exists():
+        if (p / "pipeline" / "input" / "lista_rutas.csv").exists():
             return p
 
     # 2) Si por algún motivo no existe lista_rutas.csv,
@@ -217,7 +217,7 @@ def parse_args():
                    help="Cantidad de ejemplos a imprimir de no_display_id_dump (por defecto 10).")
 
     # Casos donde display_id no matchea lista_rutas.csv
-    p.add_argument("--dump-unmatched-lista", type=str, default="config/unmatched_lista_rutas.json",
+    p.add_argument("--dump-unmatched-lista", type=str, default="pipeline/output/unmatched_routes.json",
                    help="Ruta (relativa al ROOT) para guardar JSON con display_id que no está en lista_rutas.csv.")
     p.add_argument("--sample-unmatched-lista", type=int, default=10,
                    help="Cantidad de ejemplos a imprimir de unmatched_lista_dump (por defecto 10).")
@@ -254,8 +254,8 @@ def main() -> None:
         ROOT = (detected or Path.cwd()).resolve()
 
     OUT_ROOT = ROOT / "data" / "processed" / "transporte"
-    LISTA_RUTAS_CSV = ROOT / "config" / "lista_rutas.csv"
-    WR_MAP_JSON = ROOT / "config" / "wr_map.json"
+    LISTA_RUTAS_CSV = ROOT / "pipeline" / "input" / "lista_rutas.csv"
+    WR_MAP_JSON = ROOT / "pipeline" / "output" / "wr_map.json"
     WR_OVERRIDES_JSON = ROOT / "config" / "wr_overrides.json"
 
     print(f"CWD: {Path.cwd().resolve()}")

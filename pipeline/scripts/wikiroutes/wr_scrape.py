@@ -345,7 +345,7 @@ def scrape_route(url: str, out_root: Path, headless=True) -> Path:
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Leaflet grabber para rutas de WikiRoutes (ambos sentidos)")
     ap.add_argument("--url", required=True)
-    ap.add_argument("--out", default="data_wikiroutes")
+    ap.add_argument("--out", default="data/raw/wikiroutes")
     ap.add_argument("--headless", type=int, default=0)
     args = ap.parse_args(argv)
 

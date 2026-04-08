@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-from wikiroutes_leafletgrab import scrape_route, make_driver, DEFAULT_BASE
+from wr_scrape import scrape_route, make_driver, DEFAULT_BASE
 
 CATALOG_URL = "https://wikiroutes.info/es/lima/catalog"
 
@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[3]
 
 # Rutas derivadas del ROOT
 OUT_ROOT = ROOT / "data" / "processed" / "transporte"
-WR_MAP_JSON = ROOT / "config" / "wr_map.json"
+WR_MAP_JSON = ROOT / "pipeline" / "output" / "wr_map.json"
 WR_OVERRIDES_JSON = ROOT / "config" / "wr_overrides.json"
 
 # Límite de nuevas rutas a descargar. None = sin límite (bajar todo).

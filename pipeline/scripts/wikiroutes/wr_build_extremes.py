@@ -122,10 +122,10 @@ def compute_ida_vuelta(pairs: list[tuple[str, str]]) -> dict:
 def build_wr_extremes():
     root = repo_root()
     data_dir = root / "data" / "processed" / "transporte"
-    config_dir = root / "config"
-    config_dir.mkdir(parents=True, exist_ok=True)
+    out_dir = root / "pipeline" / "output"
+    out_dir.mkdir(parents=True, exist_ok=True)
 
-    out_path = config_dir / "wr_extremes.json"
+    out_path = out_dir / "wr_extremes.json"
 
     if not data_dir.is_dir():
         raise SystemExit(f"No existe la carpeta de datos: {data_dir}")

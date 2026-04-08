@@ -60,7 +60,7 @@ def find_repo_root(start: Path) -> Optional[Path]:
 
     # 1) Prioridad: donde exista lista_rutas.csv
     for p in candidates:
-        if (p / "config" / "lista_rutas.csv").exists():
+        if (p / "pipeline" / "input" / "lista_rutas.csv").exists():
             return p
 
     # 2) Si no hay, buscar combinación config + data/processed/transporte
@@ -327,7 +327,7 @@ def parse_args():
     p.add_argument(
         "--output",
         type=str,
-        default="config/wr_codes_master.csv",
+        default="pipeline/output/wr_codes_master.csv",
         help="Ruta de salida relativa al ROOT para el CSV maestro.",
     )
     return p.parse_args()
@@ -349,7 +349,7 @@ def main() -> None:
         ROOT = (detected or Path.cwd()).resolve()
 
     OUT_ROOT = ROOT / "data" / "processed" / "transporte"
-    LISTA_RUTAS_CSV = ROOT / "config" / "lista_rutas.csv"
+    LISTA_RUTAS_CSV = ROOT / "pipeline" / "input" / "lista_rutas.csv"
     OUT_CSV = ROOT / args.output
 
     print(f"ROOT: {ROOT}")
