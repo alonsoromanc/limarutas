@@ -21,10 +21,10 @@ except ImportError as e:
 HEX_RE = re.compile(r"^#[0-9A-Fa-f]{6}$")
 
 # Captura códigos tipo EM40, IM42, EO01, etc.
-ALNUM_CODE_RE = re.compile(r"\b([A-Za-z]{1,6}\d{1,6})\b")
+ALNUM_CODE_RE = re.compile(r"\b([A-Za-z]{1,6}\d{1,6}[A-Za-z]{0,3})\b")
 
 # Captura números "sueltos" (por si el title viene como "Ruta 1244 ...")
-DIGITS_RE = re.compile(r"\b(\d{1,6})\b")
+DIGITS_RE = re.compile(r"\b(\d{1,6}[A-Za-z]{0,2})\b")
 
 
 @dataclass
@@ -81,9 +81,9 @@ def load_lista_rutas(csv_path: Path) -> Dict[str, ListaRutaRow]:
 
 def _normalize_code(code: str) -> str:
     code = (code or "").strip()
-    m = re.match(r"^([A-Za-z]+)(\d+)$", code)
+    m = re.match(r"^([A-Za-z]+)(\d+)([A-Za-z]*)$", code)
     if m:
-        return f"{m.group(1).upper()}{m.group(2)}"
+        return f"{m.group(1).upper()}{m.group(2)}{m.group(3)}"
     return code
 
 
