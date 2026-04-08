@@ -1,0 +1,3 @@
+./sandbox/transporte/extraccion python/data_wikiroutes/route_154193/assets/img/favicon.svg
+./sandbox/transporte/extraccion python/data_wikiroutes/route_154193/assets/img/globalSprite_v35.svg
+./sandbox/transporte/extraccion python/data_wikiroutes/route_154193/assets/img/user.svg

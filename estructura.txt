@@ -3,8 +3,7 @@
 ./assets/css
 ./assets/css/styles.css
 ./assets/icons
-./assets/icons/metro
-./assets/icons/metro/6.png
+./assets/icons/metro./assets/icons/metro/6.png
 ./assets/icons/metro/3.png
 ./assets/icons/metro/2.png
 ./assets/icons/metro/1.png
@@ -46,6 +45,7 @@
 ./assets/js/app.js
 ./assets/js/config.js
 ./assets/js/mapLayers.js
+./assets/js/uiSidebar.updated.js
 ./assets/js/uiSidebar.corr.js
 ./assets/js/uiSidebar.systems.js
 ./assets/js/panels.js
@@ -53,7 +53,6 @@
 ./assets/js/parsers.js
 ./docs
 ./docs/3_099-2025-ATU_PE_ANEXO.pdf
-./docs/catalog_transporte_actualizado.json
 ./docs/rutas_prr_equivalencias_1001_1249.csv
 ./.git
 ./web
@@ -76,7 +75,6 @@
 ./pipeline/scripts/wikiroutes
 ./pipeline/scripts/wikiroutes/build_wr_codes_master.py
 ./pipeline/scripts/wikiroutes/scrapper_catalog.ipynb
-./pipeline/scripts/wikiroutes/lista de rutas activas wikiroute.txt
 ./pipeline/scripts/wikiroutes/data_wikiroutes
 ./pipeline/scripts/wikiroutes/data_wikiroutes/route_154193.zip
 ./pipeline/scripts/wikiroutes/data_wikiroutes/route_154193
@@ -210,12 +208,14 @@
 ./pipeline/scripts/wikiroutes/wikiroutes_catalog.html
 ./pipeline/scripts/wikiroutes/wikiroutes_scrapper.ipynb
 ./pipeline/scripts/wikiroutes/executer.ipynb
+./pipeline/scripts/wikiroutes/active_routes.txt
 ./pipeline/scripts/wikiroutes/catalog.json
 ./pipeline/scripts/build_wr_extremes.ipynb
 ./pipeline/scripts/scripts
 ./pipeline/scripts/scripts/output
 ./pipeline/scripts/scripts/output/relations.enriquecido.geojson
 ./pipeline/scripts/scripts/output/route_equivalences.csv
+./.gitignore
 ./.vscode
 ./.vscode/settings.json
 ./old
@@ -264,8 +264,6 @@
 ./old/data/raw/osm/transporte.enriquecido.geojson
 ./old/data/raw/overpass
 ./old/data/raw/overpass/overpass.md
-./old/transporte anterior.zip
-./uiSidebar.updated.js
 ./index.html
 ./limarutas-main.zip
 ./data
@@ -20945,6 +20943,7 @@
 ./data/processed/transporte/route_154948/stops_trip2.geojson
 ./git_auto_push.bat
 ./config
+./config/catalog_transporte_actualizado.json
 ./config/lista_corredores.json
 ./config/no_display_id_skips.json
 ./config/wr_overrides.json

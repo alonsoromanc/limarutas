@@ -1,0 +1,1016 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Alfonso Ugarte troncales (mid)",
+        "system": "MET",
+        "network": "Metropolitano de Lima y Callao",
+        "operator": "ATU",
+        "route": "bus_rapid_transit",
+        "kind": "route",
+        "stroke": "#ff9800",
+        "stroke-width": 5,
+        "stroke-opacity": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-77.0104245, -12.1784235],
+          [-77.01471, -12.1735009],
+          [-77.0186, -12.16881],
+          [-77.0189075, -12.1594717],
+          [-77.0196905, -12.1529242],
+          [-77.0201185, -12.1484065],
+          [-77.0177423, -12.1411578],
+          [-77.01911983068669, -12.135416773618147],
+          [-77.0228217, -12.1294115],
+          [-77.0242088, -12.1251351],
+          [-77.0259295, -12.1190148],
+          [-77.0259612, -12.1132904],
+          [-77.0264381, -12.1085005],
+          [-77.0272485, -12.1022941],
+          [-77.0251166, -12.0969508],
+          [-77.0235469, -12.0892872],
+          [-77.0266711, -12.0822429],
+          [-77.0289771, -12.0766412],
+          [-77.0319942, -12.0688642],
+          [-77.0359527, -12.0576958],
+          [-77.0418486, -12.056744],
+          [-77.0422796, -12.0519234],
+          [-77.0427571, -12.0457683],
+          [-77.0436608, -12.036372],
+          [-77.0441872, -12.0299693],
+          [-77.0488716, -12.024196],
+          [-77.0514378, -12.0178703],
+          [-77.0529399, -12.0112372],
+          [-77.0539541, -12.0066832],
+          [-77.0548037, -12.0018024],
+          [-77.0552504, -11.9985058],
+          [-77.0560737, -11.994758],
+          [-77.0570433, -11.9896113],
+          [-77.0587452, -11.9821275],
+          [-77.059873, -11.9739763],
+          [-77.06077570168708, -11.969808851409882],
+          [-77.06177479851397, -11.965154369554302],
+          [-77.0623263, -11.9627856],
+          [-77.0605262, -11.9581796],
+          [-77.059923, -11.9548874],
+          [-77.0600192, -11.9520554],
+          [-77.0605922, -11.9466452],
+          [-77.0601805, -11.9419641],
+          [-77.0564039, -11.935051],
+          [-77.0537402, -11.9302115],
+          [-77.0520246, -11.9255586],
+          [-77.0503945, -11.9196197],
+          [-77.0480489, -11.9154528],
+          [-77.0456211, -11.911095],
+          [-77.0430204, -11.906467],
+          [-77.0400505, -11.9011622],
+          [-77.0373894, -11.8963694]
+        ]
+      }
+    },
+
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_01",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Matellini",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0104245, -12.1784235]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_02",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Rosario de Villa",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 2
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01471, -12.1735009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_03",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Fernando Terán",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 3
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0186, -12.16881]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_04",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Escuela Militar",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 4
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0189075, -12.1594717]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_05",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Estadio Unión",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 5
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0196905, -12.1529242]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_06",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Bulevar",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 6
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0201185, -12.1484065]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_07",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Balta",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 7
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0177423, -12.1411578]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_08",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Plaza de Flores",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 8
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.01911983068669, -12.135416773618147]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_09",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "28 de Julio",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 9
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0228217, -12.1294115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_10",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Benavides",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 10
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0242088, -12.1251351]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_11",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Ricardo Palma",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 11
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0259295, -12.1190148]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_12",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Angamos",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 12
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0259612, -12.1132904]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_13",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Domingo Orué",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 13
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0264381, -12.1085005]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_14",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Aramburú",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 14
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0272485, -12.1022941]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_15",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Canaval y Moreyra",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 15
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0251166, -12.0969508]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_16",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Javier Prado",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 16
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0235469, -12.0892872]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_17",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Canadá",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 17
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0266711, -12.0822429]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_18",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "México",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 18
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0289771, -12.0766412]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_19",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Estadio Nacional",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 19
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0319942, -12.0688642]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_20",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Estación Central",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 20
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0359527, -12.0576958]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_21",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "España",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 21
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0418486, -12.056744]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_22",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Quilca",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 22
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0422796, -12.0519234]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_23",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Dos de Mayo",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 23
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0427571, -12.0457683]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_24",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Caquetá",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 24
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0436608, -12.036372]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_25",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Parque del Trabajo",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 25
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0441872, -12.0299693]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_26",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "UNI",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 26
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0488716, -12.024196]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_27",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Honorio Delgado",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 27
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0514378, -12.0178703]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_28",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "El Milagro",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 28
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0529399, -12.0112372]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_29",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Tomás Valle",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 29
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0539541, -12.0066832]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_30",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Los Jazmines",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 30
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0548037, -12.0018024]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_31",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Independencia",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 31
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0552504, -11.9985058]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_32",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Pacífico",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 32
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0560737, -11.994758]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_33",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Izaguirre",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 33
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0570433, -11.9896113]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_34",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Naranjal",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 34
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0587452, -11.9821275]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_35",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Santa Ligia",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 35
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.059873, -11.9739763]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_36",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Los Platinos",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 36
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.06077570168708, -11.969808851409882]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_37",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Maestro Peruano",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 37
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.06177479851397, -11.965154369554302]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_38",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Universidad",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 38
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0623263, -11.9627856]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_39",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Universitaria",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 39
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0605262, -11.9581796]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_40",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Las Vegas",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 40
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.059923, -11.9548874]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_41",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "José Pagador",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 41
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0600192, -11.9520554]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_42",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Veintidós de Agosto",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 42
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0605922, -11.9466452]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_43",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Los Ángeles",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 43
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0601805, -11.9419641]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_44",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Andrés Belaunde",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 44
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0564039, -11.935051]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_45",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Micaela Bastidas",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 45
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0537402, -11.9302115]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_46",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Jamaica",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 46
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0520246, -11.9255586]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_47",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Sangarará",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 47
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0503945, -11.9196197]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_48",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Los Incas",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 48
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0480489, -11.9154528]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_49",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "La Alborada",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 49
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0456211, -11.911095]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_50",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "San Carlos",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 50
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0430204, -11.906467]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_51",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "San Felipe",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 51
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0400505, -11.9011622]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "met_au_mid_stop_52",
+        "ref": "AU",
+        "dir": "mid",
+        "name": "Chimpu Ocllo",
+        "system": "MET",
+        "kind": "station",
+        "marker-color": "#ff9800",
+        "marker-symbol": "bus",
+        "stop_seq": 52
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-77.0373894, -11.8963694]
+      }
+    }
+  ]
+}

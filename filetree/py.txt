@@ -1,0 +1,5 @@
+./pipeline/scripts/wikiroutes/build_wr_codes_master.py
+./pipeline/scripts/wikiroutes/sync_wr_indexes.py
+./pipeline/scripts/wikiroutes/wikiroutes_leafletgrab.py
+./sandbox/transporte/extraccion python/wikiroutes_fullscrape_cdp.py
+./sandbox/transporte/extraccion python/wikiroutes_selenium.py

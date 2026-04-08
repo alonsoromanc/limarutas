@@ -1,0 +1,19 @@
+./config/lista_rutas.csv
+./config/wr_codes_master.csv
+./data/processed/metropolitano/estaciones.csv
+./docs/rutas_prr_equivalencias_1001_1249.csv
+./old/data/raw/converted/alimentadores/alimentadores_inventory.csv
+./old/data/raw/converted/metro/metro_inventory.csv
+./old/data/raw/converted/transporte/transporte_palette_map.csv
+./old/data/raw/converted/transporte_palette_map.csv
+./old/legacy/rutas.csv
+./old/legacy/rutas_actuales.csv
+./old/legacy/rutas_anteriores.csv
+./pipeline/scripts/scripts/output/route_equivalences.csv
+./pipeline/temp/output/route_equivalences.csv
+./pipeline/temp/output/route_equivalences_from_wiki.csv
+./pipeline/temp/output/rutas_actuales.csv
+./pipeline/temp/output/rutas_anteriores.csv
+./sandbox/temp/stops.csv
+./sandbox/transporte/extraccion python/data_wikiroutes/route_154193/stops.csv
+./sandbox/wikiroutes/ruta_sin_nombre_stops.csv
