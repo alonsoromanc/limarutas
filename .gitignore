@@ -6,3 +6,4 @@ pipeline/scripts/wikiroutes/data/
 *.pyc
 *.zip
 log/
+pipeline/scripts/wikiroutes/active_routes.txt
