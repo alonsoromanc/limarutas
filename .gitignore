@@ -10,3 +10,5 @@ pipeline/scripts/wikiroutes/active_routes.txt
 _legacy/
 filetree/*.txt
 filetree/*.txt
+filetree/*.txt
+filetree.txt
