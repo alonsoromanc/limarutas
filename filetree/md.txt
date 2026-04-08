@@ -1,4 +1,0 @@
-./log/documentation.md
-./log/problems.md
-./old/data/raw/overpass/overpass.md
-./old/legacy/rutas.md

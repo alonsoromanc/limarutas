@@ -1,6 +1,0 @@
-./pipeline/scripts/build_wr_extremes.ipynb
-./pipeline/scripts/wikiroutes/executer.ipynb
-./pipeline/scripts/wikiroutes/scrapper_catalog.ipynb
-./pipeline/scripts/wikiroutes/wikiroutes_scrapper.ipynb
-./pipeline/temp/convert.ipynb
-./sandbox/transporte/extraccion python/leaflet_paraderos_to_geojson.ipynb
