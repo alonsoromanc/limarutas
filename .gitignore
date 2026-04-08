@@ -7,3 +7,4 @@ pipeline/scripts/wikiroutes/data/
 *.zip
 log/
 pipeline/scripts/wikiroutes/active_routes.txt
+_legacy/
