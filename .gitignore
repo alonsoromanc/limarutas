@@ -24,3 +24,12 @@ data/processed/transporte/*/stops_from_map.geojson
 data/processed/transporte/*.rar
 data/processed/transporte/*.zip
 pipeline/scripts/wikiroutes/archive/
+
+# Datos dentro de scripts del pipeline
+pipeline/scripts/wikiroutes/data/
+pipeline/scripts/wikiroutes/data_wikiroutes/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
