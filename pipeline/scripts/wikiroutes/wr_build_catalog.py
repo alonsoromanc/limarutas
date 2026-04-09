@@ -247,13 +247,14 @@ def actualizar_wr_jsons(
                 suffix_key = f"-trip{trip}"
                 suffix_label = f" (trip {trip})"
 
-        map_key = f"{display_id}{suffix_key}"
+        map_key = f"{route_id}{suffix_key}" if route_id else f"{display_id}{suffix_key}"
 
         routes_map[map_key] = {
             "folder": folder_rel,
             "trip": trip,
             "color": color,
             "name": title + suffix_label,
+            "display_id": display_id,   # <-- nuevo campo, para labels en el frontend
             "url": url,
             "city": city,
         }

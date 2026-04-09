@@ -24480,7 +24480,8 @@
       "color": "#888888",
       "name": "189 · Estados Unidos → Santa Rosa"
     },
-    "1_52587-ida": {
+    "52587-ida": {
+      "display_id": "1",
       "folder": "data/processed/transporte/route_52587",
       "trip": 1,
       "color": "#888888",
