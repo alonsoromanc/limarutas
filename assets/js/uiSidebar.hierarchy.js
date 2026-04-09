@@ -52,7 +52,7 @@ export function routeCheckboxesOf(systemId, groupChk=null){
   }
 
   if (systemId==='wrOtros'){
-    return $$('#p-wr-otros .item input[type=checkbox]');
+    return $$('#p-wr-esi .item input[type=checkbox]');
   }
 
   return [];
@@ -213,7 +213,10 @@ export function onLevel1ChangeWrOtros(){
   const ui = state.systems.wr.ui;
   if (!ui.chkOtros) return;
   const v = ui.chkOtros.checked;
-  bulk(()=> setLevel2Checked('wrOtros', ui.chkOtros, v, {silentFit:true}));
+  bulk(()=>{
+    if (ui.chkEsi){ ui.chkEsi.checked = v; ui.chkEsi.indeterminate = false; }
+    setLevel2Checked('wrOtros', ui.chkOtros, v, {silentFit:true});
+  });
   syncAllTri();
 }
 
@@ -320,14 +323,20 @@ export function syncTriFromLeaf(systemId){
 
   if (systemId === 'wrOtros'){
     const top = state.systems.wr.ui.chkOtros;
-    if (!top) return;
+    const mid = state.systems.wr.ui.chkEsi;
 
     const leaves = routeCheckboxesOf('wrOtros');
     const total = leaves.length;
     const checked = leaves.filter(c => c.checked).length;
 
-    top.indeterminate = checked > 0 && checked < total;
-    top.checked = total > 0 && checked === total;
+    if (mid){
+      mid.indeterminate = checked > 0 && checked < total;
+      mid.checked = total > 0 && checked === total;
+    }
+    if (top){
+      top.indeterminate = checked > 0 && checked < total;
+      top.checked = total > 0 && checked === total;
+    }
     return;
   }
 }
@@ -359,6 +368,15 @@ export function wireHierarchy(){
   }
   if (state.systems.wr.ui.chkOtros){
     state.systems.wr.ui.chkOtros.addEventListener('change', onLevel1ChangeWrOtros);
+  }
+
+  if (state.systems.wr.ui.chkEsi){
+    state.systems.wr.ui.chkEsi.addEventListener('change', () => {
+      const ui = state.systems.wr.ui;
+      const v = ui.chkEsi.checked;
+      bulk(()=> setLevel2Checked('wrOtros', ui.chkEsi, v, {silentFit:true}));
+      syncAllTri();
+    });
   }
 
   syncAllTri();

@@ -322,10 +322,10 @@ function buildWrUiAndDefsFromWrMap(wrMap){
       groups.get(base)[dir] = rid;
     } else {
       routesUi.push({
-        id: rid,
-        display_id: routesObj[rid].display_id || null,
-        name: routesObj[rid].name || `Ruta ${rid}`,
-        color: routesObj[rid].color || '#00008C'
+        id: only,
+        display_id: routesObj[only].display_id || null,
+        name: routesObj[only].name || `Ruta ${only}`,
+        color: routesObj[only].color || '#00008C'
       });
     }
   }
@@ -335,7 +335,9 @@ function buildWrUiAndDefsFromWrMap(wrMap){
       const baseColor = (routesObj[g.ida].color || routesObj[g.vuelta].color || '#00008C');
       routesUi.push({
         id: g.base,
-        name: `Wikiroutes ${g.base}`,
+        display_id: routesObj[g.ida].display_id || routesObj[g.vuelta].display_id || null,
+        label: routesObj[g.ida].label || routesObj[g.vuelta].label || null,
+        name: routesObj[g.ida].name || `Wikiroutes ${g.base}`,
         color: baseColor,
         pair: { ida: g.ida, vuelta: g.vuelta }
       });
@@ -343,10 +345,12 @@ function buildWrUiAndDefsFromWrMap(wrMap){
       const only = g.ida || g.vuelta;
       if (only) {
         routesUi.push({
-          id: rid,
-          display_id: routesObj[rid].display_id || null,
-          name: routesObj[rid].name || `Ruta ${rid}`,
-          color: routesObj[rid].color || '#00008C'
+          id: only,
+          display_id: routesObj[only].display_id || null,
+          label: routesObj[only].label || null,
+          subtitle: routesObj[only].subtitle || null,
+          name: routesObj[only].name || `Ruta ${only}`,
+          color: routesObj[only].color || '#00008C'
         });
       }
     }
@@ -515,8 +519,9 @@ async function buildUI(){
   state.systems.wr.ui.listAero  = pickFirst('#p-wr-aero-body', '#p-wr-aero');
   state.systems.wr.ui.chkAero   = $('#chk-wr-aero');
 
-  state.systems.wr.ui.listOtros = pickFirst('#p-wr-otros-body', '#p-wr-otros');
+  state.systems.wr.ui.listOtros = $('#p-wr-esi');
   state.systems.wr.ui.chkOtros  = $('#chk-wr-otros');
+  state.systems.wr.ui.chkEsi    = $('#chk-wr-esi');
 
   fillMetList();
   fillAlimList();
