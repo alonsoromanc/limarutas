@@ -21,3 +21,5 @@ data/processed/transporte/*/route.json
 data/processed/transporte/*/summary.json
 data/processed/transporte/*/route_track.geojson
 data/processed/transporte/*/stops_from_map.geojson
+data/processed/transporte/*.rar
+data/processed/transporte/*.zip
