@@ -323,6 +323,7 @@ function buildWrUiAndDefsFromWrMap(wrMap){
     } else {
       routesUi.push({
         id: rid,
+        display_id: routesObj[rid].display_id || null,
         name: routesObj[rid].name || `Ruta ${rid}`,
         color: routesObj[rid].color || '#00008C'
       });
@@ -342,9 +343,10 @@ function buildWrUiAndDefsFromWrMap(wrMap){
       const only = g.ida || g.vuelta;
       if (only) {
         routesUi.push({
-          id: only,
-          name: routesObj[only].name || `Ruta ${only}`,
-          color: routesObj[only].color || '#00008C'
+          id: rid,
+          display_id: routesObj[rid].display_id || null,
+          name: routesObj[rid].name || `Ruta ${rid}`,
+          color: routesObj[rid].color || '#00008C'
         });
       }
     }

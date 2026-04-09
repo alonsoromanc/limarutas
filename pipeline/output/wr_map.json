@@ -7586,12 +7586,14 @@
     },
     "153145-ida": {
       "color": "#F22536",
+      "display_id": "AD-Norte",
       "folder": "data/processed/transporte/route_153145",
       "name": "AeroDirecto Norte (ida)",
       "trip": 1
     },
     "153145-vuelta": {
       "color": "#F22536",
+      "display_id": "AD-Norte",
       "folder": "data/processed/transporte/route_153145",
       "name": "AeroDirecto Norte (vuelta)",
       "trip": 2
@@ -7634,24 +7636,28 @@
     },
     "153460-ida": {
       "color": "#05468A",
+      "display_id": "AD-Sur",
       "folder": "data/processed/transporte/route_153460",
       "name": "AeroDirecto Sur (ida)",
       "trip": 1
     },
     "153460-vuelta": {
       "color": "#05468A",
+      "display_id": "AD-Sur",
       "folder": "data/processed/transporte/route_153460",
       "name": "AeroDirecto Sur (vuelta)",
       "trip": 2
     },
     "153593-ida": {
       "color": "#F22536",
+      "display_id": "AD-Centro",
       "folder": "data/processed/transporte/route_153593",
       "name": "AeroDirecto Centro (ida)",
       "trip": 1
     },
     "153593-vuelta": {
       "color": "#F22536",
+      "display_id": "AD-Centro",
       "folder": "data/processed/transporte/route_153593",
       "name": "AeroDirecto Centro (vuelta)",
       "trip": 2
@@ -12165,6 +12171,7 @@
     },
     "52610-ida": {
       "color": "#003930",
+      "display_id": "2",
       "folder": "data/processed/transporte/route_52610",
       "name": "Expreso San Isidro (ida)",
       "trip": 1

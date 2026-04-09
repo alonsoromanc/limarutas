@@ -441,7 +441,7 @@ function makeWrDirPairControls(chk){
 }
 
 function makeWrItem(rt, metaByCodigo, routesById, extremes, systemId='wr'){
-  const labelId = String(rt.id).toUpperCase();
+  const labelId = (rt.display_id || String(rt.id)).toUpperCase();
   const tagColor = (rt && rt.color) ? rt.color : '#64748b';
   const tag = el('span',{ class:'tag', style:`background:${tagColor}` }, labelId);
 
