@@ -14,3 +14,10 @@ filetree/*.txt
 filetree.txt
 filetree/*.txt
 filetree.txt
+
+# Archivos prescindibles de carpetas WR (pipeline o redundantes)
+data/processed/transporte/*/route.html
+data/processed/transporte/*/route.json
+data/processed/transporte/*/summary.json
+data/processed/transporte/*/route_track.geojson
+data/processed/transporte/*/stops_from_map.geojson
