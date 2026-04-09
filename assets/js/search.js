@@ -34,10 +34,10 @@ async function loadListaRutas(){
 
   listaPromise = (async () => {
     // Primero en config/, luego en data/config/
-    const direct = await tryFetch('config/lista_rutas.csv');
+    const direct = await tryFetch('pipeline/input/lista_rutas.csv');
     if (direct && direct.length) return direct;
 
-    const alt = await tryFetch(`${PATHS.data}/config/lista_rutas.csv`);
+    const alt = await tryFetch(`${PATHS.data}/pipeline/input/lista_rutas.csv`);
     if (alt && alt.length) return alt;
 
     return [];
