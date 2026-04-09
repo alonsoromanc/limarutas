@@ -355,8 +355,8 @@ function buildWrUiAndDefsFromWrMap(wrMap){
 
 async function loadWikiroutesMeta(){
   try {
-    let wrMap = await fetchJSON('config/wr_map.json').catch(()=>null);
-    if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/config/wr_map.json`).catch(()=>null);
+    let wrMap = await fetchJSON('pipeline/output/wr_map.json').catch(()=>null);
+    if (!wrMap) wrMap = await fetchJSON(`${PATHS.data}/pipeline/output/wr_map.json`).catch(()=>null);
 
     state.systems.wr.routes    = [];
     state.systems.wr.routesUi  = [];

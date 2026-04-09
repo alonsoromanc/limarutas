@@ -22,7 +22,7 @@ function wrCanonicalCode(value){
 function loadWrListaMeta(){
   if (wrListaMetaPromise) return wrListaMetaPromise;
 
-  wrListaMetaPromise = fetch('config/lista_rutas.csv')
+  wrListaMetaPromise = fetch('pipeline/input/lista_rutas.csv')
     .then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.text();
@@ -70,7 +70,7 @@ function loadWrListaMeta(){
 function loadWrExtremes(){
   if (wrExtremesPromise) return wrExtremesPromise;
 
-  wrExtremesPromise = fetch('config/wr_extremes.json')
+  wrExtremesPromise = fetch('pipeline/output/wr_extremes.json')
     .then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
@@ -107,13 +107,17 @@ function wrFilterRoutesByGroup(groupName, routes){
   const only = Array.isArray(cfg.only) ? new Set(cfg.only.map(upper)) : null;
   const exc  = Array.isArray(cfg.exclude) ? new Set(cfg.exclude.map(upper)) : new Set();
 
-  const basesFor = (idRaw) => {
+  function basesFor(idRaw) {
     let base = upper(idRaw || '');
     const mTrip = base.match(/^(.*?)-(IDA|VUELTA)$/i);
     if (mTrip) base = mTrip[1];
 
     const out = new Set();
     if (base) out.add(base);
+
+    // extrae la parte numérica final: "1_52587" → "52587"
+    const mSuffix = base.match(/^\d+_(\d+)$/);
+    if (mSuffix) out.add(mSuffix[1]);
 
     const m = base.match(/^(.+)_\d+$/);
     if (m && m[1]) out.add(m[1]);
