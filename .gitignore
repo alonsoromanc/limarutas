@@ -43,3 +43,7 @@ __pycache__/
 pipeline/scripts/wikiroutes/archive/
 pipeline/scripts/wikiroutes/data/
 pipeline/scripts/wikiroutes/data_wikiroutes/
+
+pipeline/scripts/wikiroutes/archive/
+pipeline/scripts/wikiroutes/data/
+pipeline/scripts/wikiroutes/data_wikiroutes/
