@@ -330,11 +330,11 @@ function selectDoc(doc){
 }
 
 export function setupSearch(){
-  const input = $('#searchBox');
-  const resultsBox = $('#searchResults');
+  const input = $('#searchInput');
+  const resultsBox = $('#searchSuggest');
 
   if (!input || !resultsBox){
-    console.warn('[search] No se encontró #searchBox o #searchResults en el DOM.');
+    console.warn('[search] No se encontró #searchInput o #searchSuggest en el DOM.');
     return;
   }
 
