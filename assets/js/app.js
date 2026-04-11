@@ -322,10 +322,10 @@ function buildWrUiAndDefsFromWrMap(wrMap){
       groups.get(base)[dir] = rid;
     } else {
       routesUi.push({
-        id: only,
-        display_id: routesObj[only].display_id || null,
-        name: routesObj[only].name || `Ruta ${only}`,
-        color: routesObj[only].color || '#00008C'
+        id: rid,                              // era: only
+        display_id: routesObj[rid].display_id || null,  // era: routesObj[only]
+        name: routesObj[rid].name || `Ruta ${rid}`,
+        color: routesObj[rid].color || '#00008C'
       });
     }
   }
@@ -356,7 +356,24 @@ function buildWrUiAndDefsFromWrMap(wrMap){
     }
   });
 
-  return { routeDefs, routesUi };
+  // Deduplicar: si existe una entrada con id === display_id, eliminar las que comparten
+  // display_id pero tienen id distinto (son sub-trips del mismo display)
+  const byBaseCode = new Map();
+  for (const entry of routesUi) {
+    const rawId = String(entry.display_id || entry.id || '').toUpperCase();
+    const baseCode = rawId.replace(/_\d+$/, '');
+    const existing = byBaseCode.get(baseCode);
+    if (!existing) {
+      byBaseCode.set(baseCode, entry);
+    } else {
+      // Preferir la entrada cuyo id no tiene sufijo _NNNNN
+      const entryIsClean  = !String(entry.id).match(/_\d+$/);
+      const existingIsClean = !String(existing.id).match(/_\d+$/);
+      if (entryIsClean && !existingIsClean) byBaseCode.set(baseCode, entry);
+    }
+  }
+  const routesUiDeduped = Array.from(byBaseCode.values());
+  return { routeDefs, routesUi: routesUiDeduped };
 }
 
 async function loadWikiroutesMeta(){
