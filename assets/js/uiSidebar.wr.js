@@ -220,6 +220,8 @@ function wrBuildTituloPrincipal(meta, rt){
   if (siglas) return siglas;
   if (empresa) return wrBuildEmpresaDisplay(empresa);
 
+  if (rt && rt.label) return rt.label;
+
   if (rt && rt.id != null) return String(rt.id).toUpperCase();
   return '';
 }
@@ -374,6 +376,7 @@ function applyWrTextsToWrItem(item, direccion){
     let des = meta && meta.distrito_destino ? meta.distrito_destino : '';
     if (direccion === 'vuelta') [ori, des] = [des, ori];
     distEl.textContent = (ori || des) ? `${ori} \u2192 ${des}` : '';
+    if (!distEl.textContent && rt && rt.subtitle) distEl.textContent = rt.subtitle;
   }
 
   if (routeEl){

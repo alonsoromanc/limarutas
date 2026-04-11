@@ -438,7 +438,7 @@ async function init(){
   setListPlaceholder($('#p-wr'), 'Cargando Transporte público...');
 
   setListPlaceholder(pickFirst('#p-wr-aero-body', '#p-wr-aero'), 'Cargando AeroDirecto...');
-  setListPlaceholder(pickFirst('#p-wr-otros-body', '#p-wr-otros'), 'Cargando Otros...');
+  setListPlaceholder($('#p-wr-esi'), 'Cargando Otros...');
 
   await nextFrame();
 

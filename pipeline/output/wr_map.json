@@ -7588,6 +7588,7 @@
       "color": "#F22536",
       "display_id": "AD-Norte",
       "folder": "data/processed/transporte/route_153145",
+      "label": "AeroDirecto Norte",
       "name": "AeroDirecto Norte (ida)",
       "trip": 1
     },
@@ -7595,6 +7596,7 @@
       "color": "#F22536",
       "display_id": "AD-Norte",
       "folder": "data/processed/transporte/route_153145",
+      "label": "AeroDirecto Norte",
       "name": "AeroDirecto Norte (vuelta)",
       "trip": 2
     },
@@ -7638,6 +7640,7 @@
       "color": "#05468A",
       "display_id": "AD-Sur",
       "folder": "data/processed/transporte/route_153460",
+      "label": "AeroDirecto Sur",
       "name": "AeroDirecto Sur (ida)",
       "trip": 1
     },
@@ -7645,6 +7648,7 @@
       "color": "#05468A",
       "display_id": "AD-Sur",
       "folder": "data/processed/transporte/route_153460",
+      "label": "AeroDirecto Sur",
       "name": "AeroDirecto Sur (vuelta)",
       "trip": 2
     },
@@ -7652,6 +7656,7 @@
       "color": "#F22536",
       "display_id": "AD-Centro",
       "folder": "data/processed/transporte/route_153593",
+      "label": "AeroDirecto Centro",
       "name": "AeroDirecto Centro (ida)",
       "trip": 1
     },
@@ -7659,6 +7664,7 @@
       "color": "#F22536",
       "display_id": "AD-Centro",
       "folder": "data/processed/transporte/route_153593",
+      "label": "AeroDirecto Centro",
       "name": "AeroDirecto Centro (vuelta)",
       "trip": 2
     },
@@ -12166,14 +12172,18 @@
       "color": "#003930",
       "display_id": "1",
       "folder": "data/processed/transporte/route_52587",
+      "label": "Ruta 1 Expreso San Isidro",
       "name": "Expreso San Isidro (ida)",
+      "subtitle": "Periferia San Isidro",
       "trip": 1
     },
     "52610-ida": {
-      "color": "#003930",
+      "color": "#2D9E5A",
       "display_id": "2",
       "folder": "data/processed/transporte/route_52610",
+      "label": "Ruta 2 Expreso San Isidro",
       "name": "Expreso San Isidro (ida)",
+      "subtitle": "Norte Centro Financiero",
       "trip": 1
     },
     "52727-ida": {
