@@ -337,7 +337,8 @@ function buildWrUiAndDefsFromWrMap(wrMap){
         id: g.base,
         display_id: routesObj[g.ida].display_id || routesObj[g.vuelta].display_id || null,
         label: routesObj[g.ida].label || routesObj[g.vuelta].label || null,
-        name: routesObj[g.ida].name || `Wikiroutes ${g.base}`,
+        name: routesObj[g.ida].name || `Ruta ${g.base}`,
+        nameVuelta: routesObj[g.vuelta].name || null,
         color: baseColor,
         pair: { ida: g.ida, vuelta: g.vuelta }
       });

@@ -381,20 +381,27 @@ function applyWrTextsToWrItem(item, direccion){
 
   if (routeEl){
     routeEl.textContent = '';
-    const from = stops && stops.from ? stops.from : '';
-    const to   = stops && stops.to   ? stops.to   : '';
-
+    let from = stops && stops.from ? stops.from : '';
+    let to   = stops && stops.to   ? stops.to   : '';
     if (from || to){
+      if (direccion === 'vuelta') [from, to] = [to, from];
       routeEl.textContent = `${from} \u2192 ${to}`;
       return;
     }
-
-    if (rt && rt.name){
-      let base = String(rt.name).trim();
+    const rawName = (direccion === 'vuelta' && rt && rt.nameVuelta) ? rt.nameVuelta : (rt && rt.name);
+    if (rawName){
+      let base = String(rawName).trim();
       base = base.replace(/^\s*\d+\s*·\s*/, '');
       base = base.replace(/\s*\((ida|vuelta)\)\s*$/i, '');
       base = base.replace(/wikiroutes\s*\d*/ig, '').trim();
-      if (base) routeEl.textContent = base;
+      const arrow = base.match(/^(.+?)\s*→\s*(.+)$/);
+      if (arrow){
+        from = arrow[1].trim();
+        to   = arrow[2].trim();
+        routeEl.textContent = `${from} \u2192 ${to}`;
+      } else if (base){
+        routeEl.textContent = base;
+      }
     }
   }
 }
