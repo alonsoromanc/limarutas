@@ -49,3 +49,7 @@ pipeline/scripts/wikiroutes/data/
 pipeline/scripts/wikiroutes/data_wikiroutes/
 pipeline/input/paraderos_atu/
 docs/paraderos_ATU/
+docs/paraderos_ATU/
+pipeline/input/wikipedia.html
+pipeline/output/bibliografia_rutas.csv
+pipeline/output/comparacion_rutas.csv
